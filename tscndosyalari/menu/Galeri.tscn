@@ -1,0 +1,368 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://tscndosyalari/menu/AnaMenuyeDonTusu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tscndosyalari/menu/ParaTablo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resimler/arkaplan/anamenuarka7.png" type="Texture" id=3]
+[ext_resource path="res://script/menu/Galeri.gd" type="Script" id=4]
+[ext_resource path="res://script/menu/Scroll.gd" type="Script" id=5]
+[ext_resource path="res://font/hemi-head-426.rg-bolditalic.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://font/new_dynamicfont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://resimler/menu/garaj/ae86t.png" type="Texture" id=8]
+[ext_resource path="res://resimler/menu/garaj/ticot.png" type="Texture" id=9]
+[ext_resource path="res://script/menu/KoyuMod.gd" type="Script" id=10]
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="Theme" id=11]
+HScrollBar/styles/scroll = SubResource( 9 )
+ScrollContainer/styles/bg = SubResource( 10 )
+
+[sub_resource type="StyleBoxFlat" id=32]
+bg_color = Color( 0.184314, 0.0117647, 0.0117647, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.133333, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 40.0
+expand_margin_right = 40.0
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 0.32549, 0.0352941, 0.0352941, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.392157, 0.0862745, 0.0862745, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 40.0
+expand_margin_right = 40.0
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="DynamicFont" id=28]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=29]
+bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_top = 64.0
+expand_margin_bottom = 68.0
+
+[sub_resource type="Theme" id=23]
+default_font = ExtResource( 7 )
+Button/styles/hover = SubResource( 32 )
+Button/styles/normal = SubResource( 33 )
+Button/styles/pressed = SubResource( 32 )
+PopupDialog/styles/panel = null
+PopupPanel/styles/panel = null
+TabContainer/colors/font_color_bg = Color( 0.69, 0.69, 0.69, 1 )
+TabContainer/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+TabContainer/colors/font_color_fg = Color( 0.94, 0.94, 0.94, 1 )
+TabContainer/constants/hseparation = 4
+TabContainer/constants/label_valign_bg = 2
+TabContainer/constants/label_valign_fg = 0
+TabContainer/constants/side_margin = 8
+TabContainer/constants/top_margin = 24
+TabContainer/fonts/font = ExtResource( 7 )
+TabContainer/icons/decrement = null
+TabContainer/icons/decrement_highlight = null
+TabContainer/icons/increment = null
+TabContainer/icons/increment_highlight = null
+TabContainer/icons/menu = null
+TabContainer/icons/menu_highlight = null
+TabContainer/styles/panel = null
+TabContainer/styles/tab_bg = null
+TabContainer/styles/tab_disabled = null
+TabContainer/styles/tab_fg = null
+WindowDialog/colors/title_color = Color( 1, 0, 0, 1 )
+WindowDialog/constants/close_h_ofs = 83
+WindowDialog/constants/close_v_ofs = -43
+WindowDialog/constants/scaleborder_size = 6
+WindowDialog/constants/title_height = -96
+WindowDialog/fonts/title_font = SubResource( 28 )
+WindowDialog/icons/close = null
+WindowDialog/icons/close_highlight = null
+WindowDialog/styles/panel = SubResource( 29 )
+
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0.509804, 0.054902, 0.054902, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=27]
+bg_color = Color( 0.807843, 0, 0, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[node name="Galeri" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -532, -34 )
+theme = SubResource( 11 )
+script = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 3 )
+expand = true
+script = ExtResource( 10 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -696.0
+margin_top = -296.0
+margin_right = 728.0
+margin_bottom = 216.0
+color = Color( 0, 0, 0, 0.490196 )
+
+[node name="anamenuyedon" parent="." instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_right = 0.0
+
+[node name="HScrollBar" type="ScrollContainer" parent="."]
+margin_top = 170.0
+margin_right = 1280.0
+margin_bottom = 576.0
+script = ExtResource( 5 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HScrollBar"]
+margin_right = 1000.0
+margin_bottom = 405.0
+rect_min_size = Vector2( 0, 405 )
+custom_constants/separation = 0
+alignment = 1
+
+[node name="spacer" type="Control" parent="HScrollBar/HBoxContainer"]
+margin_right = 250.0
+margin_bottom = 405.0
+rect_min_size = Vector2( 250, 0 )
+
+[node name="Araba0" type="Control" parent="HScrollBar/HBoxContainer"]
+margin_left = 250.0
+margin_right = 500.0
+margin_bottom = 405.0
+rect_min_size = Vector2( 250, 400 )
+
+[node name="tico" type="TextureButton" parent="HScrollBar/HBoxContainer/Araba0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = -200.0
+margin_right = 125.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 250, 400 )
+focus_mode = 0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
+expand = true
+
+[node name="Araba1" type="Control" parent="HScrollBar/HBoxContainer"]
+margin_left = 500.0
+margin_right = 750.0
+margin_bottom = 405.0
+rect_min_size = Vector2( 250, 400 )
+
+[node name="ae86" type="TextureButton" parent="HScrollBar/HBoxContainer/Araba1"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -125.0
+margin_top = -405.0
+margin_right = 125.0
+rect_min_size = Vector2( 250, 400 )
+focus_mode = 0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+expand = true
+
+[node name="Araba2" type="Button" parent="HScrollBar/HBoxContainer"]
+visible = false
+margin_left = 762.0
+margin_right = 1012.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 250, 400 )
+focus_mode = 0
+
+[node name="Araba3" type="Button" parent="HScrollBar/HBoxContainer"]
+visible = false
+margin_left = 762.0
+margin_right = 1012.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 250, 400 )
+focus_mode = 0
+
+[node name="Araba4" type="Button" parent="HScrollBar/HBoxContainer"]
+visible = false
+margin_left = 762.0
+margin_right = 1012.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 250, 400 )
+focus_mode = 0
+
+[node name="Araba5" type="Button" parent="HScrollBar/HBoxContainer"]
+visible = false
+margin_left = 762.0
+margin_right = 1012.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 250, 400 )
+focus_mode = 0
+
+[node name="Araba6" type="Button" parent="HScrollBar/HBoxContainer"]
+visible = false
+margin_left = 762.0
+margin_right = 1012.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 250, 400 )
+focus_mode = 0
+
+[node name="Araba7" type="Button" parent="HScrollBar/HBoxContainer"]
+visible = false
+margin_left = 1016.0
+margin_right = 1266.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 250, 400 )
+focus_mode = 0
+
+[node name="Araba8" type="Button" parent="HScrollBar/HBoxContainer"]
+visible = false
+margin_left = 762.0
+margin_right = 1012.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 250, 400 )
+focus_mode = 0
+
+[node name="Araba9" type="Button" parent="HScrollBar/HBoxContainer"]
+visible = false
+margin_left = 1524.0
+margin_right = 1774.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 250, 400 )
+focus_mode = 0
+
+[node name="Araba10" type="Button" parent="HScrollBar/HBoxContainer"]
+visible = false
+margin_left = 1778.0
+margin_right = 2028.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 250, 400 )
+focus_mode = 0
+
+[node name="spacer2" type="Control" parent="HScrollBar/HBoxContainer"]
+margin_left = 750.0
+margin_right = 1000.0
+margin_bottom = 405.0
+rect_min_size = Vector2( 250, 0 )
+
+[node name="uyarı" type="WindowDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -202.5
+margin_right = 300.0
+margin_bottom = 202.5
+rect_min_size = Vector2( 600, 400 )
+theme = SubResource( 23 )
+
+[node name="Label" type="Label" parent="uyarı"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -296.0
+margin_top = -135.5
+margin_right = 298.0
+margin_bottom = 135.5
+text = "5000 paraya daha ihtiyacın var."
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="uyarı"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -125.0
+margin_top = -98.0
+margin_right = 125.0
+focus_mode = 0
+custom_styles/hover = SubResource( 26 )
+custom_styles/pressed = SubResource( 27 )
+custom_styles/normal = SubResource( 26 )
+text = "Tamam"
+
+[node name="bilgi" type="ConfirmationDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -280.0
+margin_right = 400.0
+margin_bottom = 245.0
+rect_min_size = Vector2( 800, 500 )
+theme = SubResource( 23 )
+window_title = "AE86"
+
+[node name="BilgiText" type="Label" parent="bilgi"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -392.0
+margin_top = -254.5
+margin_right = 392.0
+margin_bottom = 199.5
+rect_min_size = Vector2( 600, 375 )
+text = "AE86"
+align = 1
+valign = 1
+
+[node name="ParaTablo" parent="." instance=ExtResource( 2 )]
+
+[connection signal="pressed" from="HScrollBar/HBoxContainer/Araba0/tico" to="." method="_on_Araba1_pressed"]
+[connection signal="pressed" from="HScrollBar/HBoxContainer/Araba1/ae86" to="." method="_on_Araba0_pressed"]
+[connection signal="pressed" from="uyarı/Button" to="." method="_on_Button_pressed"]
+[connection signal="confirmed" from="bilgi" to="." method="_on_bilgi_confirmed"]

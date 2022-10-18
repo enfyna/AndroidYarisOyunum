@@ -1,0 +1,523 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://tscndosyalari/menu/AnaMenuyeDonTusu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tscndosyalari/menu/ParaTablo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resimler/arkaplan/anamenuarka7.png" type="Texture" id=3]
+[ext_resource path="res://resimler/menu/tutorial/text.png" type="Texture" id=4]
+[ext_resource path="res://font/hemi-head-426.rg-bolditalic.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://script/menu/Basarimlar.gd" type="Script" id=6]
+[ext_resource path="res://font/new_dynamicfont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://script/menu/KoyuMod.gd" type="Script" id=8]
+
+[sub_resource type="StyleBoxFlat" id=29]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=30]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=31]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="Theme" id=11]
+HScrollBar/styles/scroll = SubResource( 29 )
+ScrollContainer/styles/bg = SubResource( 30 )
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/decrement_pressed = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/icons/increment_pressed = null
+VScrollBar/styles/grabber = SubResource( 31 )
+VScrollBar/styles/grabber_highlight = SubResource( 31 )
+VScrollBar/styles/grabber_pressed = SubResource( 31 )
+VScrollBar/styles/scroll = SubResource( 31 )
+VScrollBar/styles/scroll_focus = SubResource( 31 )
+
+[sub_resource type="DynamicFont" id=32]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 0.133333, 0.666667, 0.145098, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id=34]
+bg_color = Color( 0, 0, 0, 0.705882 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="Basarimlar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 3 )
+expand = true
+script = ExtResource( 8 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -696.0
+margin_top = -296.0
+margin_right = 728.0
+margin_bottom = 216.0
+color = Color( 0, 0, 0, 0.490196 )
+
+[node name="anamenuyedon" parent="." instance=ExtResource( 1 )]
+margin_left = -8.0
+margin_right = -8.0
+
+[node name="S" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -361.0
+margin_right = 512.0
+margin_bottom = 288.0
+theme = SubResource( 11 )
+
+[node name="V" type="VBoxContainer" parent="S"]
+margin_right = 1024.0
+margin_bottom = 1382.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Spacer" type="Control" parent="S/V"]
+margin_right = 1024.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 150 )
+
+[node name="B1" type="TextureRect" parent="S/V"]
+margin_top = 154.0
+margin_right = 1024.0
+margin_bottom = 304.0
+rect_min_size = Vector2( 1000, 150 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="H" type="HBoxContainer" parent="S/V/B1"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1024, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B1/H"]
+margin_bottom = 150.0
+
+[node name="Sag" type="Control" parent="S/V/B1/H"]
+margin_left = 4.0
+margin_right = 1024.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 800, 0 )
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="S/V/B1/H/Sag"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -482.0
+margin_top = 24.0
+margin_right = 478.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 32 )
+text = "Herhangi bir pistte 20 tur tamamla."
+align = 1
+valign = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B1/H/Sag"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -248.0
+margin_top = -54.0
+margin_right = 252.0
+margin_bottom = -18.0
+rect_min_size = Vector2( 500, 20 )
+mouse_filter = 2
+custom_fonts/font = ExtResource( 7 )
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 34 )
+max_value = 20.0
+value = 5.0
+
+[node name="B3" type="TextureRect" parent="S/V"]
+margin_top = 308.0
+margin_right = 1024.0
+margin_bottom = 458.0
+rect_min_size = Vector2( 0, 150 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="H" type="HBoxContainer" parent="S/V/B3"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1024, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B3/H"]
+margin_bottom = 150.0
+
+[node name="Sag" type="Control" parent="S/V/B3/H"]
+margin_left = 4.0
+margin_right = 1024.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 800, 0 )
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="S/V/B3/H/Sag"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -482.0
+margin_top = 22.0
+margin_right = 478.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 32 )
+text = "Saatte 100 km süratla git."
+align = 1
+valign = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B3/H/Sag"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -248.0
+margin_top = -54.0
+margin_right = 252.0
+margin_bottom = -18.0
+rect_min_size = Vector2( 500, 20 )
+mouse_filter = 2
+custom_fonts/font = ExtResource( 7 )
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 34 )
+value = 50.0
+
+[node name="B4" type="TextureRect" parent="S/V"]
+margin_top = 462.0
+margin_right = 1024.0
+margin_bottom = 612.0
+rect_min_size = Vector2( 0, 150 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="H" type="HBoxContainer" parent="S/V/B4"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1024, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B4/H"]
+margin_bottom = 150.0
+
+[node name="Sag" type="Control" parent="S/V/B4/H"]
+margin_left = 4.0
+margin_right = 1024.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 800, 0 )
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="S/V/B4/H/Sag"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -482.0
+margin_top = 22.0
+margin_right = 478.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 32 )
+text = "Oyunu 1 saat boyunca oyna."
+align = 1
+valign = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B4/H/Sag"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -248.0
+margin_top = -54.0
+margin_right = 252.0
+margin_bottom = -18.0
+rect_min_size = Vector2( 500, 20 )
+mouse_filter = 2
+custom_fonts/font = ExtResource( 7 )
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 34 )
+max_value = 3.6e+06
+value = 420420.0
+allow_greater = true
+
+[node name="B5" type="TextureRect" parent="S/V"]
+margin_top = 616.0
+margin_right = 1024.0
+margin_bottom = 766.0
+rect_min_size = Vector2( 0, 150 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="H" type="HBoxContainer" parent="S/V/B5"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1024, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B5/H"]
+margin_bottom = 150.0
+
+[node name="Sag" type="Control" parent="S/V/B5/H"]
+margin_left = 4.0
+margin_right = 1024.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 800, 0 )
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="S/V/B5/H/Sag"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -482.0
+margin_top = 22.0
+margin_right = 478.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 32 )
+text = "5 defa tekerlek satın al."
+align = 1
+valign = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B5/H/Sag"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -248.0
+margin_top = -54.0
+margin_right = 252.0
+margin_bottom = -18.0
+rect_min_size = Vector2( 500, 20 )
+mouse_filter = 2
+custom_fonts/font = ExtResource( 7 )
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 34 )
+value = 20.0
+
+[node name="B6" type="TextureRect" parent="S/V"]
+margin_top = 770.0
+margin_right = 1024.0
+margin_bottom = 920.0
+rect_min_size = Vector2( 0, 150 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="H" type="HBoxContainer" parent="S/V/B6"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1024, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B6/H"]
+margin_bottom = 150.0
+
+[node name="Sag" type="Control" parent="S/V/B6/H"]
+margin_left = 4.0
+margin_right = 1024.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 800, 0 )
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="S/V/B6/H/Sag"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -482.0
+margin_top = 22.0
+margin_right = 478.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 32 )
+text = "5 defa yağ değiştir."
+align = 1
+valign = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B6/H/Sag"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -248.0
+margin_top = -54.0
+margin_right = 252.0
+margin_bottom = -18.0
+rect_min_size = Vector2( 500, 20 )
+mouse_filter = 2
+custom_fonts/font = ExtResource( 7 )
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 34 )
+value = 40.0
+
+[node name="B7" type="TextureRect" parent="S/V"]
+margin_top = 924.0
+margin_right = 1024.0
+margin_bottom = 1074.0
+rect_min_size = Vector2( 0, 150 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="H" type="HBoxContainer" parent="S/V/B7"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1024, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B7/H"]
+margin_bottom = 150.0
+
+[node name="Sag" type="Control" parent="S/V/B7/H"]
+margin_left = 4.0
+margin_right = 1024.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 800, 0 )
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="S/V/B7/H/Sag"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -482.0
+margin_top = 22.0
+margin_right = 478.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 32 )
+text = "1 defa motorunu yenile."
+align = 1
+valign = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B7/H/Sag"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -248.0
+margin_top = -54.0
+margin_right = 252.0
+margin_bottom = -18.0
+rect_min_size = Vector2( 500, 20 )
+mouse_filter = 2
+custom_fonts/font = ExtResource( 7 )
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 34 )
+value = 30.0
+
+[node name="B8" type="TextureRect" parent="S/V"]
+visible = false
+margin_top = 924.0
+margin_right = 1024.0
+margin_bottom = 1074.0
+rect_min_size = Vector2( 0, 150 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="B9" type="TextureRect" parent="S/V"]
+visible = false
+margin_top = 924.0
+margin_right = 1024.0
+margin_bottom = 1074.0
+rect_min_size = Vector2( 0, 150 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="B10" type="TextureRect" parent="S/V"]
+visible = false
+margin_top = 924.0
+margin_right = 1024.0
+margin_bottom = 1074.0
+rect_min_size = Vector2( 0, 150 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="B2" type="TextureRect" parent="S/V"]
+margin_top = 1078.0
+margin_right = 1024.0
+margin_bottom = 1228.0
+rect_min_size = Vector2( 1000, 150 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="H" type="HBoxContainer" parent="S/V/B2"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1024, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B2/H"]
+margin_bottom = 150.0
+
+[node name="Sag" type="Control" parent="S/V/B2/H"]
+margin_left = 4.0
+margin_right = 1024.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 800, 0 )
+mouse_filter = 1
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="S/V/B2/H/Sag"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -482.0
+margin_top = 22.0
+margin_right = 478.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 32 )
+text = "??"
+align = 1
+valign = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B2/H/Sag"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -248.0
+margin_top = -54.0
+margin_right = 252.0
+margin_bottom = -18.0
+rect_min_size = Vector2( 500, 20 )
+mouse_filter = 2
+custom_fonts/font = ExtResource( 7 )
+custom_styles/fg = SubResource( 33 )
+custom_styles/bg = SubResource( 34 )
+max_value = 3.0
+value = 2.0
+
+[node name="Spacer2" type="Control" parent="S/V"]
+margin_top = 1232.0
+margin_right = 1024.0
+margin_bottom = 1382.0
+rect_min_size = Vector2( 0, 150 )
+
+[node name="ParaTablo" parent="." instance=ExtResource( 2 )]
