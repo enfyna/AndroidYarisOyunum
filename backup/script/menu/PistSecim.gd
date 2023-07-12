@@ -37,11 +37,11 @@ func _ready():
 		arabastr.erase(0,26)
 		arabastr.erase(arabastr.length() - 5 ,5)
 		$secilenaraba.text = tr("secilenaraba")+" : " +  arabastr
-		$secilenaraba.add_color_override("font_color",Color(1,1,1,1))
+		$secilenaraba.add_theme_color_override("font_color",Color(1,1,1,1))
 		i = 1
 	else:
 		$secilenaraba.text = tr("arabayok")#""
-		$secilenaraba.add_color_override("font_color",Color(1,0,0,1))
+		$secilenaraba.add_theme_color_override("font_color",Color(1,0,0,1))
 		i = 0
 	if mod == "Zaman":
 		$TurSayisi.visible = false
@@ -69,12 +69,12 @@ func pistegit(index):
 	if i == 1:
 		i = 0
 		var secilenpist = "res://tscndosyalari/pist/Pist"+str(index)+".tscn"
-		var t = load(str("res://tscndosyalari/menu/YarisYukle.tscn")).instance()
+		var t = load(str("res://tscndosyalari/menu/YarisYukle.tscn")).instantiate()
 		t.mod = mod
 		t.secilenpist = secilenpist
 		t.yaristur = secilentursayisi
 		t.kazanmabonusu = bonus
-		get_parent().add_child_below_node(get_parent().get_node("/root/Global"),t)
+		get_parent().add_sibling(get_parent().get_node("/root/Global"),t)
 		get_tree().set_current_scene(t)
 		call_deferred("free")
 	pass

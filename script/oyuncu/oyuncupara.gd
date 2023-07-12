@@ -1,41 +1,49 @@
 extends Control
+
 var muzikayari = Global.kayit["ayarlar"]["muzik"]
-onready var muzik = $muzik
+@onready var muzik = $muzik
 var muzikstr
 var muziksil
-onready var paralar = $paralar
-onready var paralabel = $paralar / para / para
-onready var bronzlabel = $paralar / b / b
-onready var gumuslabel = $paralar / g / g
-onready var altinlabel = $paralar / a / a
-onready var elmaslabel = $paralar / e / e
+@onready var paralar = $paralar
+@onready var paralabel = $paralar / para / para
+@onready var bronzlabel = $paralar / b / b
+@onready var gumuslabel = $paralar / g / g
+@onready var altinlabel = $paralar / a / a
+@onready var elmaslabel = $paralar / e / e
 var para = Global.kayit["para"]["para"]
 var sira = 1
 var artieksi = "+"
 var r = 1
 var tamamlanmisgorevvar = false
-onready var isim = $isim
-onready var tween = $Tween
-onready var gorevnode = $isim / Gorev
+@onready var isim = $isim
+@onready var tween = $Tween
+@onready var gorevnode = $isim / Gorev
 var gorevkonum = - 504
 var kontrol = 0
 var reklamtip
-onready var admob = $AdMob
-var gorevbaslik = {"1":tr("gg1"), 
-							"2":tr("gg2"), 
-							"3":tr("gg3"), 
-							"4":tr("gg4"), 
-							"5":tr("gg5"), 
-							"6":tr("gg6"), 
-							"7":tr("gg7"), 
-							"8":tr("gg8"), 
-							"9":tr("gg9"), 
-							"10":tr("gg10")
-				}
-var reklamgorev = {"4":tr("rg1"), 
-							"5":tr("rg2")}
+@onready var admob = $AdMob
+
+var gorevbaslik = {
+	"1":tr("gg1"), 
+	"2":tr("gg2"), 
+	"3":tr("gg3"), 
+	"4":tr("gg4"), 
+	"5":tr("gg5"), 
+	"6":tr("gg6"), 
+	"7":tr("gg7"), 
+	"8":tr("gg8"), 
+	"9":tr("gg9"), 
+	"10":tr("gg10")
+}
+
+var reklamgorev = {
+	"4":tr("rg1"), 
+	"5":tr("rg2"),
+}
+
 var parakonumyeni
 var goster = ["AnaMenu", "Market", "Giris", "Galeri", "PistSatinAl"]
+
 func _ready():
 	muzikstr = str(Arkaplanmuzik.calinanmuzik())
 	muzikstr.erase(0, 26)
@@ -45,8 +53,8 @@ func _ready():
 	$isim.text = "%s" % [Global.kayit["oyuncu"]["isim"]]
 	$isim / Level.xparttir()
 	var sahne = str(get_tree().get_current_scene().name)
-	paralar.rect_position.y = 656 if goster.has(sahne) else 756
-	muzik.rect_position.y = 756 if goster.has(sahne) else 656
+	paralar.position.y = 656 if goster.has(sahne) else 756
+	muzik.position.y = 756 if goster.has(sahne) else 656
 	sahne = str(get_parent().name)
 	parakonumyeni = true if goster.has(sahne) else false
 	gunlukgorevler()
@@ -90,13 +98,13 @@ func _on_Tween_tween_completed(_object, key):
 	pass
 func paralabelkaydir():
 		if parakonumyeni:
-			tween.interpolate_property(paralar, "rect_position", 
-			Vector2(928, paralar.rect_position.y), Vector2(928, 656)
+			tween.interpolate_property(paralar, "position", 
+			Vector2(928, paralar.position.y), Vector2(928, 656)
 			, 0.5, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 			tween.start()
 		if not parakonumyeni:
-			tween.interpolate_property(paralar, "rect_position", 
-			Vector2(928, paralar.rect_position.y), Vector2(928, 756)
+			tween.interpolate_property(paralar, "position", 
+			Vector2(928, paralar.position.y), Vector2(928, 756)
 			, 0.5, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 			tween.start()
 		pass
@@ -104,29 +112,29 @@ func paralabelkaydir():
 func muziklabelkaydir():
 		if muzikayari:
 			if parakonumyeni:
-				tween.interpolate_property(muzik, "rect_position", 
-				Vector2(928, muzik.rect_position.y), Vector2(928, 756)
+				tween.interpolate_property(muzik, "position", 
+				Vector2(928, muzik.position.y), Vector2(928, 756)
 				, 0.5, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 				tween.start()
 			elif not parakonumyeni:
-				tween.interpolate_property(muzik, "rect_position", 
-				Vector2(928, muzik.rect_position.y), Vector2(928, 656)
+				tween.interpolate_property(muzik, "position", 
+				Vector2(928, muzik.position.y), Vector2(928, 656)
 				, 0.5, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 				tween.start()
 		elif not muzikayari:
-			muzik.rect_position.y = 756
+			muzik.position.y = 756
 
-onready var tween2 = $Tween2
+@onready var tween2 = $Tween2
 func isimyanson(b):
 	if b == true:
 		r = 0.5
-		isim.add_color_override("font_color", Color(r, r, r, 1))
-		tween2.interpolate_property(isim, "custom_colors/font_color", 
+		isim.add_theme_color_override("font_color", Color(r, r, r, 1))
+		tween2.interpolate_property(isim, "theme_override_colors/font_color", 
 		null, Color(1, 1, 1, 1)
 		, 2, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 		tween2.start()
 	elif b == false:
-		isim.add_color_override("font_color", Color(1, 1, 1, 1))
+		isim.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 	pass
 func muzikkaydir():
 		muziksil.erase(0, 1)
@@ -166,7 +174,7 @@ func gunlukgorevler():
 			baslik.text = tr("gorevtamam")
 			bar.visible = false
 			buton.visible = false
-		baslik.add_stylebox_override("normal", stylbx)
+		baslik.add_theme_stylebox_override("normal", stylbx)
 		sira += 1
 	for _i in range(2):
 		var baslik = get_node("isim/Gorev/v/s/v/Gorev" + str(sira))
@@ -182,7 +190,7 @@ func gunlukgorevler():
 			baslik.text = tr("gorevtamam")
 			stylbx.bg_color = Color(0, 1, 0, 0.5)
 			reklambuton.visible = false
-		baslik.add_stylebox_override("normal", stylbx)
+		baslik.add_theme_stylebox_override("normal", stylbx)
 		sira += 1
 		pass
 	isimyanson(tamamlanmisgorevvar)
@@ -190,13 +198,13 @@ func gunlukgorevler():
 func _on_isim_toggled(button_pressed):
 	if button_pressed == true:
 		gorevkonum = 0
-		tween.interpolate_property(gorevnode, "rect_position", 
-		Vector2(get_node("isim/Gorev").rect_position.x, - 656), Vector2(0, - 656)
+		tween.interpolate_property(gorevnode, "position", 
+		Vector2(get_node("isim/Gorev").position.x, - 656), Vector2(0, - 656)
 		, 0.5, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 		tween.start()
 	else :
-		tween.interpolate_property(gorevnode, "rect_position", 
-		Vector2(get_node("isim/Gorev").rect_position.x, - 656), Vector2( - 504, - 656)
+		tween.interpolate_property(gorevnode, "position", 
+		Vector2(get_node("isim/Gorev").position.x, - 656), Vector2( - 504, - 656)
 		, 0.5, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 		tween.start()
 	pass
@@ -270,18 +278,4 @@ func butonyaziguncelle(durum):
 		btn.text = tr("rhata")
 	kontrol = 0
 	pass
-"func gunluklabel():\n	while true:\n		if   gorevnode.rect_position.x < gorevkonum:\n			 gorevnode.rect_position.x += 100\n		elif gorevnode.rect_position.x > gorevkonum:\n			 gorevnode.rect_position.x -= 100\n		if   gorevnode.rect_position.x <= -504:\n			 gorevnode.rect_position.x = -504\n			 break\n		elif gorevnode.rect_position.x >= 0:\n			 gorevnode.rect_position.x = 0\n			 break\n		#$Timer.start(0.01); yield($Timer, \"timeout\")\n"
-"if parakonumyeni == 1 and paralar.rect_position.y > 656 :\n			paralar.rect_position.y -= 10\n		elif parakonumyeni == 0 and paralar.rect_position.y < 756 :\n			paralar.rect_position.y += 10\n		elif parakonumyeni == 1 and paralar.rect_position.y <= 656 :\n			paralar.rect_position.y = 656\n			break\n		elif parakonumyeni == 0 and paralar.rect_position.y >= 756 :\n			paralar.rect_position.y = 756\n			break\n		#$Timer.start(0.05); yield($Timer, \"timeout\")"
-"if parakonumyeni == 1 and paralar.rect_position.y > 656 :\n				muzik.rect_position.y += 10\n			elif parakonumyeni == 1 and paralar.rect_position.y <= 656 :\n				muzik.rect_position.y = 756\n				break\n			elif parakonumyeni == 0 and paralar.rect_position.y < 756 :\n				muzik.rect_position.y -= 10\n			elif parakonumyeni == 0 and paralar.rect_position.y >= 756 :\n				muzik.rect_position.y = 656\n				break"
-
-
-
-
-
-
-
-
-
-
-
 

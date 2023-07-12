@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://font/hemi-head-426.rg-bolditalic.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://font/new_dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://font/hemi-head-426.rg-bolditalic.ttf" type="FontFile" id=1]
+[ext_resource path="res://font/new_dynamicfont.tres" type="FontFile" id=2]
 [ext_resource path="res://script/menu/YarisBitir.gd" type="Script" id=3]
 [ext_resource path="res://admob-lib/admob.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0941176, 1, 0, 0.235294 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="FontFile" id=2]
 size = 80
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
@@ -16,7 +16,7 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="FontFile" id=4]
 size = 30
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -24,7 +24,7 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="FontFile" id=3]
 size = 35
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -57,22 +57,22 @@ corner_radius_bottom_left = 3
 [node name="YarisBitir" type="Button"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 8.0
-margin_bottom = 8.0
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 1 )
-custom_styles/normal = SubResource( 1 )
+offset_top = 8.0
+offset_bottom = 8.0
+theme_override_styles/hover = SubResource( 1 )
+theme_override_styles/pressed = SubResource( 1 )
+theme_override_styles/normal = SubResource( 1 )
 script = ExtResource( 3 )
 
 [node name="Baslik" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -250.0
-margin_top = 80.0
-margin_right = 250.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 500, 200 )
-custom_fonts/font = SubResource( 2 )
+offset_left = -250.0
+offset_top = 80.0
+offset_right = 250.0
+offset_bottom = 280.0
+custom_minimum_size = Vector2( 500, 200 )
+theme_override_fonts/font = SubResource( 2 )
 text = "Kazandın!"
 align = 1
 valign = 1
@@ -82,95 +82,95 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = -16.0
-margin_right = 200.0
-margin_bottom = 199.0
-custom_constants/separation = 0
+offset_left = -200.0
+offset_top = -16.0
+offset_right = 200.0
+offset_bottom = 199.0
+theme_override_constants/separation = 0
 
 [node name="v" type="VBoxContainer" parent="h"]
-margin_right = 200.0
-margin_bottom = 215.0
-rect_min_size = Vector2( 200, 0 )
+offset_right = 200.0
+offset_bottom = 215.0
+custom_minimum_size = Vector2( 200, 0 )
 
 [node name="ParaOdulu" type="Label" parent="h/v"]
-margin_right = 200.0
-margin_bottom = 37.0
-custom_fonts/font = ExtResource( 2 )
+offset_right = 200.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "Para"
 align = 2
 
 [node name="BronzOdulu" type="Label" parent="h/v"]
-margin_top = 41.0
-margin_right = 200.0
-margin_bottom = 78.0
-custom_fonts/font = ExtResource( 2 )
+offset_top = 41.0
+offset_right = 200.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "Bronz :"
 align = 2
 
 [node name="GumusOdulu" type="Label" parent="h/v"]
-margin_top = 82.0
-margin_right = 200.0
-margin_bottom = 119.0
-custom_fonts/font = ExtResource( 2 )
+offset_top = 82.0
+offset_right = 200.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "Gümüş :"
 align = 2
 
 [node name="AltinOdulu" type="Label" parent="h/v"]
-margin_top = 123.0
-margin_right = 200.0
-margin_bottom = 160.0
-custom_fonts/font = ExtResource( 2 )
+offset_top = 123.0
+offset_right = 200.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "Altın :"
 align = 2
 
 [node name="Kazanmabonusu" type="Label" parent="h/v"]
-margin_top = 164.0
-margin_right = 200.0
-margin_bottom = 201.0
-custom_fonts/font = ExtResource( 2 )
+offset_top = 164.0
+offset_right = 200.0
+offset_bottom = 201.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "Bonus :"
 align = 2
 
 [node name="v2" type="VBoxContainer" parent="h"]
-margin_left = 200.0
-margin_right = 400.0
-margin_bottom = 215.0
-rect_min_size = Vector2( 200, 0 )
+offset_left = 200.0
+offset_right = 400.0
+offset_bottom = 215.0
+custom_minimum_size = Vector2( 200, 0 )
 
 [node name="ParaOdulu" type="Label" parent="h/v2"]
-margin_right = 200.0
-margin_bottom = 37.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 4 )
+offset_right = 200.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_fonts/font = SubResource( 4 )
 text = "+Para"
 
 [node name="BronzOdulu" type="Label" parent="h/v2"]
-margin_top = 41.0
-margin_right = 200.0
-margin_bottom = 78.0
-custom_fonts/font = ExtResource( 2 )
+offset_top = 41.0
+offset_right = 200.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "+Bronz"
 
 [node name="GumusOdulu" type="Label" parent="h/v2"]
-margin_top = 82.0
-margin_right = 200.0
-margin_bottom = 119.0
-custom_fonts/font = ExtResource( 2 )
+offset_top = 82.0
+offset_right = 200.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "+Gümüş"
 
 [node name="AltinOdulu" type="Label" parent="h/v2"]
-margin_top = 123.0
-margin_right = 200.0
-margin_bottom = 160.0
-custom_fonts/font = ExtResource( 2 )
+offset_top = 123.0
+offset_right = 200.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "+Altın"
 
 [node name="BonusOdulu" type="Label" parent="h/v2"]
-margin_top = 164.0
-margin_right = 200.0
-margin_bottom = 201.0
-custom_fonts/font = ExtResource( 2 )
+offset_top = 164.0
+offset_right = 200.0
+offset_bottom = 201.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "+Bonus"
 
 [node name="ToplamSure" type="Label" parent="."]
@@ -178,20 +178,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -232.0
-margin_top = -120.0
-margin_right = 228.0
-margin_bottom = -83.0
-custom_fonts/font = SubResource( 3 )
+offset_left = -232.0
+offset_top = -120.0
+offset_right = 228.0
+offset_bottom = -83.0
+theme_override_fonts/font = SubResource( 3 )
 text = "0,00,000"
 align = 1
 
 [node name="Tur" type="Label" parent="."]
-margin_left = 344.0
-margin_top = 288.0
-margin_right = 680.0
-margin_bottom = 325.0
-custom_fonts/font = ExtResource( 2 )
+offset_left = 344.0
+offset_top = 288.0
+offset_right = 680.0
+offset_bottom = 325.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "5 Tur"
 align = 2
 
@@ -200,14 +200,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -576.0
-margin_top = -80.0
-margin_right = 584.0
-margin_bottom = -17.0
-custom_fonts/font = ExtResource( 2 )
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 17 )
-custom_styles/normal = SubResource( 16 )
+offset_left = -576.0
+offset_top = -80.0
+offset_right = 584.0
+offset_bottom = -17.0
+theme_override_fonts/font = ExtResource( 2 )
+theme_override_styles/hover = SubResource( 17 )
+theme_override_styles/pressed = SubResource( 17 )
+theme_override_styles/normal = SubResource( 16 )
 text = "Devam Et"
 
 [node name="Reklamlabel" type="Label" parent="."]
@@ -215,10 +215,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -576.0
-margin_top = -168.0
-margin_bottom = -91.0
-custom_fonts/font = ExtResource( 2 )
+offset_left = -576.0
+offset_top = -168.0
+offset_bottom = -91.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "Para Ödülünü 2'ye katla :"
 align = 2
 valign = 1
@@ -229,15 +229,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 16.0
-margin_top = -152.0
-margin_right = 584.0
-margin_bottom = -104.0
-custom_fonts/font = ExtResource( 2 )
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 17 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 16 )
+offset_left = 16.0
+offset_top = -152.0
+offset_right = 584.0
+offset_bottom = -104.0
+theme_override_fonts/font = ExtResource( 2 )
+theme_override_styles/hover = SubResource( 17 )
+theme_override_styles/pressed = SubResource( 17 )
+theme_override_styles/focus = SubResource( 17 )
+theme_override_styles/normal = SubResource( 16 )
 text = "Reklam İzle!"
 
 [node name="AdMob" type="Node" parent="."]

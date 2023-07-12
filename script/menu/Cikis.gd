@@ -1,10 +1,10 @@
 extends ConfirmationDialog
 func _ready():
 	window_title = tr("ayril")
-	get_cancel().text = tr("hayir")
-	get_ok().text = tr("tamam")
+	get_cancel_button().text = tr("hayir")
+	get_ok_button().text = tr("tamam")
 
-	get_cancel().connect("pressed", self, "cancelled")
+	get_cancel_button().connect("pressed", Callable(self, "canceled"))
 	popup()
 func _on_Cikis_confirmed():
 	var alfa = 1
@@ -16,5 +16,5 @@ func _on_Cikis_confirmed():
 
 func _on_Cikis_modal_closed():
 	call_deferred("free")
-func cancelled():
+func canceled():
 	call_deferred("free")

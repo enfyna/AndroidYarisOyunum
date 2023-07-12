@@ -66,28 +66,28 @@ func _ready():
 func _on_c5_pressed():
 	AudioManager.play("res://muzik/uisounds/clicksound.ogg")
 	$"TabContainer/Tekerlek Al/Label".text = yazilar["c5"]
-	$"TabContainer/Tekerlek Al/Label".add_color_override("font_color", Color(1, 0, 0, 1))
+	$"TabContainer/Tekerlek Al/Label".add_theme_color_override("font_color", Color(1, 0, 0, 1))
 	$"TabContainer/Tekerlek Al/fiyat".text = tr("fiyat") + ":" + str(fiyat["c5"])
 	market = 0
 	pass
 func _on_c3_pressed():
 	AudioManager.play("res://muzik/uisounds/clicksound.ogg")
 	$"TabContainer/Tekerlek Al/Label".text = yazilar["c3"]
-	$"TabContainer/Tekerlek Al/Label".add_color_override("font_color", Color(1, 1, 0, 1))
+	$"TabContainer/Tekerlek Al/Label".add_theme_color_override("font_color", Color(1, 1, 0, 1))
 	$"TabContainer/Tekerlek Al/fiyat".text = tr("fiyat") + ":" + str(fiyat["c3"])
 	market = 1
 	pass
 func _on_c1_pressed():
 	AudioManager.play("res://muzik/uisounds/clicksound.ogg")
 	$"TabContainer/Tekerlek Al/Label".text = yazilar["c1"]
-	$"TabContainer/Tekerlek Al/Label".add_color_override("font_color", Color(1, 1, 1, 1))
+	$"TabContainer/Tekerlek Al/Label".add_theme_color_override("font_color", Color(1, 1, 1, 1))
 	$"TabContainer/Tekerlek Al/fiyat".text = tr("fiyat") + ":" + str(fiyat["c1"])
 	market = 2
 	pass
 func _on_eko_pressed():
 	AudioManager.play("res://muzik/uisounds/clicksound.ogg")
 	$"TabContainer/Tekerlek Al/Label".text = yazilar["konfor"]
-	$"TabContainer/Tekerlek Al/Label".add_color_override("font_color", Color(0, 0, 0, 1))
+	$"TabContainer/Tekerlek Al/Label".add_theme_color_override("font_color", Color(0, 0, 0, 1))
 	$"TabContainer/Tekerlek Al/fiyat".text = tr("fiyat") + ":" + str(fiyat["konfor"])
 	market = 3
 	pass
@@ -102,8 +102,8 @@ func _on_satinal_pressed():
 		yazilariguncelle()
 		$"TabContainer/Tekerlek Al/Label".text = yazilar["c5"]
 	elif market == 0 and Global.kayit["para"]["para"] < fiyat["c5"]:
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().text = tr("tamam")
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().focus_mode = Control.FOCUS_NONE
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().text = tr("tamam")
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().focus_mode = Control.FOCUS_NONE
 		$"TabContainer/Tekerlek Al/poptekerlek".dialog_text = parayok
 		$"TabContainer/Tekerlek Al/poptekerlek".popup()
 	elif market == 1 and Global.kayit["para"]["para"] >= fiyat["c3"]:
@@ -116,8 +116,8 @@ func _on_satinal_pressed():
 		yazilariguncelle()
 		$"TabContainer/Tekerlek Al/Label".text = yazilar["c3"]
 	elif market == 1 and Global.kayit["para"]["para"] < fiyat["c3"]:
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().text = tr("tamam")
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().focus_mode = Control.FOCUS_NONE
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().text = tr("tamam")
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().focus_mode = Control.FOCUS_NONE
 		$"TabContainer/Tekerlek Al/poptekerlek".dialog_text = parayok
 		$"TabContainer/Tekerlek Al/poptekerlek".popup()
 	elif market == 2 and Global.kayit["para"]["para"] >= fiyat["c1"]:
@@ -130,8 +130,8 @@ func _on_satinal_pressed():
 		yazilariguncelle()
 		$"TabContainer/Tekerlek Al/Label".text = yazilar["c1"]
 	elif market == 2 and Global.kayit["para"]["para"] < fiyat["c1"]:
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().text = tr("tamam")
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().focus_mode = Control.FOCUS_NONE
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().text = tr("tamam")
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().focus_mode = Control.FOCUS_NONE
 		$"TabContainer/Tekerlek Al/poptekerlek".dialog_text = parayok
 		$"TabContainer/Tekerlek Al/poptekerlek".popup()
 	elif market == 3 and Global.kayit["para"]["para"] >= fiyat["konfor"]:
@@ -144,8 +144,8 @@ func _on_satinal_pressed():
 		yazilariguncelle()
 		$"TabContainer/Tekerlek Al/Label".text = yazilar["konfor"]
 	elif market == 3 and Global.kayit["para"]["para"] < fiyat["konfor"]:
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().text = tr("tamam")
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().focus_mode = Control.FOCUS_NONE
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().text = tr("tamam")
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().focus_mode = Control.FOCUS_NONE
 		$"TabContainer/Tekerlek Al/poptekerlek".dialog_text = parayok
 		$"TabContainer/Tekerlek Al/poptekerlek".popup()
 	Global.oyunkaydet()
@@ -154,25 +154,25 @@ func _on_satinal_pressed():
 
 func _on_elmas_pressed():
 	$"TabContainer/Token Takas Et/Label".text = yazilar["elmas"]
-	$"TabContainer/Token Takas Et/Label".add_color_override("font_color", Color(0, 1, 1, 1))
+	$"TabContainer/Token Takas Et/Label".add_theme_color_override("font_color", Color(0, 1, 1, 1))
 	market = 4
 	AudioManager.play("res://muzik/uisounds/clicksound.ogg")
 	pass
 func _on_altin_pressed():
 	$"TabContainer/Token Takas Et/Label".text = yazilar["altin"]
-	$"TabContainer/Token Takas Et/Label".add_color_override("font_color", Color(1, 1, 0, 1))
+	$"TabContainer/Token Takas Et/Label".add_theme_color_override("font_color", Color(1, 1, 0, 1))
 	market = 5
 	AudioManager.play("res://muzik/uisounds/clicksound.ogg")
 	pass
 func _on_gumus_pressed():
 	$"TabContainer/Token Takas Et/Label".text = yazilar["gumus"]
-	$"TabContainer/Token Takas Et/Label".add_color_override("font_color", Color(0.5, 0.5, 0.5, 1))
+	$"TabContainer/Token Takas Et/Label".add_theme_color_override("font_color", Color(0.5, 0.5, 0.5, 1))
 	market = 6
 	AudioManager.play("res://muzik/uisounds/clicksound.ogg")
 	pass
 func _on_bronz_pressed():
 	$"TabContainer/Token Takas Et/Label".text = yazilar["bronz"]
-	$"TabContainer/Token Takas Et/Label".add_color_override("font_color", Color(0.8, 0.3, 0, 1))
+	$"TabContainer/Token Takas Et/Label".add_theme_color_override("font_color", Color(0.8, 0.3, 0, 1))
 	market = 7
 	AudioManager.play("res://muzik/uisounds/clicksound.ogg")
 	pass
@@ -226,11 +226,11 @@ func _on_satinaldiger_pressed():
 		yazilariguncelle()
 		$"TabContainer/Diğer/Label".text = yazilar["yag"]
 	elif market == 12 and Global.kayit["para"]["para"] < fiyat["yag"]:
-		$"TabContainer/Diğer/popdiger".get_ok().text = tr("tamam")
+		$"TabContainer/Diğer/popdiger".get_ok_button().text = tr("tamam")
 		$"TabContainer/Diğer/popdiger".dialog_text = parayok
 		$"TabContainer/Diğer/popdiger".popup()
 	elif market == 12 and Global.kayit["tekerlekler"]["yag"] >= 90:
-		$"TabContainer/Diğer/popdiger".get_ok().text = tr("tamam")
+		$"TabContainer/Diğer/popdiger".get_ok_button().text = tr("tamam")
 		$"TabContainer/Diğer/popdiger".dialog_text = tr("yagyeni")
 		$"TabContainer/Diğer/popdiger".popup()
 	elif market == 13 and Global.kayit["para"]["para"] >= fiyat["motor"] and Global.kayit["tekerlekler"]["motor"] < 90:
@@ -243,11 +243,11 @@ func _on_satinaldiger_pressed():
 		yazilariguncelle()
 		$"TabContainer/Diğer/Label".text = yazilar["motor"]
 	elif market == 13 and Global.kayit["para"]["para"] < fiyat["motor"]:
-		$"TabContainer/Diğer/popdiger".get_ok().text = tr("tamam")
+		$"TabContainer/Diğer/popdiger".get_ok_button().text = tr("tamam")
 		$"TabContainer/Diğer/popdiger".dialog_text = parayok
 		$"TabContainer/Diğer/popdiger".popup()
 	elif market == 13 and Global.kayit["tekerlekler"]["motor"] >= 90:
-		$"TabContainer/Diğer/popdiger".get_ok().text = tr("tamam")
+		$"TabContainer/Diğer/popdiger".get_ok_button().text = tr("tamam")
 		$"TabContainer/Diğer/popdiger".dialog_text = tr("motoryeni")
 		$"TabContainer/Diğer/popdiger".popup()
 	Global.oyunkaydet()

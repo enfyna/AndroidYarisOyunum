@@ -6,8 +6,8 @@ var steer_val = 0
 var mss
 var msar
 var ssar
-onready var parent = get_parent()
-onready var kamera = get_parent().get_node("Camera")
+@onready var parent = get_parent()
+@onready var kamera = get_parent().get_node("Camera3D")
 
 func steervaluehesapla(speed):
 	if girissecenegi:

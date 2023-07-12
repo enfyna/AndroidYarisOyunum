@@ -1,100 +1,89 @@
-extends VehicleBody
+extends VehicleBody3D
+class_name Araba
 
+@export (float) var MAX_STEER_ANGLE = 30.0
+@export (float) var SPEED_STEER_ANGLE = 10.0
+@export (float) var MAX_STEER_SPEED = 120.0 * 1000.0 / 3600.0
+@export (float) var MAX_ENGINE_FORCE = 700.0
+@export (float) var MAX_BRAKE_FORCE = 50.0
+@export (float) var gear_shift_time = 1.0
+@export (Array) var gear_ratios = [2.69, 2.01, 1.59, 1.32, 1.13, 1.0]
+@export (float) var final_drive_ratio = 3.38
+@export (float) var max_engine_rpm = 8000.0
+@export (Curve) var power_curve = null
 
-export  var MAX_STEER_ANGLE = 30
-export  var SPEED_STEER_ANGLE = 10
-
-export  var MAX_STEER_SPEED = 120.0 * 1000.0 / 3600.0
-
-
-
-onready var max_steer_angle_rad = deg2rad(MAX_STEER_ANGLE)
-
-onready var speed_steer_angle_rad = deg2rad(SPEED_STEER_ANGLE)
-
+@onready var max_steer_angle_rad = deg_to_rad(MAX_STEER_ANGLE)
+@onready var speed_steer_angle_rad = deg_to_rad(SPEED_STEER_ANGLE)
+@onready var last_pos = position
+@onready var geri = $GERI
+@onready var hareket = $hareket
+@onready var tekerbar = $tekerbar
+@onready var idle = $idle
+@onready var crash = $crash
+@onready var touchgeri = $touchgeri
+@onready var VitesHUD = $VitesHUD
+@onready var KMHHUD = $KMHHUD
+@onready var rpmbar = $rpmbar
+@onready var gasbar = $gasbar
+@onready var frenbar = $frenbar
+@onready var camera = $Camera3D
+@onready var clutch = $clutch
+@onready var absicon = $abs
+@onready var skid = $skid
+@onready var ArkaSag = $ArkaSag
+@onready var steervalbar = $steervalbar
+@onready var FREN = $FREN
+@onready var gazpedal
+@onready var frenpedal
 
 var steer_angle = 0.0
-
-
-export  var MAX_ENGINE_FORCE = 700.0
-export  var MAX_BRAKE_FORCE = 50.0
-export (Array) var gear_ratios = [2.69, 2.01, 1.59, 1.32, 1.13, 1.0]
-export (float) var final_drive_ratio = 3.38
-export (float) var max_engine_rpm = 8000.0
-export (Curve) var power_curve = null
 var current_gear = 1
 var clutch_position:float = 1.0
 var current_speed_mps = 0.0
 var sabit
 var sabit2
 var vitessayisi
-onready var last_pos = translation
-
-onready var geri = $GERI
-onready var hareket = $hareket
-onready var tekerbar = $tekerbar
-onready var idle = $idle
-onready var crash = $crash
-onready var touchgeri = $touchgeri
-onready var VitesHUD = $VitesHUD
-onready var KMHHUD = $KMHHUD
-onready var rpmbar = $rpmbar
-onready var gasbar = $gasbar
-onready var frenbar = $frenbar
-onready var camera = $Camera
-onready var clutch = $clutch
-onready var absicon = $abs
-onready var skid = $skid
-onready var ArkaSag = $ArkaSag
-onready var steervalbar = $steervalbar
-onready var FREN = $FREN
-
 var manuelautoayari = not Global.kayit["ayarlar"]["oto"]
 var metremilayari = Global.kayit["ayarlar"]["kmh"]
 var girissecenegi = not Global.kayit["ayarlar"]["input"]
-
 var hizbasarimi = Global.kayit["basarimlar"]["b3"]["ilerleme"]
-
 var kamera = 1
 var rpm = 0
 var speed = 0
-
-
-var throttle_val:float
-var brake_val:float
-
-
+var throttle_val : float
+var brake_val : float
 var gear_timer = 0.0
 var n
 var vites = 1
 var vitesdurum = 0
 var yakilanyag = 0
+var drive_shaft_rotation_speed : float
+var hassasiyet = float(Global.kayit["ayarlar"]["hassasiyet"]) if girissecenegi else float(Global.kayit["ayarlar"]["hassasiyet"] / 5.0)
+var steerlerp = 0
+var steer_val = 0
+var mss
+var msar
+var ssar
 
 func get_speed_kph():
 	speed = current_speed_mps * 3.6
-	
 	KMHHUD.text = "%d/kmh" % [speed] if not metremilayari else "%d/mph" % [current_speed_mps * 2.2]
-	
 
-var drive_shaft_rotation_speed:float
 func calculate_rpm():
 	drive_shaft_rotation_speed = (sabit) * current_speed_mps
-	
+
 	rpm = abs(drive_shaft_rotation_speed * gear_ratios[current_gear + 1])
-	
-		
+
 	if rpm < 2000:
 		touchgeri.visible = true
 		if rpm < 1000:
 			rpm = 1000
-onready var gazpedal
-onready var frenpedal
-var thread
+
 func _ready():
 	if girissecenegi:
 		gazpedal = $touchgaz
 		frenpedal = $touchfren
-		steervalbar.connect("value_changed", self, "direksiyoncevir")
+		steervalbar.connect("value_changed", Callable(self, "direksiyoncevir"))
 		get_node("touchsag").queue_free()
 		get_node("touchsol").queue_free()
 		get_node("touchfrenkucuk").queue_free()
@@ -115,11 +104,11 @@ func _ready():
 	vitessayisi = gear_ratios.size() - 2
 	gasbar.value = 0
 	frenbar.value = 0
-	
+
 	mss = MAX_STEER_SPEED
-	
+
 	msar = max_steer_angle_rad
-	
+
 	ssar = speed_steer_angle_rad
 	hareket.playing = true
 	hareket.pitch_scale = 0.3
@@ -130,16 +119,13 @@ func _ready():
 	tekerlekdurum(0)
 	vitesyaziguncelle()
 	motoryagkontrol()
-	thread = Thread.new()
-	
-	
 
-export  var gear_shift_time:float
+
 func vitesdegistir(delta:float):
 	if vitesdurum > 0:
 		clutch.tint_progress = Color(0, 0.5, 0.5, 1)
-		hareket.unit_db -= (1 - clutch_position) * 10
-		
+		hareket.volume_db -= (1 - clutch_position) * 10
+
 		if vitesdurum == 1:
 			gear_timer -= delta * 2
 			clutch_position = abs(gear_timer * n)
@@ -197,30 +183,16 @@ func vitesyaziguncelle():
 	touchgeri.visible = speed < 20 and current_gear != - 1
 
 func _process(delta):
-	thread.start(self, "threadf", delta)
 	calculate_rpm()
 	get_speed_kph()
-	
-	
-	
-	
-	
 	vitesdegistir(delta)
-	
 	gaz(delta)
-	
 	fren(delta)
-	
-	
-	thread.wait_to_finish()
-var threaddur = false
-func threadf(delta):
-	
 	rpmbarayarla(delta)
 	steervaluehesapla()
 	araba()
 	motorses()
-	
+
 func rpmbarayarla(delta):
 	rpmbar.value = lerp(rpmbar.value, rpm, delta * 5)
 	if rpmbar.value > 6000:
@@ -230,12 +202,6 @@ func rpmbarayarla(delta):
 	yakilanyag -= clamp(rpm / max_engine_rpm, 0.001, 0.008)
 	camera.kamera(steer_val, speed)
 
-var hassasiyet = float(Global.kayit["ayarlar"]["hassasiyet"]) if girissecenegi else float(Global.kayit["ayarlar"]["hassasiyet"] / 5.0)
-var steerlerp = 0
-var steer_val = 0
-var mss
-var msar
-var ssar
 func steervaluehesapla():
 	if girissecenegi:
 		steerlerp = max( - 1, min(1, - 1 * Input.get_accelerometer().normalized().x))
@@ -250,10 +216,7 @@ func steervaluehesapla():
 	steer_val = lerp(steer_val, steerlerp, hassasiyet)
 	var steer_speed_factor = clamp(speed / mss, 0.0, 1.0)
 	steer_angle = steer_val * lerp(msar, ssar, steer_speed_factor)
-func _exit_tree():
-	threaddur = true
-	if thread.is_alive():
-		thread.wait_to_finish()
+
 func gaz(delta):
 	if gazpedal.is_pressed():
 		if throttle_val < 1:
@@ -266,13 +229,14 @@ func gaz(delta):
 		gasbar.value = throttle_val
 	else :
 		throttle_val = 0
+
 func fren(delta):
 	if frenpedal.is_pressed():
 		if brake_val < 1:
 			brake_val += delta * 4
 			frenbar.value = brake_val
 			FREN.visible = true
-			absicon.pressed = speed > 1
+			absicon.button_pressed = speed > 1
 		if brake_val >= 1:
 			brake_val = 1
 	elif brake_val > 0:
@@ -281,44 +245,39 @@ func fren(delta):
 	else :
 		brake_val = 0
 		FREN.visible = false
-		absicon.pressed = false
+		absicon.button_pressed = false
+
+
 func araba():
 	var rpm_factor = clamp(rpm / max_engine_rpm, 0.0, 1.0)
 	var power_factor = power_curve.interpolate_baked(rpm_factor)
 	engine_force = clutch_position * throttle_val * power_factor * sabit2 * gear_ratios[current_gear + 1]
 	brake = brake_val * MAX_BRAKE_FORCE
 	steering = steer_angle
-	
-	
+
 
 func motorses():
-	idle.unit_db = 10 - speed
-	hareket.unit_db = (rpm / 1000) * 2
+	idle.volume_db = 10 - speed
+	hareket.volume_db = (rpm / 1000) * 2
 	hareket.pitch_scale = clamp(rpm / max_engine_rpm, 0.01, 1.0)
 	skid.volume_db = 10 if ArkaSag.get_skidinfo() < 0.3 else - 80
 	pass
 
+
 func _physics_process(delta):
-	
-	current_speed_mps = (translation - last_pos).length() / delta
-	
-	
-	
-	last_pos = translation
-	
-	
-	
-	
-	
+	current_speed_mps = (position - last_pos).length() / delta
+	last_pos = position
+
 
 func _on_AE86_1_body_entered(body):
 	if body.name != "bot":
 		Global.kayit["tekerlekler"]["motor"] -= speed / 100
 		get_parent().penalti(0)
-	crash.unit_db = (speed / 10)
+	crash.volume_db = (speed / 10)
 	crash.play()
 	motoryagkontrol()
 	pass
+
 
 func _on_KameraDegistir_pressed():
 	if kamera == 1:
@@ -335,48 +294,50 @@ func _on_KameraDegistir_pressed():
 		kamera = 1
 	camera.h_offset = 0
 
+
 func motoryagkontrol():
 	var motor = 1.0
 	if Global.kayit["tekerlekler"]["motor"] > 90:
 		motor = 1.0
-		$motor.pressed = false
+		$motor.button_pressed = false
 	elif Global.kayit["tekerlekler"]["motor"] > 70:
 		motor = 0.9
-		$motor.pressed = false
+		$motor.button_pressed = false
 	elif Global.kayit["tekerlekler"]["motor"] > 50:
 		motor = 0.8
-		$motor.pressed = false
+		$motor.button_pressed = false
 	elif Global.kayit["tekerlekler"]["motor"] > 20:
 		motor = 0.5
-		$motor.pressed = true
+		$motor.button_pressed = true
 	elif Global.kayit["tekerlekler"]["motor"] > 0:
 		motor = 0.2
-		$motor.pressed = true
+		$motor.button_pressed = true
 	else :
 		motor = 0.0
-		$motor.pressed = true
+		$motor.button_pressed = true
 	var yag = 1.0
 	if Global.kayit["tekerlekler"]["yag"] > 50:
-		$yag.pressed = false
+		$yag.button_pressed = false
 		yag = 1.0
 	elif Global.kayit["tekerlekler"]["yag"] > 0:
-		$yag.pressed = true
+		$yag.button_pressed = true
 		yag = 0.8
 	else :
-		$yag.pressed = true
+		$yag.button_pressed = true
 		yag = 0.5
 	sabit2 = motor * yag * final_drive_ratio * MAX_ENGINE_FORCE
 	pass
 
+
 func tekerlekdurum(cizgi):
 	var tekeryuzde = 0.0
-	
+
 	if float(Global.kayit["tekerlekler"]["c5"]) >= float(0.1):
 		if cizgi > 0:
 			Global.kayit["tekerlekler"]["c5"] -= 0.1
 		tekeryuzde = Global.kayit["tekerlekler"]["c5"]
 		$tekerbar / tekerdurum.text = "S"
-		$tekerbar / tekerdurum.add_color_override("font_color", Color(1, 0, 0, 1))
+		$tekerbar / tekerdurum.add_theme_color_override("font_color", Color(1, 0, 0, 1))
 		$ArkaSag.wheel_friction_slip = 3.5
 		$ArkaSol.wheel_friction_slip = 3.5
 		$OnSag.wheel_friction_slip = 3.5
@@ -386,7 +347,7 @@ func tekerlekdurum(cizgi):
 			Global.kayit["tekerlekler"]["c3"] -= 0.05
 		tekeryuzde = Global.kayit["tekerlekler"]["c3"]
 		$tekerbar / tekerdurum.text = "M"
-		$tekerbar / tekerdurum.add_color_override("font_color", Color(1, 1, 0, 1))
+		$tekerbar / tekerdurum.add_theme_color_override("font_color", Color(1, 1, 0, 1))
 		$ArkaSag.wheel_friction_slip = 2.83
 		$ArkaSol.wheel_friction_slip = 2.83
 		$OnSag.wheel_friction_slip = 2.83
@@ -396,7 +357,7 @@ func tekerlekdurum(cizgi):
 			Global.kayit["tekerlekler"]["c1"] -= 0.04
 		tekeryuzde = Global.kayit["tekerlekler"]["c1"]
 		$tekerbar / tekerdurum.text = "H"
-		$tekerbar / tekerdurum.add_color_override("font_color", Color(1, 1, 1, 1))
+		$tekerbar / tekerdurum.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 		$ArkaSag.wheel_friction_slip = 2.15
 		$ArkaSol.wheel_friction_slip = 2.15
 		$OnSag.wheel_friction_slip = 2.15
@@ -406,7 +367,7 @@ func tekerlekdurum(cizgi):
 			Global.kayit["tekerlekler"]["konfor"] -= 0.02
 		tekeryuzde = Global.kayit["tekerlekler"]["konfor"]
 		$tekerbar / tekerdurum.text = "K"
-		$tekerbar / tekerdurum.add_color_override("font_color", Color(0.4, 0.4, 0.4, 1))
+		$tekerbar / tekerdurum.add_theme_color_override("font_color", Color(0.4, 0.4, 0.4, 1))
 		$ArkaSag.wheel_friction_slip = 1.53
 		$ArkaSol.wheel_friction_slip = 1.53
 		$OnSag.wheel_friction_slip = 1.53
@@ -414,7 +375,7 @@ func tekerlekdurum(cizgi):
 	else :
 		tekeryuzde = 0
 		$tekerbar / tekerdurum.text = "E"
-		$tekerbar / tekerdurum.add_color_override("font_color", Color(0, 0, 0, 1))
+		$tekerbar / tekerdurum.add_theme_color_override("font_color", Color(0, 0, 0, 1))
 		$ArkaSag.wheel_friction_slip = 1
 		$ArkaSol.wheel_friction_slip = 1
 		$OnSag.wheel_friction_slip = 1
@@ -423,16 +384,13 @@ func tekerlekdurum(cizgi):
 	tekeryuzde = fmod(tekeryuzde, 1) if tekeryuzde != 1 else 1.0
 	if tekeryuzde >= 0.5:
 		stylbx.bg_color = Color(0, 1, 0, 0.5)
-		tekerbar.add_stylebox_override("fg", stylbx)
+		tekerbar.add_theme_stylebox_override("fg", stylbx)
 	elif tekeryuzde >= 0.2:
 		stylbx.bg_color = Color(1, 1, 0, 0.5)
-		tekerbar.add_stylebox_override("fg", stylbx)
+		tekerbar.add_theme_stylebox_override("fg", stylbx)
 	else :
 		stylbx.bg_color = Color(1, 0, 0, 0.5)
-		tekerbar.add_stylebox_override("fg", stylbx)
+		tekerbar.add_theme_stylebox_override("fg", stylbx)
 	tekerbar.value = tekeryuzde
 	Global.kayit["tekerlekler"]["yag"] += yakilanyag
 	yakilanyag = 0
-
-
-

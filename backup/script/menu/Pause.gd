@@ -1,6 +1,6 @@
 extends Control
 
-onready var button = $TextureButton
+@onready var button = $TextureButton
 
 func _ready():
 	button.visible = false
@@ -14,7 +14,7 @@ func pause():
 	get_tree().paused = true
 	
 func _notification(what):
-	if what == MainLoop.NOTIFICATION_WM_FOCUS_OUT :
+	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT :
 		var sahne = str(get_tree().get_current_scene().name)
 		if sahne == "Yaris":
 			button.visible = true

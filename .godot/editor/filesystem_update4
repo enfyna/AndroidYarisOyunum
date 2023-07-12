@@ -1,0 +1,14 @@
+res://default_bus_layout.tres
+res://script/menu/Global.gd
+res://default_env.tres
+res://tscndosyalari/menu/Giris.tscn
+res://script/menu/Giris.gd
+res://script/globals/Global.gd
+res://script/globals/save_manager.gd
+res://script/oyuncu/oyuncupara.gd
+res://script/menu/anamenututorialekle.gd
+res://tscndosyalari/menu/AnaMenu.tscn
+res://script/menu/anamenubutonlar.gd
+res://script/menu/arkaplanmuzik.gd
+res://script/menu/koyumod.gd
+res://script/menu/Dunya.gd

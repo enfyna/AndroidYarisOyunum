@@ -13,8 +13,8 @@ var secilenaraba
 func bilgi(araba):
 	$bilgi.window_title = araba
 	$"bilgi/BilgiText".text = arababilgileri[araba]
-	$bilgi.get_ok().text = tr("satinal")
-	$bilgi.get_cancel().text = tr("vazgec")
+	$bilgi.get_ok_button().text = tr("satinal")
+	$bilgi.get_cancel_button().text = tr("vazgec")
 	$"bilgi".popup()
 func _on_bilgi_confirmed():
 	if Global.kayit["para"]["para"] >= secilenaraba[0]:
@@ -27,7 +27,7 @@ func _on_bilgi_confirmed():
 		Global.oyunkaydet()
 		if Global.kayit["tutorial"]["giris"] == 4:
 			Global.kayit["tutorial"]["giris"] = 5
-			var t = load("res://tscndosyalari/menu/Tutorial.tscn").instance()
+			var t = load("res://tscndosyalari/menu/Tutorial.tscn").instantiate()
 			get_parent().call_deferred("add_child",t)
 		pass
 	else:
@@ -38,7 +38,7 @@ func _ready():
 	if Global.kayit["tutorial"]["giris"] == 2:
 		Global.kayit["para"]["para"] += 10000
 		$ParaTablo.paralabelguncelle()
-		var t = load("res://tscndosyalari/menu/Tutorial.tscn").instance()
+		var t = load("res://tscndosyalari/menu/Tutorial.tscn").instantiate()
 		get_parent().call_deferred("add_child",t)
 		Global.kayit["tutorial"]["giris"] = 3
 	var arabanode

@@ -58,7 +58,7 @@ func oyuncuseviye(m):
 		kayit["para"]["para"] += kayit["oyuncu"]["lvl"] * 100
 ##############################
 func toplamoynamasuresi():
-		var _err = get_tree().create_timer(5).connect("timeout",self,"surearttir")
+		var _err = get_tree().create_timer(5).connect("timeout", Callable(self, "surearttir"))
 func surearttir():
 	kayit["tarih"]["toplamoynamasure"] += 5 #saniye
 	toplamoynamasuresi()
@@ -70,12 +70,12 @@ func _notification(what):
 		var sahne = str(get_tree().get_current_scene().name)
 		if sahne != "AnaMenu" and (sahne != "Yaris") and (sahne != "Giris") and (sahne != "YarisBitir"):
 			var silinecek = get_tree().get_current_scene()
-			var t = load("res://tscndosyalari/menu/AnaMenu.tscn").instance()
-			get_parent().call_deferred("add_child_below_node",get_node("/root/Global"),t)
+			var t = load("res://tscndosyalari/menu/AnaMenu.tscn").instantiate()
+			get_parent().call_deferred("add_sibling",get_node("/root/Global"),t)
 			get_tree().call_deferred("set_current_scene",t)
 			silinecek.call_deferred("free")
 		elif sahne == "AnaMenu":
-			var t = load("res://tscndosyalari/menu/Cikis.tscn").instance()
+			var t = load("res://tscndosyalari/menu/Cikis.tscn").instantiate()
 			get_parent().call_deferred("add_child",t)
 		elif sahne == "Yaris":
 			get_parent().get_node("/root/Pause").pause()
@@ -86,7 +86,7 @@ func _ready():
 	arkaplanmuzikn = AudioStreamPlayer.new()
 	arkaplanmuzikn.name = "arkaplanmuzikn"
 	arkaplanmuzikn.volume_db = -80
-	arkaplanmuzikn.connect("finished",self,"_on_arkaplanmuzik_finished")
+	arkaplanmuzikn.connect("finished", Callable(self, "_on_arkaplanmuzik_finished"))
 	get_parent().get_node("/root/Global").call_deferred("add_child",arkaplanmuzikn)
 var muzik = ""
 func calinanmuzik():
@@ -128,7 +128,7 @@ func _on_arkaplanmuzik_finished():
 	arkaplanmuzik()
 func oynat(ses):
 	var node = AudioStreamPlayer.new()
-	node.connect("finished",node,"queue_free")
+	node.connect("finished", Callable(node, "queue_free"))
 	node.volume_db = 0
 	if ses == "buton" or ses == "click":
 		node.stream = load("res://muzik/uisounds/clicksound.ogg")

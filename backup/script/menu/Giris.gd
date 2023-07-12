@@ -1,10 +1,10 @@
 extends Control
-onready var bar = $yuklemebar
-onready var tween = $Tween
+@onready var bar = $yuklemebar
+@onready var tween = $Tween
 var tarih 
 
 func _ready():
-	VisualServer.set_default_clear_color(Color(0.6,1,1,1))
+	RenderingServer.set_default_clear_color(Color(0.6,1,1,1))
 	get_tree().set_auto_accept_quit(false)
 	tarih = OS.get_date()
 	bar.value = 0
@@ -121,12 +121,12 @@ func ilerle():
 	if Global.kayit["oyuncu"]["isim"] != "":
 		Global.ackapat()
 		Global.arkaplanmuzik()
-		var t = load("res://tscndosyalari/menu/AnaMenu.tscn").instance()
-		var p = load("res://tscndosyalari/menu/Pause.tscn").instance()
-		get_parent().call_deferred("add_child_below_node",get_parent().get_node("/root/Global"),t)
-		get_parent().call_deferred("add_child_below_node",self,p)
+		var t = load("res://tscndosyalari/menu/AnaMenu.tscn").instantiate()
+		var p = load("res://tscndosyalari/menu/Pause.tscn").instantiate()
+		get_parent().call_deferred("add_sibling",get_parent().get_node("/root/Global"),t)
+		get_parent().call_deferred("add_sibling",self,p)
 		get_tree().call_deferred("set_current_scene",t)
-		tween.interpolate_property(self,"rect_position",
+		tween.interpolate_property(self,"position",
 		Vector2(0, 0), Vector2(0, 720)
 		,1.5,Tween.TRANS_EXPO, Tween.EASE_OUT,0.5)
 		tween.interpolate_property(self,"modulate",

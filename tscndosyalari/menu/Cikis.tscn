@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://font/new_dynamicfont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://font/hemi-head-426.rg-bolditalic.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://font/new_dynamicfont.tres" type="FontFile" id=1]
+[ext_resource path="res://font/hemi-head-426.rg-bolditalic.ttf" type="FontFile" id=2]
 [ext_resource path="res://script/menu/Cikis.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=32]
@@ -32,7 +32,7 @@ expand_margin_right = 40.0
 expand_margin_top = 40.0
 expand_margin_bottom = 40.0
 
-[sub_resource type="DynamicFont" id=24]
+[sub_resource type="FontFile" id=24]
 size = 30
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -58,12 +58,12 @@ default_font = ExtResource( 1 )
 Button/styles/hover = SubResource( 32 )
 Button/styles/normal = SubResource( 33 )
 Button/styles/pressed = SubResource( 32 )
-PopupDialog/styles/panel = null
+Popup/styles/panel = null
 PopupPanel/styles/panel = null
 TabContainer/colors/font_color_bg = Color( 0.69, 0.69, 0.69, 1 )
 TabContainer/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 TabContainer/colors/font_color_fg = Color( 0.94, 0.94, 0.94, 1 )
-TabContainer/constants/hseparation = 4
+TabContainer/constants/h_separation = 4
 TabContainer/constants/label_valign_bg = 2
 TabContainer/constants/label_valign_fg = 0
 TabContainer/constants/side_margin = 8
@@ -79,25 +79,25 @@ TabContainer/styles/panel = null
 TabContainer/styles/tab_bg = null
 TabContainer/styles/tab_disabled = null
 TabContainer/styles/tab_fg = null
-WindowDialog/colors/title_color = Color( 0.866667, 0.807843, 0.807843, 1 )
-WindowDialog/constants/close_h_ofs = 50
-WindowDialog/constants/close_v_ofs = 30
-WindowDialog/constants/scaleborder_size = 3
-WindowDialog/constants/title_height = -96
-WindowDialog/fonts/title_font = SubResource( 24 )
-WindowDialog/icons/close = null
-WindowDialog/icons/close_highlight = null
-WindowDialog/styles/panel = SubResource( 25 )
+Window/colors/title_color = Color( 0.866667, 0.807843, 0.807843, 1 )
+Window/constants/close_h_offset = 50
+Window/constants/close_v_offset = 30
+Window/constants/scaleborder_size = 3
+Window/constants/title_height = -96
+Window/fonts/title_font = SubResource( 24 )
+Window/icons/close = null
+Window/icons/close_highlight = null
+Window/styles/panel = SubResource( 25 )
 
 [node name="Cikis" type="ConfirmationDialog"]
-pause_mode = 2
+process_mode = 3
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 320.0
-margin_top = 256.0
-margin_right = -320.0
-margin_bottom = -208.0
-rect_min_size = Vector2( 150, 52.5 )
+offset_left = 320.0
+offset_top = 256.0
+offset_right = -320.0
+offset_bottom = -208.0
+custom_minimum_size = Vector2( 150, 52.5 )
 focus_mode = 2
 theme = SubResource( 34 )
 window_title = ""

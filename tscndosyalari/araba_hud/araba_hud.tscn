@@ -1,0 +1,285 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://font/hemi-head-426.rg-bolditalic.ttf" type="FontFile" id=1]
+[ext_resource path="res://font/aAbsoluteEmpire.ttf" type="FontFile" id=2]
+[ext_resource path="res://script/araba/Steering2.gd" type="Script" id=3]
+[ext_resource path="res://resimler/hud/buttonpng/motor1.png" type="Texture2D" id=4]
+[ext_resource path="res://resimler/hud/buttonpng/motor2.png" type="Texture2D" id=5]
+[ext_resource path="res://script/araba/rpmbar.gd" type="Script" id=6]
+[ext_resource path="res://resimler/hud/rpmbar/rpmbartop.png" type="Texture2D" id=7]
+[ext_resource path="res://resimler/hud/rpmbar/rpmbarbasebase.png" type="Texture2D" id=8]
+[ext_resource path="res://resimler/hud/rpmbar/rpmbarbase.png" type="Texture2D" id=9]
+[ext_resource path="res://resimler/hud/buttonpng/abs1.png" type="Texture2D" id=10]
+[ext_resource path="res://resimler/hud/buttonpng/abs2.png" type="Texture2D" id=11]
+[ext_resource path="res://resimler/hud/buttonpng/yag2.png" type="Texture2D" id=12]
+[ext_resource path="res://resimler/hud/buttonpng/kamera.png" type="Texture2D" id=13]
+[ext_resource path="res://resimler/hud/buttonpng/yag1.png" type="Texture2D" id=14]
+
+[sub_resource type="FontFile" id=1]
+size = 30
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.054902, 1, 0, 0.784314 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 0, 0, 0.784314 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="FontFile" id=7]
+size = 25
+outline_size = 1
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="FontFile" id=8]
+size = 25
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="FontFile" id=9]
+size = 25
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 1, 1, 1, 0 )
+draw_center = false
+border_width_right = 3
+border_color = Color( 1, 1, 1, 1 )
+corner_detail = 1
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[node name="Araba_HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+pivot_offset = Vector2( -320, -83 )
+
+[node name="arkaplan" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -80.0
+offset_right = 255.0
+offset_bottom = 8.0
+texture = ExtResource( 8 )
+
+[node name="cizgi" type="Label" parent="arkaplan"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -28.0
+offset_right = 32.5
+offset_bottom = 23.0
+scale = Vector2( 0.44, 1.72 )
+theme_override_fonts/font = SubResource( 1 )
+text = "|"
+align = 1
+valign = 1
+
+[node name="gasbar" type="ProgressBar" parent="."]
+offset_left = 655.0
+offset_top = 630.0
+offset_right = 855.0
+offset_bottom = 633.0
+pivot_offset = Vector2( 112, 8 )
+theme_override_styles/fg = SubResource( 2 )
+theme_override_styles/bg = SubResource( 3 )
+max_value = 1.0
+value = 0.5
+percent_visible = false
+
+[node name="rpmbar" type="TextureProgressBar" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -72.0
+offset_right = 247.0
+offset_bottom = -48.0
+max_value = 8000.0
+value = 2000.0
+texture_under = ExtResource( 9 )
+texture_progress = ExtResource( 7 )
+tint_progress = Color( 0, 1, 1, 1 )
+script = ExtResource( 6 )
+
+[node name="frenbar" type="ProgressBar" parent="."]
+offset_left = 625.0
+offset_top = 633.0
+offset_right = 825.0
+offset_bottom = 636.0
+rotation = 180.0
+theme_override_styles/fg = SubResource( 4 )
+theme_override_styles/bg = SubResource( 3 )
+max_value = 1.0
+value = 0.5
+percent_visible = false
+
+[node name="clutch" type="TextureProgressBar" parent="."]
+offset_left = 630.0
+offset_top = 630.0
+offset_right = 1125.0
+offset_bottom = 654.0
+scale = Vector2( 0.04, 0.15 )
+max_value = 1.0
+step = 0.01
+value = 1.0
+texture_progress = ExtResource( 7 )
+fill_mode = 6
+tint_progress = Color( 0, 1, 0.913725, 1 )
+
+[node name="abs" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -245.0
+offset_top = -45.0
+offset_right = -205.0
+offset_bottom = -5.0
+mouse_filter = 2
+toggle_mode = true
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+expand = true
+
+[node name="yag" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -45.0
+offset_right = -165.0
+offset_bottom = -5.0
+mouse_filter = 2
+toggle_mode = true
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 14 )
+expand = true
+
+[node name="motor" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -165.0
+offset_top = -45.0
+offset_right = -125.0
+offset_bottom = -5.0
+mouse_filter = 2
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+expand = true
+
+[node name="tekerbar" type="ProgressBar" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 208.0
+offset_top = 320.0
+offset_right = 248.0
+offset_bottom = 351.0
+theme_override_styles/fg = SubResource( 5 )
+theme_override_styles/bg = SubResource( 6 )
+max_value = 1.0
+value = 0.1
+percent_visible = false
+
+[node name="tekerdurum" type="Label" parent="tekerbar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -16.0
+offset_right = 20.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color( 1, 0, 0, 1 )
+theme_override_colors/font_outline_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_fonts/font = SubResource( 7 )
+text = "S"
+align = 1
+valign = 1
+
+[node name="KameraDegistir" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 536.0
+offset_top = -600.0
+offset_right = 640.0
+offset_bottom = -496.0
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_colors/font_pressed_color = Color( 0, 0, 0, 1 )
+icon = ExtResource( 13 )
+flat = true
+expand_icon = true
+
+[node name="VitesHUD" type="Label" parent="."]
+offset_left = 592.0
+offset_top = 680.0
+offset_right = 639.0
+offset_bottom = 711.0
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_fonts/font = SubResource( 8 )
+text = "R"
+align = 1
+valign = 1
+
+[node name="KMHHUD" type="Label" parent="."]
+offset_left = 632.0
+offset_top = 680.0
+offset_right = 754.0
+offset_bottom = 711.0
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_fonts/font = SubResource( 9 )
+text = "170/KMH"
+align = 2
+valign = 1
+
+[node name="steervalbar" type="ProgressBar" parent="."]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -70.0
+offset_right = 248.0
+offset_bottom = -50.0
+theme_override_styles/fg = SubResource( 10 )
+theme_override_styles/bg = SubResource( 11 )
+min_value = -1.0
+max_value = 1.0
+percent_visible = false
+script = ExtResource( 3 )

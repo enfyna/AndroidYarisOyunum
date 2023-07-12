@@ -39,76 +39,76 @@ func _ready():
 	$sat.text = tr("sat")
 	$satinal.text = tr("satinal")
 	$Label.text = yazilar["c5"]
-	$Label.add_color_override("font_color" ,Color(1,0,0,1))
+	$Label.add_theme_color_override("font_color" ,Color(1,0,0,1))
 	$fiyat.text = tr("fiyat")+":" + str(fiyat["c5"])
 	market = 0
 	if Global.kayit["tutorial"]["market"] == 0:
-		var t = load("res://tscndosyalari/menu/Tutorial.tscn").instance()
+		var t = load("res://tscndosyalari/menu/Tutorial.tscn").instantiate()
 		t.mod = "market"
 		get_parent().call_deferred("add_child",t)
 ######################TEKERLEK
 func _on_c5_pressed():
 	Global.oynat("res://muzik/uisounds/clicksound.ogg")
 	$Label.text = yazilar["c5"]
-	$Label.add_color_override("font_color" ,Color(1,0,0,1))
+	$Label.add_theme_color_override("font_color" ,Color(1,0,0,1))
 	$fiyat.text = tr("fiyat")+":" + str(fiyat["c5"])
 	market = 0 ; Global.oynat("click")
 func _on_c3_pressed():
 	Global.oynat("res://muzik/uisounds/clicksound.ogg")
 	$Label.text = yazilar["c3"]
-	$Label.add_color_override("font_color" ,Color(1,1,0,1))
+	$Label.add_theme_color_override("font_color" ,Color(1,1,0,1))
 	$fiyat.text = tr("fiyat")+":" + str(fiyat["c3"])
 	market = 1 ; Global.oynat("click")
 func _on_c1_pressed():
 	Global.oynat("res://muzik/uisounds/clicksound.ogg")
 	$Label.text = yazilar["c1"]
-	$Label.add_color_override("font_color" ,Color(1,1,1,1))
+	$Label.add_theme_color_override("font_color" ,Color(1,1,1,1))
 	$fiyat.text = tr("fiyat")+":" + str(fiyat["c1"])
 	market = 2 ; Global.oynat("click")
 func _on_eko_pressed():
 	$Label.text = yazilar["konfor"]
-	$Label.add_color_override("font_color" ,Color(0.2,0.2,0.2,1))
+	$Label.add_theme_color_override("font_color" ,Color(0.2,0.2,0.2,1))
 	$fiyat.text = tr("fiyat")+":" + str(fiyat["konfor"])
 	market = 3 ; Global.oynat("click")
 ########################TOKEN
 func _on_elmas_pressed():
 	$Label.text = yazilar["elmas"]
 	$fiyat.text = yazilar["elmasfiyat"]
-	$Label.add_color_override("font_color",Color(0,1,1,1))
+	$Label.add_theme_color_override("font_color",Color(0,1,1,1))
 	market = 4 ; Global.oynat("click")
 func _on_altin_pressed():
 	$Label.text = yazilar["altin"]
 	$fiyat.text = yazilar["altinfiyat"]
-	$Label.add_color_override("font_color",Color(1,1,0,1))
+	$Label.add_theme_color_override("font_color",Color(1,1,0,1))
 	market = 5 ; Global.oynat("click")
 func _on_gumus_pressed():
 	$Label.text = yazilar["gumus"]
 	$fiyat.text = yazilar["gumusfiyat"]
-	$Label.add_color_override("font_color",Color(0.5,0.5,0.5,1))
+	$Label.add_theme_color_override("font_color",Color(0.5,0.5,0.5,1))
 	market = 6 ; Global.oynat("click")
 func _on_bronz_pressed():
 	$Label.text = yazilar["bronz"]
 	$fiyat.text = yazilar["bronzfiyat"]
-	$Label.add_color_override("font_color",Color(0.8,0.3,0,1))
+	$Label.add_theme_color_override("font_color",Color(0.8,0.3,0,1))
 	market = 7 ; Global.oynat("click")
 ##########################ELMAS
 func _on_1elmas_pressed():
-	$Label.add_color_override("font_color",Color(0,1,1,1))
+	$Label.add_theme_color_override("font_color",Color(0,1,1,1))
 	$Label.text = yazilar["1e"]
 	$fiyat.text = str(fiyat["1e"]) + tr("birim")
 	market = 8 ; Global.oynat("click")
 func _on_2elmas_pressed():
-	$Label.add_color_override("font_color",Color(0,1,1,1))
+	$Label.add_theme_color_override("font_color",Color(0,1,1,1))
 	$Label.text = yazilar["2e"]
 	$fiyat.text = str(fiyat["2e"]) + tr("birim")
 	market = 9 ; Global.oynat("click")
 func _on_5elmas_pressed():
-	$Label.add_color_override("font_color",Color(0,1,1,1))
+	$Label.add_theme_color_override("font_color",Color(0,1,1,1))
 	$Label.text = yazilar["6e"]
 	$fiyat.text = str(fiyat["6e"]) + tr("birim")
 	market = 10 ; Global.oynat("click")
 func _on_10elmas_pressed():
-	$Label.add_color_override("font_color",Color(0,1,1,1))
+	$Label.add_theme_color_override("font_color",Color(0,1,1,1))
 	$Label.text = yazilar["12e"]
 	$fiyat.text = str(fiyat["12e"]) + tr("birim")
 	market = 11 ; Global.oynat("click")
@@ -116,12 +116,12 @@ func _on_10elmas_pressed():
 func _on_yag_pressed():
 	$Label.text = yazilar["yag"]
 	$fiyat.text = tr("fiyat")+":" + str(fiyat["yag"])
-	$Label.add_color_override("font_color" ,Color(0.2,0.2,0.2,1))
+	$Label.add_theme_color_override("font_color" ,Color(0.2,0.2,0.2,1))
 	market = 12 ; Global.oynat("click")
 func _on_motor_pressed():
 	$Label.text = yazilar["motor"]
 	$fiyat.text = tr("fiyat")+":" + str(fiyat["motor"])
-	$Label.add_color_override("font_color" ,Color(0.2,0.2,0.2,1))
+	$Label.add_theme_color_override("font_color" ,Color(0.2,0.2,0.2,1))
 	market = 13 ; Global.oynat("click")
 #######################Satin Al
 func _on_satinal_pressed():
@@ -134,8 +134,8 @@ func _on_satinal_pressed():
 		yazilariguncelle()
 		$Label.text = yazilar["c5"]
 	elif market == 0 and Global.kayit["para"]["para"] < fiyat["c5"]:
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().text = tr("tamam")
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().focus_mode = Control.FOCUS_NONE
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().text = tr("tamam")
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().focus_mode = Control.FOCUS_NONE
 		$"TabContainer/Tekerlek Al/poptekerlek".dialog_text = parayok
 		$"TabContainer/Tekerlek Al/poptekerlek".popup()
 	elif market == 1 and Global.kayit["para"]["para"] >= fiyat["c3"]:
@@ -147,8 +147,8 @@ func _on_satinal_pressed():
 		yazilariguncelle()
 		$Label.text = yazilar["c3"]
 	elif market == 1 and Global.kayit["para"]["para"] < fiyat["c3"]:
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().text = tr("tamam")
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().focus_mode = Control.FOCUS_NONE
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().text = tr("tamam")
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().focus_mode = Control.FOCUS_NONE
 		$"TabContainer/Tekerlek Al/poptekerlek".dialog_text = parayok
 		$"TabContainer/Tekerlek Al/poptekerlek".popup()
 	elif market == 2 and Global.kayit["para"]["para"] >= fiyat["c1"]:
@@ -160,8 +160,8 @@ func _on_satinal_pressed():
 		yazilariguncelle()
 		$Label.text = yazilar["c1"]
 	elif market == 2 and Global.kayit["para"]["para"] < fiyat["c1"]:
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().text = tr("tamam")
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().focus_mode = Control.FOCUS_NONE
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().text = tr("tamam")
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().focus_mode = Control.FOCUS_NONE
 		$"TabContainer/Tekerlek Al/poptekerlek".dialog_text = parayok
 		$"TabContainer/Tekerlek Al/poptekerlek".popup()
 	elif market == 3 and Global.kayit["para"]["para"] >= fiyat["konfor"]:
@@ -173,8 +173,8 @@ func _on_satinal_pressed():
 		yazilariguncelle()
 		$Label.text = yazilar["konfor"]
 	elif market == 3 and Global.kayit["para"]["para"] < fiyat["konfor"]:
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().text = tr("tamam")
-		$"TabContainer/Tekerlek Al/poptekerlek".get_ok().focus_mode = Control.FOCUS_NONE
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().text = tr("tamam")
+		$"TabContainer/Tekerlek Al/poptekerlek".get_ok_button().focus_mode = Control.FOCUS_NONE
 		$"TabContainer/Tekerlek Al/poptekerlek".dialog_text = parayok
 		$"TabContainer/Tekerlek Al/poptekerlek".popup()
 		#################################################
@@ -200,11 +200,11 @@ func _on_satinal_pressed():
 		yazilariguncelle()
 		$Label.text = yazilar["yag"]
 	elif market == 12 and Global.kayit["para"]["para"] < fiyat["yag"]:
-		$"TabContainer/Diğer/popdiger".get_ok().text = tr("tamam")
+		$"TabContainer/Diğer/popdiger".get_ok_button().text = tr("tamam")
 		$"TabContainer/Diğer/popdiger".dialog_text = parayok
 		$"TabContainer/Diğer/popdiger".popup()
 	elif market == 12 and Global.kayit["tekerlekler"]["yag"] >= 90:
-		$"TabContainer/Diğer/popdiger".get_ok().text = tr("tamam")
+		$"TabContainer/Diğer/popdiger".get_ok_button().text = tr("tamam")
 		$"TabContainer/Diğer/popdiger".dialog_text = tr("yagyeni")
 		$"TabContainer/Diğer/popdiger".popup()
 	elif market == 13 and Global.kayit["para"]["para"] >= fiyat["motor"] and Global.kayit["tekerlekler"]["motor"] < 90:
@@ -216,11 +216,11 @@ func _on_satinal_pressed():
 		yazilariguncelle()
 		$Label.text = yazilar["motor"]
 	elif market == 13 and Global.kayit["para"]["para"] < fiyat["motor"]:
-		$"TabContainer/Diğer/popdiger".get_ok().text = tr("tamam")
+		$"TabContainer/Diğer/popdiger".get_ok_button().text = tr("tamam")
 		$"TabContainer/Diğer/popdiger".dialog_text = parayok
 		$"TabContainer/Diğer/popdiger".popup()
 	elif market == 13 and Global.kayit["tekerlekler"]["motor"] >= 90:
-		$"TabContainer/Diğer/popdiger".get_ok().text = tr("tamam")
+		$"TabContainer/Diğer/popdiger".get_ok_button().text = tr("tamam")
 		$"TabContainer/Diğer/popdiger".dialog_text = tr("motoryeni")
 		$"TabContainer/Diğer/popdiger".popup()
 	Global.oyunkaydet()

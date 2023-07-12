@@ -1,4 +1,4 @@
-extends StaticBody
+extends StaticBody3D
 
 var index = AudioServer.get_bus_channels(1)
 var ilk = 0

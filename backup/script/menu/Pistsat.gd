@@ -13,7 +13,7 @@ func _ready():
 			get_node(butonnode).text = tr("satinal")
 		else:
 			get_node(pistnode).queue_free()
-	paratablo = load("res://tscndosyalari/menu/ParaTablo.tscn").instance()
+	paratablo = load("res://tscndosyalari/menu/ParaTablo.tscn").instantiate()
 	add_child(paratablo)
 	pass
 var pistbilgileri = {"Pist 1":tr("fiyat")+":10.000",
@@ -22,8 +22,8 @@ var secilenpist
 func bilgi(pist):
 	$bilgi.window_title = tr("pist") +" "+ pist
 	$"bilgi/BilgiText".text = pistbilgileri[secilenpist[2]]
-	$bilgi.get_ok().text = tr("satinal")
-	$bilgi.get_cancel().text = tr("vazgec")
+	$bilgi.get_ok_button().text = tr("satinal")
+	$bilgi.get_cancel_button().text = tr("vazgec")
 	$"bilgi".popup()
 func _on_bilgi_confirmed():
 	if Global.kayit["para"]["para"] >= secilenpist[0]:

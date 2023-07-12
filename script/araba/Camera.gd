@@ -1,10 +1,10 @@
-extends InterpolatedCamera
+extends Camera3D
 var z
 func _ready():
-	z = translation.z
+	z = position.z
 var konum = "topcamera"
 func kamera(val, hiz):
 	h_offset = - val / 2
 	if konum == "topcamera":
-		translation.z = z - (hiz / 200)
+		position.z = z - (hiz / 200)
 	pass

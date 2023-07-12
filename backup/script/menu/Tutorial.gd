@@ -3,8 +3,8 @@ var yuzde = 0
 var yazi : String
 var ses = 0
 var mod = "giris"
-onready var sesnode = $ses
-onready var label = $TextureRect2/Label
+@onready var sesnode = $ses
+@onready var label = $TextureRect2/Label
 var yazilar 
 var giris = [tr("giris1")%[Global.kayit["oyuncu"]["isim"]]
 			,tr("giris2")
@@ -62,16 +62,16 @@ func yaziayarla():
 		label.text = "     " + yazi
 		var tween = create_tween()
 		tween.set_parallel(true)
-		tween.connect("step_finished",self,"sescikar")
+		tween.connect("step_finished", Callable(self, "sescikar"))
 		tween.tween_property(label,"percent_visible",1.0,0.4)
-		tween.tween_method(self,"sescikar",0.0,1.0,0.5)
+		tween.tween_method(Callable(self, "sescikar"), 0.0, 1.0, 0.5)
 	else:
 		silanim()
 func sescikar(_i = 0):
 	sesnode.play()
 func silanim():
 	var tween = create_tween()
-	tween.connect("finished",self,"sil")
+	tween.connect("finished", Callable(self, "sil"))
 	tween.tween_property(self,"modulate",Color(1,1,1,0),0.3)
 func sil():
 	Global.oyunkaydet()

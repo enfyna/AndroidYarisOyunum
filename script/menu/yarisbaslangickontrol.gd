@@ -29,11 +29,11 @@ func _ready():
 	randomize()
 	r = randi() % infotext.size()
 	$info.text = infotext[r]
-	arabaloader = ResourceLoader.load_interactive(araba)
-	yarisloader = ResourceLoader.load_interactive("res://tscndosyalari/menu/Yaris.tscn")
-	pistloader = ResourceLoader.load_interactive(secilenpist)
+	arabaloader = ResourceLoader.load_threaded_request(araba)
+	yarisloader = ResourceLoader.load_threaded_request("res://tscndosyalari/menu/Yaris.tscn")
+	pistloader = ResourceLoader.load_threaded_request(secilenpist)
 	if mod == "Yaris":
-		botloader = ResourceLoader.load_interactive("res://tscndosyalari/bot/bot.tscn")
+		botloader = ResourceLoader.load_threaded_request("res://tscndosyalari/bot/bot.tscn")
 	pass
 
 var yazi = {"mod":tr("loadm"), 
@@ -42,7 +42,7 @@ var yazi = {"mod":tr("loadm"),
 			"bot":tr("loadb"), 
 			"tamam":tr("yuklemetamam")}
 
-onready var tween = $Tween
+@onready var tween = $Tween
 func _process(_delta):
 	Input.action_press("ui_down")
 	if adim == 1:
@@ -57,11 +57,11 @@ func _process(_delta):
 	elif adim == 4:
 		yukle(botloader)
 		yuklemetext.text = yazi["bot"] + str(deger) + "%"
-onready var yuklemetext = $yuklemebar / text
+@onready var yuklemetext = $yuklemebar / text
 func tamamlandi():
 	yuklemetext.text = tr("yuklemetamam")
 	bar.value = 1
-	tween.interpolate_property(self, "rect_position", Vector2(0, 0), Vector2(0, 720)
+	tween.interpolate_property(self, "position", Vector2(0, 0), Vector2(0, 720)
 	, 1, Tween.TRANS_QUINT, Tween.EASE_IN)
 	tween.start()
 	pass
@@ -79,26 +79,26 @@ func yukle(loader):
 	if err == ERR_FILE_EOF:
 		var resource = loader.get_resource()
 		if adim == 1:
-			yaris = resource.instance()
+			yaris = resource.instantiate()
 			yaris.mod = mod
 			yaris.test = test
 			if test == true:
 				yaris.get_node("CizgiModeli").queue_free()
 			yaris.yaristur = yaristur
 			yaris.kazanmabonusu = kazanmabonusu
-			get_parent().add_child_below_node(get_parent().get_node("/root/Arkaplanmuzik"), yaris)
+			get_parent().add_sibling(get_parent().get_node("/root/Arkaplanmuzik"), yaris)
 			get_tree().set_current_scene(yaris)
 			adim = 2
 		elif adim == 2:
-			pist = resource.instance()
+			pist = resource.instantiate()
 			yaris.yarispist = pist
 			yaris.pistindexayarla()
 			get_parent().get_node("/root/Yaris").add_child(pist)
 			adim = 3
 		elif adim == 3:
-			araba = resource.instance()
-			araba.translation.z = - 15
-			araba.translation.x = - 3
+			araba = resource.instantiate()
+			araba.position.z = - 15
+			araba.position.x = - 3
 			yaris.player = araba
 			get_parent().get_node("/root/Yaris").add_child(araba)
 			adim = 4
@@ -108,9 +108,9 @@ func yukle(loader):
 				set_process(false)
 				tamamlandi()
 		elif adim == 4:
-			bot = resource.instance()
-			bot.translation.z = - 5
-			bot.translation.x = 3
+			bot = resource.instantiate()
+			bot.position.z = - 5
+			bot.position.x = 3
 			bot.kirmizi = true
 			bot.player = araba
 			yaris.bot = bot
@@ -127,7 +127,7 @@ func yukle(loader):
 		loader = null
 	pass
 
-onready var bar = $yuklemebar
+@onready var bar = $yuklemebar
 var deger = 0
 func yuklemebar(loader):
 	bar.value = float(loader.get_stage()) / loader.get_stage_count()

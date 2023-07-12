@@ -68,7 +68,7 @@ func _process(delta):
 		ses = label.visible_characters
 		$ses.play()
 		
-onready var label = $TextureRect2 / Label
+@onready var label = $TextureRect2 / Label
 func _on_Button_pressed():
 	if label.percent_visible > 0.5:
 		yuzde = 0

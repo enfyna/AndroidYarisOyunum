@@ -1,9 +1,9 @@
 extends Button
-onready var paralabel = $h / v2 / ParaOdulu
-onready var bronzlabel = $h / v2 / BronzOdulu
-onready var gumuslabel = $h / v2 / GumusOdulu
-onready var altinlabel = $h / v2 / AltinOdulu
-onready var bonuslabel = $h / v2 / BonusOdulu
+@onready var paralabel = $h / v2 / ParaOdulu
+@onready var bronzlabel = $h / v2 / BronzOdulu
+@onready var gumuslabel = $h / v2 / GumusOdulu
+@onready var altinlabel = $h / v2 / AltinOdulu
+@onready var bonuslabel = $h / v2 / BonusOdulu
 var paradurum = 0
 var kazanmabonusu
 var bonusidx = 0
@@ -28,27 +28,27 @@ func _ready():
 	$devamet.visible = false
 	paradurum = sign(para)
 	if paradurum < 0:
-		paralabel.add_color_override("font_color", Color(1, 0, 0, 1))
+		paralabel.add_theme_color_override("font_color", Color(1, 0, 0, 1))
 	else :
-		paralabel.add_color_override("font_color", Color(1, 1, 1, 1))
+		paralabel.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 	var stylbx = get_stylebox("hover").duplicate()
 	if durum == "Kazandın!":
 		stylbx.bg_color = Color(0, 0.5, 0, 1)
-		add_stylebox_override("hover", stylbx)
-		add_stylebox_override("normal", stylbx)
-		add_stylebox_override("pressed", stylbx)
+		add_theme_stylebox_override("hover", stylbx)
+		add_theme_stylebox_override("normal", stylbx)
+		add_theme_stylebox_override("pressed", stylbx)
 		$Baslik.text = tr("kazandin")
 	elif durum == "Kaybettin.":
 		stylbx.bg_color = Color(0.5, 0, 0, 1)
-		add_stylebox_override("hover", stylbx)
-		add_stylebox_override("normal", stylbx)
-		add_stylebox_override("pressed", stylbx)
+		add_theme_stylebox_override("hover", stylbx)
+		add_theme_stylebox_override("normal", stylbx)
+		add_theme_stylebox_override("pressed", stylbx)
 		$Baslik.text = tr("kaybettin")
 	elif durum == "Zamana Karşı!":
 		stylbx.bg_color = Color(0, 0.5, 0.5, 1)
-		add_stylebox_override("hover", stylbx)
-		add_stylebox_override("normal", stylbx)
-		add_stylebox_override("pressed", stylbx)
+		add_theme_stylebox_override("hover", stylbx)
+		add_theme_stylebox_override("normal", stylbx)
+		add_theme_stylebox_override("pressed", stylbx)
 		$Baslik.text = tr("zamanakarsi")
 	if tur == - 1:
 		tur = 0
@@ -101,7 +101,7 @@ func _ready():
 	$Reklamlabel.text = tr("reklamoner") % [abs(kazanmabonusu) + abs(para)] + str(":")
 	$reklam.text = tr("izle")
 	
-	tween.interpolate_property(get_node("."), "rect_position", Vector2(0, 720), Vector2(0, 0)
+	tween.interpolate_property(get_node("."), "position", Vector2(0, 720), Vector2(0, 0)
 	, 1, Tween.TRANS_QUINT, Tween.EASE_IN)
 	tween.start()
 	pass
@@ -135,14 +135,14 @@ func _process(_delta):
 	pass
 func _on_devamet_pressed():
 	anamenuyedon()
-onready var tween = $Tween
+@onready var tween = $Tween
 var t
 func anamenuyedon():
 	Global.oyunkaydet()
-	t = load("res://tscndosyalari/menu/AnaMenu.tscn").instance()
-	get_tree().root.call_deferred("add_child_below_node", get_parent().get_node("/root/Arkaplanmuzik"), t)
+	t = load("res://tscndosyalari/menu/AnaMenu.tscn").instantiate()
+	get_tree().root.call_deferred("add_sibling", get_parent().get_node("/root/Arkaplanmuzik"), t)
 	get_tree().call_deferred("set_current_scene", t)
-	tween.interpolate_property(get_node("."), "rect_position", Vector2(0, 0), Vector2(0, 720)
+	tween.interpolate_property(get_node("."), "position", Vector2(0, 0), Vector2(0, 720)
 	, 1, Tween.TRANS_QUINT, Tween.EASE_IN)
 	tween.start()
 func _on_Tween_tween_completed(_object, _key):
@@ -160,7 +160,7 @@ func _on_Tween_tween_completed(_object, _key):
 		call_deferred("free")
 
 
-onready var admob = $AdMob
+@onready var admob = $AdMob
 func _on_reklam_pressed():
 	$devamet.visible = false
 	$reklam.text = tr("yukleniyor")

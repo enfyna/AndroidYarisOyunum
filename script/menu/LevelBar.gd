@@ -1,7 +1,7 @@
-extends TextureProgress
+extends TextureProgressBar
 var anlikxp = Global.kayit["oyuncu"]["xp"]
-onready var label = $Label
-onready var tween = $Tween
+@onready var label = $Label
+@onready var tween = $Tween
 func _ready():
 	label.text = str(Global.kayit["oyuncu"]["lvl"])
 	value = anlikxp
@@ -25,19 +25,19 @@ func _on_Tween_tween_completed(_object, _key):
 func renk():
 	if int(Global.kayit["oyuncu"]["lvl"]) < 10:
 		tint_progress = Color(1, 1, 1, 1)
-		$Label.add_color_override("font_color", Color(1, 1, 1, 1))
+		$Label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 	elif int(Global.kayit["oyuncu"]["lvl"]) < 25:
 		tint_progress = Color(0.6, 0.2, 0, 1)
-		$Label.add_color_override("font_color", Color(0.6, 0.2, 0, 1))
+		$Label.add_theme_color_override("font_color", Color(0.6, 0.2, 0, 1))
 	elif int(Global.kayit["oyuncu"]["lvl"]) < 50:
 		tint_progress = Color(0.6, 0.6, 0.6, 1)
-		$Label.add_color_override("font_color", Color(0.6, 0.6, 0.6, 1))
+		$Label.add_theme_color_override("font_color", Color(0.6, 0.6, 0.6, 1))
 	elif int(Global.kayit["oyuncu"]["lvl"]) < 100:
 		tint_progress = Color(1, 1, 0, 1)
-		$Label.add_color_override("font_color", Color(1, 1, 0, 1))
+		$Label.add_theme_color_override("font_color", Color(1, 1, 0, 1))
 	elif int(Global.kayit["oyuncu"]["lvl"]) < 500:
 		tint_progress = Color(0, 1, 1, 1)
-		$Label.add_color_override("font_color", Color(0, 1, 1, 1))
+		$Label.add_theme_color_override("font_color", Color(0, 1, 1, 1))
 	else :
 		tint_progress = Color(0.6, 0, 1, 1)
-		$Label.add_color_override("font_color", Color(0.6, 0, 1, 1))
+		$Label.add_theme_color_override("font_color", Color(0.6, 0, 1, 1))

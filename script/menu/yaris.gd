@@ -1,8 +1,8 @@
-extends Spatial
-onready var eniyisurelabel = $Eniyisure / Eniyisure
-onready var sonturlabel = $SonTur / SonTur
-onready var surelabel = $Sure / Sure
-onready var turlabel = $Tur / Tur
+extends Node3D
+@onready var eniyisurelabel = $Eniyisure / Eniyisure
+@onready var sonturlabel = $SonTur / SonTur
+@onready var surelabel = $Sure / Sure
+@onready var turlabel = $Tur / Tur
 var kazanmabonusu
 var pisteniyisure
 var mod:String
@@ -32,11 +32,11 @@ func _ready():
 	var index = AudioServer.get_bus_channels(1)
 	AudioServer.set_bus_effect_enabled(index, 0, true)
 	AudioServer.get_bus_effect(index, 0).wet = 0
-	$DirectionalLight.shadow_enabled = true if Global.kayit["ayarlar"]["sis"] else false
+	$DirectionalLight3D.shadow_enabled = true if Global.kayit["ayarlar"]["sis"] else false
 	Arkaplanmuzik.ackapat(false)
 	
 	if Global.kayit["tutorial"]["giris"] == 11:
-		var t = load("res://tscndosyalari/menu/Tutorial.tscn").instance()
+		var t = load("res://tscndosyalari/menu/Tutorial.tscn").instantiate()
 		get_parent().call_deferred("add_child", t)
 		Global.kayit["tutorial"]["giris"] += 1
 	$Penalti.visible = 0
@@ -128,8 +128,8 @@ func _on_cizgi_body_entered(body):
 			if penaltitur != tur and pistindex != null:
 				odulver(pistindex)
 			elif penaltitur == tur:
-				turlabel.add_color_override("font_color", Color(1, 1, 1, 1))
-				surelabel.add_color_override("font_color", Color(1, 1, 1, 1))
+				turlabel.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+				surelabel.add_theme_color_override("font_color", Color(1, 1, 1, 1))
 			tur += 1
 		else :
 			tur -= 1
@@ -147,7 +147,7 @@ func _on_cizgi_body_entered(body):
 			yarisbitir("Kazandın!")
 		else :
 			yarisbitir("Kaybettin.")
-		$cizgi / CollisionShape.disabled = true
+		$cizgi / CollisionShape3D.disabled = true
 		pass
 	pass
 
@@ -162,12 +162,12 @@ func _on_kontrol2_body_entered(body):
 		kontrol = 2
 	
 
-onready var Penalti = $Penalti
+@onready var Penalti = $Penalti
 func penalti(i):
 	var ceza = [100, 1000, 300]
 	penaltitur = tur
-	turlabel.add_color_override("font_color", Color(1, 0, 0, 1))
-	surelabel.add_color_override("font_color", Color(1, 0, 0, 1))
+	turlabel.add_theme_color_override("font_color", Color(1, 0, 0, 1))
+	surelabel.add_theme_color_override("font_color", Color(1, 0, 0, 1))
 	if i == 0:
 		Penalti.visible = true
 		Penalti.text = tr("p1") + "\n" + tr("penalti") + ":" + str(ceza[0]) + " " + tr("para")
@@ -280,7 +280,7 @@ func odulver(pindex):
 
 func yarisbitir(durum):
 	$TerkEt.visible = false
-	var b = load("res://tscndosyalari/menu/YarisBitir.tscn").instance()
+	var b = load("res://tscndosyalari/menu/YarisBitir.tscn").instantiate()
 	if durum == "Kazandın!":
 		b.kazanmabonusu = kazanmabonusu
 	else :
@@ -293,7 +293,7 @@ func yarisbitir(durum):
 	b.sure = toplamsure
 	b.tur = yaristur if mod == "Yaris" else tur - 1
 	b.mod = mod
-	get_parent().call_deferred("add_child_below_node", get_parent().get_node("/root/Yaris"), b)
+	get_parent().call_deferred("add_sibling", get_parent().get_node("/root/Yaris"), b)
 	pass
 
 func _on_TerkEt_pressed():

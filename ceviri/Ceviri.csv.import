@@ -2,13 +2,14 @@
 
 importer="csv_translation"
 type="Translation"
+uid="uid://d3r1odipbr4kf"
 
 [deps]
 
-files=[ "res://ceviri/Ceviri.en.translation", "res://ceviri/Ceviri.tr.translation" ]
+files=["res://ceviri/Ceviri.en.translation", "res://ceviri/Ceviri.tr.translation"]
 
 source_file="res://ceviri/Ceviri.csv"
-dest_files=[ "res://ceviri/Ceviri.en.translation", "res://ceviri/Ceviri.tr.translation" ]
+dest_files=["res://ceviri/Ceviri.en.translation", "res://ceviri/Ceviri.tr.translation"]
 
 [params]
 

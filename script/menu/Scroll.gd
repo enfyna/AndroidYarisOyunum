@@ -7,19 +7,19 @@ var swipe_mouse_times = []
 var swipe_mouse_positions = []
 
 func _input(ev):
-	if ev is InputEventMouseButton and get_local_mouse_position().x < rect_size.x and get_local_mouse_position().y < rect_size.y and get_local_mouse_position().x > 0 and get_local_mouse_position().y > 0:
+	if ev is InputEventMouseButton and get_local_mouse_position().x < size.x and get_local_mouse_position().y < size.y and get_local_mouse_position().x > 0 and get_local_mouse_position().y > 0:
 		if ev.pressed:
 			swiping = true
 			swipe_start = Vector2(get_h_scroll(), get_v_scroll())
 			swipe_mouse_start = ev.position
-			swipe_mouse_times = [OS.get_ticks_msec()]
+			swipe_mouse_times = [Time.get_ticks_msec()]
 			swipe_mouse_positions = [swipe_mouse_start]
 		else :
-			swipe_mouse_times.append(OS.get_ticks_msec())
+			swipe_mouse_times.append(Time.get_ticks_msec())
 			swipe_mouse_positions.append(ev.position)
 			var source = Vector2(get_h_scroll(), get_v_scroll())
 			var idx = swipe_mouse_times.size() - 1
-			var now = OS.get_ticks_msec()
+			var now = Time.get_ticks_msec()
 			var cutoff = now - 100
 			for i in range(swipe_mouse_times.size() - 1, - 1, - 1):
 				if swipe_mouse_times[i] >= cutoff:idx = i
@@ -40,5 +40,5 @@ func _input(ev):
 		var delta = ev.position - swipe_mouse_start
 		set_h_scroll(swipe_start.x - delta.x)
 		set_v_scroll(swipe_start.y - delta.y)
-		swipe_mouse_times.append(OS.get_ticks_msec())
+		swipe_mouse_times.append(Time.get_ticks_msec())
 		swipe_mouse_positions.append(ev.position)

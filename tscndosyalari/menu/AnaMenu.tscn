@@ -1,43 +1,43 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=20 format=3 uid="uid://d0figvkhtfyqn"]
 
-[ext_resource path="res://script/menu/anamenubutonlar.gd" type="Script" id=1]
-[ext_resource path="res://resimler/arkaplan/anamenuarka7.png" type="Texture" id=2]
-[ext_resource path="res://tscndosyalari/menu/ParaTablo.tscn" type="PackedScene" id=3]
-[ext_resource path="res://resimler/menu/anamenu/galeri3.png" type="Texture" id=4]
-[ext_resource path="res://resimler/menu/anamenu/garaj2.png" type="Texture" id=5]
-[ext_resource path="res://resimler/menu/anamenu/pistler2.png" type="Texture" id=6]
-[ext_resource path="res://resimler/menu/anamenu/ayarlar.png" type="Texture" id=7]
-[ext_resource path="res://resimler/menu/anamenu/zk.png" type="Texture" id=8]
-[ext_resource path="res://resimler/menu/anamenu/market.png" type="Texture" id=9]
-[ext_resource path="res://script/menu/anamenuceviri.gd" type="Script" id=10]
-[ext_resource path="res://script/menu/anamenututorialekle.gd" type="Script" id=11]
-[ext_resource path="res://resimler/menu/anamenu/basarimlar.png" type="Texture" id=12]
-[ext_resource path="res://resimler/menu/anamenu/oyuncup.png" type="Texture" id=13]
-[ext_resource path="res://resimler/menu/garaj/bos.png" type="Texture" id=15]
-[ext_resource path="res://font/new_dynamicfont.tres" type="DynamicFont" id=16]
-[ext_resource path="res://resimler/menu/anamenu/ayarlarp.png" type="Texture" id=19]
-[ext_resource path="res://resimler/menu/anamenu/oyuncu.png" type="Texture" id=23]
+[ext_resource type="Script" path="res://script/menu/anamenubutonlar.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bjiil02fey4fp" path="res://resimler/arkaplan/anamenuarka7.png" id="2"]
+[ext_resource type="PackedScene" path="res://tscndosyalari/menu/ParaTablo.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://qex0vx3m4y0r" path="res://resimler/menu/anamenu/galeri3.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bnonjvrr7cdc" path="res://resimler/menu/anamenu/garaj2.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://b8vjr6l542ios" path="res://resimler/menu/anamenu/pistler2.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://u3roqbjecbcj" path="res://resimler/menu/anamenu/ayarlar.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://dy31bqjj1f8u1" path="res://resimler/menu/anamenu/zk.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://c06l2fol5bfav" path="res://resimler/menu/anamenu/market.png" id="9"]
+[ext_resource type="Script" path="res://script/menu/anamenuceviri.gd" id="10"]
+[ext_resource type="Script" path="res://script/menu/anamenututorialekle.gd" id="11"]
+[ext_resource type="Texture2D" uid="uid://c20f8la60f2d2" path="res://resimler/menu/anamenu/basarimlar.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://tqre1ppnfo6j" path="res://resimler/menu/anamenu/oyuncup.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://c33cle5qm7qgv" path="res://resimler/menu/garaj/bos.png" id="15"]
+[ext_resource type="FontFile" path="res://font/new_dynamicfont.tres" id="16"]
+[ext_resource type="Texture2D" uid="uid://ds6gim4k1rjka" path="res://resimler/menu/anamenu/ayarlarp.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://cy46p2nyk5fs4" path="res://resimler/menu/anamenu/oyuncu.png" id="23"]
 
-[sub_resource type="StyleBoxFlat" id=14]
-bg_color = Color( 0.266667, 0.0196078, 0.0196078, 1 )
+[sub_resource type="StyleBoxFlat" id="13"]
+bg_color = Color(0.694118, 0.133333, 0.133333, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.631373, 0.223529, 0.223529, 1 )
+border_color = Color(0.443137, 0.0666667, 0.0666667, 1)
 border_blend = true
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=13]
-bg_color = Color( 0.694118, 0.133333, 0.133333, 1 )
+[sub_resource type="StyleBoxFlat" id="14"]
+bg_color = Color(0.266667, 0.0196078, 0.0196078, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.443137, 0.0666667, 0.0666667, 1 )
+border_color = Color(0.631373, 0.223529, 0.223529, 1)
 border_blend = true
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -45,380 +45,376 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="AnaMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="Arkaplan" type="TextureRect" parent="."]
-margin_right = 1280.0
-margin_bottom = 720.0
-texture = ExtResource( 2 )
-script = ExtResource( 11 )
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2")
+script = ExtResource("11")
 
 [node name="hb" type="HBoxContainer" parent="."]
-margin_top = 52.0
-margin_right = 1280.0
-margin_bottom = 720.0
-rect_min_size = Vector2( 1280, 0 )
+custom_minimum_size = Vector2(1280, 0)
+layout_mode = 0
+offset_top = 52.0
+offset_right = 1280.0
+offset_bottom = 720.0
 
 [node name="araba" type="TextureRect" parent="hb"]
-margin_right = 500.0
-margin_bottom = 668.0
-rect_min_size = Vector2( 500, 0 )
-texture = ExtResource( 15 )
-expand = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+texture = ExtResource("15")
+expand_mode = 1
 stretch_mode = 4
 flip_h = true
 
 [node name="gc" type="GridContainer" parent="hb"]
-margin_left = 504.0
-margin_right = 1279.0
-margin_bottom = 560.0
-rect_min_size = Vector2( 775, 0 )
-rect_clip_content = true
+clip_contents = true
+custom_minimum_size = Vector2(775, 0)
+layout_mode = 2
 size_flags_vertical = 0
-custom_constants/vseparation = 0
-custom_constants/hseparation = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 columns = 2
-script = ExtResource( 10 )
+script = ExtResource("10")
 
 [node name="Zk" type="Control" parent="hb/gc"]
-margin_right = 388.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 380, 140 )
+custom_minimum_size = Vector2(380, 140)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Zkbutonu" type="Button" parent="hb/gc/Zk"]
+custom_minimum_size = Vector2(350, 125)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -175.0
-margin_top = -62.5
-margin_right = 175.0
-margin_bottom = 62.5
-rect_min_size = Vector2( 350, 125 )
+offset_left = -175.0
+offset_top = -62.5
+offset_right = 175.0
+offset_bottom = 62.5
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 16 )
-custom_styles/hover = SubResource( 14 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/normal = SubResource( 13 )
+theme_override_fonts/font = ExtResource("16")
+theme_override_styles/normal = SubResource("13")
+theme_override_styles/hover = SubResource("14")
+theme_override_styles/pressed = SubResource("14")
 text = "Zamana Karşı!"
-align = 2
 
 [node name="Zkbutonu" type="TextureRect" parent="hb/gc/Zk/Zkbutonu"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -75.0
-margin_right = 150.0
-margin_bottom = 75.0
-texture = ExtResource( 8 )
-expand = true
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+texture = ExtResource("8")
+expand_mode = 1
 
 [node name="1v1" type="Control" parent="hb/gc"]
-margin_left = 388.0
-margin_right = 775.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 380, 140 )
+custom_minimum_size = Vector2(380, 140)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="yarisbutonu" type="Button" parent="hb/gc/1v1"]
+custom_minimum_size = Vector2(350, 125)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -175.0
-margin_top = -62.5
-margin_right = 175.0
-margin_bottom = 62.5
-rect_min_size = Vector2( 350, 125 )
+offset_left = -175.0
+offset_top = -62.5
+offset_right = 175.0
+offset_bottom = 62.5
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 16 )
-custom_styles/hover = SubResource( 14 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/normal = SubResource( 13 )
+theme_override_fonts/font = ExtResource("16")
+theme_override_styles/normal = SubResource("13")
+theme_override_styles/hover = SubResource("14")
+theme_override_styles/pressed = SubResource("14")
 text = "              Bota Karşı!"
 
 [node name="yarisbutonu" type="TextureRect" parent="hb/gc/1v1/yarisbutonu"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -75.0
-margin_right = 150.0
-margin_bottom = 75.0
-texture = ExtResource( 8 )
-expand = true
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+texture = ExtResource("8")
+expand_mode = 1
 
 [node name="Galeri" type="Control" parent="hb/gc"]
-margin_top = 140.0
-margin_right = 388.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 0, 140 )
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
 
 [node name="Galeributonu" type="Button" parent="hb/gc/Galeri"]
+custom_minimum_size = Vector2(350, 125)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -175.0
-margin_top = -62.5
-margin_right = 175.0
-margin_bottom = 62.5
-rect_min_size = Vector2( 350, 125 )
+offset_left = -175.0
+offset_top = -62.5
+offset_right = 175.0
+offset_bottom = 62.5
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 16 )
-custom_styles/hover = SubResource( 14 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/normal = SubResource( 13 )
+theme_override_fonts/font = ExtResource("16")
+theme_override_styles/normal = SubResource("13")
+theme_override_styles/hover = SubResource("14")
+theme_override_styles/pressed = SubResource("14")
 text = "          Galeri"
 
 [node name="Galeributonu" type="TextureRect" parent="hb/gc/Galeri/Galeributonu"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -75.0
-margin_right = 150.0
-margin_bottom = 75.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource( 4 )
-expand = true
+texture = ExtResource("4")
+expand_mode = 1
 
 [node name="Market" type="Control" parent="hb/gc"]
-margin_left = 388.0
-margin_top = 140.0
-margin_right = 775.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 380, 140 )
+custom_minimum_size = Vector2(380, 140)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Marketbutonu" type="Button" parent="hb/gc/Market"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -175.0
-margin_top = -62.5
-margin_right = 175.0
-margin_bottom = 62.5
+offset_left = -175.0
+offset_top = -62.5
+offset_right = 175.0
+offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = ExtResource( 16 )
-custom_styles/hover = SubResource( 14 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/normal = SubResource( 13 )
+theme_override_fonts/font = ExtResource("16")
+theme_override_styles/normal = SubResource("13")
+theme_override_styles/hover = SubResource("14")
+theme_override_styles/pressed = SubResource("14")
 text = "          Dükkan"
 
 [node name="Marketbutonu" type="TextureRect" parent="hb/gc/Market/Marketbutonu"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -75.0
-margin_right = 150.0
-margin_bottom = 75.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource( 9 )
-expand = true
+texture = ExtResource("9")
+expand_mode = 1
 
 [node name="Garaj" type="Control" parent="hb/gc"]
-margin_top = 280.0
-margin_right = 388.0
-margin_bottom = 420.0
-rect_min_size = Vector2( 380, 140 )
+custom_minimum_size = Vector2(380, 140)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Garajbutonu" type="Button" parent="hb/gc/Garaj"]
+custom_minimum_size = Vector2(350, 125)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -175.0
-margin_top = -62.5
-margin_right = 175.0
-margin_bottom = 62.5
+offset_left = -175.0
+offset_top = -62.5
+offset_right = 175.0
+offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 350, 125 )
-custom_fonts/font = ExtResource( 16 )
-custom_styles/hover = SubResource( 14 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/normal = SubResource( 13 )
+theme_override_fonts/font = ExtResource("16")
+theme_override_styles/normal = SubResource("13")
+theme_override_styles/hover = SubResource("14")
+theme_override_styles/pressed = SubResource("14")
 text = "          Garaj"
 
 [node name="Garajbutonu" type="TextureRect" parent="hb/gc/Garaj/Garajbutonu"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -75.0
-margin_right = 150.0
-margin_bottom = 75.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource( 5 )
-expand = true
+texture = ExtResource("5")
+expand_mode = 1
 
 [node name="Pistler" type="Control" parent="hb/gc"]
-margin_left = 388.0
-margin_top = 280.0
-margin_right = 775.0
-margin_bottom = 420.0
-rect_min_size = Vector2( 380, 140 )
+custom_minimum_size = Vector2(380, 140)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Pistlerbutonu" type="Button" parent="hb/gc/Pistler"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -175.0
-margin_top = -62.5
-margin_right = 175.0
-margin_bottom = 62.5
+offset_left = -175.0
+offset_top = -62.5
+offset_right = 175.0
+offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = ExtResource( 16 )
-custom_styles/hover = SubResource( 14 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/normal = SubResource( 13 )
+theme_override_fonts/font = ExtResource("16")
+theme_override_styles/normal = SubResource("13")
+theme_override_styles/hover = SubResource("14")
+theme_override_styles/pressed = SubResource("14")
 text = "          Dünya"
 
 [node name="Pistlerbutonu" type="TextureRect" parent="hb/gc/Pistler/Pistlerbutonu"]
-modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
+modulate = Color(0.690196, 0.690196, 0.690196, 1)
+layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -75.0
-margin_right = 150.0
-margin_bottom = 75.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource( 6 )
-expand = true
+texture = ExtResource("6")
+expand_mode = 1
 
 [node name="Basarimlar" type="Control" parent="hb/gc"]
-margin_top = 420.0
-margin_right = 388.0
-margin_bottom = 560.0
-rect_min_size = Vector2( 380, 140 )
+custom_minimum_size = Vector2(380, 140)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Basarimlarbutonu" type="Button" parent="hb/gc/Basarimlar"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -175.0
-margin_top = -62.5
-margin_right = 175.0
-margin_bottom = 62.5
+offset_left = -175.0
+offset_top = -62.5
+offset_right = 175.0
+offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = ExtResource( 16 )
-custom_styles/hover = SubResource( 14 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/normal = SubResource( 13 )
+theme_override_fonts/font = ExtResource("16")
+theme_override_styles/normal = SubResource("13")
+theme_override_styles/hover = SubResource("14")
+theme_override_styles/pressed = SubResource("14")
 text = "          Başarımlar"
 
 [node name="Basarimlarbutonu" type="TextureRect" parent="hb/gc/Basarimlar/Basarimlarbutonu"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -75.0
-margin_right = 150.0
-margin_bottom = 75.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource( 12 )
-expand = true
+texture = ExtResource("12")
+expand_mode = 1
 
 [node name="AyarlarveOyuncu" type="Control" parent="hb/gc"]
-margin_left = 388.0
-margin_top = 420.0
-margin_right = 775.0
-margin_bottom = 560.0
-rect_min_size = Vector2( 380, 140 )
+custom_minimum_size = Vector2(380, 140)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Ayarlarbutonu" type="Button" parent="hb/gc/AyarlarveOyuncu"]
+custom_minimum_size = Vector2(150, 125)
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -369.0
-margin_top = -62.0
-margin_right = -219.0
-margin_bottom = 63.0
+offset_left = -369.0
+offset_top = -62.0
+offset_right = -219.0
+offset_bottom = 63.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 150, 125 )
-custom_fonts/font = ExtResource( 16 )
-custom_styles/hover = SubResource( 14 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/normal = SubResource( 13 )
+theme_override_fonts/font = ExtResource("16")
+theme_override_styles/normal = SubResource("13")
+theme_override_styles/hover = SubResource("14")
+theme_override_styles/pressed = SubResource("14")
 
 [node name="Ayarlarbutonu" type="TextureButton" parent="hb/gc/AyarlarveOyuncu/Ayarlarbutonu"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -75.0
-margin_top = -75.0
-margin_right = 75.0
-margin_bottom = 75.0
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 19 )
-texture_hover = ExtResource( 19 )
-expand = true
+texture_normal = ExtResource("7")
+texture_pressed = ExtResource("19")
+texture_hover = ExtResource("19")
 
 [node name="Oyuncubutonu" type="Button" parent="hb/gc/AyarlarveOyuncu"]
 visible = false
+custom_minimum_size = Vector2(150, 125)
+layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 18.0
-margin_top = -62.0
-margin_right = 168.0
-margin_bottom = 63.0
+offset_left = 18.0
+offset_top = -62.0
+offset_right = 168.0
+offset_bottom = 63.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 150, 125 )
-custom_fonts/font = ExtResource( 16 )
-custom_styles/hover = SubResource( 14 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/normal = SubResource( 13 )
+theme_override_fonts/font = ExtResource("16")
+theme_override_styles/normal = SubResource("13")
+theme_override_styles/hover = SubResource("14")
+theme_override_styles/pressed = SubResource("14")
 
 [node name="Oyuncubutonu" type="TextureButton" parent="hb/gc/AyarlarveOyuncu/Oyuncubutonu"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -75.0
-margin_top = -75.0
-margin_right = 75.0
-margin_bottom = 75.0
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture_normal = ExtResource( 23 )
-texture_pressed = ExtResource( 13 )
-texture_hover = ExtResource( 13 )
-expand = true
+texture_normal = ExtResource("23")
+texture_pressed = ExtResource("13")
+texture_hover = ExtResource("13")
 
-[node name="ParaTablo" parent="." instance=ExtResource( 3 )]
+[node name="ParaTablo" parent="." instance=ExtResource("3")]
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1280.0
-margin_bottom = 0.0
+offset_right = 1280.0
+offset_bottom = 0.0
 
 [connection signal="pressed" from="hb/gc/Zk/Zkbutonu" to="." method="_on_Zkbutonu_pressed"]
 [connection signal="pressed" from="hb/gc/1v1/yarisbutonu" to="." method="_on_yarisbutonu_pressed"]

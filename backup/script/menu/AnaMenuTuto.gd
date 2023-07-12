@@ -18,7 +18,7 @@ func _ready():
 		get_parent().get_node("hb/araba").texture = load("res://resimler/menu/garaj/bos.png")
 	
 	if Global.kayit["tutorial"]["giris"] == 0 or Global.kayit["tutorial"]["giris"] == 6:
-		var t = load("res://tscndosyalari/menu/Tutorial.tscn").instance()
+		var t = load("res://tscndosyalari/menu/Tutorial.tscn").instantiate()
 		get_parent().call_deferred("add_child",t)
 	if Global.kayit["tutorial"]["giris"] == 6:
 		Global.kayit["tutorial"]["giris"] = 7

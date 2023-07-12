@@ -25,17 +25,17 @@ signal rewarded_clicked
 signal rewarded_impression
 
 
-export  var is_real:bool setget is_real_set
-export  var banner_on_top:bool = true
+@export  var is_real:bool: set = is_real_set
+@export  var banner_on_top:bool = true
 
-export (String, "ADAPTIVE_BANNER", "SMART_BANNER", "BANNER", "LARGE_BANNER", "MEDIUM_RECTANGLE", "FULL_BANNER", "LEADERBOARD") var banner_size = "ADAPTIVE_BANNER"
-export  var banner_id:String
-export  var interstitial_id:String
-export  var rewarded_id:String
-export  var rewarded_interstitial_id:String
-export  var child_directed:bool = false setget child_directed_set
-export  var is_personalized:bool = true setget is_personalized_set
-export (String, "G", "PG", "T", "MA") var max_ad_content_rate = "G" setget max_ad_content_rate_set
+@export (String, "ADAPTIVE_BANNER", "SMART_BANNER", "BANNER", "LARGE_BANNER", "MEDIUM_RECTANGLE", "FULL_BANNER", "LEADERBOARD") var banner_size = "ADAPTIVE_BANNER"
+@export  var banner_id:String
+@export  var interstitial_id:String
+@export  var rewarded_id:String
+@export  var rewarded_interstitial_id:String
+@export  var child_directed:bool = false: set = child_directed_set
+@export  var is_personalized:bool = true: set = is_personalized_set
+@export (String, "G", "PG", "T", "MA") var max_ad_content_rate = "G": set = max_ad_content_rate_set
 
 
 var _admob_singleton = null
@@ -81,7 +81,7 @@ func init()->bool:
 		_admob_singleton = Engine.get_singleton("GodotAdMob")
 
 		
-		if not _admob_singleton.is_connected("on_admob_ad_loaded", self, "_on_admob_ad_loaded"):
+		if not _admob_singleton.is_connected("on_admob_ad_loaded", Callable(self, "_on_admob_ad_loaded")):
 			connect_signals()
 
 		_admob_singleton.initWithContentRating(
@@ -95,26 +95,26 @@ func init()->bool:
 
 
 func connect_signals()->void :
-	_admob_singleton.connect("on_admob_ad_loaded", self, "_on_admob_ad_loaded")
-	_admob_singleton.connect("on_admob_banner_failed_to_load", self, "_on_admob_banner_failed_to_load")
-	_admob_singleton.connect("on_interstitial_failed_to_load", self, "_on_interstitial_failed_to_load")
-	_admob_singleton.connect("on_interstitial_opened", self, "_on_interstitial_opened")
-	_admob_singleton.connect("on_interstitial_loaded", self, "_on_interstitial_loaded")
-	_admob_singleton.connect("on_interstitial_close", self, "_on_interstitial_close")
-	_admob_singleton.connect("on_interstitial_clicked", self, "_on_interstitial_clicked")
-	_admob_singleton.connect("on_interstitial_impression", self, "_on_interstitial_impression")
-	_admob_singleton.connect("on_rewarded_video_ad_loaded", self, "_on_rewarded_video_ad_loaded")
-	_admob_singleton.connect("on_rewarded_video_ad_opened", self, "_on_rewarded_video_ad_opened")
-	_admob_singleton.connect("on_rewarded_video_ad_closed", self, "_on_rewarded_video_ad_closed")
-	_admob_singleton.connect("on_rewarded_video_ad_failed_to_load", self, "_on_rewarded_video_ad_failed_to_load")
-	_admob_singleton.connect("on_rewarded_interstitial_ad_loaded", self, "_on_rewarded_interstitial_ad_loaded")
-	_admob_singleton.connect("on_rewarded_interstitial_ad_opened", self, "_on_rewarded_interstitial_ad_opened")
-	_admob_singleton.connect("on_rewarded_interstitial_ad_closed", self, "_on_rewarded_interstitial_ad_closed")
-	_admob_singleton.connect("on_rewarded_interstitial_ad_failed_to_load", self, "_on_rewarded_interstitial_ad_failed_to_load")
-	_admob_singleton.connect("on_rewarded_interstitial_ad_failed_to_show", self, "_on_rewarded_interstitial_ad_failed_to_show")
-	_admob_singleton.connect("on_rewarded", self, "_on_rewarded")
-	_admob_singleton.connect("on_rewarded_clicked", self, "_on_rewarded_clicked")
-	_admob_singleton.connect("on_rewarded_impression", self, "_on_rewarded_impression")
+	_admob_singleton.connect("on_admob_ad_loaded", Callable(self, "_on_admob_ad_loaded"))
+	_admob_singleton.connect("on_admob_banner_failed_to_load", Callable(self, "_on_admob_banner_failed_to_load"))
+	_admob_singleton.connect("on_interstitial_failed_to_load", Callable(self, "_on_interstitial_failed_to_load"))
+	_admob_singleton.connect("on_interstitial_opened", Callable(self, "_on_interstitial_opened"))
+	_admob_singleton.connect("on_interstitial_loaded", Callable(self, "_on_interstitial_loaded"))
+	_admob_singleton.connect("on_interstitial_close", Callable(self, "_on_interstitial_close"))
+	_admob_singleton.connect("on_interstitial_clicked", Callable(self, "_on_interstitial_clicked"))
+	_admob_singleton.connect("on_interstitial_impression", Callable(self, "_on_interstitial_impression"))
+	_admob_singleton.connect("on_rewarded_video_ad_loaded", Callable(self, "_on_rewarded_video_ad_loaded"))
+	_admob_singleton.connect("on_rewarded_video_ad_opened", Callable(self, "_on_rewarded_video_ad_opened"))
+	_admob_singleton.connect("on_rewarded_video_ad_closed", Callable(self, "_on_rewarded_video_ad_closed"))
+	_admob_singleton.connect("on_rewarded_video_ad_failed_to_load", Callable(self, "_on_rewarded_video_ad_failed_to_load"))
+	_admob_singleton.connect("on_rewarded_interstitial_ad_loaded", Callable(self, "_on_rewarded_interstitial_ad_loaded"))
+	_admob_singleton.connect("on_rewarded_interstitial_ad_opened", Callable(self, "_on_rewarded_interstitial_ad_opened"))
+	_admob_singleton.connect("on_rewarded_interstitial_ad_closed", Callable(self, "_on_rewarded_interstitial_ad_closed"))
+	_admob_singleton.connect("on_rewarded_interstitial_ad_failed_to_load", Callable(self, "_on_rewarded_interstitial_ad_failed_to_load"))
+	_admob_singleton.connect("on_rewarded_interstitial_ad_failed_to_show", Callable(self, "_on_rewarded_interstitial_ad_failed_to_show"))
+	_admob_singleton.connect("on_rewarded", Callable(self, "_on_rewarded"))
+	_admob_singleton.connect("on_rewarded_clicked", Callable(self, "_on_rewarded_clicked"))
+	_admob_singleton.connect("on_rewarded_impression", Callable(self, "_on_rewarded_impression"))
 
 
 

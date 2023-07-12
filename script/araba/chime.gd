@@ -1,5 +1,5 @@
 extends AudioStreamPlayer3D
-onready var parent = get_parent()
+@onready var parent = get_parent()
 func _ready():
 	playing = true
 func _process(_delta):
