@@ -1,12 +1,12 @@
 extends Control
 
 var Save : SaveManager = SaveManager.new()
-var kayit : Dictionary = Save.get_save()
 
 func oyunkaydet():
 	Save.save_game()
 
 func oyuncuseviye(m):
+	var kayit : Dictionary = Save.get_save()
 	if (kayit["oyuncu"]["lvl"] - (kayit["oyuncu"]["lvl"] % 10)) / 10 >= 1:
 		kayit["oyuncu"]["xp"] += (m * 5) / ((kayit["oyuncu"]["lvl"] - (kayit["oyuncu"]["lvl"] % 10)) / 10)
 	else:
@@ -17,12 +17,13 @@ func oyuncuseviye(m):
 		kayit["oyuncu"]["xp"] -= 500
 		kayit["para"]["para"] += kayit["oyuncu"]["lvl"] * 100
 
-func toplamoynamasuresi():
-	var _err = get_tree().create_timer(5).timeout.connect(surearttir)
+# func toplamoynamasuresi():
+# 	var _err = get_tree().create_timer(5).timeout.connect(surearttir)
 
-func surearttir():
-	kayit["tarih"]["toplamoynamasure"] += 5000
-	toplamoynamasuresi()
+# func surearttir():
+# 	var kayit : Dictionary = Save.get_save()
+# 	kayit["tarih"]["toplamoynamasure"] += 5000
+# 	toplamoynamasuresi()
 
 
 # func _notification(what):

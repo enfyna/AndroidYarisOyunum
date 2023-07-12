@@ -1,6 +1,6 @@
 extends Control
 
-var muzikayari = Global.kayit["ayarlar"]["muzik"]
+var muzikayari = Global.Save.get_save()["ayarlar"]["muzik"]
 @onready var muzik = $muzik
 var muzikstr
 var muziksil
@@ -10,7 +10,7 @@ var muziksil
 @onready var gumuslabel = $paralar / g / g
 @onready var altinlabel = $paralar / a / a
 @onready var elmaslabel = $paralar / e / e
-var para = Global.kayit["para"]["para"]
+var para = Global.Save.get_save()["para"]["para"]
 var sira = 1
 var artieksi = "+"
 var r = 1

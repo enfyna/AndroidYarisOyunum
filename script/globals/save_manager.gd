@@ -113,23 +113,23 @@ func get_save() -> Dictionary:
 	return self.save
 
 func save_game() -> void:
-	var json = JSON.stringify(save,"\t")
-	var file = FileAccess.open_encrypted_with_pass(save_path, FileAccess.WRITE,"pass")
+	var json : String = JSON.stringify(save,"\t")
+	var file : FileAccess = FileAccess.open_encrypted_with_pass(save_path, FileAccess.WRITE,"pass")
 	file.store_string(json)
 	print_debug("Game saved.")#Save data : "+str(json))
 
 func load_save() -> void:
 	# If no save file create new one
 	if not FileAccess.file_exists(save_path):
-		var file = FileAccess.open_encrypted_with_pass(save_path, FileAccess.WRITE,"pass")
-		var json = JSON.stringify(save,"\t")
+		var file : FileAccess = FileAccess.open_encrypted_with_pass(save_path, FileAccess.WRITE,"pass")
+		var json : String = JSON.stringify(save,"\t")
 		file.store_string(json)
 		print_debug("Created new save file.")#Save data : "+str(json))
 		return
 	# Save file found
-	var file = FileAccess.open_encrypted_with_pass(save_path, FileAccess.READ,"pass")
-	var json = file.get_as_text()
-	var data = JSON.parse_string(json)
+	var file : FileAccess = FileAccess.open_encrypted_with_pass(save_path, FileAccess.READ,"pass")
+	var json : String = file.get_as_text()
+	var data : Dictionary = JSON.parse_string(json)
 	merge_dict_recursive(save,data)
 	loaded = true
 	print_debug("Game loaded.")

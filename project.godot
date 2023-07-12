@@ -85,8 +85,7 @@ buses/channel_disable_time=1.0
 [autoload]
 
 Global="*res://script/globals/Global.gd"
-AudioManager="*res://script/menu/AudioManager.gd"
-Arkaplanmuzik="*res://tscndosyalari/menu/ArkaplanMuzik.tscn"
+AudioManager="*res://script/globals/audio_manager.gd"
 
 [compression]
 
@@ -155,6 +154,10 @@ reverse={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://ceviri/Ceviri.en.translation", "res://ceviri/Ceviri.tr.translation")
 
 [locale]
 

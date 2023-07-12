@@ -419,6 +419,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 offset_right = 1280.0
 offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="pressed" from="hb/gc/Zk/Zkbutonu" to="." method="_on_Zkbutonu_pressed"]
 [connection signal="pressed" from="hb/gc/1v1/yarisbutonu" to="." method="_on_yarisbutonu_pressed"]

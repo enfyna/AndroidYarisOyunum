@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://blrr8s6jlkdwu"]
 
-[ext_resource path="res://script/menu/arkaplanmuzik.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://script/menu/arkaplanmuzik.gd" id="1"]
 
 [node name="arkaplanmuzik" type="Node"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="arkaplanmuzik" type="AudioStreamPlayer" parent="."]
 volume_db = -80.0

@@ -31,7 +31,7 @@ func _ready():
 		paralabel.add_theme_color_override("font_color", Color(1, 0, 0, 1))
 	else :
 		paralabel.add_theme_color_override("font_color", Color(1, 1, 1, 1))
-	var stylbx = get_stylebox("hover").duplicate()
+	var stylbx =  get_theme_stylebox("hover").duplicate()
 	if durum == "Kazandın!":
 		stylbx.bg_color = Color(0, 0.5, 0, 1)
 		add_theme_stylebox_override("hover", stylbx)
