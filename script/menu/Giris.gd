@@ -140,9 +140,11 @@ func ilerle():
 		Arkaplanmuzik.ackapat()
 		var t : Node = load("res://tscndosyalari/menu/AnaMenu.tscn").instantiate()
 		var p : Node = load("res://tscndosyalari/menu/Pause.tscn").instantiate()
-		get_parent().call_deferred("add_sibling", get_parent().get_node("/root/Arkaplanmuzik"), t)
-		get_parent().call_deferred("add_sibling", self, p)
+		get_parent().call_deferred("add_child",t)
+		get_parent().call_deferred("add_child",p)
 		get_tree().call_deferred("set_current_scene", t)
+		# get_parent().call_deferred("add_sibling", get_parent().get_node("/root/Arkaplanmuzik"), t)
+		# get_parent().call_deferred("add_sibling", self, p)
 		
 		var tween : Tween = create_tween()
 		tween.tween_property(

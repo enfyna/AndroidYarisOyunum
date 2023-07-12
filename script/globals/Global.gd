@@ -18,7 +18,7 @@ func oyuncuseviye(m):
 		kayit["para"]["para"] += kayit["oyuncu"]["lvl"] * 100
 
 func toplamoynamasuresi():
-		var _err = get_tree().create_timer(5).timeout.connect(surearttir)
+	var _err = get_tree().create_timer(5).timeout.connect(surearttir)
 
 func surearttir():
 	kayit["tarih"]["toplamoynamasure"] += 5000

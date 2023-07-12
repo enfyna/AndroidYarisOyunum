@@ -13,13 +13,13 @@ func pause():
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	get_tree().paused = true
 	
-func _notification(what):
-	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT:
-		var sahne = str(get_tree().get_current_scene().name)
-		if sahne == "Yaris":
-			button.visible = true
-			mouse_filter = Control.MOUSE_FILTER_STOP
-			get_tree().paused = true
+# func _notification(what):
+# 	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT:
+# 		var sahne = str(get_tree().get_current_scene().name)
+# 		if sahne == "Yaris":
+# 			button.visible = true
+# 			mouse_filter = Control.MOUSE_FILTER_STOP
+# 			get_tree().paused = true
 
 func _on_TextureButton_pressed():
 	button.visible = false

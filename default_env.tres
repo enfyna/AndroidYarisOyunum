@@ -15,6 +15,4 @@ background_mode = 2
 sky = SubResource("1")
 sky_rotation = Vector3(0, 2.35619, 0)
 tonemap_mode = 2
-glow_enabled = true
-adjustment_enabled = true
 adjustment_color_correction = SubResource("3")

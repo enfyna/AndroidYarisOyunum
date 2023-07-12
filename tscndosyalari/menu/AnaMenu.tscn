@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/menu/anamenubutonlar.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bjiil02fey4fp" path="res://resimler/arkaplan/anamenuarka7.png" id="2"]
-[ext_resource type="PackedScene" path="res://tscndosyalari/menu/ParaTablo.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://tscndosyalari/menu/ParaTablo.tscn" id="3"]
 [ext_resource type="Texture2D" uid="uid://qex0vx3m4y0r" path="res://resimler/menu/anamenu/galeri3.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://bnonjvrr7cdc" path="res://resimler/menu/anamenu/garaj2.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://b8vjr6l542ios" path="res://resimler/menu/anamenu/pistler2.png" id="6"]
@@ -49,6 +49,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1")
 
 [node name="Arkaplan" type="TextureRect" parent="."]
@@ -374,6 +376,8 @@ mouse_filter = 2
 texture_normal = ExtResource("7")
 texture_pressed = ExtResource("19")
 texture_hover = ExtResource("19")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Oyuncubutonu" type="Button" parent="hb/gc/AyarlarveOyuncu"]
 visible = false

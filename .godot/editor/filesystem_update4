@@ -12,3 +12,12 @@ res://script/menu/anamenubutonlar.gd
 res://script/menu/arkaplanmuzik.gd
 res://script/menu/koyumod.gd
 res://script/menu/Dunya.gd
+res://script/menu/anamenuceviri.gd
+res://script/menu/arabasecim.gd
+res://tscndosyalari/menu/ParaTablo.tscn
+res://script/menu/Pause.gd
+res://tscndosyalari/menu/Pause.tscn
+res://script/menu/LevelBar.gd
+res://tscndosyalari/menu/LevelBar.tscn
+res://script/menu/Scroll.gd
+res://script/menu/Pistsat.gd

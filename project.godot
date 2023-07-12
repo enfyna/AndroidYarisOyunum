@@ -102,6 +102,7 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/window_width_override=640
 window/size/window_height_override=360
+window/stretch/mode="canvas_items"
 window/handheld/orientation=4
 window/vsync/vsync_mode=false
 

@@ -1,20 +1,21 @@
 extends TextureProgressBar
 var anlikxp = Global.kayit["oyuncu"]["xp"]
 @onready var label = $Label
-@onready var tween = $Tween
+
 func _ready():
 	label.text = str(Global.kayit["oyuncu"]["lvl"])
 	value = anlikxp
 	renk()
+
 func xparttir():
 	if not label.text == str(Global.kayit["oyuncu"]["lvl"]):
 		label.text = str(Global.kayit["oyuncu"]["lvl"])
 		$levelup.play()
 		renk()
-	tween.interpolate_property(get_node("."), "anlikxp", 
-	anlikxp, Global.kayit["oyuncu"]["xp"]
-	, 0.25, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween.start()
+	var tween : Tween = create_tween()
+	tween.tween_property(
+		self, "anlikxp", Global.kayit["oyuncu"]["xp"], 0.25
+	).set_trans(Tween.TRANS_LINEAR)
 	pass
 func _on_Tween_tween_step(_object, _key, _elapsed, _value):
 	value = anlikxp
