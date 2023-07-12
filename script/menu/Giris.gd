@@ -1,10 +1,15 @@
 extends Control
 onready var bar = $yuklemebar
 onready var tween = $Tween
-var tarih 
+var tarih
 
 func _ready():
-	VisualServer.set_default_clear_color(Color(0.6,1,1,1))
+	if OS.get_locale_language() == "tr":
+		TranslationServer.set_locale("tr")
+	else :
+		TranslationServer.set_locale("en")
+	
+	
 	get_tree().set_auto_accept_quit(false)
 	tarih = OS.get_date()
 	bar.value = 0
@@ -12,6 +17,7 @@ func _ready():
 	$LineEdit.placeholder_text = tr("g1")
 	$LineEdit.visible = false
 	kayityukle()
+
 func kayityukle():
 	var save_path = "user://save.dat"
 	var file = File.new()
@@ -20,60 +26,63 @@ func kayityukle():
 		if error == OK:
 			var player_data = file.get_var()
 			file.close()
-			var yuzde : float = 100 / player_data.size()
+			
+			
+			var yuzde:float = 100 / player_data.size()
 			for idx in range(player_data.size()):
 				var key = player_data.keys()[idx]
 				if player_data.has(key):
 					if typeof(player_data[key]) == TYPE_DICTIONARY:
 						for idx2 in range(player_data[key].size()):
 							var subkey = player_data[key].keys()[idx2]
-							#print(key,subkey)
+							
 							if key == "tarih" or key == "gorev":
-								tarihayarla(player_data,subkey)
+								tarihayarla(player_data, subkey)
 							elif key == "arabalar":
-								arabaayarla(player_data,subkey,key)
+								arabaayarla(player_data, subkey, key)
 							elif key == "basarimlar":
-								basarimlariayarla(player_data,subkey,key)
-							else:
+								basarimlariayarla(player_data, subkey, key)
+							else :
 								Global.kayit[key][subkey] = player_data[key][subkey]
-				bar.value += yuzde
-	else: #default
-		Global.kayit["tarih"]["secilengorev"] = {"1":0,"2":5,"3":7,"4":false,"5":false}
+					bar.value += yuzde
+			
+			
+			
+	else :
+		Global.kayit["tarih"]["secilengorev"] = {"1":3, "2":5, "3":7, "4":false, "5":false}
 	isimkontrol()
 	pass
-func tarihayarla(player_data,subkey):
+func tarihayarla(player_data, subkey):
 	if subkey == "tarih":
-		Global.kayit["tarih"]["secilengorev"] = player_data["tarih"]["secilengorev"]
-		if player_data["tarih"]["tarih"]["weekday"] != tarih["weekday"]:
-			Global.kayit["tarih"]["secilengorev"]["4"] = false
-			Global.kayit["tarih"]["secilengorev"]["5"] = false
-			var rasgele = [0,0,0]
+		
+		if player_data["tarih"]["tarih"]["day"] < tarih["day"] or player_data["tarih"]["tarih"]["month"] < tarih["month"] or player_data["tarih"]["tarih"]["year"] < tarih["year"]:
+			Global.kayit["tarih"]["secilengorev"] = {"1":0, "2":0, "3":0, "4":false, "5":false}
+			var rasgele = [0, 0, 0]
 			var idx3 = 0
 			while rasgele.has(0):
-				randomize()
-				var rsayi =(randi()%Global.kayit["gorev"].size())
-				if (not rasgele.has(rsayi)):
+				var rsayi = (randi() % Global.kayit["gorev"].size()) + 1
+				if not rasgele.has(rsayi):
 					rasgele[idx3] = rsayi
 					idx3 += 1
 					if idx3 == 3:
 						break
-			var gorevsayisi = 3
-			for i in range(gorevsayisi):#Eger gun degistiyse rasgele gorev sec ve ilerlemelerini sifirla
-				Global.kayit["tarih"]["secilengorev"][str(i+1)] = rasgele[i]
-				Global.kayit["gorev"][str(Global.kayit["tarih"]["secilengorev"][str(i+1)])]["tamam"] = false
-				Global.kayit["gorev"][str(Global.kayit["tarih"]["secilengorev"][str(i+1)])]["yap"] = 0
-		else:#Eger gün degismediyse bir sey yapma
+			for i in range(3):
+				Global.kayit["tarih"]["secilengorev"][str(i + 1)] = rasgele[i]
+				Global.kayit["gorev"][str(Global.kayit["tarih"]["secilengorev"][str(i + 1)])]["tamam"] = false
+				Global.kayit["gorev"][str(Global.kayit["tarih"]["secilengorev"][str(i + 1)])]["yap"] = 0
+		else :
 			Global.kayit["tarih"]["secilengorev"] = player_data["tarih"]["secilengorev"]
 			if player_data.has("gorev"):
-				Global.kayit["gorev"].merge(player_data["gorev"],true)
-		Global.kayit["tarih"]["tarih"] = tarih 
+				Global.kayit["gorev"].merge(player_data["gorev"], true)
+		Global.kayit["tarih"]["tarih"] = tarih
 		pass
-	elif subkey == "secilengorev": #burada birsey yapmana gerek yok
-		pass #cunku secilengorevleri yukarida tarih ayarliyor
+	elif subkey == "secilengorev":
+		
+		pass
 	elif subkey == "toplamoynamasure":
 		Global.kayit["tarih"]["toplamoynamasure"] = player_data["tarih"]["toplamoynamasure"]
 	pass
-func arabaayarla(player_data,subkey,key):
+func arabaayarla(player_data, subkey, key):
 	if typeof(player_data[key][subkey]) == TYPE_DICTIONARY:
 		for idx3 in range(player_data[key][subkey].size()):
 			var subsubkey = player_data[key][subkey].keys()[idx3]
@@ -84,7 +93,7 @@ func arabaayarla(player_data,subkey,key):
 		elif player_data[key][subkey] == 0:
 			Global.kayit[key][subkey]["sahiplik"] = false
 	pass
-func basarimlariayarla(player_data,subkey,key):
+func basarimlariayarla(player_data, subkey, key):
 	if typeof(player_data[key][subkey]) == TYPE_DICTIONARY:
 		for idx3 in range(player_data[key][subkey].size()):
 			var subsubkey = player_data[key][subkey].keys()[idx3]
@@ -98,7 +107,7 @@ func isimkontrol():
 		$LineEdit.visible = true
 		$Tamam.text = tr("tamam")
 		$Tamam.visible = true
-	else:
+	else :
 		ilerle()
 func _on_Button_pressed():
 	var new_text = $LineEdit.text
@@ -112,28 +121,24 @@ func isimyaz(new_text):
 		$LineEdit.visible = false
 		$Tamam.visible = false
 		ilerle()
-	else:
+	else :
 		$LineEdit.text = ""
 		$LineEdit.placeholder_text = tr("g2")
 	pass
 
 func ilerle():
 	if Global.kayit["oyuncu"]["isim"] != "":
-		Global.ackapat()
-		Global.arkaplanmuzik()
+		Arkaplanmuzik.ackapat()
 		var t = load("res://tscndosyalari/menu/AnaMenu.tscn").instance()
 		var p = load("res://tscndosyalari/menu/Pause.tscn").instance()
-		get_parent().call_deferred("add_child_below_node",get_parent().get_node("/root/Global"),t)
-		get_parent().call_deferred("add_child_below_node",self,p)
-		get_tree().call_deferred("set_current_scene",t)
-		tween.interpolate_property(self,"rect_position",
+		get_parent().call_deferred("add_child_below_node", get_parent().get_node("/root/Arkaplanmuzik"), t)
+		get_parent().call_deferred("add_child_below_node", self, p)
+		get_tree().call_deferred("set_current_scene", t)
+		tween.interpolate_property(get_node("."), "rect_position", 
 		Vector2(0, 0), Vector2(0, 720)
-		,1.5,Tween.TRANS_EXPO, Tween.EASE_OUT,0.5)
-		tween.interpolate_property(self,"modulate",
-		Color(1,1,1,1),Color(1,1,1,0)
-		,1.5,Tween.TRANS_EXPO, Tween.EASE_OUT,0.5)
+		, 1.5, Tween.TRANS_EXPO, Tween.EASE_OUT, 0.5)
 		tween.start()
-	else:
+	else :
 		isimkontrol()
 	pass
 func _on_Tween_tween_completed(_object, _key):
@@ -143,187 +148,12 @@ func _on_Tween_tween_completed(_object, _key):
 
 
 
-#var arabasayi = 2
-#var pistsayi = 11
-#var tekerleksayi = 6
-#var parasayi = 5
-#var ayarlarsayi = 7
-#var basarimsayi = 10
-"""for i in range(player_data.size()):
-	print(player_data.keys()[i])
-if player_data.has("para"):
-	if player_data["para"].size() == parasayi:
-		Global.para = player_data["para"]
-	else:
-		Global.para = player_data["para"]
-		while Global.para.size() < parasayi:
-			Global.para.append(0)
-else: #default
-	for _i in range(parasayi):
-		Global.para.append(100)
-	print("Kayit dosyasi duzgun yuklenemedi.")
-
-if player_data.has("arabalar"):
-	if player_data["arabalar"].size() == arabasayi:
-		Global.sahipolunanarabalar = player_data["arabalar"]
-	else:
-		Global.sahipolunanarabalar = player_data["arabalar"]
-		while Global.sahipolunanarabalar.size() < arabasayi:
-			Global.sahipolunanarabalar.append(0)
-else: #default
-	#for _i in range(arabasayi):
-		#Global.sahipolunanarabalar.append(0)
-	print("Kayit dosyasi duzgun yuklenemedi.")
-
-if player_data.has("basarimlar"):
-	if player_data["basarimlar"].size() == basarimsayi:
-		Global.basarimlar = player_data["basarimlar"]
-	else:
-		Global.basarimlar = player_data["basarimlar"]
-		while Global.basarimlar.size() < basarimsayi:
-			Global.basarimlar.append(0)
-else: #default
-	for _i in range(10):
-		Global.basarimlar.append(0)
-	print("Kayit dosyasi duzgun yuklenemedi.")
-
-if player_data.has("pistler"):
-	if player_data["pistler"].size() == pistsayi:
-		Global.sahipolunanpistler = player_data["pistler"]
-	else:
-		Global.sahipolunanpistler = player_data["pistler"]
-		while Global.sahipolunanpistler.size() < pistsayi:
-			Global.sahipolunanpistler.append(0)
-else: #default
-	print("Kayit dosyasi duzgun yuklenemedi.")
-
-if player_data.has("pistsure"):
-	if player_data["pistsure"].size() == pistsayi:
-		for i in range(pistsayi):
-			var idx = str("p") + str(i)
-			Global.pisteniyisure[idx] = player_data["pistsure"][idx]
-	else:
-		for i in range(pistsayi):
-			var idx = str("p") + str(i)
-			Global.pisteniyisure[idx] = player_data["pistsure"][idx]
-		#while Global.pisteniyisure.size() < pistsayi:
-			#Global.pisteniyisure.append(0)
-else: #default
-	print("Kayit dosyasi duzgun yuklenemedi.")
-
-if player_data.has("tekerlekler"):
-	if player_data["tekerlekler"].size() == tekerleksayi:
-		Global.sahipolunantekerlekler = player_data["tekerlekler"]
-	else:
-		Global.sahipolunantekerlekler = player_data["tekerlekler"]
-		while Global.sahipolunantekerlekler.size() < tekerleksayi:
-			Global.sahipolunantekerlekler.append(0)
-else: #default
-	print("Kayit dosyasi duzgun yuklenemedi.")
-
-if player_data.has("ayarlar"):
-	if player_data["ayarlar"].size() == ayarlarsayi:
-		Global.ayarlar = player_data["ayarlar"]
-	else:
-		Global.ayarlar = player_data["ayarlar"]
-		while Global.ayarlar.size() < ayarlarsayi:
-			Global.ayarlar.append(0)
-else: #default
-	Global.ayarlar = [0,1,1,0,1]
-	print("Kayit dosyasi duzgun yuklenemedi.")
-	
-if player_data.has("xp"):
-	if player_data["xp"].size() == 2:
-		Global.xp = player_data["xp"]
-	else:
-		Global.xp = player_data["xp"]
-		while Global.xp.size() < 2:
-			Global.xp.append(0)
-else: #default
-	Global.xp = [0,0]
-	print("Kayit dosyasi duzgun yuklenemedi.")
-
-if player_data.has("tutorial"):
-	if player_data["tutorial"].size() == 1:
-		Global.tutorial = player_data["tutorial"]
-	else:
-		Global.tutorial = player_data["tutorial"]
-		while Global.tutorial.size() < 1:
-			Global.tutorial.append(0)
-else: #default
-	Global.tutorial = [0] 
-	print("Kayit dosyasi duzgun yuklenemedi.")
-
-if player_data.has("isim"):
-	Global.isim = player_data["isim"]
-else:
-	print("Kayit dosyasi duzgun yuklenemedi.")
-
-if player_data.has("secilengorev"):
-	Global.secilengorev = player_data["secilengorev"]
-else:
-	Global.secilengorev = {"1":0,"2":0,"3":0,"4":false,"5":false}
-	print("Kayit dosyasi duzgun yuklenemedi.")
-
-if player_data.has("tarih"):
-	#print(tarih)
-	#print(player_data["tarih"])
-	if player_data["tarih"]["day"]<tarih["day"] or player_data["tarih"]["month"]<tarih["month"]or player_data["tarih"]["year"]<tarih["year"]:
-		Global.secilengorev = {"1":0,"2":0,"3":0,"4":false,"5":false}
-		var rasgele = [0,0,0]
-		var idx = 0
-		while rasgele.has(0):
-			var rsayi = randi()%10+1
-			#print(idx)
-			#print(rsayi)
-			#print(rasgele)
-			if not rasgele.has(rsayi):
-				rasgele[idx] = rsayi
-				idx += 1
-				if idx == 3:
-					break
-			#yield(get_tree(), "idle_frame")
-		for i in range(3):#Eger gun degistiyse rasgele gorev sec ve ilerlemelerini sifirla
-			Global.secilengorev[str(i+1)] = rasgele[i]
-			Global.gorev[str(Global.secilengorev[str(i+1)])]["tamam"] = false
-			Global.gorev[str(Global.secilengorev[str(i+1)])]["yap"] = 0
-		print(Global.secilengorev)
-		#print(Global.gorev)
-	else:#Eger gün degismediyse bir sey yapma
-		if player_data.has("gorev"):
-			Global.gorev = player_data["gorev"]
-else:
-	print("Kayit dosyasi duzgun yuklenemedi.")
-	pass
-Global.tarih = tarih 
-
-if player_data.has("seciliaraba"):
-	Global.secilenaraba = player_data["seciliaraba"]
-else:
-	print("Kayit dosyasi duzgun yuklenemedi.")
-
-if player_data.has("zaman"):
-	Global.oynamasuresi = player_data["zaman"]
-else:
-	print("Kayit dosyasi duzgun yuklenemedi.")"""
-
-
-""""#for _i in range(arabasayi):
-			  #Global.sahipolunanarabalar.append(0)
-		for _i in range(pistsayi):
-			  Global.sahipolunanpistler.append(0)
-			  #Global.pisteniyisure.append(0)
-		for _i in range(parasayi):
-			 Global.para.append(100)
-		for _i in range(basarimsayi):
-			  Global.basarimlar.append(0)
-		for _i in range(2):
-			 Global.xp.append(0)
-		Global.tutorial = [0]
-		Global.oynamasuresi = 0
-		Global.tarih = tarih"""
 
 
 
+"for i in range(player_data.size()):\n	print(player_data.keys()[i])\nif player_data.has(\"para\"):\n	if player_data[\"para\"].size() == parasayi:\n		Global.para = player_data[\"para\"]\n	else:\n		Global.para = player_data[\"para\"]\n		while Global.para.size() < parasayi:\n			Global.para.append(0)\nelse: #default\n	for _i in range(parasayi):\n		Global.para.append(100)\n	print(\"Kayit dosyasi duzgun yuklenemedi.\")\n\nif player_data.has(\"arabalar\"):\n	if player_data[\"arabalar\"].size() == arabasayi:\n		Global.sahipolunanarabalar = player_data[\"arabalar\"]\n	else:\n		Global.sahipolunanarabalar = player_data[\"arabalar\"]\n		while Global.sahipolunanarabalar.size() < arabasayi:\n			Global.sahipolunanarabalar.append(0)\nelse: #default\n	#for _i in range(arabasayi):\n		#Global.sahipolunanarabalar.append(0)\n	print(\"Kayit dosyasi duzgun yuklenemedi.\")\n\nif player_data.has(\"basarimlar\"):\n	if player_data[\"basarimlar\"].size() == basarimsayi:\n		Global.basarimlar = player_data[\"basarimlar\"]\n	else:\n		Global.basarimlar = player_data[\"basarimlar\"]\n		while Global.basarimlar.size() < basarimsayi:\n			Global.basarimlar.append(0)\nelse: #default\n	for _i in range(10):\n		Global.basarimlar.append(0)\n	print(\"Kayit dosyasi duzgun yuklenemedi.\")\n\nif player_data.has(\"pistler\"):\n	if player_data[\"pistler\"].size() == pistsayi:\n		Global.sahipolunanpistler = player_data[\"pistler\"]\n	else:\n		Global.sahipolunanpistler = player_data[\"pistler\"]\n		while Global.sahipolunanpistler.size() < pistsayi:\n			Global.sahipolunanpistler.append(0)\nelse: #default\n	print(\"Kayit dosyasi duzgun yuklenemedi.\")\n\nif player_data.has(\"pistsure\"):\n	if player_data[\"pistsure\"].size() == pistsayi:\n		for i in range(pistsayi):\n			var idx = str(\"p\") + str(i)\n			Global.pisteniyisure[idx] = player_data[\"pistsure\"][idx]\n	else:\n		for i in range(pistsayi):\n			var idx = str(\"p\") + str(i)\n			Global.pisteniyisure[idx] = player_data[\"pistsure\"][idx]\n		#while Global.pisteniyisure.size() < pistsayi:\n			#Global.pisteniyisure.append(0)\nelse: #default\n	print(\"Kayit dosyasi duzgun yuklenemedi.\")\n\nif player_data.has(\"tekerlekler\"):\n	if player_data[\"tekerlekler\"].size() == tekerleksayi:\n		Global.sahipolunantekerlekler = player_data[\"tekerlekler\"]\n	else:\n		Global.sahipolunantekerlekler = player_data[\"tekerlekler\"]\n		while Global.sahipolunantekerlekler.size() < tekerleksayi:\n			Global.sahipolunantekerlekler.append(0)\nelse: #default\n	print(\"Kayit dosyasi duzgun yuklenemedi.\")\n\nif player_data.has(\"ayarlar\"):\n	if player_data[\"ayarlar\"].size() == ayarlarsayi:\n		Global.ayarlar = player_data[\"ayarlar\"]\n	else:\n		Global.ayarlar = player_data[\"ayarlar\"]\n		while Global.ayarlar.size() < ayarlarsayi:\n			Global.ayarlar.append(0)\nelse: #default\n	Global.ayarlar = [0,1,1,0,1]\n	print(\"Kayit dosyasi duzgun yuklenemedi.\")\n	\nif player_data.has(\"xp\"):\n	if player_data[\"xp\"].size() == 2:\n		Global.xp = player_data[\"xp\"]\n	else:\n		Global.xp = player_data[\"xp\"]\n		while Global.xp.size() < 2:\n			Global.xp.append(0)\nelse: #default\n	Global.xp = [0,0]\n	print(\"Kayit dosyasi duzgun yuklenemedi.\")\n\nif player_data.has(\"tutorial\"):\n	if player_data[\"tutorial\"].size() == 1:\n		Global.tutorial = player_data[\"tutorial\"]\n	else:\n		Global.tutorial = player_data[\"tutorial\"]\n		while Global.tutorial.size() < 1:\n			Global.tutorial.append(0)\nelse: #default\n	Global.tutorial = [0] \n	print(\"Kayit dosyasi duzgun yuklenemedi.\")\n\nif player_data.has(\"isim\"):\n	Global.isim = player_data[\"isim\"]\nelse:\n	print(\"Kayit dosyasi duzgun yuklenemedi.\")\n\nif player_data.has(\"secilengorev\"):\n	Global.secilengorev = player_data[\"secilengorev\"]\nelse:\n	Global.secilengorev = {\"1\":0,\"2\":0,\"3\":0,\"4\":false,\"5\":false}\n	print(\"Kayit dosyasi duzgun yuklenemedi.\")\n\nif player_data.has(\"tarih\"):\n	#print(tarih)\n	#print(player_data[\"tarih\"])\n	if player_data[\"tarih\"][\"day\"]<tarih[\"day\"] or player_data[\"tarih\"][\"month\"]<tarih[\"month\"]or player_data[\"tarih\"][\"year\"]<tarih[\"year\"]:\n		Global.secilengorev = {\"1\":0,\"2\":0,\"3\":0,\"4\":false,\"5\":false}\n		var rasgele = [0,0,0]\n		var idx = 0\n		while rasgele.has(0):\n			var rsayi = randi()%10+1\n			#print(idx)\n			#print(rsayi)\n			#print(rasgele)\n			if not rasgele.has(rsayi):\n				rasgele[idx] = rsayi\n				idx += 1\n				if idx == 3:\n					break\n			#yield(get_tree(), \"idle_frame\")\n		for i in range(3):#Eger gun degistiyse rasgele gorev sec ve ilerlemelerini sifirla\n			Global.secilengorev[str(i+1)] = rasgele[i]\n			Global.gorev[str(Global.secilengorev[str(i+1)])][\"tamam\"] = false\n			Global.gorev[str(Global.secilengorev[str(i+1)])][\"yap\"] = 0\n		print(Global.secilengorev)\n		#print(Global.gorev)\n	else:#Eger gün degismediyse bir sey yapma\n		if player_data.has(\"gorev\"):\n			Global.gorev = player_data[\"gorev\"]\nelse:\n	print(\"Kayit dosyasi duzgun yuklenemedi.\")\n	pass\nGlobal.tarih = tarih \n\nif player_data.has(\"seciliaraba\"):\n	Global.secilenaraba = player_data[\"seciliaraba\"]\nelse:\n	print(\"Kayit dosyasi duzgun yuklenemedi.\")\n\nif player_data.has(\"zaman\"):\n	Global.oynamasuresi = player_data[\"zaman\"]\nelse:\n	print(\"Kayit dosyasi duzgun yuklenemedi.\")"
+
+
+"\"#for _i in range(arabasayi):\n			  #Global.sahipolunanarabalar.append(0)\n		for _i in range(pistsayi):\n			  Global.sahipolunanpistler.append(0)\n			  #Global.pisteniyisure.append(0)\n		for _i in range(parasayi):\n			 Global.para.append(100)\n		for _i in range(basarimsayi):\n			  Global.basarimlar.append(0)\n		for _i in range(2):\n			 Global.xp.append(0)\n		Global.tutorial = [0]\n		Global.oynamasuresi = 0\n		Global.tarih = tarih"
 
 

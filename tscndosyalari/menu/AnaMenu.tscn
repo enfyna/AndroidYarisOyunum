@@ -1,19 +1,22 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://script/menu/AnaMenuButonlar.gd" type="Script" id=1]
+[ext_resource path="res://script/menu/anamenubutonlar.gd" type="Script" id=1]
 [ext_resource path="res://resimler/arkaplan/anamenuarka7.png" type="Texture" id=2]
 [ext_resource path="res://tscndosyalari/menu/ParaTablo.tscn" type="PackedScene" id=3]
-[ext_resource path="res://resimler/menu/anamenu/galeri4.png" type="Texture" id=4]
+[ext_resource path="res://resimler/menu/anamenu/galeri3.png" type="Texture" id=4]
 [ext_resource path="res://resimler/menu/anamenu/garaj2.png" type="Texture" id=5]
-[ext_resource path="res://resimler/menu/anamenu/pistler3.png" type="Texture" id=6]
-[ext_resource path="res://resimler/menu/anamenu/zk2.png" type="Texture" id=7]
+[ext_resource path="res://resimler/menu/anamenu/pistler2.png" type="Texture" id=6]
+[ext_resource path="res://resimler/menu/anamenu/ayarlar.png" type="Texture" id=7]
+[ext_resource path="res://resimler/menu/anamenu/zk.png" type="Texture" id=8]
 [ext_resource path="res://resimler/menu/anamenu/market.png" type="Texture" id=9]
-[ext_resource path="res://script/menu/AnaMenuCeviri.gd" type="Script" id=10]
-[ext_resource path="res://script/menu/AnaMenuTuto.gd" type="Script" id=11]
+[ext_resource path="res://script/menu/anamenuceviri.gd" type="Script" id=10]
+[ext_resource path="res://script/menu/anamenututorialekle.gd" type="Script" id=11]
 [ext_resource path="res://resimler/menu/anamenu/basarimlar.png" type="Texture" id=12]
-[ext_resource path="res://resimler/menu/anamenu/ayarlar2.png" type="Texture" id=14]
+[ext_resource path="res://resimler/menu/anamenu/oyuncup.png" type="Texture" id=13]
 [ext_resource path="res://resimler/menu/garaj/bos.png" type="Texture" id=15]
 [ext_resource path="res://font/new_dynamicfont.tres" type="DynamicFont" id=16]
+[ext_resource path="res://resimler/menu/anamenu/ayarlarp.png" type="Texture" id=19]
+[ext_resource path="res://resimler/menu/anamenu/oyuncu.png" type="Texture" id=23]
 
 [sub_resource type="StyleBoxFlat" id=14]
 bg_color = Color( 0.266667, 0.0196078, 0.0196078, 1 )
@@ -50,7 +53,6 @@ script = ExtResource( 1 )
 margin_right = 1280.0
 margin_bottom = 720.0
 texture = ExtResource( 2 )
-expand = true
 script = ExtResource( 11 )
 
 [node name="hb" type="HBoxContainer" parent="."]
@@ -115,7 +117,7 @@ anchor_bottom = 0.5
 margin_top = -75.0
 margin_right = 150.0
 margin_bottom = 75.0
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 expand = true
 
 [node name="1v1" type="Control" parent="hb/gc"]
@@ -150,7 +152,7 @@ anchor_bottom = 0.5
 margin_top = -75.0
 margin_right = 150.0
 margin_bottom = 75.0
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 expand = true
 
 [node name="Galeri" type="Control" parent="hb/gc"]
@@ -367,14 +369,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -62.5
-margin_top = -62.5
-margin_right = 62.5
-margin_bottom = 62.5
+margin_left = -75.0
+margin_top = -75.0
+margin_right = 75.0
+margin_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture_normal = ExtResource( 14 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
 expand = true
 
 [node name="Oyuncubutonu" type="Button" parent="hb/gc/AyarlarveOyuncu"]
@@ -405,6 +409,9 @@ margin_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
 expand = true
 
 [node name="ParaTablo" parent="." instance=ExtResource( 3 )]

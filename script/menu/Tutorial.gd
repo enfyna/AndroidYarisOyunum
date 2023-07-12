@@ -1,80 +1,97 @@
 extends Control
-var yuzde = 0
-var yazi : String
-var ses = 0
-var mod = "giris"
-onready var sesnode = $ses
-onready var label = $TextureRect2/Label
-var yazilar 
-var giris = [tr("giris1")%[Global.kayit["oyuncu"]["isim"]]
-			,tr("giris2")
-			,tr("giris3")
-			,tr("giris4")
-			,tr("giris5")
-			,tr("giris6")
-			,tr("giris7")
-			,tr("giris8")
-			,tr("giris9")
-			,tr("giris10")
-			,tr("giris11")
-			,tr("giris12")
-			,tr("giris13")
-			,tr("giris14")
-			,tr("giris15")
-			,tr("giris16")
-			,tr("giris17")
-			,tr("giris18")
-			,tr("giris19")
-			,tr("giris20")
-			,tr("giris21")
-			,tr("giris22")
-			,tr("giris23")
-			,tr("giris24")
-			]
-var market =[tr("market1")
-			,tr("market2")
-			,tr("market3")
-			,tr("market4")
-			,tr("market5")
-			]
 
-var dur = {"giris":[2,4,6,7,10,24],"market":[5]}
+var tutoset = - 1
+var yuzde = 0
+var yazi:String
+var ses = 0
+var fade = 0
+
+var yaziliste = ["Tanıştığıma memnun oldum %s.Oyunumu indirmene sevindim." % [Global.kayit["oyuncu"]["isim"]]
+				, "Bu arada benim adım Ramazan.Sana burada işlerin nasıl yürüdüğünü gösterecegim."
+				, "Sana ilk önce bir araba almamız gerekecek.Sağ üstten galeriye gidip hemen bir tane alabiliriz."
+				, "Araba galerisine hoşgeldin.Buradan istediğin arabaları alabilirsin."
+				, "Tabii yeterli paran varsa. ;) "
+				, "Güzel seçim.Artık araba nasıl alınır biliyorsun."
+				, "Arabanı aldığına göre test sürüşüne çıkmaya ne dersin ? "
+				, "Test sürüşüne çıkabilmek ya da yeni pistler satın almak için Dünya ikonuna tıklaman gerekli."
+				, "..."
+				, "Burada sağ taraftan parayla yeni pistler satın alabilirsin."
+				, "Sol taraftan oval bir pistte bedava test sürüşü yapabilirsin.Ama az para kazanırsın.Daha fazla para kazanmak için satın aldığın pistlerde oynaman gerekli."
+				, "Şimdilik yeni bir pist alacak paran olmadığından oval pistte biraz para kazanmaya çalış."
+				, "Evet piste çıktığımıza göre arabamızı kullanabiliriz."
+				, "Ama ilk önce seni uyarmam gereken bazı şeyler var ..."
+				, "Gerçek hayatta da olduğu gibi arabanı kullandıkça motor yağın eskir ya da duvarlara çarparsan motorun hasar alır."
+				, "Motorun yeterince hasar alır ya da yağın çok eskirse motor performansın düşer."
+				, "Bu yüzden motor yağını arada değiştirmeyi ve duvarlara çarpmamaya özen göstermelisin."
+				, "Ve ayrıca duvara çarpınca motorun hasar yediği yetmezmiş gibi duvara hasar verdiğin için pist yönetiminden ayrıca para cezası yersin."
+				, "Hızlı para kazanmak istiyorsan kurallara dikkat etmeye çalış."
+				, "Birazda tekerlek düzeylerini anlatayım."
+				, "Marketten 4 tane tekerlek düzeyi satın alabilirsin."
+				, "1-Süper Yumuşak -> En iyi yol tutuşu sağlar.\n     2-Orta\n     3-Sert\n     4-Konfor            -> En kötü yol tutuşu sağlar."
+				, "En iyi yol tutuşunu süper yumuşaklar sağlar ancak pahalıdırlar ve hemen yıpranırlar.Bu yüzden aldığın tekerlekleri iyi değerlendirmelisin."
+				, "Eğer hiç tekerlek almazsan yol tutuşun en düşük seviyede olur.Arabayı kullanman zorlaşır."
+				, "..."
+				, "..."
+				]
+				
+
+var dur = [2, 4, 6, 8, 11, 23]
+
 func _ready():
-	yazilar = {"giris":giris,"market":market}
-	modulate = Color(1,1,1,0)
-	var tween = create_tween()
-	tween.tween_property(self,"modulate",Color(1,1,1,1),0.7)
-	label.percent_visible = 0
-	yaziayarla()
+	modulate = Color(1, 1, 1, fade)
+	label.percent_visible = yuzde
+	pass
+
+func _process(delta):
+	
+	Input.action_press("ui_down")
+	if Input.is_action_pressed("ui_up"):
+		Input.action_release("ui_up")
+		
+	if Global.kayit["tutorial"]["giris"] < yaziliste.size():
+		yazi = yaziliste[Global.kayit["tutorial"]["giris"]]
+	else :
+		Input.action_release("ui_down")
+		call_deferred("free")
+	
+	label.text = "     " + yazi
+	
+	yuzde += delta
+	
+	label.percent_visible = yuzde
+	
+	if fade < 1:
+		fade += delta * 3
+		$".".modulate = Color(1, 1, 1, fade)
+	
+	if label.visible_characters > ses:
+		ses = label.visible_characters
+		$ses.play()
+		
+onready var label = $TextureRect2 / Label
 func _on_Button_pressed():
 	if label.percent_visible > 0.5:
 		yuzde = 0
 		ses = 0
-		if not dur[mod].has(Global.kayit["tutorial"][mod]):
-			Global.kayit["tutorial"][mod] += 1
-			yaziayarla()
-		else:
-			silanim()
-func yaziayarla():
-	if Global.kayit["tutorial"][mod] < yazilar[mod].size() :
-		yazi = yazilar[mod][Global.kayit["tutorial"][mod]]
-		label.percent_visible = 0
-		label.text = "     " + yazi
-		var tween = create_tween()
-		tween.set_parallel(true)
-		tween.connect("step_finished",self,"sescikar")
-		tween.tween_property(label,"percent_visible",1.0,0.4)
-		tween.tween_method(self,"sescikar",0.0,1.0,0.5)
-	else:
-		silanim()
-func sescikar(_i = 0):
-	sesnode.play()
-func silanim():
-	var tween = create_tween()
-	tween.connect("finished",self,"sil")
-	tween.tween_property(self,"modulate",Color(1,1,1,0),0.3)
-func sil():
-	Global.oyunkaydet()
-	if get_tree().get_current_scene().name == "Yaris":
-		get_node("/root/Yaris").player.tutorial = false
-	call_deferred("free")
+		
+		if not dur.has(Global.kayit["tutorial"]["giris"]):
+			Global.kayit["tutorial"]["giris"] += 1
+		
+		if Global.kayit["tutorial"]["giris"] != tutoset:
+			tutoset = Global.kayit["tutorial"]["giris"]
+		else :
+			Input.action_release("ui_down")
+			call_deferred("free")
+		
+	pass
+
+
+
+
+
+
+
+
+
+
+

@@ -14,7 +14,7 @@
 [ext_resource path="res://resimler/menu/ayarlar/GrabberHighlight.png" type="Texture" id=12]
 [ext_resource path="res://resimler/menu/ayarlar/GrabberDisabled.png" type="Texture" id=13]
 [ext_resource path="res://resimler/menu/ayarlar/LineEditBackground.png" type="Texture" id=14]
-[ext_resource path="res://script/menu/KoyuMod.gd" type="Script" id=15]
+[ext_resource path="res://script/menu/koyumod.gd" type="Script" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -147,7 +147,7 @@ theme = SubResource( 4 )
 [node name="Label2" type="Label" parent="."]
 margin_left = 96.0
 margin_top = 232.0
-margin_right = 466.0
+margin_right = 463.0
 margin_bottom = 293.0
 custom_fonts/font = SubResource( 3 )
 text = "Analog/Dijital:"
@@ -165,7 +165,7 @@ theme = SubResource( 4 )
 [node name="Label3" type="Label" parent="."]
 margin_left = 296.0
 margin_top = 168.0
-margin_right = 466.0
+margin_right = 463.0
 margin_bottom = 229.0
 custom_fonts/font = SubResource( 3 )
 text = "Müzik:"
@@ -184,7 +184,7 @@ pressed = true
 [node name="Label4" type="Label" parent="."]
 margin_left = 744.0
 margin_top = 168.0
-margin_right = 1009.0
+margin_right = 1005.0
 margin_bottom = 229.0
 custom_fonts/font = SubResource( 3 )
 text = "Koyu Mod	:"
@@ -214,7 +214,6 @@ margin_left = 304.0
 margin_top = 8.0
 margin_right = 380.0
 margin_bottom = 56.0
-focus_mode = 0
 theme = SubResource( 4 )
 
 [node name="Label6" type="Label" parent="."]

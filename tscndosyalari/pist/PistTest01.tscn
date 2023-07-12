@@ -6,7 +6,7 @@
 [ext_resource path="res://model/Pist/hayali/testpist/SponsorHooiberg.material" type="Material" id=4]
 [ext_resource path="res://model/Pist/hayali/testpist/SponsorTerront.material" type="Material" id=5]
 [ext_resource path="res://model/Pist/hayali/testpist/kopru.material" type="Material" id=6]
-[ext_resource path="res://script/menu/TunelYankisi.gd" type="Script" id=7]
+[ext_resource path="res://script/menu/PistTest01.gd" type="Script" id=7]
 
 [sub_resource type="BoxShape" id=6]
 extents = Vector3( 129.104, 11.5269, 20.5224 )

@@ -7,7 +7,7 @@
 [ext_resource path="res://font/hemi-head-426.rg-bolditalic.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://script/menu/Basarimlar.gd" type="Script" id=6]
 [ext_resource path="res://font/new_dynamicfont.tres" type="DynamicFont" id=7]
-[ext_resource path="res://script/menu/KoyuMod.gd" type="Script" id=8]
+[ext_resource path="res://script/menu/koyumod.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxFlat" id=29]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -268,7 +268,6 @@ custom_styles/fg = SubResource( 33 )
 custom_styles/bg = SubResource( 34 )
 max_value = 3.6e+06
 value = 420420.0
-allow_greater = true
 
 [node name="B5" type="TextureRect" parent="S/V"]
 margin_top = 616.0

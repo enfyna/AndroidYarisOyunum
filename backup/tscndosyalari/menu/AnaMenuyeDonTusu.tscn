@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://script/menu/AnaMenuButonlar.gd" type="Script" id=1]
+[ext_resource path="res://resimler/menu/anamenu/amdi.png" type="Texture" id=2]
+[ext_resource path="res://resimler/menu/anamenu/amdip.png" type="Texture" id=3]
+
+[node name="anamenuyedon" type="Control"]
+margin_left = 8.0
+margin_top = 64.0
+margin_right = 8.0
+margin_bottom = 64.0
+
+[node name="Button" type="TextureButton" parent="."]
+show_behind_parent = true
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 106.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 90, 90 )
+focus_mode = 0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+expand = true
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]

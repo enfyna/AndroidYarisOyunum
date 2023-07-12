@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://script/menu/AnaMenuButonlar.gd" type="Script" id=1]
+[ext_resource path="res://script/menu/anamenubutonlar.gd" type="Script" id=1]
 [ext_resource path="res://resimler/menu/anamenu/amdi.png" type="Texture" id=2]
 [ext_resource path="res://resimler/menu/anamenu/amdip.png" type="Texture" id=3]
 

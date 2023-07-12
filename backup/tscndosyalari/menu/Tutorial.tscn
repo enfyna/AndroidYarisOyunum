@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://script/menu/Tutorial.gd" type="Script" id=1]
+[ext_resource path="res://font/new_dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://resimler/menu/tutorial/text.png" type="Texture" id=3]
+[ext_resource path="res://font/hemi-head-426.rg-bolditalic.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://resimler/menu/tutorial/pp.png" type="Texture" id=5]
+[ext_resource path="res://muzik/uisounds/ses2.wav" type="AudioStream" id=6]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0.392157 )
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="Tutorial" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+pause_mode = 2
+margin_right = 1280.0
+margin_bottom = 720.0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -600.0
+margin_top = 88.0
+margin_right = 600.0
+margin_bottom = 288.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="TextureRect2"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -584.0
+margin_top = -184.0
+margin_right = 320.0
+margin_bottom = -16.0
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "     Text"
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -350.0
+margin_top = -500.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+
+[node name="ses" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

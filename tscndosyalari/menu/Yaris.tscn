@@ -1,6 +1,6 @@
 [gd_scene load_steps=40 format=2]
 
-[ext_resource path="res://script/menu/Yaris.gd" type="Script" id=1]
+[ext_resource path="res://script/menu/yaris.gd" type="Script" id=1]
 [ext_resource path="res://resimler/hud/sure/eniyisure.png" type="Texture" id=3]
 [ext_resource path="res://resimler/menu/anamenu/amdi.png" type="Texture" id=4]
 [ext_resource path="res://font/hemi-head-426.rg-bolditalic.ttf" type="DynamicFontData" id=5]
@@ -479,7 +479,7 @@ transform = Transform( 0.432807, 0.673606, -0.59911, -0.228998, 0.724932, 0.6496
 light_specular = 0.0
 shadow_enabled = true
 shadow_color = Color( 0.109804, 0.27451, 0.486275, 1 )
-directional_shadow_mode = 0
+directional_shadow_mode = 1
 directional_shadow_split_1 = 0.25
 directional_shadow_split_2 = 0.225
 directional_shadow_split_3 = 1.0

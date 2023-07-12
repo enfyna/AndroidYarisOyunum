@@ -18,7 +18,7 @@
 [ext_resource path="res://resimler/pist/pist10.png" type="Texture" id=17]
 [ext_resource path="res://resimler/menu/pist/pistsecimb.png" type="Texture" id=18]
 [ext_resource path="res://resimler/menu/pist/pistsecimp.png" type="Texture" id=19]
-[ext_resource path="res://script/menu/KoyuMod.gd" type="Script" id=20]
+[ext_resource path="res://script/menu/koyumod.gd" type="Script" id=20]
 [ext_resource path="res://font/hemi-head-426.rg-bolditalic.ttf" type="DynamicFontData" id=21]
 
 [sub_resource type="StyleBoxFlat" id=9]
@@ -182,7 +182,7 @@ margin_right = 1280.0
 margin_bottom = 652.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HScrollBar"]
-margin_right = 3552.0
+margin_right = 3298.0
 margin_bottom = 400.0
 alignment = 1
 
@@ -992,76 +992,9 @@ custom_styles/pressed = SubResource( 12 )
 custom_styles/normal = ExtResource( 10 )
 text = "Satın Al"
 
-[node name="Pist11" type="TextureRect" parent="HScrollBar/HBoxContainer"]
+[node name="Control2" type="Control" parent="HScrollBar/HBoxContainer"]
 margin_left = 3048.0
 margin_right = 3298.0
-margin_bottom = 400.0
-rect_min_size = Vector2( 250, 400 )
-texture = ExtResource( 18 )
-
-[node name="sutun" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Pist11"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -125.0
-margin_top = -200.0
-margin_right = 125.0
-margin_bottom = 244.0
-rect_min_size = Vector2( 250, 400 )
-
-[node name="Container" type="Control" parent="HScrollBar/HBoxContainer/Pist11/sutun"]
-margin_right = 250.0
-margin_bottom = 220.0
-rect_min_size = Vector2( 200, 220 )
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="p10" type="TextureRect" parent="HScrollBar/HBoxContainer/Pist11/sutun/Container"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -100.0
-margin_top = -200.0
-margin_right = 100.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand = true
-
-[node name="Container2" type="Control" parent="HScrollBar/HBoxContainer/Pist11/sutun"]
-margin_top = 224.0
-margin_right = 250.0
-margin_bottom = 444.0
-rect_min_size = Vector2( 200, 220 )
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="HScrollBar/HBoxContainer/Pist11/sutun/Container2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -37.5
-margin_right = 100.0
-margin_bottom = 37.5
-rect_min_size = Vector2( 200, 75 )
-mouse_default_cursor_shape = 2
-custom_fonts/font = ExtResource( 11 )
-custom_styles/hover = ExtResource( 10 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/normal = ExtResource( 10 )
-text = "Satın Al"
-
-[node name="Control2" type="Control" parent="HScrollBar/HBoxContainer"]
-margin_left = 3302.0
-margin_right = 3552.0
 margin_bottom = 400.0
 rect_min_size = Vector2( 250, 400 )
 
@@ -1145,6 +1078,5 @@ valign = 1
 [connection signal="pressed" from="HScrollBar/HBoxContainer/Pist08/sutun/Container2/Button" to="." method="_on_Button8_pressed"]
 [connection signal="pressed" from="HScrollBar/HBoxContainer/Pist09/sutun/Container2/Button" to="." method="_on_Button9_pressed"]
 [connection signal="pressed" from="HScrollBar/HBoxContainer/Pist10/sutun/Container2/Button" to="." method="_on_Button10_pressed"]
-[connection signal="pressed" from="HScrollBar/HBoxContainer/Pist11/sutun/Container2/Button" to="." method="_on_Button11_pressed"]
 [connection signal="pressed" from="uyarı/Button" to="." method="_on_Button_pressed"]
 [connection signal="confirmed" from="bilgi" to="." method="_on_bilgi_confirmed"]
