@@ -26,3 +26,12 @@ res://tscndosyalari/tutorial/Tutorial.gd
 res://script/menu/yarisbaslangickontrol.gd
 res://script/menu/YarisBitir.gd
 res://script/menu/yaris.gd
+res://script/menu/pistsetup.gd
+res://script/menu/Galeri.gd
+res://tscndosyalari/menu/Galeri.tscn
+res://script/menu/Dunya.gd
+res://script/menu/AnaMenuyeDon.gd
+res://tscndosyalari/menu/YarisYukle.tscn
+res://tscndosyalari/menu/Yaris.tscn
+res://script/araba/HizBasarimi.gd
+res://script/araba/araba.gd

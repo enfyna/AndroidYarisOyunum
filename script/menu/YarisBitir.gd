@@ -97,7 +97,7 @@ func _ready():
 		pass
 
 	$ToplamSure.text = str(int(sure / 60000)) + ":" + str(int(sure % 60000) / 1000).pad_zeros(2) + "." + str(sure % 1000).pad_zeros(3)
-	Arkaplanmuzik.ackapat()
+	AudioManager.ackapat()
 	$Reklamlabel.text = tr("reklamoner") % [abs(kazanmabonusu) + abs(para)] + str(":")
 	$reklam.text = tr("izle")
 	

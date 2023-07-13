@@ -1,11 +1,13 @@
 extends Node3D
+class_name Yaris
+
 @onready var eniyisurelabel = $Eniyisure / Eniyisure
 @onready var sonturlabel = $SonTur / SonTur
 @onready var surelabel = $Sure / Sure
 @onready var turlabel = $Tur / Tur
 var kazanmabonusu
 var pisteniyisure
-var mod:String
+@export var mod : String
 var test = false
 var yarispist
 var pistindex = 0
@@ -32,13 +34,12 @@ func _ready():
 	var index = AudioServer.get_bus_channels(1)
 	AudioServer.set_bus_effect_enabled(index, 0, true)
 	AudioServer.get_bus_effect(index, 0).wet = 0
-	$DirectionalLight3D.shadow_enabled = true if Global.kayit["ayarlar"]["sis"] else false
-	Arkaplanmuzik.ackapat(false)
+	$DirectionalLight3D.shadow_enabled = true if Global.Save.get_save()["ayarlar"]["sis"] else false
 	
-	if Global.kayit["tutorial"]["giris"] == 11:
-		var t = load("res://tscndosyalari/menu/Tutorial.tscn").instantiate()
+	if Global.Save.get_save()["tutorial"]["giris"] == 11:
+		var t = load("res://tscndosyalari/tutorial/Tutorial.tscn").instantiate()
 		get_parent().call_deferred("add_child", t)
-		Global.kayit["tutorial"]["giris"] += 1
+		Global.Save.get_save()["tutorial"]["giris"] += 1
 	$Penalti.visible = 0
 	
 		
@@ -48,22 +49,22 @@ func _ready():
 	pass
 
 var pistodul = {
-				"PistTest01":[50000, 60000, 70000], 
-				"PistTest02":[50000, 60000, 70000], 
-				"Pist00":[50000, 60000, 70000], 
-				"Pist01":[50000, 60000, 70000], 
-				"Pist02":[50000, 60000, 70000], 
-				"Pist03":[50000, 55000, 60000], 
-				"Pist04":[50000, 60000, 70000], 
-				"Pist05":[50000, 60000, 70000], 
-				"Pist06":[50000, 60000, 70000], 
-				"Pist07":[50000, 60000, 70000], 
-				"Pist08":[50000, 60000, 70000], 
-				"Pist09":[50000, 60000, 70000], 
-				"Pist10":[50000, 60000, 70000], 
-				"Pist11":[50000, 60000, 70000], 
-				"Pist12":[50000, 60000, 70000], 
-				}
+	"PistTest01":[50000, 60000, 70000], 
+	"PistTest02":[50000, 60000, 70000], 
+	"Pist00":[50000, 60000, 70000], 
+	"Pist01":[50000, 60000, 70000], 
+	"Pist02":[50000, 60000, 70000], 
+	"Pist03":[50000, 55000, 60000], 
+	"Pist04":[50000, 60000, 70000], 
+	"Pist05":[50000, 60000, 70000], 
+	"Pist06":[50000, 60000, 70000], 
+	"Pist07":[50000, 60000, 70000], 
+	"Pist08":[50000, 60000, 70000], 
+	"Pist09":[50000, 60000, 70000], 
+	"Pist10":[50000, 60000, 70000], 
+	"Pist11":[50000, 60000, 70000], 
+	"Pist12":[50000, 60000, 70000], 
+}
 func pistindexayarla():
 	pistindex = str(yarispist.name)
 	
@@ -88,7 +89,7 @@ func pistindexayarla():
 	$pst / v / bronz.text = sure
 	if not mod == "Zaman" or test:
 		$pst.call_deferred("free")
-	pisteniyisure = Global.kayit["pistsure"][pistindex]
+	pisteniyisure = Global.Save.get_save()["pistsure"][pistindex]
 	ms = 0;saniye = 0;dakika = 0
 	eniyituryazisiguncelle()
 
@@ -105,14 +106,6 @@ func gecenzamanguncelle(delta):
 		saniye = 0
 	gecenzaman = "%01d'%02d.%03d" % [dakika, saniye, ms]
 	surelabel.text = gecenzaman
-
-
-	
-	
-	
-	
-	
-	
 
 func _on_cizgi_body_entered(body):
 	if body == player:
@@ -142,8 +135,8 @@ func _on_cizgi_body_entered(body):
 	
 	if (tur > yaristur or bottur > yaristur) and mod == "Yaris":
 		if tur > bottur:
-			Global.kayit["gorev"]["3"]["yap"] += 1
-			Global.kayit["gorev"]["8"]["yap"] += 1
+			Global.Save.get_save()["gorev"]["3"]["yap"] += 1
+			Global.Save.get_save()["gorev"]["8"]["yap"] += 1
 			yarisbitir("Kazandın!")
 		else :
 			yarisbitir("Kaybettin.")
@@ -171,21 +164,21 @@ func penalti(i):
 	if i == 0:
 		Penalti.visible = true
 		Penalti.text = tr("p1") + "\n" + tr("penalti") + ":" + str(ceza[0]) + " " + tr("para")
-		Global.kayit["para"]["para"] -= ceza[0]
+		Global.Save.get_save()["para"]["para"] -= ceza[0]
 		toplamodulp -= ceza[0]
-		$Timer.start(3);yield ($Timer, "timeout")
+		#$Timer.start(3);yield ($Timer, "timeout")
 	elif i == 1:
 		Penalti.visible = true
 		Penalti.text = tr("p2") + "\n" + tr("penalti") + ":" + str(ceza[1]) + " " + tr("para")
-		Global.kayit["para"]["para"] -= ceza[1]
+		Global.Save.get_save()["para"]["para"] -= ceza[1]
 		toplamodulp -= ceza[1]
-		$Timer.start(3);yield ($Timer, "timeout")
+		#$Timer.start(3);yield ($Timer, "timeout")
 	elif i == 2:
 		Penalti.visible = true
 		Penalti.text = tr("p3") + "\n" + tr("penalti") + ":" + str(ceza[2]) + " " + tr("para")
-		Global.kayit["para"]["para"] -= ceza[2]
+		Global.Save.get_save()["para"]["para"] -= ceza[2]
 		toplamodulp -= ceza[2]
-		$Timer.start(3);yield ($Timer, "timeout")
+		#$Timer.start(3);yield ($Timer, "timeout")
 	Penalti.visible = false
 	Penalti.text = ""
 
@@ -228,13 +221,13 @@ func kirmiziisik():
 	sari.visible = false
 	ust.visible = false
 	alt.visible = false
-	$Timer.start(2);yield ($Timer, "timeout")
+	#$Timer.start(2);yield ($Timer, "timeout")
 	ses.play()
 	alt.visible = true
-	$Timer.start(1);yield ($Timer, "timeout")
+	#$Timer.start(1);yield ($Timer, "timeout")
 	ses.play()
 	ust.visible = true
-	$Timer.start(1);yield ($Timer, "timeout")
+	#$Timer.start(1);yield ($Timer, "timeout")
 	if player.speed > 1:
 		penalti(2)
 	ses.stream = load(go)
@@ -249,34 +242,34 @@ var toplamodula = 0
 var toplamodulb = 0
 var toplamodulg = 0
 func odulver(pindex):
-	Global.kayit["basarimlar"]["b1"]["ilerleme"] += 1
-	Global.kayit["gorev"]["2"]["yap"] += 1
-	Global.kayit["gorev"]["10"]["yap"] += 1
-	Global.kayit["gorev"]["9"]["yap"] += 1
+	Global.Save.get_save()["basarimlar"]["b1"]["ilerleme"] += 1
+	Global.Save.get_save()["gorev"]["2"]["yap"] += 1
+	Global.Save.get_save()["gorev"]["10"]["yap"] += 1
+	Global.Save.get_save()["gorev"]["9"]["yap"] += 1
 	if tur >= 1:
-		Global.kayit["para"]["para"] += 100 + ((tur) * 20)
+		Global.Save.get_save()["para"]["para"] += 100 + ((tur) * 20)
 		toplamodulp += 100 + ((tur) * 20)
 		Global.oyuncuseviye((tur - 1) * 2)
 	if mod == "Zaman" and not test:
 		if sontursureint < altin and tur >= 1:
-			Global.kayit["para"]["altin"] += 1
+			Global.Save.get_save()["para"]["altin"] += 1
 			toplamodula += 1
-			Global.kayit["gorev"]["4"]["yap"] += 1
-			Global.kayit["gorev"]["5"]["yap"] += 1
+			Global.Save.get_save()["gorev"]["4"]["yap"] += 1
+			Global.Save.get_save()["gorev"]["5"]["yap"] += 1
 		elif sontursureint < gumus and tur >= 1:
-			Global.kayit["para"]["gumus"] += 1
+			Global.Save.get_save()["para"]["gumus"] += 1
 			toplamodulg += 1
-			Global.kayit["gorev"]["6"]["yap"] += 1
+			Global.Save.get_save()["gorev"]["6"]["yap"] += 1
 		elif sontursureint < bronz and tur >= 1:
-			Global.kayit["para"]["bronz"] += 1
+			Global.Save.get_save()["para"]["bronz"] += 1
 			toplamodulb += 1
-			Global.kayit["gorev"]["7"]["yap"] += 1
+			Global.Save.get_save()["gorev"]["7"]["yap"] += 1
 	
 	if (sontursureint < pisteniyisure or pisteniyisure == 0) and tur >= 1 and mod == "Zaman":
-		Global.kayit["pistsure"][pindex] = sontursureint
+		Global.Save.get_save()["pistsure"][pindex] = sontursureint
 		pisteniyisure = sontursureint
 		eniyisurelabel.text = sontursurestr
-		Global.kayit["gorev"]["1"]["yap"] += 1
+		Global.Save.get_save()["gorev"]["1"]["yap"] += 1
 
 func yarisbitir(durum):
 	$TerkEt.visible = false

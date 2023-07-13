@@ -1,25 +1,29 @@
 extends Control
+
 var pistsayisi = 11
 var arabastr
 var i = 0
 var mod
 var secilentursayisi = 3
 var bonus = 900
+var kayit : Dictionary
+
 func _ready():
+	kayit = Global.Save.get_save()
 	bonus = pow(secilentursayisi, 2) * 100
 	$TurSayisi / h / Bonus.text = tr("bonus") + " : " + str(bonus) + " " + tr("para")
 	var pistnode
 	var surenode
 	var butonnode
 	for x in range(pistsayisi):
-		var id = Global.kayit["pistler"].keys()[x]
+		var id = kayit["pistler"].keys()[x]
 		pistnode = str("HScrollBar/HBoxContainer/" + str(id))
 		surenode = str(pistnode + "/sutun1/Container2/sure")
 		butonnode = str(pistnode + "/sutun1/Container2/Button")
-		if Global.kayit["pistler"][id] == 1:
+		if kayit["pistler"][id] == 1:
 			get_node(butonnode).text = tr("git")
 			get_node(pistnode).visible = 1
-			var z = Global.kayit["pistsure"][id]
+			var z = kayit["pistsure"][id]
 			if z != 0:
 				var ms = int(z % 1000)
 				var saniye = int((z / 1000) % 60)
@@ -32,8 +36,8 @@ func _ready():
 			get_node(pistnode).queue_free()
 			
 	
-	if Global.kayit["oyuncu"]["seciliaraba"] != "":
-		arabastr = str(Global.kayit["oyuncu"]["seciliaraba"])
+	if kayit["oyuncu"]["seciliaraba"] != "":
+		arabastr = str(kayit["oyuncu"]["seciliaraba"])
 		arabastr.erase(0, 26)
 		arabastr.erase(arabastr.length() - 5, 5)
 		$secilenaraba.text = tr("secilenaraba") + " : " + arabastr
@@ -73,8 +77,7 @@ func pistegit(index):
 	t.secilenpist = secilenpist
 	t.yaristur = secilentursayisi
 	t.kazanmabonusu = bonus
-	get_parent().add_sibling(get_parent().get_node("/root/Arkaplanmuzik"), t)
-	get_tree().set_current_scene(t)
+	get_parent().add_child(t)
 	call_deferred("free")
 	pass
 

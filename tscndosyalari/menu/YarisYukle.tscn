@@ -1,41 +1,68 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://bupv6vcouq75j"]
 
-[ext_resource path="res://font/hemi-head-426.rg-bolditalic.ttf" type="FontFile" id=1]
-[ext_resource path="res://resimler/animasyon/untitled.png" type="Texture2D" id=2]
-[ext_resource path="res://resimler/arkaplan/anamenuarka4.png" type="Texture2D" id=3]
-[ext_resource path="res://script/menu/yarisbaslangickontrol.gd" type="Script" id=4]
+[ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://font/hemi-head-426.rg-bolditalic.ttf" id="1"]
+[ext_resource type="Texture2D" uid="uid://cjumb3xensx7l" path="res://resimler/animasyon/untitled.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://g84om0l3y7o2" path="res://resimler/arkaplan/anamenuarka4.png" id="3"]
+[ext_resource type="Script" path="res://script/menu/yarisbaslangickontrol.gd" id="4"]
 
-[sub_resource type="FontFile" id=1]
-size = 30
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 1 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("1")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
 
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0, 0, 0.552941 )
+[sub_resource type="StyleBoxFlat" id="2"]
+bg_color = Color(0, 0, 0, 0.552941)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0, 0, 0, 1 )
+border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="FontFile" id=3]
-size = 20
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 1 )
+[sub_resource type="FontFile" id="3"]
+fallbacks = Array[Font]([ExtResource("1")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [node name="YarisYukle" type="TextureRect"]
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = ExtResource( 3 )
-script = ExtResource( 4 )
+texture = ExtResource("3")
+script = ExtResource("4")
 
 [node name="info" type="Label" parent="."]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -44,14 +71,16 @@ offset_left = -576.0
 offset_top = -272.0
 offset_right = 320.0
 offset_bottom = -64.0
-theme_override_fonts/font = SubResource( 1 )
-theme_override_styles/normal = SubResource( 2 )
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("2")
 text = "Motoru yüksek devirlerde kullanırsan daha hızlı gidersin ama motor yağında aynı şekilde daha hızlı eskimeye başlar."
-align = 1
-valign = 1
-autowrap = true
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="yuklemebar" type="TextureProgressBar" parent="."]
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -63,10 +92,11 @@ offset_bottom = -80.0
 max_value = 1.0
 step = 0.01
 value = 0.7
-texture_progress = ExtResource( 2 )
 fill_mode = 4
+texture_progress = ExtResource("2")
 
 [node name="text" type="Label" parent="yuklemebar"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -74,11 +104,5 @@ anchor_bottom = 1.0
 offset_left = -96.0
 offset_right = 96.0
 offset_bottom = 37.0
-theme_override_fonts/font = SubResource( 3 )
+theme_override_fonts/font = SubResource("3")
 text = "Pist yükleniyor..."
-align = 1
-valign = 1
-
-[node name="Tween" type="Tween" parent="."]
-
-[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

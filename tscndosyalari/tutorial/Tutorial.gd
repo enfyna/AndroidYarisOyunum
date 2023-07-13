@@ -80,4 +80,11 @@ func _on_Button_pressed():
 			tutoset = Global.Save.get_save()["tutorial"]["giris"]
 		else:
 			Input.action_release("ui_down")
-			call_deferred("free")
+			yuzde = 1
+			var tween : Tween = create_tween()
+			tween.tween_property(self,"modulate",Color(0,0,0,0),1)
+			tween.tween_callback(cikis)
+
+func cikis():
+	Global.Save.save_game()
+	call_deferred("queue_free")

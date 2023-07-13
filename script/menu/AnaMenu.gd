@@ -29,17 +29,17 @@ func _ready():
 		node.get_child(0).text = tr(translations[node.name])
 
 	var araba : String = str(Global.Save.get_save()["oyuncu"]["seciliaraba"])
-	araba.erase(0, 26)
-	araba.erase(max(0,araba.length() - 5), 5)
-	araba = araba.to_lower()
-	if araba != "":
+	if araba == "":
+		get_node("hb/araba").texture = load("res://resimler/menu/garaj/bos.png")
+	else:
+		araba.erase(0, 26)
+		araba.erase(max(0,araba.length() - 5), 5)
+		araba = araba.to_lower()
 		var seciliaraba = str("res://resimler/menu/garaj/" + araba + "t.png")
 		get_node("hb/araba").texture = load(seciliaraba)
-	else :
-		get_node("hb/araba").texture = load("res://resimler/menu/garaj/bos.png")
 		
 	if Global.Save.get_save()["tutorial"]["giris"] == 0 or Global.Save.get_save()["tutorial"]["giris"] == 6:
-		var t = load("res://tscndosyalari/tutorial/Tutorial.tscn").instantiate()
+		var t : Node = load("res://tscndosyalari/tutorial/Tutorial.tscn").instantiate()
 		call_deferred("add_child", t)
 	if Global.Save.get_save()["tutorial"]["giris"] == 6:
 		Global.Save.get_save()["tutorial"]["giris"] = 7
