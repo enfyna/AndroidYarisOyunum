@@ -49,9 +49,7 @@ func isimyaz(new_text):
 func ilerle():
 	if kayit["oyuncu"]["isim"] != "":
 		var t : Node = load("res://tscndosyalari/menu/AnaMenu.tscn").instantiate()
-		var p : Node = load("res://tscndosyalari/menu/Pause.tscn").instantiate()
 		get_parent().call_deferred("add_child",t)
-		get_parent().call_deferred("add_child",p)
 
 		z_index = RenderingServer.CANVAS_ITEM_Z_MAX
 		var tween : Tween = create_tween()

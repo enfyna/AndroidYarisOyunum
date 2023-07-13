@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvre2wc3l5ptg"]
 
-[ext_resource type="Script" path="res://script/menu/anamenubutonlar.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://b5mxtv8nvl2gh" path="res://resimler/menu/anamenu/amdi.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://ds8xye3t7temd" path="res://resimler/menu/anamenu/amdip.png" id="3"]
+[ext_resource type="Script" path="res://script/menu/AnaMenuyeDon.gd" id="3_3k0wr"]
 
 [node name="anamenuyedon" type="Control"]
 layout_mode = 3
@@ -24,6 +24,6 @@ focus_mode = 0
 texture_normal = ExtResource("2")
 texture_pressed = ExtResource("3")
 texture_hover = ExtResource("3")
-script = ExtResource("1")
+script = ExtResource("3_3k0wr")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]

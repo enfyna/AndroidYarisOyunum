@@ -24,7 +24,6 @@ func _on_input_toggled(button_pressed):
 	Global.Save.get_save()["ayarlar"]["input"] = button_pressed
 func _on_muzik_toggled(button_pressed):
 	Global.Save.get_save()["ayarlar"]["muzik"] = button_pressed
-	Arkaplanmuzik.ackapat(button_pressed)
 func _on_koyu_toggled(button_pressed):
 	Global.Save.get_save()["ayarlar"]["koyu"] = button_pressed
 	$arkaplan.koyu(button_pressed)

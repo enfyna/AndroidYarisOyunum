@@ -1,0 +1,137 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddk335bcvf4o7"]
+
+[ext_resource type="Script" path="res://tscndosyalari/tutorial/Tutorial.gd" id="1"]
+[ext_resource type="FontFile" path="res://font/new_dynamicfont.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://chifusifi1gry" path="res://resimler/menu/tutorial/text.png" id="3"]
+[ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://font/hemi-head-426.rg-bolditalic.ttf" id="4"]
+[ext_resource type="Texture2D" uid="uid://cbb4e6yxw6n12" path="res://resimler/menu/tutorial/pp.png" id="5"]
+[ext_resource type="AudioStream" uid="uid://dcbtwrv8f042a" path="res://muzik/uisounds/ses2.wav" id="6"]
+
+[sub_resource type="StyleBoxFlat" id="2"]
+bg_color = Color(0, 0, 0, 0.392157)
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxEmpty" id="1"]
+
+[sub_resource type="FontFile" id="3"]
+fallbacks = Array[Font]([ExtResource("4")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/28/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/28/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+cache/0/28/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/28/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/28/0/kerning_overrides/28/0 = Vector2(0, 0)
+cache/0/28/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/28/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+script = ExtResource("1")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2")
+theme_override_styles/normal = SubResource("2")
+theme_override_styles/hover = SubResource("2")
+theme_override_styles/pressed = SubResource("2")
+theme_override_styles/disabled = SubResource("1")
+theme_override_styles/focus = SubResource("2")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = 88.0
+offset_right = 600.0
+offset_bottom = 288.0
+mouse_filter = 2
+texture = ExtResource("3")
+
+[node name="Label" type="Label" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -584.0
+offset_top = -184.0
+offset_right = 146.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = SubResource("3")
+theme_override_font_sizes/font_size = 30
+text = "     Text"
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -500.0
+mouse_filter = 2
+texture = ExtResource("5")
+expand_mode = 1
+
+[node name="ses" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6")
+volume_db = -10.0
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

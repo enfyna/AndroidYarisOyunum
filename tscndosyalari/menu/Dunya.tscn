@@ -1,13 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=12 format=3]
 
-[ext_resource path="res://tscndosyalari/menu/AnaMenuyeDonTusu.tscn" type="PackedScene" id=1]
-[ext_resource path="res://tscndosyalari/menu/ParaTablo.tscn" type="PackedScene" id=2]
-[ext_resource path="res://resimler/arkaplan/anamenuarka7.png" type="Texture2D" id=3]
-[ext_resource path="res://script/menu/anamenubutonlar.gd" type="Script" id=4]
-[ext_resource path="res://resimler/menu/dunya/pistsatinal.png" type="Texture2D" id=5]
-[ext_resource path="res://resimler/menu/dunya/hiztesti.png" type="Texture2D" id=6]
-[ext_resource path="res://script/menu/Dunya.gd" type="Script" id=7]
-[ext_resource path="res://script/menu/koyumod.gd" type="Script" id=8]
+[ext_resource type="PackedScene" uid="uid://bvre2wc3l5ptg" path="res://tscndosyalari/menu/AnaMenuyeDonTusu.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://tscndosyalari/menu/ParaTablo.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://bjiil02fey4fp" path="res://resimler/arkaplan/anamenuarka7.png" id="3"]
+[ext_resource type="Script" path="res://script/menu/AnaMenuyeDon.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://dpiyhvehyorbd" path="res://resimler/menu/dunya/pistsatinal.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bug060y6s3et2" path="res://resimler/menu/dunya/hiztesti.png" id="6"]
+[ext_resource type="Script" path="res://script/menu/Dunya.gd" id="7"]
+[ext_resource type="Script" path="res://script/menu/koyumod.gd" id="8"]
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )

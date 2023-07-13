@@ -1,16 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://d0figvkhtfyqn"]
+[gd_scene load_steps=19 format=3 uid="uid://d0figvkhtfyqn"]
 
-[ext_resource type="Script" path="res://script/menu/anamenubutonlar.gd" id="1"]
+[ext_resource type="Script" path="res://script/menu/AnaMenu.gd" id="1_j5mjk"]
 [ext_resource type="Texture2D" uid="uid://bjiil02fey4fp" path="res://resimler/arkaplan/anamenuarka7.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://tscndosyalari/menu/ParaTablo.tscn" id="3"]
+[ext_resource type="Script" path="res://script/menu/koyumod.gd" id="3_ugmkv"]
 [ext_resource type="Texture2D" uid="uid://qex0vx3m4y0r" path="res://resimler/menu/anamenu/galeri3.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://bnonjvrr7cdc" path="res://resimler/menu/anamenu/garaj2.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://b8vjr6l542ios" path="res://resimler/menu/anamenu/pistler2.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://u3roqbjecbcj" path="res://resimler/menu/anamenu/ayarlar.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://dy31bqjj1f8u1" path="res://resimler/menu/anamenu/zk.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://c06l2fol5bfav" path="res://resimler/menu/anamenu/market.png" id="9"]
-[ext_resource type="Script" path="res://script/menu/anamenuceviri.gd" id="10"]
-[ext_resource type="Script" path="res://script/menu/anamenututorialekle.gd" id="11"]
 [ext_resource type="Texture2D" uid="uid://c20f8la60f2d2" path="res://resimler/menu/anamenu/basarimlar.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://tqre1ppnfo6j" path="res://resimler/menu/anamenu/oyuncup.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://c33cle5qm7qgv" path="res://resimler/menu/garaj/bos.png" id="15"]
@@ -51,14 +50,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1")
+script = ExtResource("1_j5mjk")
 
 [node name="Arkaplan" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("2")
-script = ExtResource("11")
+script = ExtResource("3_ugmkv")
 
 [node name="hb" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1280, 0)
@@ -83,7 +82,6 @@ size_flags_vertical = 0
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 2
-script = ExtResource("10")
 
 [node name="Zk" type="Control" parent="hb/gc"]
 custom_minimum_size = Vector2(380, 140)
@@ -422,12 +420,12 @@ offset_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[connection signal="pressed" from="hb/gc/Zk/Zkbutonu" to="." method="_on_Zkbutonu_pressed"]
-[connection signal="pressed" from="hb/gc/1v1/yarisbutonu" to="." method="_on_yarisbutonu_pressed"]
-[connection signal="pressed" from="hb/gc/Galeri/Galeributonu" to="." method="_on_Galeributonu_pressed"]
-[connection signal="pressed" from="hb/gc/Market/Marketbutonu" to="." method="_on_Marketbutonu_pressed"]
-[connection signal="pressed" from="hb/gc/Garaj/Garajbutonu" to="." method="_on_Garajbutonu_pressed"]
-[connection signal="pressed" from="hb/gc/Pistler/Pistlerbutonu" to="." method="_on_Pistlerbutonu_pressed"]
-[connection signal="pressed" from="hb/gc/Basarimlar/Basarimlarbutonu" to="." method="_on_Basarimlarbutonu_pressed"]
-[connection signal="pressed" from="hb/gc/AyarlarveOyuncu/Ayarlarbutonu" to="." method="_on_Ayarlarbutonu_pressed"]
-[connection signal="pressed" from="hb/gc/AyarlarveOyuncu/Oyuncubutonu" to="." method="_on_Oyuncubutonu_pressed"]
+[connection signal="pressed" from="hb/gc/Zk/Zkbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/PistSecim.tscn", [["mod", "Zaman"]]]]
+[connection signal="pressed" from="hb/gc/1v1/yarisbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/PistSecim.tscn", [["mod", "Yaris"]]]]
+[connection signal="pressed" from="hb/gc/Galeri/Galeributonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Galeri.tscn"]]
+[connection signal="pressed" from="hb/gc/Market/Marketbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Market.tscn"]]
+[connection signal="pressed" from="hb/gc/Garaj/Garajbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Garaj.tscn"]]
+[connection signal="pressed" from="hb/gc/Pistler/Pistlerbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Dunya.tscn"]]
+[connection signal="pressed" from="hb/gc/Basarimlar/Basarimlarbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Basarimlar.tscn"]]
+[connection signal="pressed" from="hb/gc/AyarlarveOyuncu/Ayarlarbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Ayarlar.tscn"]]
+[connection signal="pressed" from="hb/gc/AyarlarveOyuncu/Oyuncubutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Oyuncu.tscn"]]
