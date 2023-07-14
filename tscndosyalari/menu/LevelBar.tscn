@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7ickdsuj7jsp"]
+[gd_scene load_steps=6 format=3 uid="uid://b7ickdsuj7jsp"]
 
 [ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://font/hemi-head-426.rg-bolditalic.ttf" id="1"]
-[ext_resource type="Script" path="res://script/menu/LevelBar.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dnbb7p023snpt" path="res://resimler/hud/levelbar/levelbar2.png" id="3"]
 [ext_resource type="AudioStream" uid="uid://bj1uvbj3lcccl" path="res://muzik/uisounds/levelup.ogg" id="4"]
 [ext_resource type="Texture2D" uid="uid://dupelbjhc2qmv" path="res://resimler/menu/paratablo/levelbase.png" id="5"]
@@ -33,7 +32,6 @@ texture_under = ExtResource("5")
 texture_progress = ExtResource("3")
 tint_progress = Color(1, 0, 0.819608, 1)
 radial_initial_angle = 180.0
-script = ExtResource("2")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

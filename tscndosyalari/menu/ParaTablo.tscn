@@ -1,8 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://68djdercg4if"]
+[gd_scene load_steps=29 format=3 uid="uid://68djdercg4if"]
 
-[ext_resource type="Script" path="res://script/oyuncu/oyuncupara.gd" id="1"]
 [ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://font/hemi-head-426.rg-bolditalic.ttf" id="2"]
-[ext_resource type="Script" path="res://script/menu/Scroll.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://b7ickdsuj7jsp" path="res://tscndosyalari/menu/LevelBar.tscn" id="4"]
 [ext_resource type="FontFile" path="res://font/new_dynamicfont.tres" id="5"]
 
@@ -332,7 +330,6 @@ anchor_bottom = 1.0
 offset_bottom = -720.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1")
 
 [node name="arkaplan" type="ColorRect" parent="."]
 layout_mode = 0
@@ -394,9 +391,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("11")
-script = ExtResource("3")
-scroll_time_normal = 0.5
-transition_mode = 8
 
 [node name="v" type="VBoxContainer" parent="isim/Gorev/v/s"]
 custom_minimum_size = Vector2(0, 150)

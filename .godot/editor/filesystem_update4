@@ -5,3 +5,11 @@ res://tscndosyalari/menu/Yaris.tscn
 res://tscndosyalari/menu/YarisYukle.tscn
 res://script/menu/YarisBitir.gd
 res://script/araba/rpmbar.gd
+res://admob-lib/admob.gd
+res://script/menu/Cikis.gd
+res://script/menu/AnaMenu.gd
+res://tscndosyalari/menu/LevelBar.tscn
+res://tscndosyalari/menu/AnaMenu.tscn
+res://tscndosyalari/menu/AnaMenuyeDonTusu.tscn
+res://tscndosyalari/menu/Ayarlar.tscn
+res://tscndosyalari/menu/ParaTablo.tscn

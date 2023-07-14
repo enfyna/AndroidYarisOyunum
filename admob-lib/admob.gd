@@ -1,7 +1,7 @@
 extends Node
 
-class_name AdMob, "res://admob-lib/icon.png"
-
+class_name AdMob
+# "res://admob-lib/icon.png"
 
 signal banner_loaded
 signal banner_failed_to_load(error_code)

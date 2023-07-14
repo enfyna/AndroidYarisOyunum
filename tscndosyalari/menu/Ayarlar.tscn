@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://c4brrd40g0ow8"]
+[gd_scene load_steps=21 format=3 uid="uid://c4brrd40g0ow8"]
 
 [ext_resource type="PackedScene" uid="uid://bvre2wc3l5ptg" path="res://tscndosyalari/menu/AnaMenuyeDonTusu.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://bjiil02fey4fp" path="res://resimler/arkaplan/anamenuarka7.png" id="2"]
 [ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://font/hemi-head-426.rg-bolditalic.ttf" id="3"]
-[ext_resource type="Script" path="res://script/menu/Ayarlar.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://tscndosyalari/menu/ParaTablo.tscn" id="5"]
 [ext_resource type="Texture2D" uid="uid://gp441m5slp0d" path="res://resimler/menu/ayarlar/off.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://n2t1axe1hcs4" path="res://resimler/menu/ayarlar/on.png" id="7"]
@@ -14,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://ba6uw4injjf7p" path="res://resimler/menu/ayarlar/GrabberHighlight.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://d2qd2dtl8ynsf" path="res://resimler/menu/ayarlar/GrabberDisabled.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://bllhfx6mgcfyh" path="res://resimler/menu/ayarlar/LineEditBackground.png" id="14"]
-[ext_resource type="Script" path="res://script/menu/koyumod.gd" id="15"]
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("3")])
@@ -93,7 +91,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("4")
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="arkaplan" type="TextureRect" parent="."]
 layout_mode = 0
@@ -101,7 +100,6 @@ offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("2")
 expand_mode = 1
-script = ExtResource("15")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0

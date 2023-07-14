@@ -1,9 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://d0figvkhtfyqn"]
+[gd_scene load_steps=17 format=3 uid="uid://d0figvkhtfyqn"]
 
-[ext_resource type="Script" path="res://script/menu/AnaMenu.gd" id="1_j5mjk"]
 [ext_resource type="Texture2D" uid="uid://bjiil02fey4fp" path="res://resimler/arkaplan/anamenuarka7.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://tscndosyalari/menu/ParaTablo.tscn" id="3"]
-[ext_resource type="Script" path="res://script/menu/koyumod.gd" id="3_ugmkv"]
 [ext_resource type="Texture2D" uid="uid://qex0vx3m4y0r" path="res://resimler/menu/anamenu/galeri3.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://bnonjvrr7cdc" path="res://resimler/menu/anamenu/garaj2.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://b8vjr6l542ios" path="res://resimler/menu/anamenu/pistler2.png" id="6"]
@@ -50,14 +48,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_j5mjk")
 
 [node name="Arkaplan" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("2")
-script = ExtResource("3_ugmkv")
 
 [node name="hb" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1280, 0)
@@ -419,6 +415,7 @@ offset_right = 1280.0
 offset_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+script = null
 
 [connection signal="pressed" from="hb/gc/Zk/Zkbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/PistSecim.tscn", [["mod", "Zaman"]]]]
 [connection signal="pressed" from="hb/gc/1v1/yarisbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/PistSecim.tscn", [["mod", "Yaris"]]]]
