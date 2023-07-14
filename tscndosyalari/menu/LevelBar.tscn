@@ -48,5 +48,5 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("1")
 text = "33"
 
-[node name="levelup" type="AudioStreamPlayer" parent="."]
+[node name="levelup_delete_this" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4")

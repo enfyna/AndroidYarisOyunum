@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bt3u6oi0po85n"]
 
-[ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://tscndosyalari/menu/ParaTablo.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://tscndosyalari/menu/AltPanel.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://bvre2wc3l5ptg" path="res://tscndosyalari/menu/AnaMenuyeDonTusu.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://bjiil02fey4fp" path="res://resimler/arkaplan/anamenuarka7.png" id="3"]
 [ext_resource type="Script" path="res://script/menu/koyumod.gd" id="4"]

@@ -1,13 +1,13 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=16 format=3]
 
-[ext_resource path="res://tscndosyalari/menu/AnaMenuyeDonTusu.tscn" type="PackedScene" id=1]
-[ext_resource path="res://tscndosyalari/menu/ParaTablo.tscn" type="PackedScene" id=2]
-[ext_resource path="res://resimler/arkaplan/anamenuarka7.png" type="Texture2D" id=3]
-[ext_resource path="res://resimler/menu/tutorial/text.png" type="Texture2D" id=4]
-[ext_resource path="res://font/hemi-head-426.rg-bolditalic.ttf" type="FontFile" id=5]
-[ext_resource path="res://script/menu/Basarimlar.gd" type="Script" id=6]
-[ext_resource path="res://font/new_dynamicfont.tres" type="FontFile" id=7]
-[ext_resource path="res://script/menu/KoyuMod.gd" type="Script" id=8]
+[ext_resource type="PackedScene" uid="uid://bvre2wc3l5ptg" path="res://tscndosyalari/menu/AnaMenuyeDonTusu.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://tscndosyalari/menu/AltPanel.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://bjiil02fey4fp" path="res://resimler/arkaplan/anamenuarka7.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://chifusifi1gry" path="res://resimler/menu/tutorial/text.png" id="4"]
+[ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://font/hemi-head-426.rg-bolditalic.ttf" id="5"]
+[ext_resource type="Script" path="res://script/menu/Basarimlar.gd" id="6"]
+[ext_resource type="FontFile" path="res://font/new_dynamicfont.tres" id="7"]
+[ext_resource type="Script" path="res://script/menu/KoyuMod.gd" id="8"]
 
 [sub_resource type="StyleBoxFlat" id=29]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )

@@ -9,6 +9,13 @@ var save : Dictionary = {
 		"lvl":0, 
 		"xp":0, 
 	},
+	"wallet":{
+		"coin":5,
+		"bronze":4,
+		"silver":3,
+		"gold":2,
+		"diamond":1,
+	}
 }
 
 func get_save() -> Dictionary:

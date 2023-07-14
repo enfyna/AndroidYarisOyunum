@@ -1,5 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://68djdercg4if"]
+[gd_scene load_steps=30 format=3 uid="uid://68djdercg4if"]
 
+[ext_resource type="Script" path="res://script/menu/AltPanel.gd" id="1_tf6l6"]
 [ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://font/hemi-head-426.rg-bolditalic.ttf" id="2"]
 [ext_resource type="PackedScene" uid="uid://b7ickdsuj7jsp" path="res://tscndosyalari/menu/LevelBar.tscn" id="4"]
 [ext_resource type="FontFile" path="res://font/new_dynamicfont.tres" id="5"]
@@ -290,7 +291,7 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxFlat" id="19"]
 bg_color = Color(0, 1, 0.905882, 0.196078)
-skew = Vector2(0, 0.2)
+skew = Vector2(0, 0.25)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -322,7 +323,7 @@ cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[node name="ParaTablo" type="Control"]
+[node name="AltPanel" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -330,6 +331,7 @@ anchor_bottom = 1.0
 offset_bottom = -720.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tf6l6")
 
 [node name="arkaplan" type="ColorRect" parent="."]
 layout_mode = 0
@@ -342,6 +344,19 @@ offset_top = 656.0
 offset_right = 640.0
 offset_bottom = 726.0
 color = Color(0.0509804, 0.027451, 0.027451, 1)
+
+[node name="Level" parent="." instance=ExtResource("4")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -624.0
+offset_top = 662.0
+offset_right = -424.0
+offset_bottom = 862.0
+scale = Vector2(0.25, 0.25)
+mouse_filter = 2
 
 [node name="isim" type="Button" parent="."]
 layout_mode = 0
@@ -366,9 +381,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -712.0
+offset_left = -708.0
 offset_top = -691.0
-offset_right = -212.0
+offset_right = -208.0
 offset_bottom = -35.0
 theme_override_styles/normal = SubResource("26")
 
@@ -572,43 +587,21 @@ theme_override_styles/normal = SubResource("36")
 theme_override_styles/hover = SubResource("37")
 theme_override_styles/pressed = SubResource("37")
 
-[node name="Level" parent="isim" instance=ExtResource("4")]
-layout_mode = 0
-anchors_preset = 0
+[node name="hb" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.0
-offset_left = -192.0
-offset_top = 6.0
-offset_right = 8.0
-offset_bottom = 206.0
-scale = Vector2(0.25, 0.25)
-
-[node name="paralar" type="HBoxContainer" parent="."]
-layout_mode = 0
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 288.0
+offset_left = 234.0
 offset_top = 656.0
-offset_right = 630.0
+offset_right = 628.0
 offset_bottom = 716.0
+grow_horizontal = 2
+theme_override_constants/separation = 20
 
-[node name="para" type="Control" parent="paralar"]
-custom_minimum_size = Vector2(110, 60)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="para" type="Label" parent="paralar/para"]
+[node name="coin" type="Label" parent="hb"]
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 0
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -17.5
-offset_right = 50.0
-offset_bottom = 17.5
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -616,92 +609,46 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("7")
 theme_override_styles/normal = SubResource("20")
 text = "para"
+vertical_alignment = 1
 
-[node name="b" type="Control" parent="paralar"]
-custom_minimum_size = Vector2(45, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="b" type="Label" parent="paralar/b"]
+[node name="bronze" type="Label" parent="hb"]
 custom_minimum_size = Vector2(45, 0)
-layout_mode = 0
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -22.5
-offset_top = -17.5
-offset_right = 22.5
-offset_bottom = 17.5
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.729412, 0.372549, 0.0588235, 1)
 theme_override_fonts/font = SubResource("8")
 theme_override_styles/normal = SubResource("16")
 text = "b"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="g" type="Control" parent="paralar"]
-custom_minimum_size = Vector2(45, 50)
+[node name="silver" type="Label" parent="hb"]
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="g" type="Label" parent="paralar/g"]
-custom_minimum_size = Vector2(45, 0)
-layout_mode = 0
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -22.5
-offset_top = -17.5
-offset_right = 22.5
-offset_bottom = 17.5
-size_flags_horizontal = 3
-size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.745098, 0.745098, 0.745098, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("9")
 theme_override_styles/normal = SubResource("17")
 text = "g"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="a" type="Control" parent="paralar"]
-custom_minimum_size = Vector2(45, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="a" type="Label" parent="paralar/a"]
+[node name="gold" type="Label" parent="hb"]
 custom_minimum_size = Vector2(45, 0)
-layout_mode = 0
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -22.5
-offset_top = -17.5
-offset_right = 22.5
-offset_bottom = 17.5
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 0.984314, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("10")
 theme_override_styles/normal = SubResource("18")
 text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="e" type="Control" parent="paralar"]
-custom_minimum_size = Vector2(45, 30)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="e" type="Label" parent="paralar/e"]
+[node name="diamond" type="Label" parent="hb"]
 custom_minimum_size = Vector2(45, 0)
-layout_mode = 0
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -22.5
-offset_top = -17.5
-offset_right = 22.5
-offset_bottom = 17.5
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 1, 0.980392, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -709,26 +656,28 @@ theme_override_constants/shadow_outline_size = 1
 theme_override_fonts/font = SubResource("13")
 theme_override_styles/normal = SubResource("19")
 text = "e"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="muzik" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -352.0
+offset_left = -406.0
 offset_top = 756.0
+offset_right = -1.0
 offset_bottom = 820.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_fonts/font = SubResource("34")
+vertical_alignment = 1
 clip_text = true
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
-
-[connection signal="toggled" from="isim" to="." method="_on_isim_toggled"]
 [connection signal="pressed" from="isim/Gorev/v/s/v/Gorev1/b1" to="." method="_on_b1_pressed"]
 [connection signal="pressed" from="isim/Gorev/v/s/v/Gorev2/b2" to="." method="_on_b2_pressed"]
 [connection signal="pressed" from="isim/Gorev/v/s/v/Gorev3/b3" to="." method="_on_b3_pressed"]
 [connection signal="pressed" from="isim/Gorev/v/s/v/Gorev4/r4" to="." method="_on_r4_pressed"]
 [connection signal="pressed" from="isim/Gorev/v/s/v/Gorev5/r5" to="." method="_on_r5_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

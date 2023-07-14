@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bvre2wc3l5ptg" path="res://tscndosyalari/menu/AnaMenuyeDonTusu.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://bjiil02fey4fp" path="res://resimler/arkaplan/anamenuarka7.png" id="2"]
 [ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://font/hemi-head-426.rg-bolditalic.ttf" id="3"]
-[ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://tscndosyalari/menu/ParaTablo.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://tscndosyalari/menu/AltPanel.tscn" id="5"]
 [ext_resource type="Texture2D" uid="uid://gp441m5slp0d" path="res://resimler/menu/ayarlar/off.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://n2t1axe1hcs4" path="res://resimler/menu/ayarlar/on.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://dstc3q006rfsh" path="res://resimler/menu/ayarlar/disabledon.png" id="8"]
