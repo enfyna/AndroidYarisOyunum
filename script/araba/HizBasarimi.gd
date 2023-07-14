@@ -1,5 +1,5 @@
 extends Node3D
-var hizbasarimi = Global.Save.get_save()["basarimlar"]["b3"]["ilerleme"]
+""" var hizbasarimi = Global.Save.get_save()["basarimlar"]["b3"]["ilerleme"]
 var topspeed = 100
 @onready var parent = get_parent()
 func _process(_delta):
@@ -19,3 +19,4 @@ func _process(_delta):
 		elif speed > 100 and hizbasarimi == 0:
 			Global.Save.get_save()["basarimlar"]["b3"]["ilerleme"] = 1
 			hizbasarimi = 1
+ """

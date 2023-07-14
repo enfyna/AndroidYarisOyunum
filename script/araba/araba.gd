@@ -1,6 +1,8 @@
 extends VehicleBody3D
 class_name Araba
 
+
+"""
 @export var MAX_STEER_ANGLE = 30.0
 @export var SPEED_STEER_ANGLE = 10.0
 @export var MAX_STEER_SPEED = 120.0 * 1000.0 / 3600.0
@@ -206,12 +208,12 @@ func steervaluehesapla():
 	if girissecenegi:
 		steerlerp = max( - 1, min(1, - 1 * Input.get_accelerometer().normalized().x))
 		steervalbar.value = steerlerp
-	else :
+	else:
 		if Input.is_action_pressed("ui_left"):
 			steerlerp = 1.0
 		elif Input.is_action_pressed("ui_right"):
 			steerlerp = - 1.0
-		else :
+		else:
 			steerlerp = 0.0
 	steer_val = lerp(steer_val, steerlerp, hassasiyet)
 	var steer_speed_factor = clamp(speed / mss, 0.0, 1.0)
@@ -394,3 +396,4 @@ func tekerlekdurum(cizgi):
 	tekerbar.value = tekeryuzde
 	Global.Save.get_save()["tekerlekler"]["yag"] += yakilanyag
 	yakilanyag = 0
+ """
