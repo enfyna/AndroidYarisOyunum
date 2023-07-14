@@ -85,7 +85,6 @@ buses/channel_disable_time=1.0
 [autoload]
 
 Global="*res://script/globals/Global.gd"
-AudioManager="*res://script/globals/audio_manager.gd"
 
 [compression]
 

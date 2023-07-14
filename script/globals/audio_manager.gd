@@ -1,3 +1,4 @@
+class_name AudioManager
 extends Node
 
 var num_players : int = 2
@@ -10,7 +11,7 @@ func _ready() -> void:
 	background_music_player = AudioStreamPlayer.new()
 	add_child(background_music_player)
 	background_music_player.finished.connect(_on_background_music_end)
-	arkaplanmuzik()
+	play_new_background_music()
 
 	for i in num_players:
 		var p : AudioStreamPlayer = AudioStreamPlayer.new()
@@ -37,7 +38,7 @@ func check_sounds_to_play() -> void:
 
 @onready var background_music_player : AudioStreamPlayer
 var sesdb : int = 0
-var rsayi : int
+var selected_music_idx : int
 
 const musics : Array[String] = [
 	"res://muzik/arkaplan/jazz/Kevin MacLeod-Airport Lounge.ogg",
@@ -47,30 +48,30 @@ const musics : Array[String] = [
 	"res://muzik/arkaplan/jazz/Kevin MacLeod-Samba Isobel.ogg",
 ]
 
-func calinanmuzik() -> String:
+func get_played_music() -> String:
 	return str(background_music_player.stream.resource_path.split("/")[-1].split(".")[0])
 
-func ackapat(t = null) -> void:
-	if t == null:
-		var kayit = Global.Save.get_save()
-		if kayit["ayarlar"]["muzik"]:
+func play_background_music(choice = null) -> void:
+	if choice == null:
+		var save = Global.Save.get_save()
+		if save["ayarlar"]["muzik"]:
 			background_music_player.volume_db = -80 #sesdb
 		else:
 			background_music_player.volume_db = - 80
-	elif t == true:
+	elif choice == true:
 		background_music_player.volume_db = -80 #sesdb
 	else:
 		background_music_player.volume_db = -80
 
-func arkaplanmuzik() -> void:
+func play_new_background_music() -> void:
 	randomize()
-	var rsayiyeni : int = randi() % musics.size()
-	while rsayi == rsayiyeni:
-		rsayiyeni = randi() % musics.size()
+	var new_music_idx : int = randi() % musics.size()
+	while selected_music_idx == new_music_idx:
+		new_music_idx = randi() % musics.size()
 
-	background_music_player.stream = load(musics[rsayiyeni])
+	background_music_player.stream = load(musics[new_music_idx])
 	background_music_player.play()
-	rsayi = rsayiyeni
+	selected_music_idx = new_music_idx
 
 func _on_background_music_end() -> void:
-	arkaplanmuzik()
+	play_new_background_music()

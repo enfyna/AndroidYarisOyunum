@@ -1,19 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://5f45tgwgeydm"]
+[gd_scene load_steps=9 format=3 uid="uid://5f45tgwgeydm"]
 
 [ext_resource type="Script" path="res://script/menu/Giris.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://c2sl8r5qn4gsg" path="res://resimler/arkaplan/anamenuarka5.png" id="2_ogmg3"]
 [ext_resource type="FontFile" path="res://font/new_dynamicfont.tres" id="3"]
-
-[sub_resource type="FontFile" id="6"]
-face_index = null
-embolden = null
-transform = null
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxFlat" id="1"]
 bg_color = Color(0.105882, 0.105882, 0.105882, 0.705882)
@@ -83,7 +72,7 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("2")
 
-[node name="arkaplan" type="TextureRect" parent="."]
+[node name="background" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
@@ -91,16 +80,7 @@ mouse_filter = 2
 texture = ExtResource("2_ogmg3")
 expand_mode = 1
 
-[node name="yuklemebar" type="ProgressBar" parent="."]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 628.0
-offset_right = 1088.0
-offset_bottom = 663.0
-theme_override_fonts/font = SubResource("6")
-value = 69.0
-
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="name" type="LineEdit" parent="."]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
@@ -119,7 +99,7 @@ context_menu_enabled = false
 caret_blink = true
 caret_blink_interval = 0.3
 
-[node name="Tamam" type="Button" parent="."]
+[node name="ok" type="Button" parent="."]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
@@ -134,6 +114,3 @@ theme_override_styles/normal = SubResource("34")
 theme_override_styles/hover = SubResource("32")
 theme_override_styles/pressed = SubResource("32")
 text = "Tamam"
-
-[connection signal="text_submitted" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
-[connection signal="pressed" from="Tamam" to="." method="_on_Button_pressed"]
