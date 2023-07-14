@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://d0figvkhtfyqn"]
+[gd_scene load_steps=18 format=3 uid="uid://d0figvkhtfyqn"]
 
+[ext_resource type="Script" path="res://script/menu/AnaMenu.gd" id="1_j5mjk"]
 [ext_resource type="Texture2D" uid="uid://bjiil02fey4fp" path="res://resimler/arkaplan/anamenuarka7.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://tscndosyalari/menu/ParaTablo.tscn" id="3"]
 [ext_resource type="Texture2D" uid="uid://qex0vx3m4y0r" path="res://resimler/menu/anamenu/galeri3.png" id="4"]
@@ -48,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_j5mjk")
 
 [node name="Arkaplan" type="TextureRect" parent="."]
 layout_mode = 0
@@ -79,13 +81,13 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 2
 
-[node name="Zk" type="Control" parent="hb/gc"]
+[node name="1" type="Control" parent="hb/gc"]
 custom_minimum_size = Vector2(380, 140)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Zkbutonu" type="Button" parent="hb/gc/Zk"]
+[node name="zk" type="Button" parent="hb/gc/1" groups=["trnslt_zamanakarsi"]]
 custom_minimum_size = Vector2(350, 125)
 layout_mode = 0
 anchor_left = 0.5
@@ -104,7 +106,7 @@ theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("14")
 text = "Zamana Karşı!"
 
-[node name="Zkbutonu" type="TextureRect" parent="hb/gc/Zk/Zkbutonu"]
+[node name="icon" type="TextureRect" parent="hb/gc/1/zk"]
 layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -114,13 +116,13 @@ offset_bottom = 75.0
 texture = ExtResource("8")
 expand_mode = 1
 
-[node name="1v1" type="Control" parent="hb/gc"]
+[node name="2" type="Control" parent="hb/gc"]
 custom_minimum_size = Vector2(380, 140)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="yarisbutonu" type="Button" parent="hb/gc/1v1"]
+[node name="race" type="Button" parent="hb/gc/2" groups=["trnslt_yaris_b"]]
 custom_minimum_size = Vector2(350, 125)
 layout_mode = 0
 anchor_left = 0.5
@@ -139,7 +141,7 @@ theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("14")
 text = "              Bota Karşı!"
 
-[node name="yarisbutonu" type="TextureRect" parent="hb/gc/1v1/yarisbutonu"]
+[node name="icon" type="TextureRect" parent="hb/gc/2/race"]
 layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -149,11 +151,11 @@ offset_bottom = 75.0
 texture = ExtResource("8")
 expand_mode = 1
 
-[node name="Galeri" type="Control" parent="hb/gc"]
+[node name="3" type="Control" parent="hb/gc"]
 custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 
-[node name="Galeributonu" type="Button" parent="hb/gc/Galeri"]
+[node name="galeri" type="Button" parent="hb/gc/3" groups=["trnslt_galeri_b"]]
 custom_minimum_size = Vector2(350, 125)
 layout_mode = 0
 anchor_left = 0.5
@@ -172,7 +174,7 @@ theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("14")
 text = "          Galeri"
 
-[node name="Galeributonu" type="TextureRect" parent="hb/gc/Galeri/Galeributonu"]
+[node name="icon" type="TextureRect" parent="hb/gc/3/galeri"]
 layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -184,13 +186,13 @@ grow_vertical = 2
 texture = ExtResource("4")
 expand_mode = 1
 
-[node name="Market" type="Control" parent="hb/gc"]
+[node name="4" type="Control" parent="hb/gc"]
 custom_minimum_size = Vector2(380, 140)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Marketbutonu" type="Button" parent="hb/gc/Market"]
+[node name="market" type="Button" parent="hb/gc/4" groups=["trnslt_market_b"]]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
@@ -208,7 +210,7 @@ theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("14")
 text = "          Dükkan"
 
-[node name="Marketbutonu" type="TextureRect" parent="hb/gc/Market/Marketbutonu"]
+[node name="icon" type="TextureRect" parent="hb/gc/4/market"]
 layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -220,13 +222,13 @@ grow_vertical = 2
 texture = ExtResource("9")
 expand_mode = 1
 
-[node name="Garaj" type="Control" parent="hb/gc"]
+[node name="5" type="Control" parent="hb/gc"]
 custom_minimum_size = Vector2(380, 140)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Garajbutonu" type="Button" parent="hb/gc/Garaj"]
+[node name="garaj" type="Button" parent="hb/gc/5" groups=["trnslt_garaj_b"]]
 custom_minimum_size = Vector2(350, 125)
 layout_mode = 0
 anchor_left = 0.5
@@ -245,7 +247,7 @@ theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("14")
 text = "          Garaj"
 
-[node name="Garajbutonu" type="TextureRect" parent="hb/gc/Garaj/Garajbutonu"]
+[node name="icon" type="TextureRect" parent="hb/gc/5/garaj"]
 layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -257,13 +259,13 @@ grow_vertical = 2
 texture = ExtResource("5")
 expand_mode = 1
 
-[node name="Pistler" type="Control" parent="hb/gc"]
+[node name="6" type="Control" parent="hb/gc"]
 custom_minimum_size = Vector2(380, 140)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Pistlerbutonu" type="Button" parent="hb/gc/Pistler"]
+[node name="dunya" type="Button" parent="hb/gc/6" groups=["trnslt_pist_b"]]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
@@ -281,7 +283,7 @@ theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("14")
 text = "          Dünya"
 
-[node name="Pistlerbutonu" type="TextureRect" parent="hb/gc/Pistler/Pistlerbutonu"]
+[node name="icon" type="TextureRect" parent="hb/gc/6/dunya"]
 modulate = Color(0.690196, 0.690196, 0.690196, 1)
 layout_mode = 0
 anchor_top = 0.5
@@ -294,13 +296,13 @@ grow_vertical = 2
 texture = ExtResource("6")
 expand_mode = 1
 
-[node name="Basarimlar" type="Control" parent="hb/gc"]
+[node name="7" type="Control" parent="hb/gc"]
 custom_minimum_size = Vector2(380, 140)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Basarimlarbutonu" type="Button" parent="hb/gc/Basarimlar"]
+[node name="basarimlar" type="Button" parent="hb/gc/7" groups=["trnslt_basarim_b"]]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
@@ -318,7 +320,7 @@ theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("14")
 text = "          Başarımlar"
 
-[node name="Basarimlarbutonu" type="TextureRect" parent="hb/gc/Basarimlar/Basarimlarbutonu"]
+[node name="icon" type="TextureRect" parent="hb/gc/7/basarimlar"]
 layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -330,13 +332,13 @@ grow_vertical = 2
 texture = ExtResource("12")
 expand_mode = 1
 
-[node name="AyarlarveOyuncu" type="Control" parent="hb/gc"]
+[node name="8" type="Control" parent="hb/gc"]
 custom_minimum_size = Vector2(380, 140)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Ayarlarbutonu" type="Button" parent="hb/gc/AyarlarveOyuncu"]
+[node name="ayarlar" type="Button" parent="hb/gc/8"]
 custom_minimum_size = Vector2(150, 125)
 layout_mode = 0
 anchor_left = 1.0
@@ -354,7 +356,7 @@ theme_override_styles/normal = SubResource("13")
 theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("14")
 
-[node name="Ayarlarbutonu" type="TextureButton" parent="hb/gc/AyarlarveOyuncu/Ayarlarbutonu"]
+[node name="icon" type="TextureButton" parent="hb/gc/8/ayarlar"]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
@@ -373,7 +375,7 @@ texture_hover = ExtResource("19")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Oyuncubutonu" type="Button" parent="hb/gc/AyarlarveOyuncu"]
+[node name="oyuncu" type="Button" parent="hb/gc/8"]
 visible = false
 custom_minimum_size = Vector2(150, 125)
 layout_mode = 0
@@ -390,7 +392,7 @@ theme_override_styles/normal = SubResource("13")
 theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("14")
 
-[node name="Oyuncubutonu" type="TextureButton" parent="hb/gc/AyarlarveOyuncu/Oyuncubutonu"]
+[node name="icon" type="TextureButton" parent="hb/gc/8/oyuncu"]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
@@ -415,14 +417,13 @@ offset_right = 1280.0
 offset_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
-script = null
 
-[connection signal="pressed" from="hb/gc/Zk/Zkbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/PistSecim.tscn", [["mod", "Zaman"]]]]
-[connection signal="pressed" from="hb/gc/1v1/yarisbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/PistSecim.tscn", [["mod", "Yaris"]]]]
-[connection signal="pressed" from="hb/gc/Galeri/Galeributonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Galeri.tscn"]]
-[connection signal="pressed" from="hb/gc/Market/Marketbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Market.tscn"]]
-[connection signal="pressed" from="hb/gc/Garaj/Garajbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Garaj.tscn"]]
-[connection signal="pressed" from="hb/gc/Pistler/Pistlerbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Dunya.tscn"]]
-[connection signal="pressed" from="hb/gc/Basarimlar/Basarimlarbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Basarimlar.tscn"]]
-[connection signal="pressed" from="hb/gc/AyarlarveOyuncu/Ayarlarbutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Ayarlar.tscn"]]
-[connection signal="pressed" from="hb/gc/AyarlarveOyuncu/Oyuncubutonu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Oyuncu.tscn"]]
+[connection signal="pressed" from="hb/gc/1/zk" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/PistSecim.tscn", [["mod", "Zaman"]]]]
+[connection signal="pressed" from="hb/gc/2/race" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/PistSecim.tscn", [["mod", "Yaris"]]]]
+[connection signal="pressed" from="hb/gc/3/galeri" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Galeri.tscn"]]
+[connection signal="pressed" from="hb/gc/4/market" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Market.tscn"]]
+[connection signal="pressed" from="hb/gc/5/garaj" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Garaj.tscn"]]
+[connection signal="pressed" from="hb/gc/6/dunya" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Dunya.tscn"]]
+[connection signal="pressed" from="hb/gc/7/basarimlar" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Basarimlar.tscn"]]
+[connection signal="pressed" from="hb/gc/8/ayarlar" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Ayarlar.tscn"]]
+[connection signal="pressed" from="hb/gc/8/oyuncu" to="." method="change_scene_with_variable" binds= ["res://tscndosyalari/menu/Oyuncu.tscn"]]

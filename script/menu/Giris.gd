@@ -13,9 +13,10 @@ func _ready() -> void:
 	ok_button.pressed.connect(check_user_name)
 	name_box.text_submitted.connect(check_user_name)
 
-func check_user_name(user_name : String = ""):
+func check_user_name(user_name : String = "") -> void:
 	if user_name.is_empty():
 		user_name = name_box.text.strip_edges(true, true)
+	print(user_name,user_name.length())
 	if not is_valid_user_name(user_name):
 		name_box.text = ""
 		name_box.placeholder_text = tr("g2")
@@ -24,20 +25,18 @@ func check_user_name(user_name : String = ""):
 	Global.Save.save_game()
 	go_to_main_menu()
 
-func is_valid_user_name(user_name : String):
-	if user_name.length() < 2:
+func is_valid_user_name(user_name : String) -> bool:
+	if user_name.length() < 3:
 		return false
 	if not user_name.is_valid_identifier():
 		return false
 	return true
 
-func go_to_main_menu():
+func go_to_main_menu() -> void:
 	name_box.visible = false
 	ok_button.visible = false
 
-	var Main_Menu_Scene : Node = preload("res://tscndosyalari/menu/AnaMenu.tscn").instantiate() 
-
-	get_parent().call_deferred("add_child",Main_Menu_Scene)
+	get_parent().call_deferred("add_child",Global.Main_Menu_Scene.instantiate())
 
 	self.z_index = RenderingServer.CANVAS_ITEM_Z_MAX
 	var tween : Tween = create_tween()

@@ -9,10 +9,6 @@ func change_scene_with_variable(scene_path : String, args : Array = []):
 	call_deferred("queue_free")
 	pass
 
-# func _on_PistSatinAl_pressed():
-# 	t = load("res://tscndosyalari/menu/Pist.tscn").instantiate()
-# 	sahnedegistir()
-
 func _ready():
 	var grid : Node = get_node("hb/gc")
 	const translations : Dictionary = {

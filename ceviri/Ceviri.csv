@@ -2,12 +2,12 @@
 g1,Enter Your Name...,Adınızı Girin...
 g2,Must be longer than 3 letters,3 Harften Uzun Olmalı
 zamanakarsi,Against Time,Zamana Karşı!
-pistbuton,          World,          Dünya
-marketbuton,          Shop,          Market
-basarimlar,          Achievements,          Başarımlar
-garajbuton,          Garage,          Garaj
-galeributon,             Dealership,          Galeri
-yarisbuton,              Against CPU,              Bota Karşı!
+pist_b,          World,          Dünya
+market_b,          Shop,          Market
+basarim_b,          Achievements,          Başarımlar
+garaj_b,          Garage,          Garaj
+galeri_b,             Dealership,          Galeri
+yaris_b,              Against CPU,              Bota Karşı!
 a0,Auto/Manual:,Oto/Manuel:
 a1,Shadows:,Gölgelendirme:
 a2,Analog/Digital:,Analog/Dijital:
