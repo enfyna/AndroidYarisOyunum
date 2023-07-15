@@ -12,10 +12,9 @@ func _ready():
 	var money_tab : Node = get_node("hb")
 	for child in money_tab.get_children():
 		child.text = str(save["wallet"][child.name])
-	pass
 
 func toggle_missions_tab():
-	var missions_tab : Node = get_node("isim/Gorev")
+	var missions_tab : Node = get_node("isim/GorevSekmesi")
 	var move_to : int
 
 	if is_missions_tab_open:
@@ -27,4 +26,3 @@ func toggle_missions_tab():
 	
 	var tween : Tween = create_tween()
 	tween.tween_property(missions_tab,"position:x",move_to,0.1)
-	pass
