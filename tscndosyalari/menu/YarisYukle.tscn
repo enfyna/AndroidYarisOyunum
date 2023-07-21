@@ -2,14 +2,11 @@
 
 [ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://font/hemi-head-426.rg-bolditalic.ttf" id="1"]
 [ext_resource type="Texture2D" uid="uid://cjumb3xensx7l" path="res://resimler/animasyon/untitled.png" id="2"]
-[ext_resource type="Script" path="res://script/menu/YarisYukle.gd" id="2_de6or"]
+[ext_resource type="Script" path="res://script/menu/YarisYukle.gd" id="2_pbppc"]
 [ext_resource type="Texture2D" uid="uid://g84om0l3y7o2" path="res://resimler/arkaplan/anamenuarka4.png" id="3"]
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("1")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -45,9 +42,6 @@ border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="FontFile" id="3"]
 fallbacks = Array[Font]([ExtResource("1")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -55,13 +49,18 @@ cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[node name="YarisYukle" type="TextureRect"]
+[node name="YarisYukle" type="TextureRect" node_paths=PackedStringArray("loading_bar", "loading_info_node", "game_info_node")]
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("3")
-script = ExtResource("2_de6or")
+script = ExtResource("2_pbppc")
+loading_bar = NodePath("loading_bar")
+loading_info_node = NodePath("loading_bar/loading_info")
+loading_texts = Array[String](["loadm", "loadp", "loada", "loadb", "yuklemetamam"])
+game_info_node = NodePath("game_info")
+game_info_text = Array[String](["yb1", "yb2", "yb3", "yb4", "yb5", "yb6", "yb7", "yb8"])
 
-[node name="info" type="Label" parent="."]
+[node name="game_info" type="Label" parent="."]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
@@ -79,7 +78,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="yuklemebar" type="TextureProgressBar" parent="."]
+[node name="loading_bar" type="TextureProgressBar" parent="."]
 layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
@@ -95,7 +94,7 @@ value = 0.7
 fill_mode = 4
 texture_progress = ExtResource("2")
 
-[node name="text" type="Label" parent="yuklemebar"]
+[node name="loading_info" type="Label" parent="loading_bar"]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=39 format=3 uid="uid://db6ijjugtfv27"]
 
-[ext_resource type="Script" path="res://script/menu/yaris.gd" id="1"]
+[ext_resource type="Script" path="res://script/menu/Yaris.gd" id="1_gegig"]
 [ext_resource type="Texture2D" uid="uid://bmfmuv686xd8n" path="res://resimler/hud/sure/eniyisure.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://b5mxtv8nvl2gh" path="res://resimler/menu/anamenu/amdi.png" id="4"]
 [ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://font/hemi-head-426.rg-bolditalic.ttf" id="5"]
@@ -28,9 +28,6 @@ size = Vector2(0.5, 0.1)
 
 [sub_resource type="FontFile" id="68"]
 fallbacks = Array[Font]([ExtResource("5")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -40,9 +37,6 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="8"]
 fallbacks = Array[Font]([ExtResource("5")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -52,9 +46,6 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="57"]
 fallbacks = Array[Font]([ExtResource("5")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -64,9 +55,6 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="58"]
 fallbacks = Array[Font]([ExtResource("5")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -76,9 +64,6 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="7"]
 fallbacks = Array[Font]([ExtResource("5")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -271,7 +256,7 @@ _surfaces = [{
 
 [node name="Yaris" type="Node3D"]
 process_priority = 1
-script = ExtResource("1")
+script = ExtResource("1_gegig")
 
 [node name="cizgi" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.91425, 13.2927)
@@ -461,11 +446,6 @@ text = "1,30,157"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.432807, 0.673606, -0.59911, -0.228998, 0.724932, 0.649641, 0.871916, -0.143974, 0.46801, 0, 7.98876, 0)
-shadow_enabled = true
-directional_shadow_mode = 1
-directional_shadow_split_1 = 0.25
-directional_shadow_split_2 = 0.225
-directional_shadow_split_3 = 1.0
 
 [node name="CizgiModeli" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.516756, 0, -4.51762e-08, 0, 0.516756, 0, 4.51762e-08, 0, -0.516756, 0.030066, 0.136409, 14.0021)
@@ -500,9 +480,3 @@ volume_db = -20.0
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-
-[connection signal="body_entered" from="cizgi" to="." method="_on_cizgi_body_entered"]
-[connection signal="body_entered" from="kontrol" to="." method="_on_kontrol_body_entered"]
-[connection signal="body_entered" from="kontrol2" to="." method="_on_kontrol2_body_entered"]
-[connection signal="pressed" from="TerkEt" to="." method="_on_TerkEt_pressed"]
-[connection signal="toggled" from="pst" to="." method="_on_pst_toggled"]

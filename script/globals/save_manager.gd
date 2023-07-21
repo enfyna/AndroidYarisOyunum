@@ -5,7 +5,7 @@ var loaded : bool = false
 var save : Dictionary = {
 	"player":{
 		"name":"",
-		"car":"", 
+		"car":"res://tscndosyalari/araba/AE86.tscn", 
 		"lvl":0, 
 		"xp":0, 
 	},

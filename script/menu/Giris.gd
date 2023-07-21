@@ -36,11 +36,11 @@ func go_to_main_menu() -> void:
 	name_box.visible = false
 	ok_button.visible = false
 
-	get_parent().call_deferred("add_child",Global.Main_Menu_Scene.instantiate())
+	Global.change_scene_with_variable("res://tscndosyalari/menu/AnaMenu.tscn")
 
 	self.z_index = RenderingServer.CANVAS_ITEM_Z_MAX
 	var tween : Tween = create_tween()
 	tween.tween_property(
 		self, "position:y", size.y, 2
 		).set_trans(Tween.TRANS_EXPO)
-	tween.tween_callback(func(): queue_free())
+	tween.tween_callback(func(): call_deferred("queue_free"))

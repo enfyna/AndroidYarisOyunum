@@ -1,8 +1,8 @@
 res://default_bus_layout.tres
-res://script/menu/AltPanel.gd
 res://default_env.tres
-res://tscndosyalari/menu/GorevSekmesi.tscn
-res://tscndosyalari/menu/AnaMenu.tscn
-res://tscndosyalari/menu/AltPanel.tscn
-res://script/menu/AnaMenu.gd
-res://script/globals/save_manager.gd
+res://tscndosyalari/araba/AE86.tscn
+res://model/Araba/AE86/gltf/ArabaBeyaz.material
+res://model/Araba/AE86/gltf/ArabaSiyahPlastik.material
+res://model/Araba/AE86/gltf/Pencere.material
+res://tscndosyalari/araba_kontrol/analog.tscn
+res://tscndosyalari/araba_kontrol/digital.tscn
