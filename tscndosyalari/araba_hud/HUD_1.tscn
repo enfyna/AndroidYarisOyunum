@@ -49,10 +49,24 @@ grow_vertical = 2
 pivot_offset = Vector2(-320, -83)
 script = ExtResource("1_tn6t1")
 gauges = {
-"brake": NodePath("Brake"),
-"clutch": NodePath("Clutch"),
-"rpm": NodePath("RPM"),
-"throttle": NodePath("Gas")
+0: {
+0: NodePath("Gas"),
+1: NodePath("Brake"),
+2: NodePath("Clutch"),
+3: NodePath("Steering"),
+5: NodePath("RPM"),
+6: NodePath("Speed")
+},
+1: {
+8: NodePath("Wheel_State")
+},
+2: {
+4: NodePath("Gear"),
+7: NodePath("Wheel_State/Wheel_Type"),
+9: NodePath("ABS"),
+10: NodePath("Oil"),
+11: NodePath("Engine")
+}
 }
 
 [node name="Background" type="TextureRect" parent="."]

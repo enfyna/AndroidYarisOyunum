@@ -162,14 +162,16 @@ mass = 925.0
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_uygca")
+HP = 1000.0
 GEAR_RATIO = Array[float]([-1.0, 0.0, 2.69, 2.01, 1.59, 1.32, 1.13])
+GEAR_SHIFT_TIME = 10.0
 POWER_CURVE = SubResource("Curve_r6l08")
 CONTROLLER = NodePath("Controller")
 
 [node name="Controller" type="Node2D" parent="."]
 script = ExtResource("3_kl5e4")
 
-[node name="Car_HUD_Manager" type="Control" parent="."]
+[node name="HUD_Manager" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

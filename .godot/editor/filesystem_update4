@@ -1,8 +1,15 @@
+res://tscndosyalari/araba_hud/HUD_Manager.gd
 res://default_bus_layout.tres
 res://default_env.tres
-res://tscndosyalari/araba/AE86.tscn
+res://tscndosyalari/araba_kontrol/analog.tscn
 res://model/Araba/AE86/gltf/ArabaBeyaz.material
 res://model/Araba/AE86/gltf/ArabaSiyahPlastik.material
 res://model/Araba/AE86/gltf/Pencere.material
-res://tscndosyalari/araba_kontrol/analog.tscn
 res://tscndosyalari/araba_kontrol/digital.tscn
+res://tscndosyalari/araba/AE86.tscn
+res://tscndosyalari/araba_hud/HUD_1.tscn
+res://script/araba/Car.gd
+res://tscndosyalari/araba_hud/HUD.gd
+res://tscndosyalari/araba_kontrol/Car_Controller.gd
+res://script/menu/Yaris.gd
+res://script/menu/YarisYukle.gd
