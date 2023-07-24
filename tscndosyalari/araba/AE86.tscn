@@ -20,7 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bh2l3ubtxxhgd" path="res://muzik/arabases/skid.ogg" id="22"]
 
 [sub_resource type="Curve" id="Curve_r6l08"]
-_data = [Vector2(0.108456, 0.131673), 0.0, 0.0, 0, 0, Vector2(0.920956, 0.94306), -0.634735, -0.634735, 0, 0, Vector2(1, 0), -29.7224, 0.0, 0, 0]
+_data = [Vector2(0.102899, 0.217082), 0.0, 1.50629, 0, 0, Vector2(0.920956, 0.94306), 0.15237, 0.15237, 0, 0, Vector2(1, 0), -25.2248, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="StandardMaterial3D" id="12"]
@@ -103,7 +103,7 @@ _surfaces = [{
 }]
 
 [sub_resource type="BoxShape3D" id="13"]
-size = Vector3(1.57522, 1.10237, 4.57758)
+size = Vector3(1.57522, 1, 4.57758)
 
 [sub_resource type="ArrayMesh" id="7"]
 resource_name = "AE86_2_Cube003"
@@ -158,7 +158,8 @@ _surfaces = [{
 }]
 
 [node name="AE86_1" type="VehicleBody3D"]
-mass = 1850.0
+mass = 1000.0
+center_of_mass_mode = 1
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_uygca")
@@ -192,9 +193,10 @@ shape = SubResource("13")
 [node name="OnSol" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.908673, 0.301739, 1.35736)
 use_as_steering = true
+wheel_roll_influence = 0.0
 wheel_radius = 0.283
 wheel_friction_slip = 1.0
-suspension_stiffness = 35.0
+suspension_stiffness = 50.0
 damping_compression = 0.3
 damping_relaxation = 0.5
 
@@ -204,9 +206,10 @@ mesh = ExtResource("8")
 [node name="OnSag" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.614977, 0.301739, 1.35736)
 use_as_steering = true
+wheel_roll_influence = 0.0
 wheel_radius = 0.283
 wheel_friction_slip = 1.0
-suspension_stiffness = 35.0
+suspension_stiffness = 50.0
 damping_compression = 0.3
 damping_relaxation = 0.5
 
@@ -217,9 +220,10 @@ mesh = ExtResource("8")
 [node name="ArkaSol" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.908673, 0.301739, -1.03146)
 use_as_traction = true
+wheel_roll_influence = 0.0
 wheel_radius = 0.283
 wheel_friction_slip = 1.0
-suspension_stiffness = 35.0
+suspension_stiffness = 50.0
 damping_compression = 0.3
 damping_relaxation = 0.5
 
@@ -229,9 +233,10 @@ mesh = ExtResource("8")
 [node name="ArkaSag" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.614977, 0.301739, -1.03146)
 use_as_traction = true
+wheel_roll_influence = 0.0
 wheel_radius = 0.283
 wheel_friction_slip = 1.0
-suspension_stiffness = 35.0
+suspension_stiffness = 50.0
 damping_compression = 0.3
 damping_relaxation = 0.5
 

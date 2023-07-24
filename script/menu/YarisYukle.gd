@@ -18,7 +18,7 @@ var current_mode : RaceManager.MODE = RaceManager.MODE.TIME_TRIAL
 
 const race_manager_path : String = "res://tscndosyalari/menu/Yaris.tscn"
 var car_path : String = Global.Save.get_save()["player"]["car"]
-var track_path : String = "res://tscndosyalari/pist/PistTest01.tscn"
+var track_path : String = "res://tscndosyalari/pist/Pist01.tscn"
 var bot_path : String = ""
 
 var queue : Array[String] = []

@@ -57,26 +57,24 @@ enum gear_state {
 }
 
 var last_position : Vector3 = position
+var wheel_circumference : float
 
 func _ready():
+	wheel_circumference = 2.0 * PI * RIGHT_REAR_WHEEL_RADIUS
 	pass
 
-func get_speed_kph() -> float:
-	return states[STATE.SPEED_MPS] * 3.6
 
 # calculate the RPM of our engine based on the current velocity of our car
 func calculate_rpm() -> float:
 	if states[STATE.GEAR] == gear_state.NEUTRAL:
 		return lerp(states[STATE.ENGINE_RPM], 1000.0+randf()*100, 0.01)
 
-	var wheel_circumference : float = 2.0 * PI * RIGHT_REAR_WHEEL_RADIUS
 	var wheel_rotation_speed : float = 60.0 * states[STATE.SPEED_MPS] / wheel_circumference
 	var drive_shaft_rotation_speed : float = wheel_rotation_speed * FINAL_DRIVE_RATIO
 
 	return max(1000.0, drive_shaft_rotation_speed * GEAR_RATIO[states[STATE.GEAR]])
 
 var GEAR_TWEEN : Tween
-var DID_GEAR_CHANGE : bool = false
 const CLUTCH_THRESHOLD : float = 0.1
 func change_gear(new_gear: int) -> void:
 	if 	new_gear < 0 or\
@@ -85,7 +83,6 @@ func change_gear(new_gear: int) -> void:
 		return
 	var cgt : Callable = func(val : float):
 		if val < CLUTCH_THRESHOLD:
-			DID_GEAR_CHANGE = true
 			states[STATE.GEAR] = new_gear
 			emit_signal("gear_changed")
 		states[STATE.CLUTCH] = abs(val)		
@@ -93,7 +90,6 @@ func change_gear(new_gear: int) -> void:
 	if GEAR_TWEEN:
 		GEAR_TWEEN.kill()
 	GEAR_TWEEN = create_tween()
-	DID_GEAR_CHANGE = false
 	GEAR_TWEEN.tween_method(cgt, states[STATE.CLUTCH], -1.0, GEAR_SHIFT_TIME)
 	pass
 

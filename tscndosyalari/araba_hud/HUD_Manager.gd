@@ -89,6 +89,8 @@ func update_frame_gauges() -> void:
 			"Label":
 				if gauge_type == Car.STATE.GEAR:
 					gauge_node.text = GEARS[int(P_STATES[gauge_type])]
+				elif gauge_type == Car.STATE.SPEED_MPS:
+					gauge_node.text = str(int(P_STATES[gauge_type] * 3.6))
 				else:
 					gauge_node.text = str(round(P_STATES[gauge_type]))
 			"ProgressBar", "TextureProgressBar":

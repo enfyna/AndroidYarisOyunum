@@ -11,3 +11,5 @@ res://model/Araba/AE86/gltf/Pencere.material
 res://tscndosyalari/araba_kontrol/digital.tscn
 res://tscndosyalari/araba/AE86.tscn
 res://tscndosyalari/araba_hud/HUD_1.tscn
+res://script/menu/YarisYukle.gd
+res://tscndosyalari/pist/Pist00.tscn
