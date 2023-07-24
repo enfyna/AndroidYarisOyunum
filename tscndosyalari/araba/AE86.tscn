@@ -158,13 +158,13 @@ _surfaces = [{
 }]
 
 [node name="AE86_1" type="VehicleBody3D"]
-mass = 925.0
+mass = 1850.0
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_uygca")
 HP = 1000.0
 GEAR_RATIO = Array[float]([-1.0, 0.0, 2.69, 2.01, 1.59, 1.32, 1.13])
-GEAR_SHIFT_TIME = 10.0
+GEAR_SHIFT_TIME = 3.0
 POWER_CURVE = SubResource("Curve_r6l08")
 
 [node name="Controller" type="Node2D" parent="." node_paths=PackedStringArray("P_CAR")]
@@ -193,7 +193,7 @@ shape = SubResource("13")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.908673, 0.301739, 1.35736)
 use_as_steering = true
 wheel_radius = 0.283
-wheel_friction_slip = 3.0
+wheel_friction_slip = 1.0
 suspension_stiffness = 35.0
 damping_compression = 0.3
 damping_relaxation = 0.5
@@ -205,7 +205,7 @@ mesh = ExtResource("8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.614977, 0.301739, 1.35736)
 use_as_steering = true
 wheel_radius = 0.283
-wheel_friction_slip = 3.0
+wheel_friction_slip = 1.0
 suspension_stiffness = 35.0
 damping_compression = 0.3
 damping_relaxation = 0.5
@@ -218,7 +218,7 @@ mesh = ExtResource("8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.908673, 0.301739, -1.03146)
 use_as_traction = true
 wheel_radius = 0.283
-wheel_friction_slip = 3.0
+wheel_friction_slip = 1.0
 suspension_stiffness = 35.0
 damping_compression = 0.3
 damping_relaxation = 0.5
@@ -230,7 +230,7 @@ mesh = ExtResource("8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.614977, 0.301739, -1.03146)
 use_as_traction = true
 wheel_radius = 0.283
-wheel_friction_slip = 3.0
+wheel_friction_slip = 1.0
 suspension_stiffness = 35.0
 damping_compression = 0.3
 damping_relaxation = 0.5

@@ -54,29 +54,26 @@ func bind_controller():
 			node.released.connect(func(): lerp_state_to(Car.STATE.BRAKE, 0.0, 0.5))
 			continue
 		elif "LEFT" in node_group:
-			node.pressed.connect(func(): lerp_state_to(Car.STATE.STEER, -1.0, 0.5))
-			node.released.connect(func(): lerp_state_to(Car.STATE.STEER, 0.0, 0.5))
+			node.pressed.connect(func(): lerp_state_to(Car.STATE.STEER, -1.0, 1.0))
+			node.released.connect(func(): lerp_state_to(Car.STATE.STEER, 0.0, 1.0))
 			continue
 		elif "RIGHT" in node_group:
-			node.pressed.connect(func(): lerp_state_to(Car.STATE.STEER, 1.0, 0.5))
-			node.released.connect(func(): lerp_state_to(Car.STATE.STEER, 0.0, 0.5))
+			node.pressed.connect(func(): lerp_state_to(Car.STATE.STEER, 1.0, 1.0))
+			node.released.connect(func(): lerp_state_to(Car.STATE.STEER, 0.0, 1.0))
 			continue
 		elif "SHIFT_UP" in node_group:
 			node.pressed.connect(func(): 
-				P_CAR.states[Car.STATE.GEAR] += 1
-				P_CAR.emit_signal("gear_changed")
+				P_CAR.change_gear(int(P_CAR.states[Car.STATE.GEAR]) + 1)
 				)
 			continue
 		elif "SHIFT_DOWN" in node_group:
 			node.pressed.connect(func(): 
-				P_CAR.states[Car.STATE.GEAR] -= 1
-				P_CAR.emit_signal("gear_changed")
+				P_CAR.change_gear(int(P_CAR.states[Car.STATE.GEAR]) - 1)
 				)
 			continue
 		elif "REVERSE" in node_group:
 			node.pressed.connect(func(): 
-				P_CAR.states[Car.STATE.GEAR] = 0
-				P_CAR.emit_signal("gear_changed")
+				P_CAR.change_gear(1)
 				)
 			continue
 		elif "CHANGE_CAMERA" in node_group:
@@ -94,5 +91,4 @@ func lerp_state_to(state : int, final : float, time : float) -> void:
 		tween.kill()
 	tween = create_tween()
 	tween.tween_method(lsf, P_CAR.states[state], final, time)
-	print(final)
 	pass
