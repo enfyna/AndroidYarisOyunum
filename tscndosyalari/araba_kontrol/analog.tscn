@@ -23,7 +23,7 @@ radius = 120.0
 
 [node name="analog" type="Node2D"]
 
-[node name="touchgeri" type="TouchScreenButton" parent="."]
+[node name="touchgeri" type="TouchScreenButton" parent="." groups=["REVERSE"]]
 position = Vector2(408, 528)
 scale = Vector2(1.04, 0.98)
 texture_normal = ExtResource("1_wdpmj")
@@ -31,21 +31,21 @@ texture_pressed = ExtResource("2_ur1ft")
 shape = SubResource("CircleShape2D_acs5v")
 action = "reverse"
 
-[node name="touchgaz" type="TouchScreenButton" parent="."]
+[node name="touchgaz" type="TouchScreenButton" parent="." groups=["THROTTLE"]]
 position = Vector2(1024, 448)
 texture_normal = ExtResource("3_4vjdf")
 texture_pressed = ExtResource("4_l2u4t")
 shape = SubResource("RectangleShape2D_cov82")
 action = "ui_up"
 
-[node name="touchfren" type="TouchScreenButton" parent="."]
+[node name="touchfren" type="TouchScreenButton" parent="." groups=["BRAKE"]]
 position = Vector2(80, 528)
 texture_normal = ExtResource("5_dsq54")
 texture_pressed = ExtResource("6_i8dx0")
 shape = SubResource("CircleShape2D_lqe4o")
 action = "ui_down"
 
-[node name="touchvitesart" type="TouchScreenButton" parent="."]
+[node name="touchvitesart" type="TouchScreenButton" parent="." groups=["SHIFT_UP"]]
 position = Vector2(56, 232)
 texture_normal = ExtResource("7_i5u2l")
 texture_pressed = ExtResource("8_rjukt")
@@ -53,7 +53,7 @@ shape = SubResource("CircleShape2D_lqe4o")
 shape_visible = false
 action = "shift_up"
 
-[node name="touchvitesdus" type="TouchScreenButton" parent="."]
+[node name="touchvitesdus" type="TouchScreenButton" parent="." groups=["SHIFT_DOWN"]]
 position = Vector2(1024, 232)
 texture_normal = ExtResource("9_274hr")
 texture_pressed = ExtResource("10_7q5lv")
@@ -61,7 +61,7 @@ shape = SubResource("CircleShape2D_lqe4o")
 shape_visible = false
 action = "shift_down"
 
-[node name="KameraDegistir" type="Button" parent="."]
+[node name="KameraDegistir" type="Button" parent="." groups=["CHANGE_CAMERA"]]
 offset_right = 104.0
 offset_bottom = 104.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)

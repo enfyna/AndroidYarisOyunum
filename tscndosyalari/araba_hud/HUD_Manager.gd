@@ -5,7 +5,7 @@ extends Control
 
 enum HUD_TYPES {
 	HUD_1,
-	HUD_2, # add later
+	#HUD_2, # add later
 	#HUD_3, # add later
 }
 
@@ -14,7 +14,7 @@ const HUD_SCENE : Dictionary = {
 	#HUD_TYPES.HUD_2 : "", # add later
 }
 
-@onready var P_CAR : Car = get_parent()
+@export var P_CAR : Car = get_parent()
 
 @onready var P_STATES : Array[float] = P_CAR.states
 const GEARS : Array[String] = ["R", "N", "1", "2", "3", "4", "5", "6"]

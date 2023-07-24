@@ -20,7 +20,6 @@ signal completed_lap
 
 @export var RIGHT_REAR_WHEEL_RADIUS : float = 0.283
 
-@export var CONTROLLER : Node = null
 enum STATE{
 	THROTTLE,
 	BRAKE,
@@ -35,12 +34,12 @@ enum STATE{
 	OIL,
 	ENGINE,
 }
-var states : Array[float] = [
-	1.0,
+@export var states : Array[float] = [
+	0.0,
 	0.0,
 	1.0,
 	0.0,
-	5,
+	2,
 	0.0,
 	0.0,
 	0.0,
