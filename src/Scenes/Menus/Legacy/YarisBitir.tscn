@@ -1,0 +1,255 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://src/Fonts/hemi-head-426.rg-bolditalic.ttf" id="1"]
+[ext_resource type="FontFile" path="res://src/Fonts/new_dynamicfont.tres" id="2"]
+[ext_resource type="Script" path="res://script/menu/YarisBitir.gd" id="3"]
+[ext_resource type="Script" path="res://admob-lib/admob.gd" id="4"]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0941176, 1, 0, 0.235294 )
+
+[sub_resource type="FontFile" id=2]
+size = 80
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="FontFile" id=4]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="FontFile" id=3]
+size = 35
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.0901961, 0.839216, 0.803922, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.0666667, 0.380392, 0.568627, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="YarisBitir" type="Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = 8.0
+theme_override_styles/hover = SubResource( 1 )
+theme_override_styles/pressed = SubResource( 1 )
+theme_override_styles/normal = SubResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Baslik" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 80.0
+offset_right = 250.0
+offset_bottom = 280.0
+custom_minimum_size = Vector2( 500, 200 )
+theme_override_fonts/font = SubResource( 2 )
+text = "Kazandın!"
+align = 1
+valign = 1
+
+[node name="h" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -16.0
+offset_right = 200.0
+offset_bottom = 199.0
+theme_override_constants/separation = 0
+
+[node name="v" type="VBoxContainer" parent="h"]
+offset_right = 200.0
+offset_bottom = 215.0
+custom_minimum_size = Vector2( 200, 0 )
+
+[node name="ParaOdulu" type="Label" parent="h/v"]
+offset_right = 200.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource( 2 )
+text = "Para"
+align = 2
+
+[node name="BronzOdulu" type="Label" parent="h/v"]
+offset_top = 41.0
+offset_right = 200.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource( 2 )
+text = "Bronz :"
+align = 2
+
+[node name="GumusOdulu" type="Label" parent="h/v"]
+offset_top = 82.0
+offset_right = 200.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource( 2 )
+text = "Gümüş :"
+align = 2
+
+[node name="AltinOdulu" type="Label" parent="h/v"]
+offset_top = 123.0
+offset_right = 200.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource( 2 )
+text = "Altın :"
+align = 2
+
+[node name="Kazanmabonusu" type="Label" parent="h/v"]
+offset_top = 164.0
+offset_right = 200.0
+offset_bottom = 201.0
+theme_override_fonts/font = ExtResource( 2 )
+text = "Bonus :"
+align = 2
+
+[node name="v2" type="VBoxContainer" parent="h"]
+offset_left = 200.0
+offset_right = 400.0
+offset_bottom = 215.0
+custom_minimum_size = Vector2( 200, 0 )
+
+[node name="ParaOdulu" type="Label" parent="h/v2"]
+offset_right = 200.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_fonts/font = SubResource( 4 )
+text = "+Para"
+
+[node name="BronzOdulu" type="Label" parent="h/v2"]
+offset_top = 41.0
+offset_right = 200.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource( 2 )
+text = "+Bronz"
+
+[node name="GumusOdulu" type="Label" parent="h/v2"]
+offset_top = 82.0
+offset_right = 200.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource( 2 )
+text = "+Gümüş"
+
+[node name="AltinOdulu" type="Label" parent="h/v2"]
+offset_top = 123.0
+offset_right = 200.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource( 2 )
+text = "+Altın"
+
+[node name="BonusOdulu" type="Label" parent="h/v2"]
+offset_top = 164.0
+offset_right = 200.0
+offset_bottom = 201.0
+theme_override_fonts/font = ExtResource( 2 )
+text = "+Bonus"
+
+[node name="ToplamSure" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -120.0
+offset_right = 228.0
+offset_bottom = -83.0
+theme_override_fonts/font = SubResource( 3 )
+text = "0,00,000"
+align = 1
+
+[node name="Tur" type="Label" parent="."]
+offset_left = 344.0
+offset_top = 288.0
+offset_right = 680.0
+offset_bottom = 325.0
+theme_override_fonts/font = ExtResource( 2 )
+text = "5 Tur"
+align = 2
+
+[node name="devamet" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -80.0
+offset_right = 584.0
+offset_bottom = -17.0
+theme_override_fonts/font = ExtResource( 2 )
+theme_override_styles/hover = SubResource( 17 )
+theme_override_styles/pressed = SubResource( 17 )
+theme_override_styles/normal = SubResource( 16 )
+text = "Devam Et"
+
+[node name="Reklamlabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -168.0
+offset_bottom = -91.0
+theme_override_fonts/font = ExtResource( 2 )
+text = "Para Ödülünü 2'ye katla :"
+align = 2
+valign = 1
+autowrap = true
+
+[node name="reklam" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -152.0
+offset_right = 584.0
+offset_bottom = -104.0
+theme_override_fonts/font = ExtResource( 2 )
+theme_override_styles/hover = SubResource( 17 )
+theme_override_styles/pressed = SubResource( 17 )
+theme_override_styles/focus = SubResource( 17 )
+theme_override_styles/normal = SubResource( 16 )
+text = "Reklam İzle!"
+
+[node name="AdMob" type="Node" parent="."]
+script = ExtResource( 4 )
+rewarded_id = "ca-app-pub-9739592964869796/9609268572"
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="devamet" to="." method="_on_devamet_pressed"]
+[connection signal="pressed" from="reklam" to="." method="_on_reklam_pressed"]
+[connection signal="rewarded" from="AdMob" to="." method="_on_AdMob_rewarded"]
+[connection signal="rewarded_video_closed" from="AdMob" to="." method="_on_AdMob_rewarded_video_closed"]
+[connection signal="rewarded_video_failed_to_load" from="AdMob" to="." method="_on_AdMob_rewarded_video_failed_to_load"]
+[connection signal="rewarded_video_loaded" from="AdMob" to="." method="_on_AdMob_rewarded_video_loaded"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

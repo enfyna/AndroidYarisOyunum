@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://bupv6vcouq75j"]
+
+[ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://src/Fonts/hemi-head-426.rg-bolditalic.ttf" id="1"]
+[ext_resource type="Script" path="res://src/Scenes/Menus/Legacy/YarisYukle.gd" id="2_pbppc"]
+[ext_resource type="Texture2D" uid="uid://g84om0l3y7o2" path="res://src/Textures/Backgrounds/anamenuarka4.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bjplxoj1d8ogh" path="res://src/Textures/Icons/icon5.png" id="4_8qq65"]
+
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("1")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="2"]
+bg_color = Color(0, 0, 0, 0.552941)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="3"]
+fallbacks = Array[Font]([ExtResource("1")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="YarisYukle" type="TextureRect" node_paths=PackedStringArray("loading_bar", "loading_info_node", "game_info_node")]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3")
+script = ExtResource("2_pbppc")
+loading_bar = NodePath("loading_bar")
+loading_info_node = NodePath("loading_bar/loading_info")
+loading_texts = Array[String](["loadm", "loadp", "loada", "loadb", "yuklemetamam"])
+game_info_node = NodePath("game_info")
+game_info_text = Array[String](["yb1", "yb2", "yb3", "yb4", "yb5", "yb6", "yb7", "yb8"])
+
+[node name="game_info" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -272.0
+offset_right = 320.0
+offset_bottom = -64.0
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("2")
+text = "Motoru yüksek devirlerde kullanırsan daha hızlı gidersin ama motor yağında aynı şekilde daha hızlı eskimeye başlar."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="loading_bar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -272.0
+offset_right = -64.0
+offset_bottom = -80.0
+max_value = 1.0
+step = 0.01
+value = 0.7
+fill_mode = 4
+texture_progress = ExtResource("4_8qq65")
+
+[node name="loading_info" type="Label" parent="loading_bar"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_right = 96.0
+offset_bottom = 37.0
+theme_override_fonts/font = SubResource("3")
+text = "Pist yükleniyor..."
+horizontal_alignment = 1
+vertical_alignment = 1

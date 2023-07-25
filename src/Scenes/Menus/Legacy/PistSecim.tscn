@@ -1,0 +1,1046 @@
+[gd_scene load_steps=31 format=3 uid="uid://56f7orqx1sg6"]
+
+[ext_resource type="Script" path="res://script/menu/pistsecim.gd" id="1_hcu2e"]
+[ext_resource type="Texture2D" uid="uid://bjiil02fey4fp" path="res://src/Textures/Backgrounds/anamenuarka7.png" id="2_al14s"]
+[ext_resource type="Script" path="res://script/menu/koyumod.gd" id="3_sbwah"]
+[ext_resource type="PackedScene" uid="uid://bvre2wc3l5ptg" path="res://src/Scenes/Menus/Old/AnaMenuyeDonTusu.tscn" id="4_ff8th"]
+[ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://src/Fonts/hemi-head-426.rg-bolditalic.ttf" id="5_cep75"]
+[ext_resource type="Texture2D" uid="uid://bpien2dg5xgy1" path="res://src/Textures/menu/pist/pistsecimp.png" id="6_iccfk"]
+[ext_resource type="Texture2D" uid="uid://dhhioo47yhi2x" path="res://src/Textures/pist/pist1.png" id="7_pxysw"]
+[ext_resource type="FontFile" path="res://src/Fonts/new_dynamicfont.tres" id="8_aiu5l"]
+[ext_resource type="StyleBox" path="res://style/satinalbutonu.tres" id="9_sb26m"]
+[ext_resource type="Texture2D" uid="uid://f0qf5qf7qnbn" path="res://src/Textures/pist/pist2.png" id="10_nlfvg"]
+[ext_resource type="Texture2D" uid="uid://cuiqb2i5u0coy" path="res://src/Textures/pist/pist3.png" id="11_dnawe"]
+[ext_resource type="Texture2D" uid="uid://bf4mxtqu58425" path="res://src/Textures/pist/pist4.png" id="12_fgfht"]
+[ext_resource type="Texture2D" uid="uid://dncfucni4xdjf" path="res://src/Textures/pist/pist5.png" id="13_72022"]
+[ext_resource type="Texture2D" uid="uid://dnhsiu2m1d1bh" path="res://src/Textures/pist/pist6.png" id="14_hrbcy"]
+[ext_resource type="Texture2D" uid="uid://1tp85srv7vqr" path="res://src/Textures/pist/pist7.png" id="15_bytxk"]
+[ext_resource type="Texture2D" uid="uid://cr8pkw6hatru6" path="res://src/Textures/pist/pist8.png" id="16_jds0j"]
+[ext_resource type="Texture2D" uid="uid://bjgqmk3w347nv" path="res://src/Textures/pist/pist9.png" id="17_aw5f0"]
+[ext_resource type="Texture2D" uid="uid://c3bapcn2e05n7" path="res://src/Textures/pist/pist0.png" id="18_xbx0m"]
+[ext_resource type="Texture2D" uid="uid://0c1fnucy0whh" path="res://src/Textures/menu/pist/pistsecimb.png" id="19_ketsu"]
+[ext_resource type="Texture2D" uid="uid://cdscmrai1hqhp" path="res://src/Textures/pist/pist10.png" id="20_6h5su"]
+[ext_resource type="Texture2D" uid="uid://c2py2f0pwison" path="res://src/Textures/menu/ayarlar/arti.png" id="21_ij6og"]
+[ext_resource type="Texture2D" uid="uid://dmkebnwmfyhcx" path="res://src/Textures/menu/ayarlar/eksi.png" id="22_n7otr"]
+[ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://src/Scenes/Menus/Old/AltPanel.tscn" id="23_syqkk"]
+
+[sub_resource type="FontFile" id="3"]
+fallbacks = Array[Font]([ExtResource("5_cep75")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="9"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="10"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="Theme" id="11"]
+HScrollBar/styles/scroll = SubResource("9")
+ScrollContainer/styles/bg = SubResource("10")
+
+[sub_resource type="StyleBoxFlat" id="12"]
+bg_color = Color(0, 0.298039, 0.258824, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.521569, 0.835294, 0.862745, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="FontFile" id="13"]
+fallbacks = Array[Font]([ExtResource("5_cep75")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="14"]
+fallbacks = Array[Font]([ExtResource("5_cep75")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="PistSecim" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-44, 72)
+script = ExtResource("1_hcu2e")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_al14s")
+expand_mode = 1
+script = ExtResource("3_sbwah")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -696.0
+offset_top = -296.0
+offset_right = 728.0
+offset_bottom = 216.0
+color = Color(0, 0, 0, 0.490196)
+
+[node name="anamenuyedon" parent="." instance=ExtResource("4_ff8th")]
+
+[node name="secilenaraba" type="Label" parent="."]
+layout_mode = 0
+offset_left = 797.0
+offset_top = 592.0
+offset_right = 1266.0
+offset_bottom = 642.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("3")
+text = "Seçilen Araba:  ...                                     "
+
+[node name="HScrollBar" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_top = 152.0
+offset_right = 1280.0
+offset_bottom = 652.0
+theme = SubResource("11")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HScrollBar"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="HScrollBar/HBoxContainer"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+
+[node name="Pist01" type="TextureRect" parent="HScrollBar/HBoxContainer"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+texture = ExtResource("6_iccfk")
+
+[node name="sutun1" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Pist01"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 244.0
+
+[node name="Container" type="Control" parent="HScrollBar/HBoxContainer/Pist01/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="p1" type="TextureRect" parent="HScrollBar/HBoxContainer/Pist01/sutun1/Container"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("7_pxysw")
+expand_mode = 1
+
+[node name="Container2" type="Control" parent="HScrollBar/HBoxContainer/Pist01/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="HScrollBar/HBoxContainer/Pist01/sutun1/Container2"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -37.5
+offset_right = 100.0
+offset_bottom = 37.5
+theme_override_fonts/font = ExtResource("8_aiu5l")
+theme_override_styles/normal = ExtResource("9_sb26m")
+theme_override_styles/hover = ExtResource("9_sb26m")
+theme_override_styles/pressed = SubResource("12")
+text = "Git"
+
+[node name="sure" type="Label" parent="HScrollBar/HBoxContainer/Pist01/sutun1/Container2"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 31.0
+rotation = 7.0
+theme_override_fonts/font = SubResource("13")
+text = "0'55.254"
+
+[node name="Pist02" type="TextureRect" parent="HScrollBar/HBoxContainer"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+texture = ExtResource("6_iccfk")
+
+[node name="sutun1" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Pist02"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 244.0
+
+[node name="Container" type="Control" parent="HScrollBar/HBoxContainer/Pist02/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="p2" type="TextureRect" parent="HScrollBar/HBoxContainer/Pist02/sutun1/Container"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+texture = ExtResource("10_nlfvg")
+expand_mode = 1
+
+[node name="Container2" type="Control" parent="HScrollBar/HBoxContainer/Pist02/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="HScrollBar/HBoxContainer/Pist02/sutun1/Container2"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -37.5
+offset_right = 100.0
+offset_bottom = 37.5
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_aiu5l")
+theme_override_styles/normal = ExtResource("9_sb26m")
+theme_override_styles/hover = ExtResource("9_sb26m")
+theme_override_styles/pressed = SubResource("12")
+text = "Git"
+
+[node name="sure" type="Label" parent="HScrollBar/HBoxContainer/Pist02/sutun1/Container2"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 31.0
+rotation = 7.0
+theme_override_fonts/font = SubResource("13")
+text = "0'55.254"
+
+[node name="Pist03" type="TextureRect" parent="HScrollBar/HBoxContainer"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+texture = ExtResource("6_iccfk")
+
+[node name="sutun1" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Pist03"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 244.0
+
+[node name="Container" type="Control" parent="HScrollBar/HBoxContainer/Pist03/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="p3" type="TextureRect" parent="HScrollBar/HBoxContainer/Pist03/sutun1/Container"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("11_dnawe")
+expand_mode = 1
+
+[node name="Container2" type="Control" parent="HScrollBar/HBoxContainer/Pist03/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="HScrollBar/HBoxContainer/Pist03/sutun1/Container2"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -37.5
+offset_right = 100.0
+offset_bottom = 37.5
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_aiu5l")
+theme_override_styles/normal = ExtResource("9_sb26m")
+theme_override_styles/hover = ExtResource("9_sb26m")
+theme_override_styles/pressed = SubResource("12")
+text = "Git"
+
+[node name="sure" type="Label" parent="HScrollBar/HBoxContainer/Pist03/sutun1/Container2"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 31.0
+rotation = 7.0
+theme_override_fonts/font = SubResource("13")
+text = "0'55.254"
+
+[node name="Pist04" type="TextureRect" parent="HScrollBar/HBoxContainer"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+texture = ExtResource("6_iccfk")
+
+[node name="sutun1" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Pist04"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 244.0
+
+[node name="Container" type="Control" parent="HScrollBar/HBoxContainer/Pist04/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="p4" type="TextureRect" parent="HScrollBar/HBoxContainer/Pist04/sutun1/Container"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("12_fgfht")
+expand_mode = 1
+
+[node name="Container2" type="Control" parent="HScrollBar/HBoxContainer/Pist04/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="Button" type="Button" parent="HScrollBar/HBoxContainer/Pist04/sutun1/Container2"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = 35.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_aiu5l")
+theme_override_styles/normal = ExtResource("9_sb26m")
+theme_override_styles/hover = ExtResource("9_sb26m")
+theme_override_styles/pressed = SubResource("12")
+text = "Git"
+
+[node name="sure" type="Label" parent="HScrollBar/HBoxContainer/Pist04/sutun1/Container2"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 31.0
+rotation = 7.0
+theme_override_fonts/font = SubResource("13")
+text = "0'55.254"
+
+[node name="Pist05" type="TextureRect" parent="HScrollBar/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+texture = ExtResource("6_iccfk")
+
+[node name="sutun1" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Pist05"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 244.0
+
+[node name="Container" type="Control" parent="HScrollBar/HBoxContainer/Pist05/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="p5" type="TextureRect" parent="HScrollBar/HBoxContainer/Pist05/sutun1/Container"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("13_72022")
+expand_mode = 1
+
+[node name="Container2" type="Control" parent="HScrollBar/HBoxContainer/Pist05/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="Button" type="Button" parent="HScrollBar/HBoxContainer/Pist05/sutun1/Container2"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = 35.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_aiu5l")
+theme_override_styles/normal = ExtResource("9_sb26m")
+theme_override_styles/hover = ExtResource("9_sb26m")
+theme_override_styles/pressed = SubResource("12")
+text = "Git"
+
+[node name="sure" type="Label" parent="HScrollBar/HBoxContainer/Pist05/sutun1/Container2"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 31.0
+rotation = 7.0
+theme_override_fonts/font = SubResource("13")
+text = "0'55.254"
+
+[node name="Pist06" type="TextureRect" parent="HScrollBar/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+texture = ExtResource("6_iccfk")
+
+[node name="sutun1" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Pist06"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 244.0
+
+[node name="Container" type="Control" parent="HScrollBar/HBoxContainer/Pist06/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="p6" type="TextureRect" parent="HScrollBar/HBoxContainer/Pist06/sutun1/Container"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("14_hrbcy")
+expand_mode = 1
+
+[node name="Container2" type="Control" parent="HScrollBar/HBoxContainer/Pist06/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="Button" type="Button" parent="HScrollBar/HBoxContainer/Pist06/sutun1/Container2"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = 35.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_aiu5l")
+theme_override_styles/normal = ExtResource("9_sb26m")
+theme_override_styles/hover = ExtResource("9_sb26m")
+theme_override_styles/pressed = SubResource("12")
+text = "Git"
+
+[node name="sure" type="Label" parent="HScrollBar/HBoxContainer/Pist06/sutun1/Container2"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 31.0
+rotation = 7.0
+theme_override_fonts/font = SubResource("13")
+text = "0'55.254"
+
+[node name="Pist07" type="TextureRect" parent="HScrollBar/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+texture = ExtResource("6_iccfk")
+
+[node name="sutun1" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Pist07"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 244.0
+
+[node name="Container" type="Control" parent="HScrollBar/HBoxContainer/Pist07/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="p7" type="TextureRect" parent="HScrollBar/HBoxContainer/Pist07/sutun1/Container"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("15_bytxk")
+expand_mode = 1
+
+[node name="Container2" type="Control" parent="HScrollBar/HBoxContainer/Pist07/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="Button" type="Button" parent="HScrollBar/HBoxContainer/Pist07/sutun1/Container2"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = 35.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_aiu5l")
+theme_override_styles/normal = ExtResource("9_sb26m")
+theme_override_styles/hover = ExtResource("9_sb26m")
+theme_override_styles/pressed = SubResource("12")
+text = "Git"
+
+[node name="sure" type="Label" parent="HScrollBar/HBoxContainer/Pist07/sutun1/Container2"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 31.0
+rotation = 7.0
+theme_override_fonts/font = SubResource("13")
+text = "0'55.254"
+
+[node name="Pist08" type="TextureRect" parent="HScrollBar/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+texture = ExtResource("6_iccfk")
+
+[node name="sutun1" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Pist08"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 244.0
+
+[node name="Container" type="Control" parent="HScrollBar/HBoxContainer/Pist08/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="p8" type="TextureRect" parent="HScrollBar/HBoxContainer/Pist08/sutun1/Container"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("16_jds0j")
+expand_mode = 1
+
+[node name="Container2" type="Control" parent="HScrollBar/HBoxContainer/Pist08/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="Button" type="Button" parent="HScrollBar/HBoxContainer/Pist08/sutun1/Container2"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = 35.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_aiu5l")
+theme_override_styles/normal = ExtResource("9_sb26m")
+theme_override_styles/hover = ExtResource("9_sb26m")
+theme_override_styles/pressed = SubResource("12")
+text = "Git"
+
+[node name="sure" type="Label" parent="HScrollBar/HBoxContainer/Pist08/sutun1/Container2"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 31.0
+rotation = 7.0
+theme_override_fonts/font = SubResource("13")
+text = "0'55.254"
+
+[node name="Pist09" type="TextureRect" parent="HScrollBar/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+texture = ExtResource("6_iccfk")
+
+[node name="sutun1" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Pist09"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 244.0
+
+[node name="Container" type="Control" parent="HScrollBar/HBoxContainer/Pist09/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="p9" type="TextureRect" parent="HScrollBar/HBoxContainer/Pist09/sutun1/Container"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("17_aw5f0")
+expand_mode = 1
+
+[node name="Container2" type="Control" parent="HScrollBar/HBoxContainer/Pist09/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="Button" type="Button" parent="HScrollBar/HBoxContainer/Pist09/sutun1/Container2"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = 35.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_aiu5l")
+theme_override_styles/normal = ExtResource("9_sb26m")
+theme_override_styles/hover = ExtResource("9_sb26m")
+theme_override_styles/pressed = SubResource("12")
+text = "Git"
+
+[node name="sure" type="Label" parent="HScrollBar/HBoxContainer/Pist09/sutun1/Container2"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 31.0
+rotation = 7.0
+theme_override_fonts/font = SubResource("13")
+text = "0'55.254"
+
+[node name="Pist00" type="TextureRect" parent="HScrollBar/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+texture = ExtResource("6_iccfk")
+
+[node name="sutun1" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Pist00"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 244.0
+
+[node name="Container" type="Control" parent="HScrollBar/HBoxContainer/Pist00/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="p0" type="TextureRect" parent="HScrollBar/HBoxContainer/Pist00/sutun1/Container"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("18_xbx0m")
+expand_mode = 1
+
+[node name="Container2" type="Control" parent="HScrollBar/HBoxContainer/Pist00/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="Button" type="Button" parent="HScrollBar/HBoxContainer/Pist00/sutun1/Container2"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = 35.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_aiu5l")
+theme_override_styles/normal = ExtResource("9_sb26m")
+theme_override_styles/hover = ExtResource("9_sb26m")
+theme_override_styles/pressed = SubResource("12")
+text = "Git"
+
+[node name="sure" type="Label" parent="HScrollBar/HBoxContainer/Pist00/sutun1/Container2"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 31.0
+rotation = 7.0
+theme_override_fonts/font = SubResource("13")
+text = "0'55.254"
+
+[node name="Pist10" type="TextureRect" parent="HScrollBar/HBoxContainer"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+texture = ExtResource("19_ketsu")
+
+[node name="sutun1" type="VBoxContainer" parent="HScrollBar/HBoxContainer/Pist10"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -200.0
+offset_right = 125.0
+offset_bottom = 244.0
+
+[node name="Container" type="Control" parent="HScrollBar/HBoxContainer/Pist10/sutun1"]
+custom_minimum_size = Vector2(250, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="p10" type="TextureRect" parent="HScrollBar/HBoxContainer/Pist10/sutun1/Container"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("20_6h5su")
+expand_mode = 1
+
+[node name="Container2" type="Control" parent="HScrollBar/HBoxContainer/Pist10/sutun1"]
+custom_minimum_size = Vector2(200, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="Button" type="Button" parent="HScrollBar/HBoxContainer/Pist10/sutun1/Container2"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = 35.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_aiu5l")
+theme_override_styles/normal = ExtResource("9_sb26m")
+theme_override_styles/hover = ExtResource("9_sb26m")
+theme_override_styles/pressed = SubResource("12")
+text = "Git"
+
+[node name="sure" type="Label" parent="HScrollBar/HBoxContainer/Pist10/sutun1/Container2"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 31.0
+rotation = 7.0
+theme_override_fonts/font = SubResource("13")
+text = "0'55.254"
+
+[node name="Control2" type="Control" parent="HScrollBar/HBoxContainer"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+
+[node name="TurSayisi" type="Control" parent="."]
+custom_minimum_size = Vector2(250, 50)
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 592.0
+offset_right = 279.0
+offset_bottom = 642.0
+
+[node name="h" type="HBoxContainer" parent="TurSayisi"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -25.0
+offset_right = 125.0
+offset_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Arttir" type="TextureButton" parent="TurSayisi/h"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("21_ij6og")
+texture_pressed = ExtResource("21_ij6og")
+texture_hover = ExtResource("21_ij6og")
+texture_disabled = ExtResource("21_ij6og")
+
+[node name="Tur" type="Label" parent="TurSayisi/h"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_fonts/font = SubResource("14")
+text = "33 Tur"
+
+[node name="Azalt" type="TextureButton" parent="TurSayisi/h"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("22_n7otr")
+texture_pressed = ExtResource("22_n7otr")
+texture_hover = ExtResource("22_n7otr")
+
+[node name="Bonus" type="Label" parent="TurSayisi/h"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+theme_override_fonts/font = SubResource("14")
+text = "Bonus : 2500 para"
+
+[node name="ParaTablo" parent="." instance=ExtResource("23_syqkk")]
+layout_mode = 1
+pivot_offset = Vector2(432, 96)
+
+[connection signal="pressed" from="HScrollBar/HBoxContainer/Pist01/sutun1/Container2/Button" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="HScrollBar/HBoxContainer/Pist02/sutun1/Container2/Button" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="HScrollBar/HBoxContainer/Pist03/sutun1/Container2/Button" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="HScrollBar/HBoxContainer/Pist04/sutun1/Container2/Button" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="HScrollBar/HBoxContainer/Pist05/sutun1/Container2/Button" to="." method="_on_Button5_pressed"]
+[connection signal="pressed" from="HScrollBar/HBoxContainer/Pist06/sutun1/Container2/Button" to="." method="_on_Button6_pressed"]
+[connection signal="pressed" from="HScrollBar/HBoxContainer/Pist07/sutun1/Container2/Button" to="." method="_on_Button7_pressed"]
+[connection signal="pressed" from="HScrollBar/HBoxContainer/Pist08/sutun1/Container2/Button" to="." method="_on_Button8_pressed"]
+[connection signal="pressed" from="HScrollBar/HBoxContainer/Pist09/sutun1/Container2/Button" to="." method="_on_Button9_pressed"]
+[connection signal="pressed" from="HScrollBar/HBoxContainer/Pist00/sutun1/Container2/Button" to="." method="_on_Button0_pressed"]
+[connection signal="pressed" from="HScrollBar/HBoxContainer/Pist10/sutun1/Container2/Button" to="." method="_on_Button10_pressed"]
+[connection signal="pressed" from="TurSayisi/h/Arttir" to="." method="_on_Arttir_pressed"]
+[connection signal="pressed" from="TurSayisi/h/Azalt" to="." method="_on_Azalt_pressed"]

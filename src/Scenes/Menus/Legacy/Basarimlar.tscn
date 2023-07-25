@@ -1,0 +1,475 @@
+[gd_scene load_steps=14 format=3 uid="uid://c547vvfi6ywir"]
+
+[ext_resource type="PackedScene" uid="uid://bvre2wc3l5ptg" path="res://src/Scenes/Menus/Legacy/AnaMenuyeDonTusu.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://src/Scenes/Menus/Legacy/AltPanel.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://bjiil02fey4fp" path="res://src/Textures/Backgrounds/anamenuarka7.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://chifusifi1gry" path="res://src/Textures/menu/tutorial/text.png" id="4"]
+[ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://src/Fonts/hemi-head-426.rg-bolditalic.ttf" id="5"]
+[ext_resource type="Script" path="res://script/menu/Basarimlar.gd" id="6"]
+[ext_resource type="FontFile" path="res://font/new_dynamicfont.tres" id="7"]
+[ext_resource type="Script" path="res://script/menu/koyumod.gd" id="8"]
+
+[sub_resource type="StyleBoxFlat" id="29"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="30"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="31"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="11"]
+HScrollBar/styles/scroll = SubResource("29")
+ScrollContainer/styles/bg = SubResource("30")
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/decrement_pressed = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/icons/increment_pressed = null
+VScrollBar/styles/grabber = SubResource("31")
+VScrollBar/styles/grabber_highlight = SubResource("31")
+VScrollBar/styles/grabber_pressed = SubResource("31")
+VScrollBar/styles/scroll = SubResource("31")
+VScrollBar/styles/scroll_focus = SubResource("31")
+
+[sub_resource type="FontFile" id="32"]
+fallbacks = Array[Font]([ExtResource("5")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="Basarimlar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3")
+expand_mode = 1
+script = ExtResource("8")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -696.0
+offset_top = -296.0
+offset_right = 728.0
+offset_bottom = 216.0
+color = Color(0, 0, 0, 0.490196)
+
+[node name="anamenuyedon" parent="." instance=ExtResource("1")]
+anchors_preset = 0
+offset_left = -8.0
+offset_right = -8.0
+
+[node name="S" type="ScrollContainer" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -361.0
+offset_right = 512.0
+offset_bottom = 288.0
+theme = SubResource("11")
+
+[node name="V" type="VBoxContainer" parent="S"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Spacer" type="Control" parent="S/V"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="B1" type="TextureRect" parent="S/V"]
+custom_minimum_size = Vector2(1000, 150)
+layout_mode = 2
+texture = ExtResource("4")
+expand_mode = 1
+
+[node name="H" type="HBoxContainer" parent="S/V/B1"]
+custom_minimum_size = Vector2(1024, 150)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B1/H"]
+layout_mode = 2
+
+[node name="Sag" type="Control" parent="S/V/B1/H"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="S/V/B1/H/Sag"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -482.0
+offset_top = 24.0
+offset_right = 478.0
+offset_bottom = 88.0
+theme_override_fonts/font = SubResource("32")
+text = "Herhangi bir pistte 20 tur tamamla."
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B1/H/Sag"]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -54.0
+offset_right = 252.0
+offset_bottom = -18.0
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("7")
+max_value = 20.0
+value = 5.0
+
+[node name="B3" type="TextureRect" parent="S/V"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("4")
+expand_mode = 1
+
+[node name="H" type="HBoxContainer" parent="S/V/B3"]
+custom_minimum_size = Vector2(1024, 150)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B3/H"]
+layout_mode = 2
+
+[node name="Sag" type="Control" parent="S/V/B3/H"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="S/V/B3/H/Sag"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -482.0
+offset_top = 22.0
+offset_right = 478.0
+offset_bottom = 86.0
+theme_override_fonts/font = SubResource("32")
+text = "Saatte 100 km süratla git."
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B3/H/Sag"]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -54.0
+offset_right = 252.0
+offset_bottom = -18.0
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("7")
+value = 50.0
+
+[node name="B4" type="TextureRect" parent="S/V"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("4")
+expand_mode = 1
+
+[node name="H" type="HBoxContainer" parent="S/V/B4"]
+custom_minimum_size = Vector2(1024, 150)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B4/H"]
+layout_mode = 2
+
+[node name="Sag" type="Control" parent="S/V/B4/H"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="S/V/B4/H/Sag"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -482.0
+offset_top = 22.0
+offset_right = 478.0
+offset_bottom = 86.0
+theme_override_fonts/font = SubResource("32")
+text = "Oyunu 1 saat boyunca oyna."
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B4/H/Sag"]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -54.0
+offset_right = 252.0
+offset_bottom = -18.0
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("7")
+max_value = 3.6e+06
+value = 420420.0
+
+[node name="B5" type="TextureRect" parent="S/V"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("4")
+expand_mode = 1
+
+[node name="H" type="HBoxContainer" parent="S/V/B5"]
+custom_minimum_size = Vector2(1024, 150)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B5/H"]
+layout_mode = 2
+
+[node name="Sag" type="Control" parent="S/V/B5/H"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="S/V/B5/H/Sag"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -482.0
+offset_top = 22.0
+offset_right = 478.0
+offset_bottom = 86.0
+theme_override_fonts/font = SubResource("32")
+text = "5 defa tekerlek satın al."
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B5/H/Sag"]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -54.0
+offset_right = 252.0
+offset_bottom = -18.0
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("7")
+value = 20.0
+
+[node name="B6" type="TextureRect" parent="S/V"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("4")
+expand_mode = 1
+
+[node name="H" type="HBoxContainer" parent="S/V/B6"]
+custom_minimum_size = Vector2(1024, 150)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B6/H"]
+layout_mode = 2
+
+[node name="Sag" type="Control" parent="S/V/B6/H"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="S/V/B6/H/Sag"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -482.0
+offset_top = 22.0
+offset_right = 478.0
+offset_bottom = 86.0
+theme_override_fonts/font = SubResource("32")
+text = "5 defa yağ değiştir."
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B6/H/Sag"]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -54.0
+offset_right = 252.0
+offset_bottom = -18.0
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("7")
+value = 40.0
+
+[node name="B7" type="TextureRect" parent="S/V"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("4")
+expand_mode = 1
+
+[node name="H" type="HBoxContainer" parent="S/V/B7"]
+custom_minimum_size = Vector2(1024, 150)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B7/H"]
+layout_mode = 2
+
+[node name="Sag" type="Control" parent="S/V/B7/H"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="S/V/B7/H/Sag"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -482.0
+offset_top = 22.0
+offset_right = 478.0
+offset_bottom = 86.0
+theme_override_fonts/font = SubResource("32")
+text = "1 defa motorunu yenile."
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B7/H/Sag"]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -54.0
+offset_right = 252.0
+offset_bottom = -18.0
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("7")
+value = 30.0
+
+[node name="B8" type="TextureRect" parent="S/V"]
+visible = false
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("4")
+expand_mode = 1
+
+[node name="B9" type="TextureRect" parent="S/V"]
+visible = false
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("4")
+expand_mode = 1
+
+[node name="B10" type="TextureRect" parent="S/V"]
+visible = false
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("4")
+expand_mode = 1
+
+[node name="B2" type="TextureRect" parent="S/V"]
+custom_minimum_size = Vector2(1000, 150)
+layout_mode = 2
+texture = ExtResource("4")
+expand_mode = 1
+
+[node name="H" type="HBoxContainer" parent="S/V/B2"]
+custom_minimum_size = Vector2(1024, 150)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sol" type="Control" parent="S/V/B2/H"]
+layout_mode = 2
+
+[node name="Sag" type="Control" parent="S/V/B2/H"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="S/V/B2/H/Sag"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -482.0
+offset_top = 22.0
+offset_right = 478.0
+offset_bottom = 86.0
+theme_override_fonts/font = SubResource("32")
+text = "??"
+
+[node name="ProgressBar" type="ProgressBar" parent="S/V/B2/H/Sag"]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -54.0
+offset_right = 252.0
+offset_bottom = -18.0
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("7")
+max_value = 3.0
+value = 2.0
+
+[node name="Spacer2" type="Control" parent="S/V"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ParaTablo" parent="." instance=ExtResource("2")]
+layout_mode = 1

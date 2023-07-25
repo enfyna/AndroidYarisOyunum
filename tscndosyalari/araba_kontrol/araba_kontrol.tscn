@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://26wu3o38xctv"]
-
-[ext_resource type="Script" path="res://tscndosyalari/araba_kontrol/araba_kontrol.gd" id="1_jnthf"]
-
-[node name="araba_kontrol" type="Node2D"]
-script = ExtResource("1_jnthf")

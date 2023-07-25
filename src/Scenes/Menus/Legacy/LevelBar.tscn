@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7ickdsuj7jsp"]
+
+[ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://src/Fonts/hemi-head-426.rg-bolditalic.ttf" id="1"]
+[ext_resource type="Texture2D" uid="uid://dnbb7p023snpt" path="res://src/Textures/hud/levelbar/levelbar2.png" id="3"]
+[ext_resource type="AudioStream" uid="uid://bj1uvbj3lcccl" path="res://src/Sounds/uisounds/levelup.ogg" id="4"]
+[ext_resource type="Texture2D" uid="uid://dupelbjhc2qmv" path="res://src/Textures/menu/paratablo/levelbase.png" id="5"]
+
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("1")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="LevelBar" type="TextureProgressBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1280.0
+offset_bottom = -720.0
+max_value = 500.0
+value = 200.0
+rounded = true
+allow_greater = true
+fill_mode = 8
+texture_under = ExtResource("5")
+texture_progress = ExtResource("3")
+tint_progress = Color(1, 0, 0.819608, 1)
+radial_initial_angle = 180.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -96.0
+offset_right = 179.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.6, 0, 0.972549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("1")
+text = "33"
+
+[node name="levelup_delete_this" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4")

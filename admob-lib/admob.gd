@@ -1,7 +1,7 @@
-extends Node
+@icon("res://admob-lib/icon.png")
 
 class_name AdMob
-# "res://admob-lib/icon.png"
+extends Node
 
 signal banner_loaded
 signal banner_failed_to_load(error_code)
@@ -28,14 +28,15 @@ signal rewarded_impression
 @export  var is_real:bool: set = is_real_set
 @export  var banner_on_top:bool = true
 
-@export (String, "ADAPTIVE_BANNER", "SMART_BANNER", "BANNER", "LARGE_BANNER", "MEDIUM_RECTANGLE", "FULL_BANNER", "LEADERBOARD") var banner_size = "ADAPTIVE_BANNER"
+
+@export_enum("ADAPTIVE_BANNER", "SMART_BANNER", "BANNER", "LARGE_BANNER", "MEDIUM_RECTANGLE", "FULL_BANNER", "LEADERBOARD")  var banner_size : String = "ADAPTIVE_BANNER"
 @export  var banner_id:String
 @export  var interstitial_id:String
 @export  var rewarded_id:String
 @export  var rewarded_interstitial_id:String
 @export  var child_directed:bool = false: set = child_directed_set
 @export  var is_personalized:bool = true: set = is_personalized_set
-@export (String, "G", "PG", "T", "MA") var max_ad_content_rate = "G": set = max_ad_content_rate_set
+@export_enum("G", "PG", "T", "MA") var max_ad_content_rate : String= "G": set = max_ad_content_rate_set
 
 
 var _admob_singleton = null

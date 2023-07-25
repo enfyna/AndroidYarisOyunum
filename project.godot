@@ -70,12 +70,12 @@ config={
 [application]
 
 config/name="Zamana Karşı!"
-run/main_scene="res://tscndosyalari/menu/Giris.tscn"
+run/main_scene="res://src/Scenes/Menus/Login/Login.tscn"
 config/features=PackedStringArray("4.1")
 run/low_processor_mode=true
 run/low_processor_mode_sleep_usec=20000
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="res://resimler/icon/icon4.png"
+config/icon="res://src/Textures/Icons/icon4.png"
 config/name_en="Against Time!"
 
 [audio]
@@ -84,7 +84,7 @@ buses/channel_disable_time=1.0
 
 [autoload]
 
-Global="*res://script/globals/Global.gd"
+Global="*res://src/Autoloads/Global.gd"
 
 [compression]
 
@@ -134,21 +134,6 @@ ui_down={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":83,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
-shift_up={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":69,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
-]
-}
-shift_down={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":81,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
-]
-}
-reverse={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":82,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
-]
-}
 
 [input_devices]
 
@@ -156,7 +141,7 @@ pointing/emulate_touch_from_mouse=true
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://ceviri/Ceviri.en.translation", "res://ceviri/Ceviri.tr.translation")
+locale/translations=PackedStringArray("res://src/Translations/Translations.en.translation", "res://src/Translations/Translations.tr.translation")
 
 [locale]
 
