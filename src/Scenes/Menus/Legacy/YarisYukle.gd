@@ -17,8 +17,8 @@ enum text {
 var current_mode : RaceManager.MODE = RaceManager.MODE.TIME_TRIAL
 
 const race_manager_path : String = "res://src/Scenes/Menus/Legacy/Yaris.tscn"
-var car_path : String = Global.Save.get_save()["player"]["car"]
-var track_path : String = "res://src/Tracks/Race/Pist00.tscn"
+var car_path : String = "res://src/Cars/AE86/AE86.tscn"
+var track_path : String = "res://src/Tracks/Test/Test01.tscn"
 var bot_path : String = ""
 
 var queue : Array[String] = []

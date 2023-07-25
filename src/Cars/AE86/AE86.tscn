@@ -171,6 +171,8 @@ POWER_CURVE = SubResource("Curve_r6l08")
 
 [node name="Controller" type="Node2D" parent="." node_paths=PackedStringArray("P_CAR")]
 script = ExtResource("2_o0bvo")
+STEERING_MODE = 1
+SHIFTER_MODE = 1
 P_CAR = NodePath("..")
 
 [node name="HUD_Manager" type="Control" parent="." node_paths=PackedStringArray("P_CAR")]

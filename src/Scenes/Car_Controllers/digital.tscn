@@ -29,10 +29,10 @@ radius = 75.0
 radius = 75.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6is5t"]
-size = Vector2(60, 120)
+size = Vector2(80, 180)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvn0s"]
-size = Vector2(80, 50)
+size = Vector2(130, 80)
 
 [node name="digital" type="Node2D"]
 
@@ -49,7 +49,6 @@ position = Vector2(56, 232)
 texture_normal = ExtResource("3_g3eda")
 texture_pressed = ExtResource("4_x0x77")
 shape = SubResource("CircleShape2D_lt2ig")
-shape_visible = false
 action = "shift_up"
 
 [node name="touchvitesdus" type="TouchScreenButton" parent="." groups=["SHIFT_DOWN"]]
@@ -57,7 +56,6 @@ position = Vector2(1024, 232)
 texture_normal = ExtResource("5_7hvmh")
 texture_pressed = ExtResource("6_fk2tl")
 shape = SubResource("CircleShape2D_lt2ig")
-shape_visible = false
 action = "shift_down"
 
 [node name="touchsag" type="TouchScreenButton" parent="." groups=["RIGHT"]]
@@ -65,7 +63,6 @@ position = Vector2(1112, 504)
 texture_normal = ExtResource("7_dv4un")
 texture_pressed = ExtResource("8_vvq5l")
 shape = SubResource("CircleShape2D_m2duv")
-shape_visible = false
 action = "ui_right"
 
 [node name="touchsol" type="TouchScreenButton" parent="." groups=["LEFT"]]
@@ -73,7 +70,6 @@ position = Vector2(944, 504)
 texture_normal = ExtResource("9_h7dk0")
 texture_pressed = ExtResource("10_gepx6")
 shape = SubResource("CircleShape2D_sx4fk")
-shape_visible = false
 action = "ui_left"
 
 [node name="touchgazkucuk" type="TouchScreenButton" parent="." groups=["THROTTLE"]]
@@ -81,7 +77,6 @@ position = Vector2(232, 464)
 texture_normal = ExtResource("11_68n8i")
 texture_pressed = ExtResource("12_468qt")
 shape = SubResource("RectangleShape2D_6is5t")
-shape_visible = false
 action = "ui_up"
 
 [node name="touchfrenkucuk" type="TouchScreenButton" parent="." groups=["BRAKE"]]
@@ -89,7 +84,6 @@ position = Vector2(32, 528)
 texture_normal = ExtResource("13_rlgy1")
 texture_pressed = ExtResource("14_r1s27")
 shape = SubResource("RectangleShape2D_fvn0s")
-shape_visible = false
 action = "ui_down"
 
 [node name="KameraDegistir" type="Button" parent="." groups=["CHANGE_CAMERA"]]

@@ -81,7 +81,7 @@ func change_gear(new_gear: int) -> void:
 		new_gear >= GEAR_RATIO.size() or\
 		new_gear == states[STATE.GEAR]:
 		return
-	var cgt : Callable = func(val : float):
+	var lambda : Callable = func(val : float):
 		if val < CLUTCH_THRESHOLD:
 			states[STATE.GEAR] = new_gear
 			emit_signal("gear_changed")
@@ -90,7 +90,7 @@ func change_gear(new_gear: int) -> void:
 	if GEAR_TWEEN:
 		GEAR_TWEEN.kill()
 	GEAR_TWEEN = create_tween()
-	GEAR_TWEEN.tween_method(cgt, states[STATE.CLUTCH], -1.0, GEAR_SHIFT_TIME)
+	GEAR_TWEEN.tween_method(lambda, states[STATE.CLUTCH], -1.0, GEAR_SHIFT_TIME)
 	pass
 
 func _process(_delta : float) -> void:

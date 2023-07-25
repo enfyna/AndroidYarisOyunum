@@ -9,6 +9,7 @@ extends Node2D
 var C_CONTR : Node
 
 var TWEENS : Array[Tween]
+var FUNCTIONS : Array[Callable]
 
 enum SHIFT_MODE {
 	MANUAL,
@@ -28,9 +29,16 @@ const MODE_SCENES : Dictionary = {
 }
 
 func _ready():
+	set_process(false)
 	load_controller()
 	load_tweens()
 	bind_controller()
+	if STEERING_MODE == CONTROL_MODE.ANALOG:
+		FUNCTIONS.append(analog_steering)
+	if SHIFTER_MODE == SHIFT_MODE.AUTOMATIC:
+		FUNCTIONS.append(automatic_shifting)
+	if FUNCTIONS.size() > 0:
+		set_process(true)
 
 func load_tweens():
 	TWEENS.resize(P_CAR.STATE.size())
@@ -40,7 +48,7 @@ func load_tweens():
 func load_controller():
 	var mode_scene : String = MODE_SCENES[STEERING_MODE]
 	C_CONTR = load(mode_scene).instantiate()
-	add_child(C_CONTR)
+	call_deferred("add_child", C_CONTR )
 
 func bind_controller():
 	for node in C_CONTR.get_children():
@@ -62,18 +70,24 @@ func bind_controller():
 			node.released.connect(func(): lerp_state_to(Car.STATE.STEER, 0.0, 1.0))
 			continue
 		elif "SHIFT_UP" in node_group:
+			if SHIFTER_MODE == SHIFT_MODE.AUTOMATIC:
+				node.queue_free()
+				continue
 			node.pressed.connect(func(): 
 				P_CAR.change_gear(int(P_CAR.states[Car.STATE.GEAR]) + 1)
 				)
 			continue
 		elif "SHIFT_DOWN" in node_group:
+			if SHIFTER_MODE == SHIFT_MODE.AUTOMATIC:
+				node.queue_free()
+				continue
 			node.pressed.connect(func(): 
 				P_CAR.change_gear(int(P_CAR.states[Car.STATE.GEAR]) - 1)
 				)
 			continue
 		elif "REVERSE" in node_group:
-			node.pressed.connect(func(): 
-				P_CAR.change_gear(0)
+			node.pressed.connect(func():
+				P_CAR.change_gear(0 if P_CAR.states[Car.STATE.GEAR] > 0 else 2)
 				)
 			continue
 		elif "CHANGE_CAMERA" in node_group:
@@ -91,4 +105,31 @@ func lerp_state_to(state : int, final : float, time : float) -> void:
 		tween.kill()
 	tween = create_tween()
 	tween.tween_method(lsf, P_CAR.states[state], final, time)
+	pass
+
+func analog_steering():
+	P_CAR.states[Car.STATE.STEER] = Input.get_accelerometer().x * 0.01
+	pass
+
+func automatic_shifting():
+	var current_gear = int(P_CAR.states[Car.STATE.GEAR])
+
+	if current_gear == 0:
+		return # player is in reverse dont do anything
+
+	var current_rpm = P_CAR.states[Car.STATE.ENGINE_RPM]
+
+	var shift_up_rpm = 5000 
+	var shift_down_rpm = 3000
+
+	if current_rpm > shift_up_rpm:
+		P_CAR.change_gear(current_gear + 1)
+	elif current_rpm < shift_down_rpm && current_gear > 3: 
+		P_CAR.change_gear(current_gear - 1)
+
+	pass
+
+func _process(_delta):
+	for f in FUNCTIONS:
+		f.call()
 	pass
