@@ -1,7 +1,11 @@
 res://default_bus_layout.tres
-res://src/Cars/AE86/AE86.tscn
-res://model/Araba/AE86/gltf/ArabaBeyaz.material
-res://model/Araba/AE86/gltf/ArabaSiyahPlastik.material
-res://model/Araba/AE86/gltf/Pencere.material
-res://default_env.tres
-res://src/Scenes/Car_Controllers/digital.tscn
+res://src/Scenes/Menus/Settings/Settings.gd
+res://src/Scenes/Menus/MainMenu/MainMenu.tscn
+res://src/Scenes/Menus/Settings/Settings.tscn
+res://src/Class/HUD_Manager.gd
+res://src/Scenes/HUDs/HUD_1.tscn
+res://src/Class/HUD.gd
+res://src/Class/Car_Controller.gd
+res://src/Class/Car.gd
+res://src/Translations/Translations.en.translation
+res://src/Translations/Translations.tr.translation

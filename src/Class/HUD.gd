@@ -26,5 +26,6 @@ enum GAUGE_TYPE {
 		Car.STATE.OIL:^"OIL",
 		Car.STATE.ENGINE:^"ENGINE",
 		Car.STATE.WHEEL_TYPE:^"WHEEL_TYPE",
+		Car.STATE.SPEED_UNIT:^"",
 	},
 }

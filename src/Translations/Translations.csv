@@ -8,13 +8,13 @@ basarim_b,          Achievements,          Başarımlar
 garaj_b,          Garage,          Garaj
 galeri_b,             Dealership,          Galeri
 yaris_b,              Against CPU,              Bota Karşı!
-a0,Auto/Manual:,Oto/Manuel:
+a0,Auto/Manual:,Otomatik/Manuel:
 a1,Shadows:,Gölgelendirme:
-a2,Analog/Digital:,Analog/Dijital:
+a2,Digital/Analog:,Dijital/Analog:
 a3,Music:,Müzik:
 a4,Dark Mode:,Koyu Mod:
-a5,KMH/MPH:,KMH/MPH:
-a6,,
+a5,MPH/KMH:,MPH/KMH:
+a6,Music Sound Level:,Müzik Ses Seviyesi:
 hassasiyet,Sensivity:,Hassasiyet:
 b1,Complete 100 laps.,100 tur tamamla.
 b2,Complete 500 laps.,500 tur tamamla.

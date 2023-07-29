@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bvfwimj8l3e3u"]
 
-[ext_resource type="PackedScene" uid="uid://bvre2wc3l5ptg" path="res://src/Scenes/Menus/Legacy/AnaMenuyeDonTusu.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bvre2wc3l5ptg" path="res://src/Scenes/Menus/GoToMainMenu/GoToMainMenu.tscn" id="1"]
 [ext_resource type="Script" path="res://src/Scenes/Menus/World/World.gd" id="1_r81m8"]
 [ext_resource type="PackedScene" uid="uid://68djdercg4if" path="res://src/Scenes/Menus/Legacy/AltPanel.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://bjiil02fey4fp" path="res://src/Textures/Backgrounds/anamenuarka7.png" id="3"]
@@ -51,6 +51,18 @@ offset_bottom = 216.0
 color = Color(0, 0, 0, 0.490196)
 
 [node name="anamenuyedon" parent="." instance=ExtResource("1")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 90.0
+offset_bottom = 90.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Scroller" type="ScrollContainer" parent="."]
 layout_mode = 0

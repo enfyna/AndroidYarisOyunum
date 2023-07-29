@@ -53,7 +53,7 @@ func _process(_delta):
 				return
 			continue
 		total_load_percentage += scene_load_percentage[0]
-	
+
 	loading_bar.max_value = len(queue)
 	loading_bar.value = total_load_percentage
 

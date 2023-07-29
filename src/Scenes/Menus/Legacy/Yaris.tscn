@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/Scenes/Menus/Legacy/Yaris.gd" id="1_gegig"]
 [ext_resource type="Texture2D" uid="uid://bmfmuv686xd8n" path="res://src/Textures/HUD/Timers/BestLap.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://b5mxtv8nvl2gh" path="res://src/Textures/menu/anamenu/amdi.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://b5mxtv8nvl2gh" path="res://src/Textures/Menu/anamenu/amdi.png" id="4"]
 [ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://src/Fonts/hemi-head-426.rg-bolditalic.ttf" id="5"]
 [ext_resource type="Material" path="res://model/Pist/hayali/pistkirmiziisikmodeli/yesil.material" id="6"]
 [ext_resource type="Material" path="res://model/Pist/hayali/pistkirmiziisikmodeli/kırmızı.material" id="7"]
@@ -14,7 +14,7 @@
 [ext_resource type="Material" path="res://model/Pist/hayali/pistkirmiziisikmodeli/kirmiziisik.material" id="13"]
 [ext_resource type="Material" path="res://model/Pist/hayali/pistkirmiziisikmodeli/sariisik.material" id="14"]
 [ext_resource type="Material" path="res://model/Pist/hayali/pistkirmiziisikmodeli/yesilisik.material" id="15"]
-[ext_resource type="Texture2D" uid="uid://ds8xye3t7temd" path="res://src/Textures/menu/anamenu/amdip.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://ds8xye3t7temd" path="res://src/Textures/Menu/anamenu/amdip.png" id="16"]
 [ext_resource type="FontFile" path="res://src/Fonts/new_dynamicfont.tres" id="17"]
 [ext_resource type="Texture2D" uid="uid://dvxgwe816q87e" path="res://src/Textures/HUD/Timers/LastLap.png" id="23"]
 [ext_resource type="Texture2D" uid="uid://dpad4t77iltw7" path="res://src/Textures/HUD/Timers/Timer.png" id="24"]
@@ -446,6 +446,7 @@ text = "1,30,157"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.432807, 0.673606, -0.59911, -0.228998, 0.724932, 0.649641, 0.871916, -0.143974, 0.46801, 0, 7.98876, 0)
+shadow_enabled = true
 
 [node name="CizgiModeli" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.516756, 0, -4.51762e-08, 0, 0.516756, 0, 4.51762e-08, 0, -0.516756, 0.030066, 0.136409, 14.0021)

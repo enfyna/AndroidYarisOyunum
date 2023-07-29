@@ -18,6 +18,7 @@ const HUD_SCENE : Dictionary = {
 
 @onready var P_STATES : Array[float] = P_CAR.states
 const GEARS : Array[String] = ["R", "N", "1", "2", "3", "4", "5", "6"]
+var MPS_TO_UNIT : float = 3.6 # default to kmh
 
 var C_HUD : HUD
 
@@ -77,6 +78,13 @@ func bind_HUD() -> void:
 			P_CAR.wheel_changed.connect(func():
 				gauge_node.text = str(P_STATES[P_CAR.STATE.WHEEL_TYPE])
 			)
+		elif gauge_type == Car.STATE.SPEED_UNIT:
+			var is_kmh : bool = Global.Save.get_config().get_value("car","kmh",true)
+			if is_kmh:
+				gauge_node.text = gauge_node.text + "KMH"
+			else:
+				gauge_node.text = gauge_node.text + "MPH"
+				MPS_TO_UNIT = 2.2
 	pass
 
 func _process(_delta) -> void:
@@ -90,7 +98,7 @@ func update_frame_gauges() -> void:
 				if gauge_type == Car.STATE.GEAR:
 					gauge_node.text = GEARS[int(P_STATES[gauge_type])]
 				elif gauge_type == Car.STATE.SPEED_MPS:
-					gauge_node.text = str(int(P_STATES[gauge_type] * 3.6))
+					gauge_node.text = str(int(P_STATES[gauge_type] * MPS_TO_UNIT))
 				else:
 					gauge_node.text = str(round(P_STATES[gauge_type]))
 			"ProgressBar", "TextureProgressBar":

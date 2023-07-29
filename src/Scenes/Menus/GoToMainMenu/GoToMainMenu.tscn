@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvre2wc3l5ptg"]
+
+[ext_resource type="Texture2D" uid="uid://b5mxtv8nvl2gh" path="res://src/Textures/Menu/anamenu/amdi.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://ds8xye3t7temd" path="res://src/Textures/Menu/anamenu/amdip.png" id="3"]
+[ext_resource type="Script" path="res://src/Scenes/Menus/GoToMainMenu/GoToMainMenu.gd" id="3_gkpsy"]
+
+[node name="GoToMainMenu" type="TextureButton"]
+custom_minimum_size = Vector2(90, 90)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -45.0
+offset_right = 45.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2")
+texture_pressed = ExtResource("3")
+texture_hover = ExtResource("3")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("3_gkpsy")
+
+[connection signal="pressed" from="." to="." method="change_scene_global" binds= [&"res://src/Scenes/Menus/MainMenu/MainMenu.tscn"]]

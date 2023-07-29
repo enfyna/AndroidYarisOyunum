@@ -1,12 +1,11 @@
 class_name Car_Controller
 extends Node2D
 
-@export var STEERING_MODE : CONTROL_MODE = CONTROL_MODE.DIGITAL
-@export var SHIFTER_MODE : SHIFT_MODE = SHIFT_MODE.MANUAL
-
-@export var P_CAR : Car 
-
+@export var P_CAR : Car
 var C_CONTR : Node
+
+var SHIFTER_MODE : SHIFT_MODE = SHIFT_MODE.MANUAL
+var STEERING_MODE : STEER_MODE = STEER_MODE.DIGITAL
 
 var TWEENS : Array[Tween]
 var FUNCTIONS : Array[Callable]
@@ -16,26 +15,29 @@ enum SHIFT_MODE {
 	AUTOMATIC,
 }
 
-enum CONTROL_MODE {
+enum STEER_MODE {
 	DIGITAL,
 	ANALOG,
 	# AUTOMATIC, # will add this later when I add bots
 }
 
 const MODE_SCENES : Dictionary = {
-	CONTROL_MODE.DIGITAL: "res://src/Scenes/Car_Controllers/digital.tscn",
-	CONTROL_MODE.ANALOG: "res://src/Scenes/Car_Controllers/analog.tscn",
-	#CONTROL_MODE.AUTOMATIC: "", #will add this later
+	STEER_MODE.DIGITAL: "res://src/Scenes/Car_Controllers/digital.tscn",
+	STEER_MODE.ANALOG: "res://src/Scenes/Car_Controllers/analog.tscn",
+	#STEER_MODE.AUTOMATIC: "", #will add this later
 }
 
 func _ready():
 	set_process(false)
+	var config : ConfigFile = Global.Save.get_config()
+	STEERING_MODE = STEER_MODE.ANALOG if config.get_value("car","analog",true) else STEER_MODE.DIGITAL
+	SHIFTER_MODE = SHIFT_MODE.MANUAL if config.get_value("car","manual",true) else SHIFT_MODE.AUTOMATIC
 	load_controller()
 	load_tweens()
 	bind_controller()
-	if STEERING_MODE == CONTROL_MODE.ANALOG:
+	if STEERING_MODE:
 		FUNCTIONS.append(analog_steering)
-	if SHIFTER_MODE == SHIFT_MODE.AUTOMATIC:
+	if SHIFTER_MODE:
 		FUNCTIONS.append(automatic_shifting)
 	if FUNCTIONS.size() > 0:
 		set_process(true)
@@ -73,7 +75,7 @@ func bind_controller():
 			if SHIFTER_MODE == SHIFT_MODE.AUTOMATIC:
 				node.queue_free()
 				continue
-			node.pressed.connect(func(): 
+			node.pressed.connect(func():
 				P_CAR.change_gear(int(P_CAR.states[Car.STATE.GEAR]) + 1)
 				)
 			continue
@@ -81,7 +83,7 @@ func bind_controller():
 			if SHIFTER_MODE == SHIFT_MODE.AUTOMATIC:
 				node.queue_free()
 				continue
-			node.pressed.connect(func(): 
+			node.pressed.connect(func():
 				P_CAR.change_gear(int(P_CAR.states[Car.STATE.GEAR]) - 1)
 				)
 			continue
@@ -108,23 +110,23 @@ func lerp_state_to(state : int, final : float, time : float) -> void:
 	pass
 
 func analog_steering():
-	P_CAR.states[Car.STATE.STEER] = Input.get_accelerometer().x * 0.01
+	P_CAR.states[Car.STATE.STEER] = Input.get_accelerometer().normalized().x
 	pass
 
 func automatic_shifting():
-	var current_gear = int(P_CAR.states[Car.STATE.GEAR])
+	var current_gear : int = int(P_CAR.states[Car.STATE.GEAR])
 
-	if current_gear == 0:
+	if current_gear == Car.gear_state.REVERSE:
 		return # player is in reverse dont do anything
 
-	var current_rpm = P_CAR.states[Car.STATE.ENGINE_RPM]
+	var current_rpm : float = P_CAR.states[Car.STATE.ENGINE_RPM]
 
-	var shift_up_rpm = 5000 
-	var shift_down_rpm = 3000
+	var shift_up_rpm : int = 5000
+	var shift_down_rpm : int = 3000
 
 	if current_rpm > shift_up_rpm:
 		P_CAR.change_gear(current_gear + 1)
-	elif current_rpm < shift_down_rpm && current_gear > 3: 
+	elif current_rpm < shift_down_rpm && current_gear > 2:
 		P_CAR.change_gear(current_gear - 1)
 
 	pass
@@ -132,4 +134,3 @@ func automatic_shifting():
 func _process(_delta):
 	for f in FUNCTIONS:
 		f.call()
-	pass

@@ -18,7 +18,8 @@ signal completed_lap
 
 @export var POWER_CURVE : Curve = null
 
-@export var RIGHT_REAR_WHEEL_RADIUS : float = 0.283
+@export var BRAKE_LIGHT : Node
+@export var REVERSE_LIGHT : Node
 
 enum STATE{
 	THROTTLE,
@@ -33,6 +34,7 @@ enum STATE{
 	ABS,
 	OIL,
 	ENGINE,
+	SPEED_UNIT,
 }
 var states : Array[float] = [
 	0.0,
@@ -58,11 +60,21 @@ enum gear_state {
 
 var last_position : Vector3 = position
 var wheel_circumference : float
+enum WHEEL_COMPOUNDS {
+	ECONOMY,
+	COMFORT,
+	HARD,
+	MEDIUM,
+	SOFT,
+	SUPER_SOFT,
+}
 
 func _ready():
-	wheel_circumference = 2.0 * PI * RIGHT_REAR_WHEEL_RADIUS
+	for node in get_children():
+		if node is VehicleWheel3D:
+			wheel_circumference = 2.0 * PI * node.wheel_radius
+			break
 	pass
-
 
 # calculate the RPM of our engine based on the current velocity of our car
 func calculate_rpm() -> float:
@@ -84,8 +96,12 @@ func change_gear(new_gear: int) -> void:
 	var lambda : Callable = func(val : float):
 		if val < CLUTCH_THRESHOLD:
 			states[STATE.GEAR] = new_gear
+			if new_gear == Car.gear_state.REVERSE:
+				REVERSE_LIGHT.show()
+			else:
+				REVERSE_LIGHT.hide()
 			emit_signal("gear_changed")
-		states[STATE.CLUTCH] = abs(val)		
+		states[STATE.CLUTCH] = abs(val)
 		pass
 	if GEAR_TWEEN:
 		GEAR_TWEEN.kill()
@@ -106,10 +122,9 @@ func _physics_process(delta : float) -> void:
 	engine_force = states[STATE.CLUTCH] * states[STATE.THROTTLE] * power_factor * GEAR_RATIO[int(states[STATE.GEAR])] * FINAL_DRIVE_RATIO * HP
 
 	brake = states[STATE.BRAKE] * BRAKE_FORCE
-
-	var max_steer_speed : float = MAX_STEER_SPEED * 1000.0 / 3600.0
-	var steer_speed_factor : float = clamp(states[STATE.SPEED_MPS] / max_steer_speed, 0.0, 1.0)
-
+	BRAKE_LIGHT.visible = true if states[STATE.BRAKE] > 0.0 else false
+	# var max_steer_speed : float = MAX_STEER_SPEED * 1000.0 / 3600.0
+	# var steer_speed_factor : float = clamp(states[STATE.SPEED_MPS] / max_steer_speed, 0.0, 1.0)
 	# if (abs(states[STATE.STEER]) < 0.05):
 	# 	states[STATE.STEER] = 0.0
 	# elif steer_curve:

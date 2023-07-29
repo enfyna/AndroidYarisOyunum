@@ -42,7 +42,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="AnaMenu" type="Control"]
+[node name="AnaMenu" type="Control" node_paths=PackedStringArray("translatable_nodes")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,6 +50,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j5mjk")
+translatable_nodes = [NodePath("hb/gc/1/zk"), NodePath("hb/gc/2/race"), NodePath("hb/gc/3/galeri"), NodePath("hb/gc/4/market"), NodePath("hb/gc/5/garaj"), NodePath("hb/gc/6/dunya"), NodePath("hb/gc/7/basarimlar")]
 
 [node name="Arkaplan" type="TextureRect" parent="."]
 layout_mode = 0
@@ -419,5 +420,5 @@ layout_mode = 1
 [connection signal="pressed" from="hb/gc/5/garaj" to="." method="change_scene_global" binds= ["res://tscndosyalari/menu/Garaj.tscn"]]
 [connection signal="pressed" from="hb/gc/6/dunya" to="." method="change_scene_global" binds= ["res://src/Scenes/Menus/World/World.tscn"]]
 [connection signal="pressed" from="hb/gc/7/basarimlar" to="." method="change_scene_global" binds= ["res://tscndosyalari/menu/Basarimlar.tscn"]]
-[connection signal="pressed" from="hb/gc/8/ayarlar" to="." method="change_scene_global" binds= ["res://tscndosyalari/menu/Ayarlar.tscn"]]
+[connection signal="pressed" from="hb/gc/8/ayarlar" to="." method="change_scene_global" binds= ["res://src/Scenes/Menus/Settings/Settings.tscn"]]
 [connection signal="pressed" from="hb/gc/8/oyuncu" to="." method="change_scene_global" binds= ["res://tscndosyalari/menu/Oyuncu.tscn"]]
