@@ -4,6 +4,7 @@ extends VehicleBody3D
 signal gear_changed
 signal wheel_changed
 signal completed_lap
+signal penalty_received
 
 @export var HP : float = 100.0
 @export var BRAKE_FORCE : float = 50.0
@@ -35,7 +36,10 @@ enum STATE{
 	OIL,
 	ENGINE,
 	SPEED_UNIT,
+	LAP_TIME,
+    CURRENT_LAP,	
 }
+
 var states : Array[float] = [
 	0.0,
 	0.0,
@@ -49,6 +53,9 @@ var states : Array[float] = [
 	0.0,
 	0.0,
 	0.0,
+	0,
+	0,
+	0,
 ]
 
 var left_gear_shift_time : float = 0.0
@@ -109,7 +116,8 @@ func change_gear(new_gear: int) -> void:
 	GEAR_TWEEN.tween_method(lambda, states[STATE.CLUTCH], -1.0, GEAR_SHIFT_TIME)
 	pass
 
-func _process(_delta : float) -> void:
+func _process(delta : float) -> void:
+	states[STATE.LAP_TIME] += delta
 	pass
 
 func _physics_process(delta : float) -> void:

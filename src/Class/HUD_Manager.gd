@@ -1,23 +1,23 @@
 class_name HUD_Manager
 extends Control
 
-@export var HUD_Selection : HUD_TYPES = HUD_TYPES.HUD_1
+@export var HUD_Selection : HUDS = HUDS.HUD_1
 
-enum HUD_TYPES {
+enum HUDS {
 	HUD_1,
 	#HUD_2, # add later
 	#HUD_3, # add later
 }
 
 const HUD_SCENE : Dictionary = {
-	HUD_TYPES.HUD_1 : "res://src/Scenes/HUDs/HUD_1.tscn",
-	#HUD_TYPES.HUD_2 : "", # add later
+	HUDS.HUD_1 : "res://src/Scenes/HUDs/HUD_1.tscn",
+	#HUDS.HUD_2 : "", # add later
 }
 
 @export var P_CAR : Car = get_parent()
 
 @onready var P_STATES : Array[float] = P_CAR.states
-const GEARS : Array[String] = ["R", "N", "1", "2", "3", "4", "5", "6"]
+const GEARS : Array[String] = ["R", "N", "1", "2", "3", "4", "5", "6", "7"]
 var MPS_TO_UNIT : float = 3.6 # default to kmh
 
 var C_HUD : HUD
@@ -27,8 +27,10 @@ var GAUGES : Array[Node] = []
 var ACTIVE_FRAME_GAUGES : Array[int] = []
 var ACTIVE_LAP_GAUGES : Array[int] = []
 
+var CAR_GAUGES_NUM : int
 func _ready() -> void:
-	GAUGES.resize(len(P_CAR.STATE))
+	CAR_GAUGES_NUM = len(P_CAR.STATE)
+	GAUGES.resize(CAR_GAUGES_NUM)
 
 	load_HUD()
 	bind_HUD()
@@ -41,7 +43,7 @@ func load_HUD() -> void:
 	pass
 
 func bind_HUD() -> void:
-	var dict : Dictionary = C_HUD.gauges[HUD.GAUGE_TYPE.FRAME]
+	var dict : Dictionary = C_HUD.car_gauges[HUD.GAUGE_TYPE.FRAME]
 	for gauge_type in dict:
 		var gauge_node : Node = C_HUD.get_node_or_null(dict[gauge_type])
 		if gauge_node == null:
@@ -50,7 +52,7 @@ func bind_HUD() -> void:
 			GAUGES[gauge_type] = gauge_node
 			ACTIVE_FRAME_GAUGES.append(gauge_type)
 
-	dict = C_HUD.gauges[HUD.GAUGE_TYPE.LAP]
+	dict = C_HUD.car_gauges[HUD.GAUGE_TYPE.LAP]
 	for gauge_type in dict:
 		var gauge_node : Node = C_HUD.get_node_or_null(dict[gauge_type])
 		if gauge_node == null:
@@ -62,7 +64,7 @@ func bind_HUD() -> void:
 		P_CAR.completed_lap.connect(update_lap_gauges)
 		update_lap_gauges()
 
-	dict = C_HUD.gauges[HUD.GAUGE_TYPE.SPECIAL]
+	dict = C_HUD.car_gauges[HUD.GAUGE_TYPE.SPECIAL]
 	for gauge_type in dict:
 		var gauge_node : Node = C_HUD.get_node_or_null(dict[gauge_type])
 		if gauge_node == null:
@@ -85,9 +87,32 @@ func bind_HUD() -> void:
 			else:
 				gauge_node.text = gauge_node.text + "MPH"
 				MPS_TO_UNIT = 2.2
+
+	dict = C_HUD.track_gauges[HUD.GAUGE_TYPE.FRAME]
+	for gauge_type in dict:
+		var gauge_node : Node = C_HUD.get_node_or_null(dict[gauge_type])
+		if gauge_node == null:
+			push_warning("No node path specified for gauge: ", dict[gauge_type])
+			continue
+		if gauge_type == Car.STATE.LAP_TIME:
+			GAUGES[gauge_type] = gauge_node
+			ACTIVE_FRAME_GAUGES.append(gauge_type)
+
+	dict = C_HUD.track_rewards
+
+	var race_man = P_CAR.get_parent()
+	var reward_times = race_man.track.reward_times
+
+	for reward_type in dict:
+		var reward_label : Node = C_HUD.get_node_or_null(dict[reward_type])
+		if reward_label == null:
+			push_warning("No node path specified for reward: ", dict[reward_type])
+			continue
+		var time : int = reward_times[reward_type]
+		reward_label.text = str(str(int(time / 60000.0)).pad_zeros(2),":",str(int((time % 60000) / 1000.0)).pad_zeros(2),":",str(int(time % 1000)).pad_zeros(3))
 	pass
 
-func _process(_delta) -> void:
+func _process(_delta : float) -> void:
 	update_frame_gauges()
 
 func update_frame_gauges() -> void:
@@ -99,6 +124,9 @@ func update_frame_gauges() -> void:
 					gauge_node.text = GEARS[int(P_STATES[gauge_type])]
 				elif gauge_type == Car.STATE.SPEED_MPS:
 					gauge_node.text = str(int(P_STATES[gauge_type] * MPS_TO_UNIT))
+				elif gauge_type == Car.STATE.LAP_TIME:
+					var time : float = P_STATES[gauge_type]
+					gauge_node.text = str(str(int(time / 60)).pad_zeros(2),":", str(int(time / 1) % 60).pad_zeros(2),":", str(int(fmod(time, 1) * 1000)).pad_zeros(3))
 				else:
 					gauge_node.text = str(round(P_STATES[gauge_type]))
 			"ProgressBar", "TextureProgressBar":

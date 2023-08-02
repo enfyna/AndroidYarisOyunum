@@ -8,7 +8,7 @@ enum GAUGE_TYPE {
 }
 
 # ^"" -> NodePath Literal
-@export var gauges : Dictionary = {
+@export var car_gauges : Dictionary = {
 	GAUGE_TYPE.FRAME:{
 		Car.STATE.THROTTLE:^"THROTTLE",
 		Car.STATE.BRAKE:^"BRAKE",
@@ -16,6 +16,8 @@ enum GAUGE_TYPE {
 		Car.STATE.STEER:^"STEER",
 		Car.STATE.ENGINE_RPM:^"ENGINE_RPM",
 		Car.STATE.SPEED_MPS:^"SPEED_MPS",
+		Car.STATE.LAP_TIME:^"LAP_TIME",
+		Car.STATE.CURRENT_LAP:^"CURRENT_LAP",
 	},
 	GAUGE_TYPE.LAP:{
 		Car.STATE.WHEEL_LIFE:^"WHEEL_LIFE",
@@ -26,6 +28,24 @@ enum GAUGE_TYPE {
 		Car.STATE.OIL:^"OIL",
 		Car.STATE.ENGINE:^"ENGINE",
 		Car.STATE.WHEEL_TYPE:^"WHEEL_TYPE",
-		Car.STATE.SPEED_UNIT:^"",
+		Car.STATE.SPEED_UNIT:^"SPEED_UNIT",
 	},
+}
+
+@export var track_gauges : Dictionary = {
+	GAUGE_TYPE.FRAME:{
+	},
+	GAUGE_TYPE.LAP:{
+		Track.STATE.BEST_LAP:^"BEST_LAP",
+		Track.STATE.LAST_LAP:^"LAST_LAP",
+	},
+	GAUGE_TYPE.SPECIAL:{
+		Track.STATE.PENALTY:^"PENALTY",
+	},
+}
+
+@export var track_rewards : Dictionary = {
+	Track.REWARD.GOLD:^"GOLD",
+	Track.REWARD.SILVER:^"SILVER",
+	Track.REWARD.BRONZE:^"BRONZE",
 }

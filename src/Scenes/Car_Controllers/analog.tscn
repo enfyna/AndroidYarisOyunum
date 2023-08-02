@@ -62,8 +62,10 @@ shape_visible = false
 action = "shift_down"
 
 [node name="KameraDegistir" type="Button" parent="." groups=["CHANGE_CAMERA"]]
-offset_right = 104.0
-offset_bottom = 104.0
+offset_left = 804.0
+offset_top = 530.0
+offset_right = 908.0
+offset_bottom = 634.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 icon = ExtResource("11_imxnv")

@@ -87,8 +87,10 @@ shape = SubResource("RectangleShape2D_fvn0s")
 action = "ui_down"
 
 [node name="KameraDegistir" type="Button" parent="." groups=["CHANGE_CAMERA"]]
-offset_right = 104.0
-offset_bottom = 104.0
+offset_left = 765.0
+offset_top = 524.0
+offset_right = 869.0
+offset_bottom = 628.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 icon = ExtResource("15_0txrd")

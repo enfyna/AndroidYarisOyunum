@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bf4mxtqu58425" path="res://src/Textures/Track_Maps/pist4.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://cuiqb2i5u0coy" path="res://src/Textures/Track_Maps/pist3.png" id="9"]
 [ext_resource type="StyleBox" path="res://src/Styles/satinalbutonu.tres" id="10"]
-[ext_resource type="FontFile" path="res://font/new_dynamicfont.tres" id="11"]
+[ext_resource type="FontFile" path="res://src/Fonts/new_dynamicfont.tres" id="11"]
 [ext_resource type="Texture2D" uid="uid://dnhsiu2m1d1bh" path="res://src/Textures/Track_Maps/pist6.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://1tp85srv7vqr" path="res://src/Textures/Track_Maps/pist7.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://cr8pkw6hatru6" path="res://src/Textures/Track_Maps/pist8.png" id="14"]

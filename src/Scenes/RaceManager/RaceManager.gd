@@ -1,5 +1,5 @@
 class_name RaceManager
-extends Node3D
+extends Node
 
 enum MODE {
 	RACING,
@@ -8,4 +8,4 @@ enum MODE {
 	#DRIFTING, # maybe later
 }
 
-
+@export var track : Node

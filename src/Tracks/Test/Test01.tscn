@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://bnymleiivflns"]
 
 [ext_resource type="Material" path="res://model/Pist/hayali/testpist/Kerb.material" id="1"]
-[ext_resource type="Script" path="res://src/Scenes/Menus/Legacy/Pist.gd" id="1_yrlyv"]
+[ext_resource type="Script" path="res://src/Class/Track.gd" id="1_yrlyv"]
 [ext_resource type="Material" path="res://model/Pist/hayali/testpist/SponsorFirefly.material" id="2"]
 [ext_resource type="Material" path="res://model/Pist/hayali/testpist/Asfalt.material" id="3"]
 [ext_resource type="Material" path="res://model/Pist/hayali/testpist/SponsorHooiberg.material" id="4"]
@@ -296,6 +296,7 @@ _surfaces = [{
 [node name="PistTest01" type="StaticBody3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -2.66498, 0)
 script = ExtResource("1_yrlyv")
+reward_times = Array[int]([100, 1000, 71111])
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.4454, 0)

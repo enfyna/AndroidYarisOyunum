@@ -16,7 +16,7 @@ enum text {
 
 var current_mode : RaceManager.MODE = RaceManager.MODE.TIME_TRIAL
 
-const race_manager_path : String = "res://src/Scenes/Menus/Legacy/Yaris.tscn"
+const race_manager_path : String = "res://src/Scenes/RaceManager/RaceManager.tscn"
 var car_path : String = "res://src/Cars/AE86/AE86.tscn"
 var track_path : String = "res://src/Tracks/Test/Test01.tscn"
 var bot_path : String = ""
@@ -63,6 +63,7 @@ func load_scenes():
 	var race_manager_scene : Node = ResourceLoader.load_threaded_get(race_manager_path).instantiate()
 
 	var track_scene : Node = ResourceLoader.load_threaded_get(track_path).instantiate()
+	race_manager_scene.track = track_scene
 	race_manager_scene.add_child(track_scene)
 
 	var car_scene : Node = ResourceLoader.load_threaded_get(car_path).instantiate()

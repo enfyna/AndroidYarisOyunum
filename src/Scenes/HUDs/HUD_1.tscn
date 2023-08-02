@@ -1,19 +1,26 @@
-[gd_scene load_steps=15 format=3 uid="uid://xbm6bp1mw0pj"]
+[gd_scene load_steps=32 format=3 uid="uid://xbm6bp1mw0pj"]
 
-[ext_resource type="Script" path="res://src/Class/HUD.gd" id="1_tn6t1"]
-[ext_resource type="Texture2D" uid="uid://bgm3r5f6853ya" path="res://src/Textures/HUD/Base/Base_1.png" id="2_5ypl8"]
-[ext_resource type="Texture2D" uid="uid://c8kc3dx88156" path="res://src/Textures/HUD/RPM/Top.png" id="3_un6qd"]
-[ext_resource type="Texture2D" uid="uid://ce0wkoqa8hubg" path="res://src/Textures/HUD/RPM/Base.png" id="4_2sjek"]
-[ext_resource type="Texture2D" uid="uid://bigyp6iscyhe0" path="res://src/Textures/HUD/Buttons/abs2.png" id="5_y61l1"]
-[ext_resource type="Texture2D" uid="uid://cngjpfh6euyue" path="res://src/Textures/HUD/Buttons/abs1.png" id="6_qbo6h"]
-[ext_resource type="Texture2D" uid="uid://bn4a5ac4u8x86" path="res://src/Textures/HUD/Buttons/yag2.png" id="7_vpitx"]
-[ext_resource type="Texture2D" uid="uid://dicgxyf5rxibq" path="res://src/Textures/HUD/Buttons/yag1.png" id="8_nrq7n"]
-[ext_resource type="Texture2D" uid="uid://cckg5mkaeavlj" path="res://src/Textures/HUD/Buttons/motor1.png" id="9_yyf62"]
-[ext_resource type="Texture2D" uid="uid://cbgdwba2v4ahq" path="res://src/Textures/HUD/Buttons/motor2.png" id="10_3fvsc"]
-[ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://src/Fonts/hemi-head-426.rg-bolditalic.ttf" id="11_o40ml"]
+[ext_resource type="Script" path="res://src/Class/HUD.gd" id="1_sjrr7"]
+[ext_resource type="Texture2D" uid="uid://bgm3r5f6853ya" path="res://src/Textures/HUD/Base/Base_1.png" id="2_6ljj4"]
+[ext_resource type="Texture2D" uid="uid://c8kc3dx88156" path="res://src/Textures/HUD/RPM/Top.png" id="3_he17k"]
+[ext_resource type="Texture2D" uid="uid://ce0wkoqa8hubg" path="res://src/Textures/HUD/RPM/Base.png" id="4_tjj6u"]
+[ext_resource type="Texture2D" uid="uid://bigyp6iscyhe0" path="res://src/Textures/HUD/Buttons/abs2.png" id="5_ma66d"]
+[ext_resource type="Texture2D" uid="uid://cngjpfh6euyue" path="res://src/Textures/HUD/Buttons/abs1.png" id="6_pwcp7"]
+[ext_resource type="Texture2D" uid="uid://bn4a5ac4u8x86" path="res://src/Textures/HUD/Buttons/yag2.png" id="7_e1hep"]
+[ext_resource type="Texture2D" uid="uid://dicgxyf5rxibq" path="res://src/Textures/HUD/Buttons/yag1.png" id="8_0fwhc"]
+[ext_resource type="Texture2D" uid="uid://cckg5mkaeavlj" path="res://src/Textures/HUD/Buttons/motor1.png" id="9_5mv7q"]
+[ext_resource type="Texture2D" uid="uid://cbgdwba2v4ahq" path="res://src/Textures/HUD/Buttons/motor2.png" id="10_q6p8s"]
+[ext_resource type="FontFile" uid="uid://bmlwcjr2l8mks" path="res://src/Fonts/hemi-head-426.rg-bolditalic.ttf" id="11_62bwg"]
+[ext_resource type="Texture2D" uid="uid://ba6h8q2tj1xtw" path="res://src/Textures/HUD/Timers/Lap.png" id="12_iyril"]
+[ext_resource type="Texture2D" uid="uid://dpad4t77iltw7" path="res://src/Textures/HUD/Timers/Timer.png" id="13_yqik6"]
+[ext_resource type="Texture2D" uid="uid://bmfmuv686xd8n" path="res://src/Textures/HUD/Timers/BestLap.png" id="14_ji7pd"]
+[ext_resource type="Texture2D" uid="uid://dvxgwe816q87e" path="res://src/Textures/HUD/Timers/LastLap.png" id="15_q8sv5"]
+[ext_resource type="Texture2D" uid="uid://b5mxtv8nvl2gh" path="res://src/Textures/Menu/anamenu/amdi.png" id="16_eo08m"]
+[ext_resource type="Texture2D" uid="uid://ds8xye3t7temd" path="res://src/Textures/Menu/anamenu/amdip.png" id="17_n2ksa"]
+[ext_resource type="FontFile" path="res://src/Fonts/new_dynamicfont.tres" id="18_qnqpq"]
 
 [sub_resource type="FontFile" id="7"]
-fallbacks = Array[Font]([ExtResource("11_o40ml")])
+fallbacks = Array[Font]([ExtResource("11_62bwg")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -22,7 +29,7 @@ cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="8"]
-fallbacks = Array[Font]([ExtResource("11_o40ml")])
+fallbacks = Array[Font]([ExtResource("11_62bwg")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -34,7 +41,7 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fallbacks = Array[Font]([ExtResource("11_o40ml")])
+fallbacks = Array[Font]([ExtResource("11_62bwg")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -47,6 +54,226 @@ cache/0/16/0/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
 cache/0/16/0/glyphs/0/texture_idx = -1
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
+[sub_resource type="FontFile" id="FontFile_1m8t7"]
+fallbacks = Array[Font]([ExtResource("11_62bwg")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/34/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/44/0 = Vector2(0, 0)
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/34/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/44/0 = Vector2(0, 0)
+cache/0/34/0/ascent = 0.0
+cache/0/34/0/descent = 0.0
+cache/0/34/0/underline_position = 0.0
+cache/0/34/0/underline_thickness = 0.0
+cache/0/34/0/scale = 1.0
+cache/0/34/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/34/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/34/0/kerning_overrides/34/0 = Vector2(0, 0)
+cache/0/34/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/34/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/34/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/34/0/kerning_overrides/44/0 = Vector2(0, 0)
+cache/0/4/0/ascent = 0.0
+cache/0/4/0/descent = 0.0
+cache/0/4/0/underline_position = 0.0
+cache/0/4/0/underline_thickness = 0.0
+cache/0/4/0/scale = 1.0
+cache/0/4/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/34/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/44/0 = Vector2(0, 0)
+cache/0/1/0/ascent = 0.0
+cache/0/1/0/descent = 0.0
+cache/0/1/0/underline_position = 0.0
+cache/0/1/0/underline_thickness = 0.0
+cache/0/1/0/scale = 1.0
+cache/0/1/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/34/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/44/0 = Vector2(0, 0)
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/40/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/34/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/44/0 = Vector2(0, 0)
+cache/0/44/0/ascent = 0.0
+cache/0/44/0/descent = 0.0
+cache/0/44/0/underline_position = 0.0
+cache/0/44/0/underline_thickness = 0.0
+cache/0/44/0/scale = 1.0
+cache/0/44/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/44/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/44/0/kerning_overrides/34/0 = Vector2(0, 0)
+cache/0/44/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/44/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/44/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/44/0/kerning_overrides/44/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_i4c7u"]
+fallbacks = Array[Font]([ExtResource("11_62bwg")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/21/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_w00u4"]
+fallbacks = Array[Font]([ExtResource("11_62bwg")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_yxvwv"]
+fallbacks = Array[Font]([ExtResource("11_62bwg")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_ng5ja"]
+fallbacks = Array[Font]([ExtResource("11_62bwg")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cy4dg"]
+bg_color = Color(1, 1, 0, 0.705882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4n42k"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2o6w"]
+bg_color = Color(0.0823529, 0.0823529, 0.0823529, 0.392157)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.913725, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpp2m"]
+bg_color = Color(0.0784314, 0.0784314, 0.0784314, 0.392157)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.376471, 0.376471, 0.376471, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5dqm"]
+bg_color = Color(0.0784314, 0.0784314, 0.0784314, 0.392157)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.419608, 0.235294, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
 [node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -55,15 +282,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(-320, -83)
-script = ExtResource("1_tn6t1")
-gauges = {
+script = ExtResource("1_sjrr7")
+car_gauges = {
 0: {
 0: NodePath("Gas"),
 1: NodePath("Brake"),
 2: NodePath("Clutch"),
 3: NodePath("Steering"),
 5: NodePath("RPM"),
-6: NodePath("Speed")
+6: NodePath("Speed"),
+13: NodePath("Lap_Timer_Box/Lap_Timer"),
+14: NodePath("Lap_Count_Box/Lap_Counter")
 },
 1: {
 8: NodePath("Wheel_State")
@@ -77,6 +306,21 @@ gauges = {
 12: NodePath("SpeedUnit")
 }
 }
+track_gauges = {
+0: {},
+1: {
+0: NodePath("Best_Lap/Best_Lap_Time"),
+1: NodePath("Last_Lap/Last_Lap_Time")
+},
+2: {
+2: NodePath("Penalty")
+}
+}
+track_rewards = {
+0: NodePath("Track_Times/vb/Gold"),
+1: NodePath("Track_Times/vb/Silver"),
+2: NodePath("Track_Times/vb/Bronze")
+}
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -88,7 +332,7 @@ offset_left = -256.0
 offset_top = -80.0
 offset_right = 255.0
 offset_bottom = 8.0
-texture = ExtResource("2_5ypl8")
+texture = ExtResource("2_6ljj4")
 
 [node name="Gas" type="TextureProgressBar" parent="."]
 layout_mode = 0
@@ -100,7 +344,7 @@ scale = Vector2(0.4, 0.2)
 max_value = 1.0
 step = 0.01
 value = 1.0
-texture_progress = ExtResource("3_un6qd")
+texture_progress = ExtResource("3_he17k")
 tint_progress = Color(0, 1, 0, 1)
 
 [node name="RPM" type="TextureProgressBar" parent="."]
@@ -115,8 +359,8 @@ offset_right = 247.0
 offset_bottom = -48.0
 max_value = 8000.0
 value = 2000.0
-texture_under = ExtResource("4_2sjek")
-texture_progress = ExtResource("3_un6qd")
+texture_under = ExtResource("4_tjj6u")
+texture_progress = ExtResource("3_he17k")
 tint_progress = Color(0, 1, 1, 1)
 
 [node name="Brake" type="TextureProgressBar" parent="."]
@@ -130,7 +374,7 @@ scale = Vector2(0.4, 0.2)
 max_value = 1.0
 step = 0.01
 value = 1.0
-texture_progress = ExtResource("3_un6qd")
+texture_progress = ExtResource("3_he17k")
 tint_progress = Color(1, 0, 0, 1)
 
 [node name="Clutch" type="TextureProgressBar" parent="."]
@@ -144,7 +388,7 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 fill_mode = 6
-texture_progress = ExtResource("3_un6qd")
+texture_progress = ExtResource("3_he17k")
 tint_progress = Color(0, 1, 0.913725, 1)
 
 [node name="ABS" type="TextureButton" parent="."]
@@ -159,8 +403,8 @@ offset_right = -205.0
 offset_bottom = -5.0
 mouse_filter = 2
 toggle_mode = true
-texture_normal = ExtResource("5_y61l1")
-texture_pressed = ExtResource("6_qbo6h")
+texture_normal = ExtResource("5_ma66d")
+texture_pressed = ExtResource("6_pwcp7")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -176,8 +420,8 @@ offset_right = -165.0
 offset_bottom = -5.0
 mouse_filter = 2
 toggle_mode = true
-texture_normal = ExtResource("7_vpitx")
-texture_pressed = ExtResource("8_nrq7n")
+texture_normal = ExtResource("7_e1hep")
+texture_pressed = ExtResource("8_0fwhc")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -193,8 +437,8 @@ offset_right = -125.0
 offset_bottom = -5.0
 mouse_filter = 2
 toggle_mode = true
-texture_normal = ExtResource("9_yyf62")
-texture_pressed = ExtResource("10_3fvsc")
+texture_normal = ExtResource("9_5mv7q")
+texture_pressed = ExtResource("10_q6p8s")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -290,3 +534,193 @@ grow_vertical = 0
 min_value = -1.0
 max_value = 1.0
 show_percentage = false
+
+[node name="Lap_Count_Box" type="TextureRect" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 106.0
+offset_bottom = 88.0
+texture = ExtResource("12_iyril")
+expand_mode = 1
+
+[node name="Lap_Counter" type="Label" parent="Lap_Count_Box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontFile_1m8t7")
+theme_override_font_sizes/font_size = 44
+text = "33"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lap_Timer_Box" type="TextureRect" parent="."]
+offset_left = 536.0
+offset_top = 16.0
+offset_right = 746.0
+offset_bottom = 66.0
+texture = ExtResource("13_yqik6")
+
+[node name="Lap_Timer" type="Label" parent="Lap_Timer_Box"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -25.0
+offset_right = 61.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontFile_i4c7u")
+theme_override_font_sizes/font_size = 24
+text = "0:00:000"
+vertical_alignment = 1
+
+[node name="Best_Lap" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 376.0
+offset_top = -320.0
+offset_right = 676.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_ji7pd")
+expand_mode = 1
+
+[node name="Best_Lap_Time" type="Label" parent="Best_Lap"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontFile_w00u4")
+theme_override_font_sizes/font_size = 24
+text = "0:00:000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Last_Lap" type="TextureRect" parent="."]
+offset_left = 1016.0
+offset_top = -19.0
+offset_right = 1316.0
+offset_bottom = 81.0
+texture = ExtResource("15_q8sv5")
+expand_mode = 1
+
+[node name="Last_Lap_Time" type="Label" parent="Last_Lap"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -50.0
+offset_right = 150.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontFile_yxvwv")
+theme_override_font_sizes/font_size = 24
+text = "0:00:000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Penalty" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.0
+offset_top = 88.0
+offset_right = 192.0
+offset_bottom = 152.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_ng5ja")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_cy4dg")
+text = "Penaltı"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Leave_Race" type="TextureButton" parent="."]
+modulate = Color(1, 1, 1, 0.388235)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 548.0
+offset_top = -593.0
+offset_right = 634.0
+offset_bottom = -500.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("16_eo08m")
+texture_pressed = ExtResource("17_n2ksa")
+texture_hover = ExtResource("17_n2ksa")
+texture_focused = ExtResource("17_n2ksa")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Track_Times" type="Button" parent="."]
+offset_left = 848.0
+offset_top = 8.0
+offset_right = 1040.0
+offset_bottom = 152.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_4n42k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4n42k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4n42k")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4n42k")
+toggle_mode = true
+
+[node name="vb" type="VBoxContainer" parent="Track_Times"]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 149.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Gold" type="Label" parent="Track_Times/vb"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.968627, 0, 1)
+theme_override_fonts/font = ExtResource("18_qnqpq")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_e2o6w")
+text = "1,05,253"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Silver" type="Label" parent="Track_Times/vb"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.454902, 0.454902, 0.454902, 1)
+theme_override_fonts/font = ExtResource("18_qnqpq")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_hpp2m")
+text = "1,10,687"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bronze" type="Label" parent="Track_Times/vb"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.545098, 0.356863, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("18_qnqpq")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_n5dqm")
+text = "1,30,157"
+horizontal_alignment = 1
+vertical_alignment = 1

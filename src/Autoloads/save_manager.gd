@@ -15,7 +15,13 @@ var save : Dictionary = {
 		"silver":3,
 		"gold":2,
 		"diamond":1,
-	}
+	},
+	"track_stats":{
+		"default":{
+			"best_lap":null,
+			"total_laps_driven":null,
+		},
+	},
 }
 
 func get_save() -> Dictionary:
