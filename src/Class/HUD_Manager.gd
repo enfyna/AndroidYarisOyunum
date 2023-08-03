@@ -29,6 +29,9 @@ var ACTIVE_LAP_GAUGES : Array[int] = []
 
 var CAR_GAUGES_NUM : int
 func _ready() -> void:
+	if P_CAR.is_bot:
+		queue_free()
+		return
 	CAR_GAUGES_NUM = len(P_CAR.STATE)
 	GAUGES.resize(CAR_GAUGES_NUM)
 

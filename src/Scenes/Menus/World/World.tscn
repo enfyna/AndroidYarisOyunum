@@ -111,5 +111,5 @@ layout_mode = 2
 layout_mode = 1
 mouse_filter = 2
 
-[connection signal="pressed" from="Scroller/hb/TestPist" to="." method="change_scene_global" binds= ["res://src/Scenes/Menus/Legacy/YarisYukle.tscn"]]
+[connection signal="pressed" from="Scroller/hb/TestPist" to="." method="change_scene_global" binds= ["res://src/Scenes/Menus/RaceLoader/RaceLoader.tscn"]]
 [connection signal="pressed" from="Scroller/hb/PistSatinAl" to="." method="_on_PistSatinAl_pressed"]

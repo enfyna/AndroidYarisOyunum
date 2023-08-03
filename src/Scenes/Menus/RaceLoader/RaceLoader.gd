@@ -56,7 +56,6 @@ func _process(_delta):
 
 	loading_bar.max_value = len(queue)
 	loading_bar.value = total_load_percentage
-
 	pass
 
 func configure_race():
@@ -66,7 +65,7 @@ func configure_race():
 	race_manager.add_track(track)
 
 	var car : Car = ResourceLoader.load_threaded_get(car_path).instantiate()
-	car.race_man = race_manager
+	car.is_bot = false
 	race_manager.add_car(car)
 
 	Global.set_current_scene(race_manager)

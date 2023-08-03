@@ -33,7 +33,10 @@ func add_car(car : Car):
 	car_state.current_lap = 0
 	cars.append(car_state)
 
+	car.race_man = self
 	car.id = len(cars) - 1
+
+	car.tree_entered.connect(func():car.global_transform = track.GRID_POSITIONS[car.id].global_transform)
 
 	add_child(car)
 	pass
@@ -67,9 +70,9 @@ func track_line_passed(body: Node3D, line_id : TRACK_SECTOR):
 	match car_state.track_position:
 		CAR_POSITION_STATE.C3_C1:
 			if line_id == TRACK_SECTOR.SECTOR_1:
-				car.emit_signal("completed_lap")
 				car_state.track_position = CAR_POSITION_STATE.C1_C2
 				car_state.current_lap += 1
+				car.emit_signal("completed_lap")
 				return
 			else:
 				# give penalty
