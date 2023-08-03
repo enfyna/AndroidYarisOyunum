@@ -21,3 +21,7 @@ enum STATE {
 
     PENALTY,
 }
+
+@export var SECTOR_1 : Node
+@export var SECTOR_2 : Node
+@export var SECTOR_3 : Node

@@ -48,7 +48,7 @@ func _process(_delta):
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
 			queue.erase(scene)
 			if len(queue) == 0:
-				load_scenes()
+				configure_race()
 				set_process(false)
 				return
 			continue
@@ -59,17 +59,15 @@ func _process(_delta):
 
 	pass
 
-func load_scenes():
-	var race_manager_scene : Node = ResourceLoader.load_threaded_get(race_manager_path).instantiate()
+func configure_race():
+	var race_manager : RaceManager = ResourceLoader.load_threaded_get(race_manager_path).instantiate()
 
-	var track_scene : Node = ResourceLoader.load_threaded_get(track_path).instantiate()
-	race_manager_scene.track = track_scene
-	race_manager_scene.add_child(track_scene)
+	var track : Track = ResourceLoader.load_threaded_get(track_path).instantiate()
+	race_manager.add_track(track)
 
-	var car_scene : Node = ResourceLoader.load_threaded_get(car_path).instantiate()
-	car_scene.race_man = race_manager_scene
-	race_manager_scene.add_child(car_scene)
+	var car : Car = ResourceLoader.load_threaded_get(car_path).instantiate()
+	car.race_man = race_manager
+	race_manager.add_car(car)
 
-	Global.set_current_scene(race_manager_scene)
-
+	Global.set_current_scene(race_manager)
 	pass

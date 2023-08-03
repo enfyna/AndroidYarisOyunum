@@ -77,12 +77,14 @@ enum WHEEL_COMPOUNDS {
 }
 
 var race_man : Node
+var id : int # Car id given by race manager
 
 func _ready():
 	for node in get_children():
 		if node is VehicleWheel3D:
 			wheel_circumference = 2.0 * PI * node.wheel_radius
 			break
+	completed_lap.connect(func() : states[STATE.CURRENT_LAP] += 1)
 	pass
 
 # calculate the RPM of our engine based on the current velocity of our car
