@@ -1,6 +1,8 @@
 class_name HUD
 extends Control
 
+@export var leave_track : Node
+
 enum GAUGE_TYPE {
 	FRAME, # gauges that need to update every frame
 	LAP, # gauges that need to update every lap

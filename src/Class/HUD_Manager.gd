@@ -43,6 +43,11 @@ func load_HUD() -> void:
 	pass
 
 func bind_HUD() -> void:
+	C_HUD.leave_track.pressed.connect(leave_track)
+
+	# We are going to bind each gauge to its corresponding state
+	# Sadly we cannot use a loop because all gauges have different properties and functions
+
 	var dict : Dictionary = C_HUD.car_gauges[HUD.GAUGE_TYPE.FRAME]
 	for gauge_type in dict:
 		var gauge_node : Node = C_HUD.get_node_or_null(dict[gauge_type])
@@ -100,7 +105,7 @@ func bind_HUD() -> void:
 
 	dict = C_HUD.track_rewards
 
-	var race_man = P_CAR.get_parent()
+	var race_man = P_CAR.race_man
 	var reward_times = race_man.track.reward_times
 
 	for reward_type in dict:
@@ -140,3 +145,7 @@ func update_lap_gauges() -> void:
 				gauge_node.text = str(round(P_STATES[gauge_type]))
 			"ProgressBar", "TextureProgressBar":
 				gauge_node.value = P_STATES[gauge_type]
+
+func leave_track():
+	Global.change_scene_with_variable("res://src/Scenes/Menus/MainMenu/MainMenu.tscn")
+	return

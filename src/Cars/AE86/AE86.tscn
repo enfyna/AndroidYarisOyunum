@@ -20,7 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bh2l3ubtxxhgd" path="res://src/Sounds/Car/skid.ogg" id="18_jctxm"]
 
 [sub_resource type="Curve" id="Curve_r6l08"]
-_data = [Vector2(0.102899, 0.217082), 0.0, 1.50629, 0, 0, Vector2(0.920956, 0.94306), 0.15237, 0.15237, 0, 0, Vector2(1, 0), -25.2248, 0.0, 0, 0]
+_data = [Vector2(0.0983936, 0.202847), 0.0, 0.0, 0, 0, Vector2(0.38755, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.80128, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="StandardMaterial3D" id="12"]
@@ -173,7 +173,6 @@ REVERSE_LIGHT = NodePath("GERI")
 
 [node name="Controller" type="Node2D" parent="." node_paths=PackedStringArray("P_CAR")]
 script = ExtResource("2_o0bvo")
-SHIFTER_MODE = 1
 P_CAR = NodePath("..")
 
 [node name="HUD_Manager" type="Control" parent="." node_paths=PackedStringArray("P_CAR")]

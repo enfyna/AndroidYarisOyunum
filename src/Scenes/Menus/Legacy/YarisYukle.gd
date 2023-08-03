@@ -67,6 +67,7 @@ func load_scenes():
 	race_manager_scene.add_child(track_scene)
 
 	var car_scene : Node = ResourceLoader.load_threaded_get(car_path).instantiate()
+	car_scene.race_man = race_manager_scene
 	race_manager_scene.add_child(car_scene)
 
 	Global.set_current_scene(race_manager_scene)

@@ -8,4 +8,4 @@ enum MODE {
 	#DRIFTING, # maybe later
 }
 
-@export var track : Node
+@export var track : Node # RaceLoader will assign this

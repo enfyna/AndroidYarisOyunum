@@ -37,7 +37,7 @@ enum STATE{
 	ENGINE,
 	SPEED_UNIT,
 	LAP_TIME,
-    CURRENT_LAP,	
+	CURRENT_LAP,
 }
 
 var states : Array[float] = [
@@ -76,6 +76,8 @@ enum WHEEL_COMPOUNDS {
 	SUPER_SOFT,
 }
 
+var race_man : Node
+
 func _ready():
 	for node in get_children():
 		if node is VehicleWheel3D:
@@ -86,12 +88,15 @@ func _ready():
 # calculate the RPM of our engine based on the current velocity of our car
 func calculate_rpm() -> float:
 	if states[STATE.GEAR] == gear_state.NEUTRAL:
-		return lerp(states[STATE.ENGINE_RPM], 1000.0+randf()*100, 0.01)
+		return lerp(states[STATE.ENGINE_RPM], 1000.0+states[STATE.THROTTLE]*(MAX_ENGINE_RPM-1000), 0.01)
 
-	var wheel_rotation_speed : float = 60.0 * states[STATE.SPEED_MPS] / wheel_circumference
-	var drive_shaft_rotation_speed : float = wheel_rotation_speed * FINAL_DRIVE_RATIO
+	# var wheel_rotation_speed : float = 60.0 * states[STATE.SPEED_MPS] / wheel_circumference
+	# var drive_shaft_rotation_speed : float = wheel_rotation_speed * FINAL_DRIVE_RATIO
 
-	return max(1000.0, drive_shaft_rotation_speed * GEAR_RATIO[states[STATE.GEAR]])
+	var drive_shaft_rotation_speed : float = FINAL_DRIVE_RATIO * 60.0 * states[STATE.SPEED_MPS] / wheel_circumference
+
+	# return lerp(states[STATE.ENGINE_RPM],(min(MAX_ENGINE_RPM,max(1000.0, drive_shaft_rotation_speed * GEAR_RATIO[states[STATE.GEAR]]))),0.01)
+	return min(MAX_ENGINE_RPM,max(1000.0, drive_shaft_rotation_speed * GEAR_RATIO[states[STATE.GEAR]]))
 
 var GEAR_TWEEN : Tween
 const CLUTCH_THRESHOLD : float = 0.1
