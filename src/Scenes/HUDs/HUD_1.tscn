@@ -569,14 +569,15 @@ vertical_alignment = 1
 
 [node name="Lap_Timer_Box" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 536.0
+offset_left = 132.0
 offset_top = 16.0
-offset_right = 746.0
+offset_right = 342.0
 offset_bottom = 66.0
 texture = ExtResource("13_yqik6")
 
 [node name="Lap_Timer" type="Label" parent="Lap_Timer_Box"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

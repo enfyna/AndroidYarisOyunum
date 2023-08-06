@@ -36,3 +36,32 @@ enum STATE {
 ]
 
 @export var RACING_LINE : Path3D
+
+@export var green_light : Node3D
+@export var red_light : Node3D
+@export var hazard_lights : Node3D
+@export var wet_lights : Node3D
+
+enum LIGHT {
+    GREEN,
+    RED,
+    HAZARD,
+    WET,
+}
+
+func turn_on_light(type : LIGHT, turn_on : bool):
+    var node : Node3D
+    match type:
+        LIGHT.GREEN:
+            node = green_light
+        LIGHT.RED:
+            node = red_light
+        LIGHT.HAZARD:
+            node = hazard_lights
+        LIGHT.WET:
+            node = wet_lights
+    if node == null:
+        return
+
+    node.visible = turn_on
+    return

@@ -47,9 +47,15 @@ func add_car(car : Car):
 func add_track(new_track : Track):
 	track = new_track
 
+	track.turn_on_light(Track.LIGHT.GREEN, false)
+	track.turn_on_light(Track.LIGHT.HAZARD, false)
+	track.turn_on_light(Track.LIGHT.WET, false)
+
+	track.turn_on_light(Track.LIGHT.RED, true)
+
 	bind_track_lines()
 
-	add_child(new_track)
+	add_child(track)
 	pass
 
 func bind_track_lines():
@@ -104,6 +110,8 @@ func countdown():
 	if countdown_left == 0:
 		emit_signal("counting_down",countdown_left)
 		emit_signal("race_started")
+		track.turn_on_light(Track.LIGHT.RED, false)
+		track.turn_on_light(Track.LIGHT.GREEN, true)
 	else:
 		emit_signal("counting_down",countdown_left)
 		countdown_left -= 1
