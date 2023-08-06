@@ -105,6 +105,17 @@ func bind_HUD() -> void:
 		if gauge_type == Car.STATE.LAP_TIME:
 			GAUGES[gauge_type] = gauge_node
 			ACTIVE_FRAME_GAUGES.append(gauge_type)
+	
+	dict = C_HUD.track_gauges[HUD.GAUGE_TYPE.SPECIAL]
+	for gauge_type in dict:
+		var gauge_node : Node = C_HUD.get_node_or_null(dict[gauge_type])
+		if gauge_node == null:
+			push_warning("No node path specified for gauge: ", dict[gauge_type])
+			continue
+		if gauge_type == Track.STATE.PENALTY:
+			gauge_node.visible = false
+			P_CAR.penalty_received.connect(func(): print("penalty received"))
+			## Come back when I add proper penalties to the game
 
 	dict = C_HUD.track_rewards
 
@@ -118,7 +129,27 @@ func bind_HUD() -> void:
 			continue
 		var time : int = reward_times[reward_type]
 		reward_label.text = str(str(int(time / 60000.0)).pad_zeros(2),":",str(int((time % 60000) / 1000.0)).pad_zeros(2),":",str(int(time % 1000)).pad_zeros(3))
-	pass
+	
+	race_man.counting_down.connect(countdown)
+	
+func countdown(time_left):
+	var temp : Label = Label.new()
+	temp.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	temp.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	temp.add_theme_font_size_override("font_size", 100)
+	temp.text = str(time_left) if time_left > 0 else "START"
+	temp.position = Vector2(0, 0)
+	temp.size = get_rect().size
+	add_child(temp)
+	var tween : Tween = create_tween()
+	tween.tween_property(temp, "position:y", -get_rect().size.y, 1.5).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(temp, "modulate", Color.TRANSPARENT, 1)
+	tween.tween_callback(func(): temp.queue_free())
+
+	if time_left == 0:
+		C_HUD.countdown_sound.pitch_scale = 1.1
+	C_HUD.countdown_sound.play()
+
 
 func _process(_delta : float) -> void:
 	update_frame_gauges()

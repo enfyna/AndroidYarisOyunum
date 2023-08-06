@@ -78,7 +78,7 @@ enum WHEEL_COMPOUNDS {
 
 var race_man : Node
 var id : int # Car id given by race manager
-var is_bot : bool
+var is_bot : bool = false
 
 func _ready():
 	for node in get_children():

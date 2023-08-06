@@ -51,3 +51,5 @@ enum GAUGE_TYPE {
 	Track.REWARD.SILVER:^"SILVER",
 	Track.REWARD.BRONZE:^"BRONZE",
 }
+
+@export var countdown_sound : AudioStreamPlayer2D

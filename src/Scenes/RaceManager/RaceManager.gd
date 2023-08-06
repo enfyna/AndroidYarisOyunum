@@ -1,6 +1,9 @@
 class_name RaceManager
 extends Node
 
+signal counting_down(left_count)
+signal race_started
+
 enum MODE {
 	RACING,
 	TIME_TRIAL,
@@ -94,3 +97,16 @@ func track_line_passed(body: Node3D, line_id : TRACK_SECTOR):
 				# give penalty
 				# add this later
 				return
+
+
+@export var countdown_left : int = 3
+func countdown():
+	if countdown_left == 0:
+		emit_signal("counting_down",countdown_left)
+		emit_signal("race_started")
+	else:
+		emit_signal("counting_down",countdown_left)
+		countdown_left -= 1
+
+		await get_tree().create_timer(1).timeout
+		countdown()

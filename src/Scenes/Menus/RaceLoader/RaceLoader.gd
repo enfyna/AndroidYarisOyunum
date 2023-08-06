@@ -17,9 +17,9 @@ enum text {
 var current_mode : RaceManager.MODE = RaceManager.MODE.TIME_TRIAL
 
 const race_manager_path : String = "res://src/Scenes/RaceManager/RaceManager.tscn"
-var car_path : String = "res://src/Cars/AE86/AE86.tscn"
+var player_path : String = "res://src/Cars/AE86/AE86.tscn"
 var track_path : String = "res://src/Tracks/Test/Test01.tscn"
-var bot_path : String = ""
+var bot_path : Array[String] = ["",""]
 
 var queue : Array[String] = []
 
@@ -28,7 +28,7 @@ func _ready() -> void:
 
 	game_info_node.text = tr(game_info_text.pick_random())
 
-	queue = [race_manager_path,track_path,car_path]
+	queue = [race_manager_path,track_path,player_path]
 
 	if current_mode == RaceManager.MODE.RACING:
 		queue.append(bot_path)
@@ -60,13 +60,13 @@ func _process(_delta):
 
 func configure_race():
 	var race_manager : RaceManager = ResourceLoader.load_threaded_get(race_manager_path).instantiate()
+	race_manager.ready.connect(race_manager.countdown)
 
 	var track : Track = ResourceLoader.load_threaded_get(track_path).instantiate()
 	race_manager.add_track(track)
 
-	var car : Car = ResourceLoader.load_threaded_get(car_path).instantiate()
-	car.is_bot = false
-	race_manager.add_car(car)
+	var player : Car = ResourceLoader.load_threaded_get(player_path).instantiate()
+	race_manager.add_car(player)
 
 	Global.set_current_scene(race_manager)
 	pass

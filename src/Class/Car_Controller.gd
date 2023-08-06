@@ -10,6 +10,8 @@ var STEERING_MODE : STEER_MODE = STEER_MODE.DIGITAL
 var TWEENS : Array[Tween]
 var FUNCTIONS : Array[Callable]
 
+var race_started : bool = false
+
 enum SHIFT_MODE {
 	MANUAL,
 	AUTOMATIC,
@@ -29,6 +31,7 @@ const MODE_SCENES : Dictionary = {
 
 func _ready():
 	set_process(false)
+	P_CAR.race_man.race_started.connect(func(): race_started = true)
 	var config : ConfigFile = Global.Save.get_config()
 	STEERING_MODE = STEER_MODE.ANALOG if config.get_value("car","analog",true) else STEER_MODE.DIGITAL
 	SHIFTER_MODE = SHIFT_MODE.MANUAL if config.get_value("car","manual",true) else SHIFT_MODE.AUTOMATIC
@@ -98,6 +101,8 @@ func bind_controller():
 	pass
 
 func lerp_state_to(state : int, final : float, time : float) -> void:
+	if not race_started:
+		return
 	var lsf : Callable = func lerp_state(val):
 		P_CAR.states[state] = val
 		pass

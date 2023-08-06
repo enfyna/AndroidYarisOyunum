@@ -5,9 +5,3 @@
 [node name="RaceManager" type="Node"]
 process_priority = 1
 script = ExtResource("1_0ijx0")
-
-[node name="SetReadyGo" type="AudioStreamPlayer2D" parent="."]
-volume_db = -20.0
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
