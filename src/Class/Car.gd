@@ -3,7 +3,7 @@ extends VehicleBody3D
 
 signal gear_changed
 signal wheel_changed
-signal completed_lap
+signal started_lap
 signal penalty_received
 
 @export var HP : float = 100.0
@@ -80,12 +80,36 @@ var race_man : Node
 var id : int # Car id given by race manager
 var is_bot : bool = false
 
+var lap_started : bool = false
+var best_lap : float = -1
+var last_laps : Array[float] = []
+
 func _ready():
 	for node in get_children():
 		if node is VehicleWheel3D:
 			wheel_circumference = 2.0 * PI * node.wheel_radius
 			break
-	completed_lap.connect(func() : states[STATE.CURRENT_LAP] += 1)
+	started_lap.connect(new_lap_started)
+	pass
+
+func new_lap_started():
+	states[STATE.CURRENT_LAP] += 1
+
+	if states[STATE.CURRENT_LAP] == 1:
+		lap_started = true
+		states[STATE.LAP_TIME] = 0
+		return
+
+	var current_lap : float = states[STATE.LAP_TIME]
+	
+	if best_lap == -1:
+		best_lap = current_lap
+	elif best_lap > current_lap:
+		best_lap = current_lap
+
+	last_laps.append(current_lap)
+
+	states[STATE.LAP_TIME] = 0
 	pass
 
 # calculate the RPM of our engine based on the current velocity of our car
@@ -125,8 +149,8 @@ func change_gear(new_gear: int) -> void:
 	pass
 
 func _process(delta : float) -> void:
-	states[STATE.LAP_TIME] += delta
-	pass
+	if lap_started:
+		states[STATE.LAP_TIME] += delta
 
 func _physics_process(delta : float) -> void:
 	states[STATE.SPEED_MPS] = (position - last_position).length() / delta

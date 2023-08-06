@@ -28,14 +28,22 @@ var ACTIVE_FRAME_GAUGES : Array[int] = []
 var ACTIVE_LAP_GAUGES : Array[int] = []
 
 var CAR_GAUGES_NUM : int
+var TRACK_GAUGES_NUM : int
 func _ready() -> void:
 	if P_CAR.is_bot:
 		queue_free()
 		return
-	CAR_GAUGES_NUM = len(P_CAR.STATE)
-	GAUGES.resize(CAR_GAUGES_NUM)
-
+	
 	load_HUD()
+	
+	CAR_GAUGES_NUM = len(P_CAR.STATE)
+	
+	TRACK_GAUGES_NUM = 0
+	for key in C_HUD.track_gauges.keys():
+		TRACK_GAUGES_NUM += len(C_HUD.track_gauges[key].keys())
+
+	GAUGES.resize(CAR_GAUGES_NUM+TRACK_GAUGES_NUM)
+
 	bind_HUD()
 	pass
 
@@ -69,7 +77,7 @@ func bind_HUD() -> void:
 		GAUGES[gauge_type] = gauge_node
 		ACTIVE_LAP_GAUGES.append(gauge_type)
 	if ACTIVE_LAP_GAUGES.size() > 0:
-		P_CAR.completed_lap.connect(update_lap_gauges)
+		P_CAR.started_lap.connect(update_lap_gauges)
 		update_lap_gauges()
 
 	dict = C_HUD.car_gauges[HUD.GAUGE_TYPE.SPECIAL]
@@ -105,7 +113,17 @@ func bind_HUD() -> void:
 		if gauge_type == Car.STATE.LAP_TIME:
 			GAUGES[gauge_type] = gauge_node
 			ACTIVE_FRAME_GAUGES.append(gauge_type)
-	
+
+	dict = C_HUD.track_gauges[HUD.GAUGE_TYPE.LAP]
+	for gauge_type in dict:
+		var gauge_node : Node = C_HUD.get_node_or_null(dict[gauge_type])
+		if gauge_node == null:
+			push_warning("No node path specified for gauge: ", dict[gauge_type])
+			continue
+		if gauge_type == Track.STATE.BEST_LAP or gauge_type == Track.STATE.LAST_LAP:
+			GAUGES[gauge_type+CAR_GAUGES_NUM] = gauge_node
+			ACTIVE_LAP_GAUGES.append(gauge_type+CAR_GAUGES_NUM)
+
 	dict = C_HUD.track_gauges[HUD.GAUGE_TYPE.SPECIAL]
 	for gauge_type in dict:
 		var gauge_node : Node = C_HUD.get_node_or_null(dict[gauge_type])
@@ -129,9 +147,9 @@ func bind_HUD() -> void:
 			continue
 		var time : int = reward_times[reward_type]
 		reward_label.text = str(str(int(time / 60000.0)).pad_zeros(2),":",str(int((time % 60000) / 1000.0)).pad_zeros(2),":",str(int(time % 1000)).pad_zeros(3))
-	
+
 	race_man.counting_down.connect(countdown)
-	
+
 func countdown(time_left):
 	var temp : Label = Label.new()
 	temp.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -176,7 +194,18 @@ func update_lap_gauges() -> void:
 		var gauge_node : Node = GAUGES[gauge_type]
 		match gauge_node.get_class():
 			"Label":
-				gauge_node.text = str(round(P_STATES[gauge_type]))
+				if gauge_type == Track.STATE.LAST_LAP + CAR_GAUGES_NUM:
+					if len(P_CAR.last_laps) == 0:
+						continue
+					var time = P_CAR.last_laps[-1]
+					gauge_node.text = str(str(int(time / 60)).pad_zeros(2),":", str(int(time / 1) % 60).pad_zeros(2),":", str(int(fmod(time, 1) * 1000)).pad_zeros(3))
+				elif gauge_type == Track.STATE.BEST_LAP + CAR_GAUGES_NUM:
+					var time = P_CAR.best_lap
+					if time == -1:
+						continue
+					gauge_node.text = str(str(int(time / 60)).pad_zeros(2),":", str(int(time / 1) % 60).pad_zeros(2),":", str(int(fmod(time, 1) * 1000)).pad_zeros(3))
+				else:
+					gauge_node.text = str(round(P_STATES[gauge_type]))
 			"ProgressBar", "TextureProgressBar":
 				gauge_node.value = P_STATES[gauge_type]
 

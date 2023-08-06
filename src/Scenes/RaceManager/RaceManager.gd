@@ -81,7 +81,7 @@ func track_line_passed(body: Node3D, line_id : TRACK_SECTOR):
 			if line_id == TRACK_SECTOR.SECTOR_1:
 				car_state.track_position = CAR_POSITION_STATE.C1_C2
 				car_state.current_lap += 1
-				car.emit_signal("completed_lap")
+				car.emit_signal("started_lap")
 				return
 			else:
 				# give penalty
