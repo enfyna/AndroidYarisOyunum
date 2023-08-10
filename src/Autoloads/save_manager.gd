@@ -3,37 +3,53 @@ class_name SaveManager
 const save_path : String = "user://enf.yna"
 var save_loaded : bool = false
 var save : Dictionary = {
-	"player":{
-		"name":"",
-		"car":"AE86",
-		"lvl":0,
-		"xp":0,
-	},
-	"wallet":{
-		"coin":5,
-		"bronze":4,
-		"silver":3,
-		"gold":2,
-		"diamond":1,
-	},
-	"track_stats":{
-		"default":{
-			"best_lap":null,
-			"total_laps_driven":null,
+	"game_version":"0.0.1",
+	"players":[
+		{
+			"player_id": "",
+			"player_name":"",
+			"player_level":0,
+			"player_xp":0,
+			"player_items":[],
+			"player_cars":[],
+			"player_tracks":[],
 		},
-	},
+	],
+	"items":[
+		{
+			"item_id":"",
+			"item_name":"",
+			"item_type":"",
+			"item_value":0,
+			"item_description":"",
+			"item_quantity":0,
+		},
+	],
+	"cars":[
+		{
+			"car_id":"",
+			"car_name":"",
+			"car_value":0,
+		},
+	],
+	"tracks":[
+		{
+			"track_id":"",
+			"track_name":"",
+			"track_value":0,
+		},
+	],
 }
 
 func get_save() -> Dictionary:
-	if save_loaded:
-		return self.save
-	load_save()
+	if not save_loaded:
+		load_save()
 	return self.save
 
 func save_game() -> void:
 	var json : String = JSON.stringify(save,"\t")
 	var file : FileAccess = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_string(json)
+	file.store_pascal_string(json)
 	print_debug("Game saved.")#Save data : "+str(json))
 
 func load_save() -> void:
@@ -66,9 +82,8 @@ var config_loaded : bool = false
 var config : ConfigFile
 
 func get_config() -> ConfigFile:
-	if config_loaded:
-		return self.config
-	load_config()
+	if not config_loaded:
+		load_config()
 	return self.config
 
 func load_config() -> void:
