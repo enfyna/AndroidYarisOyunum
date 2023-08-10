@@ -33,11 +33,11 @@ func _ready() -> void:
 	if P_CAR.is_bot:
 		queue_free()
 		return
-	
+
 	load_HUD()
-	
+
 	CAR_GAUGES_NUM = len(P_CAR.STATE)
-	
+
 	TRACK_GAUGES_NUM = 0
 	for key in C_HUD.track_gauges.keys():
 		TRACK_GAUGES_NUM += len(C_HUD.track_gauges[key].keys())
@@ -76,9 +76,6 @@ func bind_HUD() -> void:
 			continue
 		GAUGES[gauge_type] = gauge_node
 		ACTIVE_LAP_GAUGES.append(gauge_type)
-	if ACTIVE_LAP_GAUGES.size() > 0:
-		P_CAR.started_lap.connect(update_lap_gauges)
-		update_lap_gauges()
 
 	dict = C_HUD.car_gauges[HUD.GAUGE_TYPE.SPECIAL]
 	for gauge_type in dict:
@@ -135,20 +132,28 @@ func bind_HUD() -> void:
 			P_CAR.penalty_received.connect(func(): print("penalty received"))
 			## Come back when I add proper penalties to the game
 
-	dict = C_HUD.track_rewards
-
 	var race_man = P_CAR.race_man
-	var reward_times = race_man.track.reward_times
 
-	for reward_type in dict:
-		var reward_label : Node = C_HUD.get_node_or_null(dict[reward_type])
-		if reward_label == null:
-			push_warning("No node path specified for reward: ", dict[reward_type])
-			continue
-		var time : int = reward_times[reward_type]
-		reward_label.text = str(str(int(time / 60000.0)).pad_zeros(2),":",str(int((time % 60000) / 1000.0)).pad_zeros(2),":",str(int(time % 1000)).pad_zeros(3))
+	dict = C_HUD.track_rewards
+	if race_man.race_mode == RaceManager.MODE.TIME_TRIAL:
+		var reward_times = race_man.track.reward_times
+
+		for reward_type in dict:
+			var reward_label : Node = C_HUD.get_node_or_null(dict[reward_type])
+			if reward_label == null:
+				push_warning("No node path specified for reward: ", dict[reward_type])
+				continue
+			var time : int = reward_times[reward_type]
+			reward_label.text = "%02d:%02d:%03d" % [int(time / 60000.0),int((time % 60000) / 1000.0),int(time % 1000)]
+	else:
+		var reward_node : Node = C_HUD.get_node_or_null(dict.values()[0])
+		reward_node.get_parent().queue_free()
 
 	race_man.counting_down.connect(countdown)
+
+	if ACTIVE_LAP_GAUGES.size() > 0:
+		P_CAR.started_lap.connect(update_lap_gauges)
+		update_lap_gauges()
 
 func countdown(time_left):
 	var temp : Label = Label.new()
@@ -180,16 +185,18 @@ func update_frame_gauges() -> void:
 				if gauge_type == Car.STATE.GEAR:
 					gauge_node.text = GEARS[int(P_STATES[gauge_type])]
 				elif gauge_type == Car.STATE.SPEED_MPS:
-					gauge_node.text = str(int(P_STATES[gauge_type] * MPS_TO_UNIT))
+					gauge_node.text =  "%d" % [P_STATES[gauge_type] * MPS_TO_UNIT]
 				elif gauge_type == Car.STATE.LAP_TIME:
 					var time : float = P_STATES[gauge_type]
-					gauge_node.text = str(str(int(time / 60)).pad_zeros(2),":", str(int(time / 1) % 60).pad_zeros(2),":", str(int(fmod(time, 1) * 1000)).pad_zeros(3))
+					gauge_node.text = "%02d:%02d:%03d" % [time / 60, fmod(time, 60), fmod(time, 1) * 1000]
 				else:
-					gauge_node.text = str(round(P_STATES[gauge_type]))
+					gauge_node.text = "%d" % [P_STATES[gauge_type]]
 			"ProgressBar", "TextureProgressBar":
 				gauge_node.value = P_STATES[gauge_type]
 
 func update_lap_gauges() -> void:
+	# wait car calculations to finish
+	await get_tree().process_frame
 	for gauge_type in ACTIVE_LAP_GAUGES:
 		var gauge_node : Node = GAUGES[gauge_type]
 		match gauge_node.get_class():
@@ -198,14 +205,14 @@ func update_lap_gauges() -> void:
 					if len(P_CAR.last_laps) == 0:
 						continue
 					var time = P_CAR.last_laps[-1]
-					gauge_node.text = str(str(int(time / 60)).pad_zeros(2),":", str(int(time / 1) % 60).pad_zeros(2),":", str(int(fmod(time, 1) * 1000)).pad_zeros(3))
+					gauge_node.text = "%02d:%02d:%03d" % [time / 60, fmod(time, 60), fmod(time, 1) * 1000]
 				elif gauge_type == Track.STATE.BEST_LAP + CAR_GAUGES_NUM:
 					var time = P_CAR.best_lap
 					if time == -1:
 						continue
-					gauge_node.text = str(str(int(time / 60)).pad_zeros(2),":", str(int(time / 1) % 60).pad_zeros(2),":", str(int(fmod(time, 1) * 1000)).pad_zeros(3))
+					gauge_node.text = "%02d:%02d:%03d" % [time / 60, fmod(time, 60), fmod(time, 1) * 1000]
 				else:
-					gauge_node.text = str(round(P_STATES[gauge_type]))
+					gauge_node.text = "%d" % [P_STATES[gauge_type]]
 			"ProgressBar", "TextureProgressBar":
 				gauge_node.value = P_STATES[gauge_type]
 

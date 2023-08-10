@@ -546,10 +546,10 @@ show_percentage = false
 
 [node name="Lap_Count_Box" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 106.0
-offset_bottom = 88.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 98.0
+offset_bottom = 80.0
 texture = ExtResource("12_iyril")
 expand_mode = 1
 
@@ -571,10 +571,10 @@ vertical_alignment = 1
 
 [node name="Lap_Timer_Box" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 132.0
-offset_top = 16.0
-offset_right = 342.0
-offset_bottom = 66.0
+offset_left = 104.0
+offset_top = 8.0
+offset_right = 314.0
+offset_bottom = 58.0
 texture = ExtResource("13_yqik6")
 
 [node name="Lap_Timer" type="Label" parent="Lap_Timer_Box"]
@@ -604,9 +604,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 376.0
-offset_top = -320.0
+offset_top = -376.0
 offset_right = 676.0
-offset_bottom = -217.0
+offset_bottom = -273.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("14_ji7pd")
@@ -626,9 +626,9 @@ vertical_alignment = 1
 [node name="Last_Lap" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 1016.0
-offset_top = -19.0
+offset_top = 48.0
 offset_right = 1316.0
-offset_bottom = 81.0
+offset_bottom = 148.0
 texture = ExtResource("15_q8sv5")
 expand_mode = 1
 
@@ -655,9 +655,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -192.0
-offset_top = 88.0
+offset_top = 8.0
 offset_right = 192.0
-offset_bottom = 152.0
+offset_bottom = 72.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_ng5ja")
@@ -690,10 +690,10 @@ stretch_mode = 5
 
 [node name="Track_Times" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1078.0
-offset_top = 132.0
-offset_right = 1270.0
-offset_bottom = 276.0
+offset_left = 1056.0
+offset_top = 136.0
+offset_right = 1248.0
+offset_bottom = 280.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_4n42k")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4n42k")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4n42k")

@@ -11,6 +11,8 @@ enum MODE {
 	#DRIFTING, # maybe later
 }
 
+@export var race_mode : MODE = MODE.TIME_TRIAL
+
 var track : Track
 var cars : Array[CAR_STATE]
 

@@ -5,3 +5,4 @@
 [node name="RaceManager" type="Node"]
 process_priority = 1
 script = ExtResource("1_0ijx0")
+race_mode = 0

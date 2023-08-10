@@ -6,7 +6,7 @@ extends Control
 var save : Dictionary = Global.Save.get_save()
 
 func _ready() -> void:
-	if not save["player"]["name"].is_empty():
+	if not save["players"]["name"].is_empty():
 		go_to_main_menu()
 		return
 	ok_button.text = tr("tamam")
